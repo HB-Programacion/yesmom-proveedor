@@ -1,0 +1,12 @@
+.box-signIn {
+    width: 50%;
+    max-width: 25rem;
+    margin: auto;
+}
+
+@media (max-width: 768px) {
+    .box-signIn {
+        width: 95%;
+    }
+}
+
