@@ -8,7 +8,7 @@ import {
   useParams,
 } from "react-router-dom";
 import SignIn from './../pages/auth/SignIn';
-import AddProduct from "../pages/AddProduct";
+import AddProduct from "../pages/producto/AddProduct";
 import RutaPrivada from "./PrivateRoute";
 import RutaPublica from "./PublicRoute";
 

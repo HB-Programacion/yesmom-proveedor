@@ -6,7 +6,6 @@ import {
   Link
 } from "react-router-dom";
 import AppRouter from './routes/AppRouter'
-import AddProduct from "./pages/AddProduct"
 
 function App() {
   return (

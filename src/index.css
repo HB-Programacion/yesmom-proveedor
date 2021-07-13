@@ -1,12 +1,50 @@
+html{
+  font-size:62.5%;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: "mont-heavy";
+  src: url("fonts/Mont-Heavy.otf");
+}
+
+@font-face {
+  font-family: "omnes-bold";
+  src: url("fonts/Omnes-Bold.otf");
+} 
+
+ @font-face {
+  font-family: "omnes-regular";
+  src: url("fonts/Omnes-Regular.otf");
+}
+
+@font-face {
+  font-family: "mont-heavy";
+  src: url("fonts/Mont-Heavy.otf");
+}
+
+@font-face {
+  font-family: "mont-thin";
+  src: url("fonts/Mont-Thin.otf");
+}
+
+@font-face {
+  font-family: "mont-regular";
+  src: url("fonts/Mont-Regular.otf");
+}
+
+@font-face {
+  font-family: "mont-semibold";
+  src: url("fonts/Mont-SemiBold.otf");
+}
+
+@font-face {
+  font-family: "mont-light";
+  src: url("fonts/Mont-Light.otf");
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
