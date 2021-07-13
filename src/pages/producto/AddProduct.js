@@ -518,7 +518,38 @@ const AddProduct = () => {
                       required
                     />
                   </div>
-                  <div className="question-box">
+                  <p>Imagenes</p>
+                  <h6 className="title-imagenes">* Todas las imagenes tienen que ser en fondo blanco sin marco de agua  / formato de 300 px x 300 px / png o jpg</h6>
+                  
+                  <div className="container-images">
+                      <div className="container-preview">
+                        <img className="icon-close" src={process.env.PUBLIC_URL+"/assets/images/producto/close.svg"} />
+                          <div className="preview-image">
+                              <img src={process.env.PUBLIC_URL+"/assets/images/producto/preview.svg"} alt="preview-image" />
+                              <p>Cargar imagen</p>
+                          </div>
+                      </div>
+                      <div className="container-preview">
+                        <img className="icon-close" src={process.env.PUBLIC_URL+"/assets/images/producto/close.svg"}  />
+                          <div className="preview-image">
+                            <img src={process.env.PUBLIC_URL+"/assets/images/producto/preview.svg"} alt="preview-image" />
+                              <p>Cargar imagen</p>
+                          </div>
+                      </div>
+                      <div className="container-preview">
+                        <img className="icon-close" src={process.env.PUBLIC_URL+"/assets/images/producto/close.svg"} />
+                          <div className="preview-image">
+                            <img src={process.env.PUBLIC_URL+"/assets/images/producto/preview.svg"} alt="preview-image" />
+                              <p>Cargar imagen</p>
+                          </div>
+                      </div>
+
+                      <div className="container-agregar">
+                        <img className="icon-add" src={process.env.PUBLIC_URL+"/assets/images/producto/add.svg"} />
+                        <p>Agregar más fotos</p>
+                      </div>
+                  </div>
+                  {/* <div className="question-box">
                     <label className="style-label" htmlFor="imagenProducto1">
                       Imagen 1
                     </label>
@@ -622,7 +653,7 @@ const AddProduct = () => {
                       accept="image/png, image/jpeg, image/jpg"
                       onChange={handleFileChange}
                     />
-                  </div> 
+                  </div> */} 
 
                 </div>
               </form>
@@ -773,8 +804,68 @@ const AddProduct = () => {
               }
 
               /**SECOND STEP */
+              
+              /**THIRD */
+              .container-images{
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+              }
+              .container-preview{
+                position:relative;
+                background: #FFFFFF;
+                border: 1px solid #FFFFFF;
+                box-sizing: border-box;
+                box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15), -4px -4px 4px rgba(0, 0, 0, 0.15);
+                border-radius: 10px;
+                padding:0.75rem;
+                margin: 1rem 0;
+              }
+              .icon-close{
+                position:absolute;
+                top:-0.75rem;
+                right:-0.75rem;
+                
+              }
+              
+              .title-imagenes{
+                font-family:"mont-semibold"!important;
+                font-size:1.3rem;
+                color:#575650;
+                
+              }
+              .preview-image{
+                width:18rem;
+                height:18rem;
+                border: 2px dashed #4B64A4;
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+              }
+              .preview-image p{
+                font-family:"mont-semibold";
+                text-decoration:underline;
+                color:#4B64A4;
+                font-size:1.5rem;
+              }
 
-
+              .container-agregar{
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                margin-top:1rem;
+              
+              }
+              .container-agregar p{
+                font-family: 'mont-regular';
+                font-size: 1.4rem;
+                line-height: 18px;
+                text-decoration:underline;
+                color: #4B64A4;
+                margin-left:0.5rem;
+              }
 
 
           `}
