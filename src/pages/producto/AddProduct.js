@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ButtonFilled from "../../components/Button/ButtonFilled";
+import ButtonFilled from "../../components/Producto/Button/ButtonFilled";
 // import Swal from "sweetalert2";
 // import withReactContent from "sweetalert2-react-content";
 import clienteAxiosBusiness from '../../config/axiosBusiness';
@@ -159,7 +159,7 @@ const AddProduct = () => {
     <>
         <div className="box-main-proveedor">
         <div className="contenedor-centered">
-          <div>
+          <div className="all-content">
             <div className="title-content">
               <h4 className="title-add-producto">Carga manual</h4>
               <div className="details-about-product">
@@ -176,69 +176,77 @@ const AddProduct = () => {
                     <label className="style-label" htmlFor="nameProduct">
                       Nombre de Producto
                     </label>
-                    <input
-                      className="style-input"
-                      type="text"
-                      name="nombre"
-                      value={formTextAddProduct.nameProduct}
-                      id="nameProduct"
-                      onChange={handleInputChange}
-                      required
-                    />
-                    <h6>*Qué producto es</h6>
+                    <div className="container-input">
+                      <input
+                        className="style-input"
+                        type="text"
+                        name="nombre"
+                        value={formTextAddProduct.nameProduct}
+                        id="nameProduct"
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <h6>*Qué producto es</h6>
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="marca">
                       Modelo o Marca
                     </label>
-                    <input
-                      className="style-input"
-                      type="text"
-                      name="marca"
-                      value={formTextAddProduct.marca}
-                      id="marca"
-                      onChange={handleInputChange}
-                      /* maxLength="210" */
-                      required
-                    />
-                    <h6>*Qué modelo o marca es</h6>
+                    <div className="container-input">
+                      <input
+                        className="style-input"
+                        type="text"
+                        name="marca"
+                        value={formTextAddProduct.marca}
+                        id="marca"
+                        onChange={handleInputChange}
+                        /* maxLength="210" */
+                        required
+                      />
+                      <h6>*Qué modelo o marca es</h6>
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="modelo">
                       Descripción de producto
                     </label>
-                    <textarea
-                      className="style-input"
-                      type="text"
-                      name="descripcion"
-                      value={formTextAddProduct.descripcion}
-                      id="modelo"
-                      onChange={handleInputChange}
-                      maxLength="150"
-                      required
-                    />
-                    <h6>*150 palabras como máximo</h6>
+                    <div className="container-input">
+                      <textarea
+                        className="style-input"
+                        type="text"
+                        name="descripcion"
+                        value={formTextAddProduct.descripcion}
+                        id="modelo"
+                        onChange={handleInputChange}
+                        maxLength="150"
+                        required
+                      />
+                      <h6>*150 palabras como máximo</h6>
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="accesorios">
                       Accesorios
                     </label>
-                    <textarea
-                      className="style-input"
-                      type="text"
-                      name="accesorios"
-                      value={formTextAddProduct.accesorios}
-                      id="accesorios"
-                      onChange={handleInputChange}
-                      required
-                    />
-                    <h6>*Solo en caso que el producto incluya accesorios adicionales  </h6>
+                    <div className="container-input">
+                      <textarea
+                        className="style-input"
+                        type="text"
+                        name="accesorios"
+                        value={formTextAddProduct.accesorios}
+                        id="accesorios"
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <h6>*Solo en caso que el producto incluya accesorios adicionales  </h6>
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="date-blogger">
                       Color
                     </label>
-                    <div className="container-more-options">
+                    <div className="container-input container-more-options">
                         <input
                           className="style-input"
                           type="color"
@@ -297,7 +305,7 @@ const AddProduct = () => {
                       Talla
                     </label>
                     
-                    <div className="container-more-options">
+                    <div className="container-input container-more-options">
                       <input
                         className="style-input"
                         type="text"
@@ -330,63 +338,71 @@ const AddProduct = () => {
                     <label className="style-label" htmlFor="categoria">
                       Categoria
                     </label>
-                    <select name="categoria" id="categoria"
-                      value={formTextAddProduct.categoria}
-                      onChange={handleInputChange}
-                      required>
-                      <option>Ropa</option>
+                    <div className="container-input">
+                      <select name="categoria" id="categoria"
+                        value={formTextAddProduct.categoria}
+                        onChange={handleInputChange}
+                        required>
+                        <option>Ropa</option>
 
-                      <option>Juegos</option>
+                        <option>Juegos</option>
 
-                      <option>Tecnología</option>
+                        <option>Tecnología</option>
 
-                    </select>
-                    <h6>* Selecciona a que categoría pertenece tu producto</h6>
+                      </select>
+                      <h6>* Selecciona a que categoría pertenece tu producto</h6>
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="subcategoria">
                       Categoria adicional
                     </label>
-                    <select name="subcategoria" id="subcategoria"
-                      value={formTextAddProduct.subcategoria}
-                      onChange={handleInputChange}
-                      required>
-                      <option>Vestidos</option>
+                    <div className="container-input">
+                      <select name="subcategoria" id="subcategoria"
+                        value={formTextAddProduct.subcategoria}
+                        onChange={handleInputChange}
+                        required>
+                        <option>Vestidos</option>
 
-                      <option>Zapatos</option>
+                        <option>Zapatos</option>
 
-                      <option>Abrigo</option>
+                        <option>Abrigo</option>
 
-                    </select>
+                      </select>
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="terminos">
                       Términos y condiciones del producto
                     </label>
-                    <textarea
-                      className="style-input"
-                      type="text"
-                      name="terminos"
-                      value={formTextAddProduct.terminos}
-                      id="terminos"
-                      onChange={handleInputChange}
-                      required
-                    />
-                    <h6>* Términos y condiciones de la venta del producto  (150 palabras como máximo)</h6>
+                    <div className="container-input">
+                      <textarea
+                        className="style-input"
+                        type="text"
+                        name="terminos"
+                        value={formTextAddProduct.terminos}
+                        id="terminos"
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <h6>* Términos y condiciones de la venta del producto  (150 palabras como máximo)</h6>
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="dimensiones">
                       Dimensiones y peso
                     </label>
-                    <input
-                        className="style-input"
-                        type="text"
-                        name="dimensiones"/* ESTE NO EXISTE! */
-                        /* value={formTextAddProduct.talla2} */
-                        id="dimensiones"
-                        /* onChange={handleInputChange} */
-                      />
-                    <h6>* Tamaño del producto largo x ancho en cm ó peso en kg</h6>
+                    <div className="container-input">
+                      <input
+                          className="style-input"
+                          type="text"
+                          name="dimensiones"/* ESTE NO EXISTE! */
+                          /* value={formTextAddProduct.talla2} */
+                          id="dimensiones"
+                          /* onChange={handleInputChange} */
+                        />
+                      <h6>* Tamaño del producto largo x ancho en cm ó peso en kg</h6>
+                    </div>
                     {/* <input
                       className="style-input"
                       type="number"
@@ -418,107 +434,120 @@ const AddProduct = () => {
                     <label className="style-label" htmlFor="material">
                       Material
                     </label>
-                    <input
-                      className="style-input"
-                      type="text"
-                      name="material"
-                      value={formTextAddProduct.material}
-                      id="material"
-                      onChange={handleInputChange}
-                      required
-                    />
-                    <h6>* Material del producto</h6>
+                    <div className="container-input">
+                      <input
+                        className="style-input"
+                        type="text"
+                        name="material"
+                        value={formTextAddProduct.material}
+                        id="material"
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <h6>* Material del producto</h6>
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="sku">
                       SKU del producto
                     </label>
-                    <input
-                      className="style-input"
-                      type="text"
-                      name="sku"
-                      value={formTextAddProduct.sku}
-                      id="sku"
-                      onChange={handleInputChange}
-                      placeholder="xxxxxxxxxxx"
-                      required
-                    />
+                    <div className="container-input">
+                      <input
+                        className="style-input"
+                        type="text"
+                        name="sku"
+                        value={formTextAddProduct.sku}
+                        id="sku"
+                        onChange={handleInputChange}
+                        placeholder="xxxxxxxxxxx"
+                        required
+                      />
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="cantDisponible">
                       Cantidad disponible
                     </label>
-                    <input
-                      className="style-input"
-                      type="text"
-                      name="cantDisponible"
-                      value={formTextAddProduct.cantDisponible}
-                      id="cantDisponible"
-                      onChange={handleInputChange}
-                      placeholder="Cantidad Disponible"
-                      required
-                    />
-                    <h6>*Número en stock</h6>
+                    <div className="container-input">
+                      <input
+                        className="style-input"
+                        type="text"
+                        name="cantDisponible"
+                        value={formTextAddProduct.cantDisponible}
+                        id="cantDisponible"
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <h6>*Número en stock</h6>
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="precio">
                       Precio
                     </label>
-                    <input
-                      className="style-input"
-                      type="number"
-                      name="precio"
-                      value={formTextAddProduct.precio}
-                      id="precio"
-                      onChange={handleInputChange}
-                      required
-                    />
-                    <h6>* El precio debe estar en soles </h6>
+                    <div className="container-input">
+                      <input
+                        className="style-input"
+                        type="number"
+                        name="precio"
+                        value={formTextAddProduct.precio}
+                        id="precio"
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <h6>* El precio debe estar en soles </h6>
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="precioPromocional">
                       Precio promocional
                     </label>
-                    <input
-                      className="style-input"
-                      type="number"
-                      name="precioPromocional"
-                      value={formTextAddProduct.precioPromocional}
-                      id="precioPromocional"
-                      onChange={handleInputChange}
-                      required
-                    />
-                    <h6>* El precio debe estar en soles </h6>
+                    <div className="container-input">
+                      <input
+                        className="style-input"
+                        type="number"
+                        name="precioPromocional"
+                        value={formTextAddProduct.precioPromocional}
+                        id="precioPromocional"
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <h6>* El precio debe estar en soles </h6>
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="fechaInicioPromocion">
                       Fecha inicio de la promoción
                     </label>
-                    <input
-                      type="datetime-local"
-                      name="fechaInicioPromocion"
-                      id="fechaInicioPromocion"
-                      className="input-form"
-                      onChange={handleInputChange}
-                      value={formTextAddProduct.fechaInicioPromocion}
-                      required
-                    />
+                    <div className="container-input">
+                      <input
+                        type="datetime-local"
+                        name="fechaInicioPromocion"
+                        id="fechaInicioPromocion"
+                        className="input-form"
+                        onChange={handleInputChange}
+                        value={formTextAddProduct.fechaInicioPromocion}
+                        required
+                      />
+                    </div>
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="fechaFinPromocion">
                       Fecha fin de la promoción
                     </label>
-                    <input
-                      type="datetime-local"
-                      name="fechaFinPromocion"
-                      id="fechaFinPromocion"
-                      className="input-form"
-                      onChange={handleInputChange}
-                      value={formTextAddProduct.fechaFinPromocion}
-                      required
-                    />
+                    <div className="container-input">
+                      <input
+                        type="datetime-local"
+                        name="fechaFinPromocion"
+                        id="fechaFinPromocion"
+                        className="input-form"
+                        onChange={handleInputChange}
+                        value={formTextAddProduct.fechaFinPromocion}
+                        required
+                      />
+                    </div>
                   </div>
-                  <p>Imagenes</p>
+                  <br />
                   <h6 className="title-imagenes">* Todas las imagenes tienen que ser en fondo blanco sin marco de agua  / formato de 300 px x 300 px / png o jpg</h6>
                   
                   <div className="container-images">
@@ -526,21 +555,58 @@ const AddProduct = () => {
                         <img className="icon-close" src={process.env.PUBLIC_URL+"/assets/images/producto/close.svg"} />
                           <div className="preview-image">
                               <img src={process.env.PUBLIC_URL+"/assets/images/producto/preview.svg"} alt="preview-image" />
-                              <p>Cargar imagen</p>
+                              <div className="question-box">
+                                <label className="style-label-image" htmlFor="imagenProducto1">
+                                  Cargar imagen
+                                </label>
+                                <input
+                                  type="file"
+                                  name="imagenProducto1"
+                                  id="imagenProducto1"
+                                  className="input-form"
+                                  accept="image/png, image/jpeg, image/jpg"
+                                  onChange={handleFileChange}
+                                  required
+                                />
+                              </div>
                           </div>
                       </div>
                       <div className="container-preview">
                         <img className="icon-close" src={process.env.PUBLIC_URL+"/assets/images/producto/close.svg"}  />
                           <div className="preview-image">
                             <img src={process.env.PUBLIC_URL+"/assets/images/producto/preview.svg"} alt="preview-image" />
-                              <p>Cargar imagen</p>
+                            <div className="question-box">
+                              <label className="style-label-image" htmlFor="imagenProducto2">
+                                Cargar imagen
+                              </label>
+                              <input
+                                type="file"
+                                name="imagenProducto2"
+                                id="imagenProducto2"
+                                className="input-form"
+                                accept="image/png, image/jpeg, image/jpg"
+                                onChange={handleFileChange}
+                              />
+                            </div>
                           </div>
                       </div>
                       <div className="container-preview">
                         <img className="icon-close" src={process.env.PUBLIC_URL+"/assets/images/producto/close.svg"} />
                           <div className="preview-image">
                             <img src={process.env.PUBLIC_URL+"/assets/images/producto/preview.svg"} alt="preview-image" />
-                              <p>Cargar imagen</p>
+                            <div className="question-box">
+                              <label className="style-label-image" htmlFor="imagenProducto3">
+                                Cargar imagen
+                              </label>
+                              <input
+                                type="file"
+                                name="imagenProducto3"
+                                id="imagenProducto3"
+                                className="input-form"
+                                accept="image/png, image/jpeg, image/jpg"
+                                onChange={handleFileChange}
+                              />
+                            </div>
                           </div>
                       </div>
 
@@ -660,7 +726,7 @@ const AddProduct = () => {
 
             </div>
             <div className="container-boton">
-              <ButtonFilled color="#FEBF41">
+              <ButtonFilled color="second">
                 Continuar
               </ButtonFilled>
             </div>
@@ -757,8 +823,15 @@ const AddProduct = () => {
                   font-size:1.4rem;
               }
               .question-box input,textarea,select{
+                  width:100%;
                   font-family: "mont-regular"!important;
                   color:rgba(90, 90, 90, 0.5);
+              }
+              select{
+                width:calc(100% - 5rem);
+              }
+              textarea{
+                width:calc(100% - 3rem);
               }
               input::placeholder{
                   color:rgba(90, 90, 90, 0.5);
@@ -867,6 +940,78 @@ const AddProduct = () => {
                 margin-left:0.5rem;
               }
 
+              /**FILES */
+
+              input[type="file"]{
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: -1
+              }
+              label[class="style-label-image"]{
+                  font-family:"mont-semibold";
+                  text-decoration:underline;
+                  color:#4B64A4;
+                  font-size:1.5rem;
+              }
+
+              @media (min-width:480px){
+                  .contenedor-centered{
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                  }
+                  .all-content{
+                    width:45rem;
+                  }
+              }
+              @media (min-width:768px){
+                  .title-add-producto{
+                      font-size:2.7rem;
+                  }
+                  .all-content{
+                    width:55rem;
+                  }
+                  .question-box{
+                    display:flex;
+                    flex-direction:row;
+                  }
+                  .question-box label{
+                    flex-basis : 25%;
+                  }
+                  .container-input{
+                    flex-grow:1;
+                    margin-left:4rem;
+                    width:calc(4rem);
+                  }
+                  textarea{
+                    width:100%;
+                    height:13rem!important;
+                  }
+                  input[type="text"],input[type="number"],input[type="datetime-local"],textarea{
+                    border: 1px solid #4B64A4!important;
+                    box-sizing: border-box;
+                    border-radius: 10px;
+                    padding:1rem 1.5rem;
+                  }
+              }
+              
+              @media (min-width : 1024px){
+                  .all-content{
+                    width:60rem;
+                  }
+              }
+              @media (min-width : 1280px){
+                  .all-content{
+                    width:65rem;
+                  }
+                  
+                  select{
+                    width:55%;
+                  }
+              }
 
           `}
       </style>

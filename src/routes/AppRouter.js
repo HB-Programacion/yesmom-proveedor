@@ -11,6 +11,7 @@ import SignIn from './../pages/auth/SignIn';
 import AddProduct from "../pages/producto/AddProduct";
 import RutaPrivada from "./PrivateRoute";
 import RutaPublica from "./PublicRoute";
+import ShowProduct from "../pages/producto/ShowProduct";
 
 
 const AppRouter = () => {
@@ -25,6 +26,7 @@ const AppRouter = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={AddProduct} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/show-product" component={ShowProduct} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/login" component={SignIn} tokenAutentificado={tokenAutentificado} />
         {/* <Route exact path="/caru" component={CarouselContainer} /> */}
       </Switch>
