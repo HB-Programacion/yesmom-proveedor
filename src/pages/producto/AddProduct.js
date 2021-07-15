@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ButtonFilled from "../../components/Producto/Button/ButtonFilled";
-// import Swal from "sweetalert2";
-// import withReactContent from "sweetalert2-react-content";
+/* import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content"; */
 import clienteAxiosBusiness from '../../config/axiosBusiness';
 
 
@@ -69,12 +69,18 @@ const AddProduct = () => {
 
 
   const handleSubmit = async (e) => {
+    console.log("*********");
     e.preventDefault();
     const data = new FormData();
     data.append("nombre", formTextAddProduct.nombre);
-    // data.append("modelo", formTextAddProduct.modelo);
+    /* data.append("modelo", formTextAddProduct.modelo); */
     data.append("descripcion", formTextAddProduct.descripcion);
+    data.append("categoria", formTextAddProduct.categoria);
     data.append("accesorios", formTextAddProduct.accesorios);
+    data.append("subcategoria", formTextAddProduct.subcategoria);
+    data.append("terminos", formTextAddProduct.terminos);
+    data.append("cantDisponible", formTextAddProduct.cantDisponible);
+    data.append("precio", formTextAddProduct.precio);
     data.append("color1", formTextAddProduct.color1);
     data.append("color2", formTextAddProduct.color2);
     data.append("color3", formTextAddProduct.color3);
@@ -84,13 +90,8 @@ const AddProduct = () => {
     data.append("talla1", formTextAddProduct.talla1);
     data.append("talla2", formTextAddProduct.talla2);
     data.append("talla3", formTextAddProduct.talla3);
-    data.append("categoria", formTextAddProduct.categoria);
-    data.append("subcategoria", formTextAddProduct.subcategoria);
-    data.append("terminos", formTextAddProduct.terminos);
     // data.append("marca", formTextAddProduct.marca);
-    data.append("sku", formTextAddProduct.sku);
-    data.append("cantDisponible", formTextAddProduct.cantDisponible);
-    data.append("precio", formTextAddProduct.precio);
+    /* data.append("sku", formTextAddProduct.sku); */
     data.append("precioPromocional", formTextAddProduct.precioPromocional);
     data.append("sku", formTextAddProduct.sku);
     data.append("fechaInicioPromocion", formTextAddProduct.fechaInicioPromocion);
@@ -109,19 +110,24 @@ const AddProduct = () => {
     console.log(formDimensiones, "dimensiones")
     console.log(formTextAddProduct, "texto");
     console.log(selectedFile, "imagenes")
-
+    
+    for(var pair of data.entries()) {
+      console.log(pair[0]+ ', '+ pair[1]);
+   }
+    console.log("**************");
     await clienteAxiosBusiness
       .post("/product/new-product?userType=admin", data)
       .then((res) => {
+        console.log("RESPUESTA EXITOSA");
         console.log(res, "res");
-        // MySwal.fire({
-        //   position: "center",
-        //   icon: "success",
-        //   title: "Tu blog se guardo exitosamente",
-        //   showConfirmButton: false,
-        //   // timer: 3500,
-        // });
-        // window.location.reload();
+         /* MySwal.fire({
+           position: "center",
+           icon: "success",
+           title: "Tu blog se guardo exitosamente",
+           showConfirmButton: false,
+           // timer: 3500,
+         });
+         window.location.reload(); */
       })
       .catch((e) => {
         console.log(e, "error");
@@ -170,7 +176,7 @@ const AddProduct = () => {
             </div>
 
             <div className="container-form">
-              <form action="" onSubmit={handleSubmit} encType="multipart/form-data">
+              <form action="" /* onSubmit={handleSubmit} */ encType="multipart/form-data">
               <div className="box-new-blog">
                   <div className="question-box">
                     <label className="style-label" htmlFor="nameProduct">
@@ -197,9 +203,9 @@ const AddProduct = () => {
                       <input
                         className="style-input"
                         type="text"
-                        name="marca"
-                        value={formTextAddProduct.marca}
-                        id="marca"
+                        name="modelo"
+                        value={formTextAddProduct.modelo}
+                        id="modelo"
                         onChange={handleInputChange}
                         /* maxLength="210" */
                         required
@@ -316,7 +322,7 @@ const AddProduct = () => {
                         required
                       />
                       <h6>*Escribe la talla de la prenda</h6>
-                      {/* <input
+                      <input
                         className="style-input"
                         type="text"
                         name="talla2"
@@ -331,7 +337,7 @@ const AddProduct = () => {
                         value={formTextAddProduct.talla3}
                         id="talla"
                         onChange={handleInputChange}
-                      /> */}
+                      />
                     </div>
                   </div>
                   <div className="question-box">
@@ -403,7 +409,7 @@ const AddProduct = () => {
                         />
                       <h6>* Tamaño del producto largo x ancho en cm ó peso en kg</h6>
                     </div>
-                    {/* <input
+                    <input
                       className="style-input"
                       type="number"
                       name="largo"
@@ -428,7 +434,7 @@ const AddProduct = () => {
                       id="dimensiones"
                       onChange={handleInputChange}
                       required
-                    /> */}
+                    />
                   </div>
                   <div className="question-box">
                     <label className="style-label" htmlFor="material">
@@ -615,7 +621,7 @@ const AddProduct = () => {
                         <p>Agregar más fotos</p>
                       </div>
                   </div>
-                  {/* <div className="question-box">
+                  <div className="question-box">
                     <label className="style-label" htmlFor="imagenProducto1">
                       Imagen 1
                     </label>
@@ -719,9 +725,16 @@ const AddProduct = () => {
                       accept="image/png, image/jpeg, image/jpg"
                       onChange={handleFileChange}
                     />
-                  </div> */} 
+                  </div> 
 
                 </div>
+
+                <button onClick={(e)=>handleSubmit(e)} className="button-blue">
+                  Crear
+                </button>
+              <div className="button-box">
+                <button className="button-white">Cancelar</button>
+              </div>
               </form>
 
             </div>
@@ -730,12 +743,6 @@ const AddProduct = () => {
                 Continuar
               </ButtonFilled>
             </div>
-              {/* <div className="button-box">
-                <button type="submit" className="button-blue">
-                  Crear
-                </button>
-                <button className="button-white">Cancelar</button>
-              </div> */}
           </div>
         </div>
       </div>

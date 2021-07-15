@@ -45,6 +45,10 @@ body {
   font-family: "mont-light";
   src: url("fonts/Mont-Light.otf");
 }
+@font-face{
+  font-family: "clicker";
+  src : url('fonts//ClickerScript-Regular.ttf');
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
