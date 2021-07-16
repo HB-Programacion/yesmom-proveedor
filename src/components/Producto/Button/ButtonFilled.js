@@ -1,6 +1,12 @@
 import React from 'react'
 
-function ButtonFilled({ color, children ,fsize,outline}) {
+function ButtonFilled({ 
+    color, 
+    children ,
+    fsize,
+    outline,
+    fxClick,
+}) {
 
 
     /* 
@@ -11,7 +17,10 @@ function ButtonFilled({ color, children ,fsize,outline}) {
      */
     return (
         <>
-            <div className={`boton ${color? color : ""} ${outline ? "outline" : ""} ${fsize ? "fsize" : ""}`}>
+            <div 
+                className={`boton ${color? color : ""} ${outline ? "outline" : ""} ${fsize ? "fsize" : ""}`}
+                onClick={fxClick}
+            >
                 <p>
                     {children}
                 </p>
@@ -23,7 +32,7 @@ function ButtonFilled({ color, children ,fsize,outline}) {
                         cursor:pointer;
                         background-color :#DC6A8D;
                         border-radius:3rem;
-                        transition: 0.3s ease-in-out;
+                        transition: transform 0.3s ease-in-out;
                     }
                     .second{
                         background-color:#FEBF41;
