@@ -1,5 +1,4 @@
 import React from 'react'
-import './AddProduct';
 
 function AddThirdPart({ handleFileChange }) {
     return (

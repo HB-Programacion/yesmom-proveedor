@@ -1,5 +1,5 @@
 import React from "react";
-import './AddProduct.css';
+
 function AddSecondStep({ formTextAddProduct , handleInputChange }) {
     return (
         <>
@@ -104,6 +104,7 @@ function AddSecondStep({ formTextAddProduct , handleInputChange }) {
                 </div>
             </div>
             <br />
+
         </>
     );
 }

@@ -14,6 +14,7 @@ import RutaPublica from "./PublicRoute";
 import ShowProduct from "../pages/producto/ShowProduct";
 import AddProductExcel from "../pages/producto/AddProductExcel";
 import SeeProducts from "../pages/producto/SeeProducts";
+import Home from "../pages/Home/Home";
 
 
 const AppRouter = () => {
@@ -27,7 +28,8 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={AddProduct} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/" component={Home} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/add-product" component={AddProduct} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/product-excel" component={AddProductExcel} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/show-product" component={ShowProduct} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/see-products" component={SeeProducts} tokenAutentificado={tokenAutentificado}/>

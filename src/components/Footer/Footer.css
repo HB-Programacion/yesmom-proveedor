@@ -1,0 +1,116 @@
+.footer {
+    background: #556ea1;
+    color: #fff;
+    background-position: top center;
+    background-size: cover;
+    padding: 5rem 0;
+    background-repeat: no-repeat;
+    font-family: "mont-regular";
+  }
+
+  .box-contenido-footer a {
+    display: block;
+  }
+  .box-contenido-footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    color: #ec608d;
+    text-decoration: none;
+    font-weight: bolder;
+  }
+
+  .tilte-footer {
+    margin-bottom: 1.5rem;
+  }
+
+  .icon-redes {
+    font-size: 1.5rem;
+    margin-right: 0.7rem;
+    margin-left: 0.7rem;
+  }
+  .padding-left {
+    padding-left: 6rem;
+  }
+
+  .title-footer {
+    font-family: "mont-semibold";
+  }
+  @media (min-width: 1800px) {
+    .footer {
+      padding: 2.5rem 0;
+    }
+    .footer a{
+      font-size:1.8rem;
+    }
+    .footer .padding-left {
+      padding-left: 0rem;
+    }
+    .title-footer {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      font-size: 2.3rem;
+    }
+    .footer .padding-left p {
+      margin-bottom: 0.2rem;
+      font-size: 1.8rem;
+    }
+    
+  }
+
+  @media (max-width: 769px) {
+    
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+      font-size:1.5rem
+    }
+
+    .footer a:hover {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .title-footer {
+      margin-bottom: 0.5rem;
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+
+    .icon-redes {
+      font-size: 1.6rem;
+      margin-right: 0.7rem;
+      margin-left: 0.7rem;
+      margin-top: 0.5rem;
+    }
+    .footer .padding-left {
+      padding-left: 0rem;
+      text-align: center !important;
+    }
+    .footer .padding-left p {
+      margin-bottom: 0.4rem;
+      font-size: 1.5rem;
+    }
+  }
+  @media (min-width: 576px) and (max-width: 769px) {
+    .icon-redes {
+      font-size: 1rem;
+    }
+    /* 
+    .footer .padding-left p {
+      font-size: 0.65rem;
+    }
+    .title-footer {
+      font-size: 0.75rem;
+    }
+    .footer a {
+      font-size: 0.65rem;
+    } */
+  }
