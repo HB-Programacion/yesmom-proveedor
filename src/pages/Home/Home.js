@@ -36,15 +36,17 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            <section className="vender-yesmom">
+                            <section className="container-section vender-yesmom">
                                 <h4 className="star-text">
                                     <img className="icon-start-1" src={`${process.env.PUBLIC_URL}/assets/images/black-star.svg`} />
                                     <p className="title-section">¿Cómo vender en Yes mom?</p>
                                     <img className="icon-start-2" src={`${process.env.PUBLIC_URL}/assets/images/black-star.svg`} />
                                 </h4>
-                                <h5>
-                                    Unirte al marketplace de Yes Mom es simple, rápido y ¡Completamente gratis!
-                                </h5>
+                                <div className="container-description">
+                                    <h5>
+                                        Unirte al marketplace de Yes Mom es simple, rápido y ¡Completamente gratis!
+                                    </h5>
+                                </div>
 
                                 <div className="box-vender">
                                     <Container fluid="true">
@@ -54,10 +56,10 @@ const Home = () => {
                                                 <div className="container-step">
                                                     <div className="item-excel">
                                                         <div className="container-image-step">
-                                                            <img className="img-excel" src={`${process.env.PUBLIC_URL}/assets/images/home/vender-1.png`} alt="paso 1 vender"/>
+                                                            <img className="img-excel" src={`${process.env.PUBLIC_URL}/assets/images/home/vender-1.png`} alt="paso 1 vender" />
                                                             <div className="container-circle">
                                                                 <div className="position-number">
-                                                                    <img className="circle-yellow"src={`${process.env.PUBLIC_URL}/assets/images/producto/excel/circle-yellow.svg`} />
+                                                                    <img className="circle-yellow" src={`${process.env.PUBLIC_URL}/assets/images/producto/excel/circle-yellow.svg`} />
                                                                     <p>1</p>
                                                                 </div>
                                                             </div>
@@ -70,10 +72,10 @@ const Home = () => {
                                                 <div className="container-step">
                                                     <div className="item-excel">
                                                         <div className="container-image-step">
-                                                            <img className="img-excel" src={`${process.env.PUBLIC_URL}/assets/images/home/vender-2.png`} alt="paso 2 vender"/>
+                                                            <img className="img-excel" src={`${process.env.PUBLIC_URL}/assets/images/home/vender-2.png`} alt="paso 2 vender" />
                                                             <div className="container-circle">
                                                                 <div className="position-number">
-                                                                    <img className="circle-yellow"src={`${process.env.PUBLIC_URL}/assets/images/producto/excel/circle-yellow.svg`} />
+                                                                    <img className="circle-yellow" src={`${process.env.PUBLIC_URL}/assets/images/producto/excel/circle-yellow.svg`} />
                                                                     <p>2</p>
                                                                 </div>
                                                             </div>
@@ -86,10 +88,10 @@ const Home = () => {
                                                 <div className="container-step">
                                                     <div className="item-excel">
                                                         <div className="container-image-step">
-                                                            <img className="img-excel" src={`${process.env.PUBLIC_URL}/assets/images/home/vender-3.png`} alt="paso 3 vender"/>
+                                                            <img className="img-excel" src={`${process.env.PUBLIC_URL}/assets/images/home/vender-3.png`} alt="paso 3 vender" />
                                                             <div className="container-circle">
                                                                 <div className="position-number">
-                                                                    <img className="circle-yellow"src={`${process.env.PUBLIC_URL}/assets/images/producto/excel/circle-yellow.svg`} />
+                                                                    <img className="circle-yellow" src={`${process.env.PUBLIC_URL}/assets/images/producto/excel/circle-yellow.svg`} />
                                                                     <p>3</p>
                                                                 </div>
                                                             </div>
@@ -102,10 +104,10 @@ const Home = () => {
                                                 <div className="container-step">
                                                     <div className="item-excel">
                                                         <div className="container-image-step">
-                                                            <img className="img-excel" src={`${process.env.PUBLIC_URL}/assets/images/home/vender-4.png`} alt="paso 4 vender"/>
+                                                            <img className="img-excel" src={`${process.env.PUBLIC_URL}/assets/images/home/vender-4.png`} alt="paso 4 vender" />
                                                             <div className="container-circle">
                                                                 <div className="position-number">
-                                                                    <img className="circle-yellow"src={`${process.env.PUBLIC_URL}/assets/images/producto/excel/circle-yellow.svg`} />
+                                                                    <img className="circle-yellow" src={`${process.env.PUBLIC_URL}/assets/images/producto/excel/circle-yellow.svg`} />
                                                                     <p>4</p>
                                                                 </div>
                                                             </div>
@@ -122,6 +124,56 @@ const Home = () => {
                                     <ButtonFilled color="first">
                                         Empezar a vender
                                     </ButtonFilled>
+                                </div>
+                            </section>
+
+                            <section className="container-section como-ayudarte">
+                                <img className="abs-2" src={`${process.env.PUBLIC_URL}/assets/images/nube-blanca.svg`} />
+                                <img className="abs-1" src={`${process.env.PUBLIC_URL}/assets/images/nube-blanca.svg`} />
+                                <img className="abs-3" src={`${process.env.PUBLIC_URL}/assets/images/nube-blanca.svg`} />
+                                <p className="title-section">¿Cómo podemos ayudarte?</p>
+                                <div className="container-description-second">
+                                    <h5 >
+                                        <span className="some-gray">Nuestro equipo estará encantado de contactarte y resolver todas tu dudas.</span>
+                                        <br />
+                                        Recuerda que también puedes escribirnos a través de nuestras redes sociales. </h5>
+                                </div>
+
+                                <div className="container-image">
+
+                                </div>
+                                <div className="container-sociales">
+                                    <div className="item-sociales">
+                                        <img src={`${process.env.PUBLIC_URL}/assets/images/home/arroba.svg`}/>
+                                        <p>mibebe@gmail.com</p>
+                                    </div>
+                                    <div className="item-sociales">
+                                        <img src={`${process.env.PUBLIC_URL}/assets/images/home/telefono.svg`}/>
+                                        <p>+51 947 234 452</p>
+                                    </div>
+                                    <div className="item-sociales">
+                                        <img src={`${process.env.PUBLIC_URL}/assets/images/home/pin.svg`}/>
+                                        <p>123 Los Robles , Miraflores</p>
+                                    </div>
+                                </div>
+
+                                <div className="container-form">
+                                    <form>
+                                        <div className="box-input">
+                                            <label htmlFor="nombres">Nombre y Apellido</label>
+                                            <input type="text" id="nombres"/>
+                                        </div>
+                                        <div className="box-input">
+                                            <label htmlFor="correo">Dirección de correo electrónico</label>
+                                            <input type="email" id="correo"/>
+                                        </div>
+                                        <div className="box-input">
+                                            <label>Escribe aquí tu pregunta....</label>
+                                            <textarea>
+
+                                            </textarea>
+                                        </div>
+                                    </form>
                                 </div>
                             </section>
                         </div>
@@ -168,6 +220,12 @@ const Home = () => {
                     }
 
                     /**SECTION VENDER */
+                    .container-section{
+                        padding: 5rem 0;
+                    }
+                    .container-description{
+                        padding: 0 10rem;
+                    }
                     .title-section{
                         font-family:"mont-semibold"!important;
                         font-size:2.5rem;
@@ -175,18 +233,17 @@ const Home = () => {
                         text-align:center;
                     }
                     .vender-yesmom{
-                        overflow:hidden;
-                        padding: 4rem 0;
+                        overflow:hidden; 
                     }
                     .vender-yesmom h4{
                         position:relative;
                         padding: 0 4rem;
+                        margin : 1rem 0;
                     }
-                    .vender-yesmom h5{
+                    h5{
                         font-family:"mont-semibold"!important;
                         font-size:1.5rem;
                         text-align:center;
-                        padding: 0 4rem;
                         color:#5A5A5A;
                     }
                     .icon-start-1,.icon-start-2{
@@ -204,6 +261,7 @@ const Home = () => {
                     /**STEPS */
                     .container-step{
                         max-width:100%;
+                        margin: 3rem 0;
                     }
                     .container-step p{
                         text-align:center;
@@ -276,7 +334,47 @@ const Home = () => {
 
                     .empezar-a-vender{
                         padding:0 5rem;
-                        margin-top:7.5rem;
+                        margin-top:2rem;
+                    }
+                    /**COMO PODEMOS AYUDARTE */
+                    .como-ayudarte{
+                        position:relative;
+                        background: rgba(75, 100, 164, 0.15);
+                    }
+                    .abs-1,.abs-2,.abs-3{
+                        position:absolute;
+                    }
+                    .container-description-second{
+                        margin:2rem 0;
+                        padding:0 2rem;
+                    }
+                    .some-gray{
+                        color:#878787;
+                    }
+
+                    .container-sociales{
+                        display:flex;
+                        flex-direction:column;
+                        justify-content:center;
+                    }
+                    .item-sociales{
+                        display:flex;
+
+                    }
+                    .item-sociales p{
+                        font-family:"mont-regular"!important;
+                        font-size:1.5rem;
+                        color: #5A5A5A;
+                    }
+
+                    /**FORM */
+                    .container-form{
+                        background: #FFFFFF;
+                        border: 10px solid #FFFFFF;
+                        box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
+                        border-radius: 20px;
+                        margin:0 2rem;
+                        padding : 1.5rem 1rem;
                     }
                 `}
             </style>
