@@ -206,60 +206,6 @@ const AddProduct = () => {
                         />
                       }
                       {selection === 2 && <AddThirdPart handleFileChange={handleFileChange}/> }
-
-                    
-                      {/* <div className="question-box">
-                        <label className="style-label" htmlFor="imagenProducto1">
-                          Imagen 1
-                        </label>
-                        <input
-                          type="file"
-                          name="imagenProducto1"
-                          id="imagenProducto1"
-                          className="input-form"
-                          accept="image/png, image/jpeg, image/jpg"
-                          onChange={handleFileChange}
-                          required
-                        />
-                      </div>
-                      <div className="question-box">
-                        <label className="style-label" htmlFor="imagenProducto2">
-                          Imagen 2
-                        </label>
-                        <input
-                          type="file"
-                          name="imagenProducto2"
-                          id="imagenProducto2"
-                          className="input-form"
-                          accept="image/png, image/jpeg, image/jpg"
-                          onChange={handleFileChange}
-                        />
-                      </div>
-                      <div className="question-box">
-                        <label className="style-label" htmlFor="imagenProducto3">
-                          Imagen 3
-                        </label>
-                        <input
-                          type="file"
-                          name="imagenProducto3"
-                          id="imagenProducto3"
-                          className="input-form"
-                          accept="image/png, image/jpeg, image/jpg"
-                          onChange={handleFileChange}
-                        />
-                      </div>
-                      
-                      
-                      
-                      
-                      */} 
-
-                    {/* <button onClick={(e)=>handleSubmit(e)} className="button-blue">
-                      Crear
-                    </button>
-                  <div className="button-box">
-                    <button className="button-white">Cancelar</button>
-                  </div> */}
                   </form>
                   <div className="flex-boton">
                       <div className="container-boton">
