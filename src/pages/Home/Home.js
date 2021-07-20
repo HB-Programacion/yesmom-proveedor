@@ -306,7 +306,7 @@ const Home = () => {
                     }
                     .container-step p{
                         text-align:center;
-                        font-family:"mont-semibold"!important;
+                        font-family:"mont-heavy"!important;
                         font-size:1.5rem;
                         padding:0 7rem;
                         color:#5A5A5A;

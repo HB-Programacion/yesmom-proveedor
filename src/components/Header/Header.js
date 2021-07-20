@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import DropMenuMobile from '../DropMenuMobile';
 
 import './Header.css';
-function Header() {
+function Header({logged}) {
 
     const publicImages = `${process.env.PUBLIC_URL}/assets/images/header`;
     const [active, setActive] = useState(false);
@@ -46,7 +46,7 @@ function Header() {
                                 }`}
                         >
                             <div className="box-items-menu-responsive">
-                                <div >
+                                <div>
                                     <Link to="/" className="item-menu-yesmom">
                                         <div className="container-icon">
                                             <img
@@ -98,7 +98,7 @@ function Header() {
                         </div>
                     </nav>
                 </div>
-                <DropMenuMobile active={active} setActive={handleClick} />
+                <DropMenuMobile logged={logged} active={active} setActive={handleClick} />
             </div>
         </>
     )

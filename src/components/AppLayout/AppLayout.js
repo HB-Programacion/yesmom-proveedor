@@ -5,7 +5,7 @@ import Header from '../Header/Header'
 const AppLayout = ({ children }) => {
     return (
         <div>
-            <Header />
+            <Header logged={true}/>
             {children}
             <Footer />
         </div>

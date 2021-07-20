@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function DropMenuMobile({ active, setActive }) {
+function DropMenuMobile({ active, setActive , logged}) {
+
+  const [ expand , setExpand] = useState(false);
   const publicImages = process.env.PUBLIC_URL;
   return (
     <>
@@ -77,8 +79,35 @@ function DropMenuMobile({ active, setActive }) {
                           alt="icon iniciar-sesion menu"
                         />
                     </div>
-                    <h6 className="text-navbar">Iniciar sesión</h6>
+                      {logged ?
+                        <div className="box-expand">
+                          <div className="options-proveedor">
+                            <h6 className="text-navbar">Baby Plaza</h6>
+                            <div className="expand-options" onClick={()=>setExpand( expand => !expand)}>
+                              <img src={`${publicImages}/assets/images/header/logged-options.svg`} />
+                            </div>
+
+                          </div>
+                        </div>
+
+                      
+                        :
+                        <h6 className="text-navbar">Iniciar sesión</h6>
+                       }
+                       
                   </Link>
+                    {expand && 
+                      <div className="expanded-options">
+                          <p>Registro</p>
+                          <p>Productos</p>
+                          <p>Cambiar de contraseña</p>
+                          <p>Perfil de tienda</p>
+                          <p>Términos y condiciones</p>
+                          <p>Desactivar cuenta</p>
+                          <p>Cerrar sesión</p>
+                      </div>
+                    }
+                    
                 </div>
               </li>
 
@@ -149,7 +178,20 @@ function DropMenuMobile({ active, setActive }) {
           .contenedor-items{
             margin-top:2rem;
           }
-
+          .options-proveedor{
+            display:flex;
+          }
+          .options-proveedor img{
+            margin-left:2rem;
+          }
+          .expanded-options{
+            margin-left:5rem;
+          }
+          .expanded-options p{
+            font-family:"mont-light"!important;
+            font-size:1.8rem;
+            color:#575650;
+          }
           @media (min-width: 993px) {
             .drop-menu {
               visibility: hidden;
