@@ -1,39 +1,47 @@
 import React from 'react';
+import AppLayout from '../../components/AppLayout/AppLayout';
+import AccordionItem from '../../components/Producto/AccordionItem';
 
 const SeeProducts = () => {
     return (
         <>
-            <div className="box-main-proveedor">
-                <div className="contenedor-centered">
-                    <div className="all-content">
-                        <div className="container-contenido">
-                            <div className="container-advice">
-                                <h5>Gracias por registrar tu producto, en las próximas horas será evaluado para mostrarlo en tienda</h5>
-                            </div>
+            <AppLayout>
+                    <div className="box-main-proveedor">
+                        <div className="contenedor-centered">
+                            <div className="all-content">
+                                <div className="container-contenido">
+                                    <div className="container-advice">
+                                        <h5>Gracias por registrar tu producto, en las próximas horas será evaluado para mostrarlo en tienda</h5>
+                                    </div>
 
-                            <h4 className="title-product">Visualización de productos</h4>
-                            <div className="container-select">
-                                <select>
-                                    <option>Ordenar por </option>
-                                    <option>Precio de mayor a menor</option>
-                                    <option>Precio de menor a mayor</option>
-                                    <option>A-Z (alfabéticamente)</option>
-                                    <option>Z-A (alfabéticamente)</option>
-                                    <option>Últimos 30 días)</option>
-                                    <option>Últimos 6 meses</option>
-                                </select> 
-                            </div>
-                            <div className="container-cards">
-
+                                    <h4 className="title-product">Visualización de productos</h4>
+                                    <div className="container-select">
+                                        <select>
+                                            <option>Ordenar por </option>
+                                            <option>Precio de mayor a menor</option>
+                                            <option>Precio de menor a mayor</option>
+                                            <option>A-Z (alfabéticamente)</option>
+                                            <option>Z-A (alfabéticamente)</option>
+                                            <option>Últimos 30 días)</option>
+                                            <option>Últimos 6 meses</option>
+                                        </select> 
+                                    </div>
+                                    <div className="container-cards">
+                                        <AccordionItem />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            
+            </AppLayout>
             <style jsx>
                 {`
-
+                    .all-content{
+                        padding:10rem 0;
+                    }
+                    .contenedor-centered{
+                        padding : 0 2.5rem;
+                    }
                     select{
                         width:15rem;
                         padding:1rem;
@@ -52,15 +60,8 @@ const SeeProducts = () => {
                         font-size:1.2rem;
                         color:#556EA1;
                     }
-                    .box-main-proveedor{
-                        padding: 8rem 0;
-                    }
-
-                    .contenedor-centered{
-                        /* display:flex;
-                        justify-content: center;
-                        align-items: center; */
-                        margin:0 2.5rem;
+                    select:focus{
+                        outline:none;
                     }
                     
 
