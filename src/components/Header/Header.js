@@ -2,10 +2,18 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import DropMenuMobile from '../DropMenuMobile';
 
+import burger from '../../images/header/burger.svg';
+import cesta from '../../images/header/cesta.svg';
+import tienda from '../../images/header/tienda.svg';
+import contacto from '../../images/header/contacto.svg';
+import iniciarSesion from '../../images/header/iniciar-sesion.svg';
+import logoYesmom from '../../images/header/logo-yesmom.svg';
+
+import {} from '../../images/header/burger.svg';
+
 import './Header.css';
 function Header({logged}) {
 
-    const publicImages = `${process.env.PUBLIC_URL}/assets/images/header`;
     const [active, setActive] = useState(false);
 
     const handleClick = () => {
@@ -21,14 +29,14 @@ function Header({logged}) {
                         <div className="burger-yesmom" onClick={handleClick}>
                             <img
                                 className="img-burger"
-                                src={`${publicImages}/burger.svg`}
+                                src={burger}
                                 alt="burger yesmom"
                             />
                         </div>
                         <div className="container-icon">
                             <img
                                 className="img-navbar"
-                                src={`${publicImages}/logo-yesmom.svg`}
+                                src={logoYesmom}
                                 alt="logo yesmom"
                             />
                         </div>
@@ -36,7 +44,7 @@ function Header({logged}) {
                         <div className="container-icon hide">
                             <img
                                 className="img-burger"
-                                src={`${publicImages}/iniciar-sesion.svg`}
+                                src={iniciarSesion}
                                 alt="login yesmom"
                             />
                         </div>
@@ -51,7 +59,7 @@ function Header({logged}) {
                                         <div className="container-icon">
                                             <img
                                                 className="image-icon"
-                                                src={`${publicImages}/cesta.svg`}
+                                                src={cesta}
                                                 alt="icon cesta menu"
                                             />
                                         </div>
@@ -63,7 +71,7 @@ function Header({logged}) {
                                         <div className="container-icon">
                                             <img
                                                 className="image-icon"
-                                                src={`${publicImages}/tienda.svg`}
+                                                src={tienda}
                                                 alt="icon tienda menu"
                                             />
                                         </div>
@@ -75,7 +83,7 @@ function Header({logged}) {
                                         <div className="container-icon">
                                             <img
                                                 className="image-icon"
-                                                src={`${publicImages}/contacto.svg`}
+                                                src={contacto}
                                                 alt="icon contacto menu"
                                             />
                                         </div>
@@ -87,7 +95,7 @@ function Header({logged}) {
                                        <div className="container-icon">
                                             <img
                                             className="image-icon"
-                                            src={`${publicImages}/iniciar-sesion.svg`}
+                                            src={iniciarSesion}
                                             alt="icon iniciar-sesion menu"
                                             />
                                         </div>

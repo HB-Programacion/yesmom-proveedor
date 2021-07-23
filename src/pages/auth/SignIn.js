@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./SignIn.css"
 import { useHistory } from 'react-router-dom'
+import logoYesmom from '../../images/header/logo-yesmom.svg';
 // import { toast } from 'react-toastify';
 import clienteAxiosAuth from './../../config/axiosAuth';
 
@@ -68,7 +69,7 @@ const SignIn = ({ fechaAutentificado }) => {
         <div className="col-12">
           <div className="box-signIn">
             <div className="p-3 text-center">
-              {/* <img src={logoYesMom} alt="Logo de Yes Mom" /> */}
+              <img src={logoYesmom} alt="Logo de Yes Mom" />
             </div>
             <div className="card">
               <div className="card-body">

@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+
+import close from '../images/header/close.svg';
+import cesta from '../images/header/cesta.svg';
+import tienda from '../images/header/tienda.svg';
+import contacto from '../images/header/contacto.svg';
+import iniciarSesion from '../images/header/iniciar-sesion.svg';
+import loggedOptions from '../images/header/logged-options.svg';
+
 function DropMenuMobile({ active, setActive , logged}) {
 
   const [ expand , setExpand] = useState(false);
-  const publicImages = process.env.PUBLIC_URL;
   return (
     <>
       <div className={`drop-menu ${active ? "" : "drop-menu-off"}`}>
@@ -13,7 +20,7 @@ function DropMenuMobile({ active, setActive , logged}) {
             <div className="container-image-icon">
               <img
                 className="image-icon"
-                src={`${publicImages}/assets/images/header/close.svg`}
+                src={close}
                 alt="icon close menu"
               />
             </div>
@@ -30,7 +37,7 @@ function DropMenuMobile({ active, setActive , logged}) {
                     <div className="container-image-icon">
                         <img
                           className="image-icon"
-                          src={`${publicImages}/assets/images/header/cesta.svg`}
+                          src={cesta}
                           alt="icon cesta menu"
                         />
                     </div>
@@ -45,7 +52,7 @@ function DropMenuMobile({ active, setActive , logged}) {
                     <div className="container-image-icon">
                         <img
                           className="image-icon"
-                          src={`${publicImages}/assets/images/header/tienda.svg`}
+                          src={tienda}
                           alt="icon tienda menu"
                         />
                     </div>
@@ -60,7 +67,7 @@ function DropMenuMobile({ active, setActive , logged}) {
                     <div className="container-image-icon">
                         <img
                             className="image-icon"
-                            src={`${publicImages}/assets/images/header/contacto.svg`}
+                            src={contacto}
                             alt="icon conctaco menu"
                         />
                     </div>
@@ -75,7 +82,7 @@ function DropMenuMobile({ active, setActive , logged}) {
                     <div className="container-image-icon">
                         <img
                           className="image-icon"
-                          src={`${publicImages}/assets/images/header/iniciar-sesion.svg`}
+                          src={iniciarSesion}
                           alt="icon iniciar-sesion menu"
                         />
                     </div>
@@ -84,7 +91,7 @@ function DropMenuMobile({ active, setActive , logged}) {
                           <div className="options-proveedor">
                             <h6 className="text-navbar">Baby Plaza</h6>
                             <div className="expand-options" onClick={()=>setExpand( expand => !expand)}>
-                              <img src={`${publicImages}/assets/images/header/logged-options.svg`} />
+                              <img src={loggedOptions} />
                             </div>
 
                           </div>

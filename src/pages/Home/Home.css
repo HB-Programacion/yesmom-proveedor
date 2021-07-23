@@ -1,0 +1,437 @@
+.home--all-content {
+    padding-top: 6.5rem;
+}
+
+.home--container-contenido {
+    background-image: url(../../images/banner-home-mobile.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(201, 219, 195, 0.5);
+    padding: 8rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home--title-page {
+    font-family: "mont-heavy" !important;
+    font-size: 2rem;
+    color: #DC6A8D;
+    text-align: center;
+}
+
+.home--container-onda {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home--container-paragraph {
+    margin: 2rem 0;
+}
+
+.home--paragraph-page {
+    font-family: "mont-regular" !important;
+    font-size: 1.3rem;
+    color: #5A5A5A;
+    text-align: justify;
+    line-height: 22px;
+}
+
+.home--container-buttons {
+    padding: 0 2rem;
+}
+
+.home--container-buttons>div {
+    margin: 1rem 0;
+}
+
+/**SECTION VENDER */
+.home--container-section {
+    padding: 5rem 0;
+}
+
+.home--container-description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2rem;
+}
+
+.home--title-section {
+    font-family: "mont-semibold" !important;
+    font-size: 2.5rem;
+    color: #DC6A8D;
+    text-align: center;
+}
+
+.home--vender-yesmom {
+    overflow: hidden;
+}
+
+.home--vender-yesmom h4 {
+    padding: 0 4rem;
+    margin: 1rem 0;
+}
+
+.home--star-text {
+    display: flex;
+    justify-content: center;
+}
+
+.home--container-title-section {
+    position: relative;
+}
+
+h5 {
+    font-family: "mont-semibold" !important;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #5A5A5A;
+}
+
+.home--icon-start-1,
+.home--icon-start-2 {
+    position: absolute;
+}
+
+.home--icon-start-1 {
+    top:0.5rem;
+    left:-2.5rem;
+}
+
+.home--icon-start-2 {
+    top:0.5rem;
+    right:-2.5rem;
+}
+
+.home--empezar-a-vender {
+    padding: 0 5rem;
+    margin-top: 2rem;
+}
+
+/**COMO PODEMOS AYUDARTE */
+.home--como-ayudarte {
+    overflow: hidden;
+    position: relative;
+    padding: 10rem 2rem;
+    background: rgba(75, 100, 164, 0.15);
+}
+
+.home--abs-1,
+.home--abs-2,
+.home--abs-3,
+.home--abs-4 {
+    position: absolute;
+}
+
+.home--abs-1 {
+    top: 5rem;
+    left: -2.5rem;
+}
+
+.home--abs-2 {
+    top: 2.5rem;
+    right: 2.5rem;
+}
+
+.home--abs-3 {
+    top: 25%;
+    right: -2.5rem;
+}
+
+.home--abs-4 {
+    left: -2.5rem;
+    bottom:19rem;
+}
+
+.home--container-description-second {
+    margin: 2rem 0;
+    padding: 0 2rem;
+}
+
+.home--some-gray {
+    color: #878787;
+}
+
+.home--img-and-social {
+    margin: 5rem 0;
+}
+
+.home--container-image {
+    width: 31rem;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.home--border-image-1 {
+    position: absolute;
+    top: -2.5rem;
+    left: -1.5rem;
+}
+
+.home--border-image-2 {
+    transform: rotate(180deg);
+    position: absolute;
+    bottom: -2.5rem;
+    right: -1.5rem;
+}
+
+.home--img-proveedor {
+    max-width: 100%;
+}
+
+.home--container-sociales {
+    width: 31rem;
+    margin: 1rem 0;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home--container-sociales p {
+    line-height: 30px;
+    margin-left: 1rem;
+}
+
+.home--center-sociales {
+    display: flex;
+    justify-content: center;
+}
+
+.home--item-sociales {
+    display: flex;
+}
+
+.home--item-sociales p {
+    font-family: "mont-regular" !important;
+    font-size: 1.5rem;
+    color: #5A5A5A;
+}
+
+/**FORM */
+.home--container-form {
+    width: 100%;
+    background: #FFFFFF;
+    border: 10px solid #FFFFFF;
+    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
+    border-radius: 20px;
+    padding: 1.5rem 1rem;
+}
+
+.home--form {
+    display: flex;
+    flex-direction: column;
+}
+
+.home--box-input {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+}
+
+.home--box-input label {
+    font-family: "mont-light" !important;
+    font-size: 1.3rem;
+    color: #575650;
+    opacity: 0.8;
+}
+
+.home--box-input input,
+textarea {
+    margin: 1rem 0;
+    font-family: "mont-light" !important;
+    font-size: 1.3rem;
+    color: #DADADA;
+    border: none;
+    border-bottom: 1px solid #DADADA;
+}
+
+textarea {
+    height: 20rem;
+    border-radius: 15px;
+    border: 1px solid #DADADA;
+    padding: 1.5rem 1rem;
+}
+
+.home--box-input input:focus,
+textarea:focus {
+    outline: none;
+}
+
+.home--container-send {
+    width: 50%;
+    margin: 3rem auto;
+}
+
+.home--end-text {
+    font-family: "mont-semibold" !important;
+    font-size: 1.3rem;
+    color: #5A5A5A;
+    text-align: center;
+}
+
+.home--privacidad {
+    color: #4B64A4;
+}
+
+.home--ayuda-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width:480px) {
+    .home--container-form {
+        width: 45rem;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width:768px) {
+    .home--title-page {
+        font-size: 2.5rem;
+    }
+
+    .home--paragraph-page {
+        font-size: 1.5rem;
+        padding: 0 5rem;
+        text-align: center;
+    }
+
+    .home--container-buttons {
+        display: flex;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .home--container-buttons>div {
+        margin: 0 1rem;
+        border-radius: 30px;
+    }
+
+    .home--empezar-a-vender>div {
+        width: 50%;
+        margin: 0 auto;
+        border-radius: 30px;
+    }
+
+    .home--container-send>div {
+        border-radius: 30px;
+    }
+
+    .home--flex-ayuda {
+        margin: 4rem 0;
+    }
+
+    .home--container-form {
+        max-width: 100%;
+    }
+
+    .home--img-and-social {
+        margin: 0;
+    }
+
+    .home--item-sociales p {
+        font-size: 1.7rem;
+    }
+
+    .home--box-input input,
+    textarea {
+        border: 1px solid #556EA1;
+        box-sizing: border-box;
+        border-radius: 15px;
+        padding: 1rem 1.5rem;
+    }
+
+    textarea {
+        height: 16rem;
+    }
+}
+
+@media(min-width:1024px) {
+    h5 {
+        font-size: 1.6rem!important;
+    }
+
+    .home--section-initial {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .home--title-page {
+        font-size: 2.7rem;
+    }
+
+    .home--title-section {
+        font-size: 2.7rem;
+    }
+
+    .home--paragraph-page {
+        font-size: 1.6rem;
+        padding: 0 8rem;
+        line-height: 30px;
+    }
+
+    .home--empezar-a-vender>div {
+        width: 40%;
+    }
+
+    .home--item-excel {
+        padding: 0;
+    }
+
+    .home--container-step p {
+        padding: 0 4rem;
+    }
+
+    .home--container-image {
+        width: 40rem;
+    }
+
+    .home--item-sociales p {
+        font-size: 1.8rem;
+    }
+}
+
+@media(min-width:1280px) {
+    h5 {
+        font-size: 2rem!important;
+    }
+
+    .home--title-page {
+        font-size: 3rem;
+    }
+
+    .home--paragraph-page {
+        font-size: 2rem;
+        text-align: center;
+        padding: 0 10rem;
+    }
+
+    .home--box-vender {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .home--container-step p {
+        padding: 0 1rem;
+    }
+
+    .home--end-text {
+        padding: 0 8rem;
+    }
+
+    .home--container-image {
+        width: 45rem;
+    }
+
+    .home--item-sociales p {
+        font-size: 2rem;
+    }
+}

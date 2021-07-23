@@ -1,0 +1,271 @@
+/**Global */
+p {
+    margin: 0;
+}
+
+.ft-semibold{
+    font-family: "mont-semibold" !important;
+}
+
+.ft-light{
+    font-family: "mont-light" !important;
+}
+
+h5.ft-semibold ,
+h6.ft-light {
+    text-align:left;
+    font-size: 2rem;
+    color: #5A5A5A;
+    margin: 0;
+}
+
+ol {
+    padding-inline-start: 2.75rem;
+}
+
+ol li {
+    font-family: "mont-light" !important;
+    font-size: 1.5rem;
+    color: #5A5A5A;
+}
+
+li {
+    padding-left: 1rem;
+    margin: 0.5rem 0;
+}
+
+.box-main-proveedor {
+    padding: 10rem 0;
+}
+
+.contenedor-centered {
+    /* display:flex;
+    justify-content: center;
+    align-items: center; */
+    margin: 0 2.5rem;
+}
+
+.line-end {
+    margin: 5rem -1rem;
+}
+
+/* TITLE */
+.title-add-producto {
+    font-family: "mont-semibold" !important;
+    font-size: 2.5rem;
+    color: #DC6A8D;
+}
+
+.title-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/**CONTENEDOR DE IMAGENES */
+.container-image-selected {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.images-secondary {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+/**FIRST INFO PRODUCT */
+.some-info-product {
+    margin: 3rem 0;
+}
+
+.text-description {
+    font-family: "mont-light" !important;
+    font-size: 1.5rem;
+    color: #5A5A5A;
+    margin: 1rem 0;
+    letter-spacing: 0.01rem;
+}
+
+.price {
+    font-family: "mont-heavy" !important;
+    color: #4B64A4;
+    font-size: 3rem;
+}
+
+.container-selects {
+    margin: 1rem 0;
+    display: flex;
+}
+
+.group-select {
+    flex-grow: 1;
+}
+
+.group-select select {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+    border: 1px solid #556EA1;
+    box-sizing: border-box;
+    border-radius: 20px;
+
+    background: url(https://i.ibb.co/mtG2wk2/image.png) no-repeat right #ffffff;
+    background-size: 1.25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-position-x: 92.5%;
+
+    font-family: "mont-regular" !important;
+    font-size: 1.2rem;
+    color: #556EA1;
+}
+
+.group-select select:focus {
+    outline: none;
+}
+
+.text-label {
+    margin: 0;
+    font-family: "mont-regular" !important;
+    font-size: 1.3rem;
+    color: #575650;
+    margin-bottom: 0.5rem;
+}
+
+.container-cantidad {
+    margin: 2rem 0;
+}
+
+.control-buttons {
+    display: flex;
+}
+
+.control-buttons p {
+    font-family: "mont-light" !important;
+    color: #5A5A5A !important;
+}
+
+.control-cantidad {
+    cursor: pointer;
+}
+
+.control-cantidad,
+.control-buttons p {
+    font-size: 2.4rem;
+    color: #D3DEE3;
+    width: 4rem;
+    height: 4rem;
+    border: 1.5px solid #556EA1;
+    box-sizing: border-box;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-buttons,
+.container-actions {
+    margin: 3rem 2rem;
+}
+
+.container-buttons>div,
+.container-actions>div {
+    margin: 1.5rem 0;
+
+}
+
+.opacity-btn {
+    opacity: 0.5;
+}
+
+@media (min-width:480px) {
+    .contenedor-centered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .all-content {
+        width: 45rem;
+    }
+}
+
+@media (min-width:768px) {
+    .all-content {
+        width: 60rem;
+    }
+
+    .title-add-producto {
+        font-size: 2.7rem;
+    }
+
+    .container-buttons,
+    .container-actions {
+        margin-left: 6.5rem;
+        margin-right: 6.5rem;
+    }
+}
+
+@media (min-width:1024px) {
+    .title-add-producto {
+        font-size: 3rem;
+    }
+
+    .all-content {
+        width: 90%;
+    }
+
+    .flex-content-product {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .container-images {
+        flex-basis: 45%;
+
+    }
+
+    .container-details {
+        margin-left: 2rem;
+        flex-basis: 50%;
+    }
+
+    .all-info-producto {
+        margin: 5rem 0;
+    }
+
+    .container-buttons {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .container-actions {
+        margin: 0;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+    }
+
+    .btn-normal {
+        width: 20rem;
+    }
+
+    .container-buttons>div {
+        flex-basis: calc(50% - 1rem);
+    }
+
+    .container-actions>div {
+        margin-left: 1rem;
+    }
+
+    .group-select select {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+
+}

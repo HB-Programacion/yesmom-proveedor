@@ -1,0 +1,63 @@
+.header-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-details {
+    margin: 1rem 0;
+}
+
+.card {
+    margin: 3rem 0 0 0;
+    border: 0 solid #FFFFFF;
+    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
+    border-radius: 2rem !important;
+}
+
+.card-header {
+    background: none!important;
+    padding: 2rem 3rem!important;
+    border-bottom: none!important;
+}
+
+.card-body {
+    padding: 0 3rem 2rem 3rem!important;
+}
+
+.item-details p {
+    font-family: "mont-semibold";
+    font-size: 1.3rem;
+    color: #575650;
+    letter-spacing: 0.5px;
+}
+
+.item-details p span {
+    font-family: "mont-regular";
+    color: #5A5A5A;
+    margin-left: 1rem;
+}
+
+.container-products {
+    position: relative;
+}
+
+.card-body .container-products {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(87, 86, 80, 0.5);
+}
+
+.icon-editar {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.container-visible {
+    display: flex;
+}
+
+.container-expand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

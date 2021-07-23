@@ -1,0 +1,55 @@
+
+.switch--container{
+    width:8rem;
+    height:2rem;
+    display:flex;
+    font-size:1.3rem;
+    border-radius: 5px;
+    font-family: "mont-regular";
+    margin-left:1rem;
+    background:#ffffff;
+    border: 1px solid #DADADA;
+}
+
+.switch--yes{
+    color:#DADADA;
+}
+.yet .switch--no{
+    color:#FFFFFF;
+    background-color:#DADADA;
+    border-radius:5px;
+}
+
+.switch--yes,.switch--no{
+    width:50%;
+    text-align:center;
+}
+.true{
+    background: #FFFFFF;
+    border: 1px solid #55B446;
+    box-sizing: border-box;
+}
+.true .switch--no{
+    color:#55B446;
+}
+.true .switch--yes{
+    background: #55B446;
+    color:#ffffff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.false{
+    background: #FFFFFF;
+    border: 1px solid #E40404;
+    box-sizing: border-box; 
+}
+.false .switch--yes{
+    color:#E40404;
+}
+.false .switch--no{
+    background: #E40404;
+    color:#ffffff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}

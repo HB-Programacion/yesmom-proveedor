@@ -1,0 +1,214 @@
+.excel--desktop {
+    display: none;
+    z-index: -1;
+}
+
+.excel--box-main-proveedor {
+    padding: 6.5rem 0;
+}
+
+/**BANNER */
+.excel--container-banner {
+    width: 100%;
+    position: relative;
+}
+
+.excel--container-banner img {
+    width: 100%;
+}
+
+.excel--container-banner p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 3rem;
+    font-family: "clicker" !important;
+    color: #ffffff;
+}
+
+/*TITLE**/
+.excel--title-product {
+    font-family: "mont-semibold" !important;
+    font-size: 2.5rem;
+    color: #DC6A8D;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.excel--subtitle-product {
+    font-family: "mont-regular" !important;
+    font-size: 1.5rem;
+    color: #5A5A5A;
+    text-align: center;
+    letter-spacing: 0.03rem;
+    margin: 1rem 0;
+}
+
+/**Content */
+.excel--container-contenido {
+    padding: 2rem;
+}
+
+.excel--container-import {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.excel--container-import h4 {
+    margin-top: 2rem;
+}
+
+/**BOX */
+.excel--box-option {
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    background: #FFFFFF;
+    border: 10px solid #FFFFFF;
+    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.excel--container-save {
+    padding: 0 2rem;
+    margin-top: 4rem;
+}
+
+.excel--box-option img {
+    margin-bottom: 2rem;
+}
+
+.excel--styled {
+    background: red;
+}
+
+.excel--box-option .flex-1 p {
+    font-family: "mont-light" !important;
+    font-size: 1.3rem;
+    color: #575650;
+}
+
+.excel--flex-1 p{
+    font-family: "mont-light";
+    font-size: 1.3rem;
+    color:#575650;
+    margin: 1rem 0 ;
+}
+
+
+@media (min-width:480px) and (max-width:767px) {
+    .excel--contenedor-centered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .excel--all-content {
+        width: 48rem;
+    }
+}
+
+@media (min-width:768px) {
+    .centered-items{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .excel--container-banner p {
+        font-size: 3.5rem;
+    }
+
+    .excel--container-contenido {
+        padding: 5rem 2rem;
+    }
+
+    .excel--mobile {
+        display: none;
+        z-index: -1;
+        visibility: hidden;
+    }
+
+    .excel--desktop {
+        display: block;
+    }
+
+    .excel--container-excel {
+        flex-direction: row;
+    }
+
+    .excel--item-excel {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .excel--container-boxes-option {
+        margin: 4rem 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .excel--box-option {
+        flex-basis: 50%;
+        margin: 0 2rem;
+    }
+
+    .excel--container-save {
+        width: 30rem;
+        margin: 0 auto;
+    }
+
+}
+
+@media (min-width:1024px) {
+    .excel--container-contenido {
+        padding: 7rem 2rem;
+    }
+
+    .excel--container-banner p {
+        font-size: 4rem;
+    }
+}
+
+@media(min-width:1280px) {
+    .excel--all-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .excel--container-contenido {
+        width: 90%;
+    }
+
+    .excel--container-banner p {
+        font-size: 4.5rem;
+    }
+
+    .excel--box-option {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .excel--flex-1 {
+        padding: 0 1rem;
+    }
+
+    .excel--download {
+        margin-top: 2rem;
+    }
+
+    .excel--item-excel {
+        padding: 0 8rem;
+    }
+}

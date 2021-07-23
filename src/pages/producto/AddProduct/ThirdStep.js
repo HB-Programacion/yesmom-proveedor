@@ -1,22 +1,27 @@
 import React from 'react'
 
+import previewImage from '../../../images/producto/preview.svg';
+import close from '../../../images/producto/close.svg';
+
+import iconAddProduct from '../../../images/producto/add.svg';
+
 function AddThirdPart({ handleFileChange }) {
     return (
         <>
-            <div className="container-images">
-                <div className="container-preview">
-                    <img className="icon-close" src={process.env.PUBLIC_URL + "/assets/images/producto/close.svg"} />
-                    <div className="preview-image">
-                        <img src={process.env.PUBLIC_URL + "/assets/images/producto/preview.svg"} alt="preview-image" />
-                        <div className="question-box">
-                            <label className="style-label-image" htmlFor="imagenProducto1">
+            <div className="add--container-images">
+                <div className="add--container-preview">
+                    <img className="add--icon-close" src={close} />
+                    <div className="add--preview-image">
+                        <img src={previewImage} alt="preview-image" />
+                        <div className="add--question-box">
+                            <label className="add--style-label-image" htmlFor="imagenProducto1">
                                 Cargar imagen
                             </label>
                             <input
                                 type="file"
                                 name="imagenProducto1"
                                 id="imagenProducto1"
-                                className="input-form"
+                                className="add--input-form"
                                 accept="image/png, image/jpeg, image/jpg"
                                 onChange={handleFileChange}
                                 required
@@ -24,38 +29,38 @@ function AddThirdPart({ handleFileChange }) {
                         </div>
                     </div>
                 </div>
-                <div className="container-preview">
-                    <img className="icon-close" src={process.env.PUBLIC_URL + "/assets/images/producto/close.svg"} />
-                    <div className="preview-image">
-                        <img src={process.env.PUBLIC_URL + "/assets/images/producto/preview.svg"} alt="preview-image" />
-                        <div className="question-box">
-                            <label className="style-label-image" htmlFor="imagenProducto2">
+                <div className="add--container-preview">
+                    <img className="add--icon-close" src={close} />
+                    <div className="add--preview-image">
+                        <img src={previewImage} alt="preview-image" />
+                        <div className="add--question-box">
+                            <label className="add--style-label-image" htmlFor="imagenProducto2">
                                 Cargar imagen
                             </label>
                             <input
                                 type="file"
                                 name="imagenProducto2"
                                 id="imagenProducto2"
-                                className="input-form"
+                                className="add--input-form"
                                 accept="image/png, image/jpeg, image/jpg"
                                 onChange={handleFileChange}
                             />
                         </div>
                     </div>
                 </div>
-                <div className="container-preview">
-                    <img className="icon-close" src={process.env.PUBLIC_URL + "/assets/images/producto/close.svg"} />
-                    <div className="preview-image">
-                        <img src={process.env.PUBLIC_URL + "/assets/images/producto/preview.svg"} alt="preview-image" />
-                        <div className="question-box">
-                            <label className="style-label-image" htmlFor="imagenProducto3">
+                <div className="add--container-preview">
+                    <img className="add--icon-close" src={close} />
+                    <div className="add--preview-image">
+                        <img src={previewImage} alt="preview-image" />
+                        <div className="add--question-box">
+                            <label className="add--style-label-image" htmlFor="imagenProducto3">
                                 Cargar imagen
                             </label>
                             <input
                                 type="file"
                                 name="imagenProducto3"
                                 id="imagenProducto3"
-                                className="input-form"
+                                className="add--input-form"
                                 accept="image/png, image/jpeg, image/jpg"
                                 onChange={handleFileChange}
                             />
@@ -63,95 +68,95 @@ function AddThirdPart({ handleFileChange }) {
                     </div>
                 </div>
 
-                <div className="container-preview hidden-images">
-                    <img className="icon-close" src={process.env.PUBLIC_URL + "/assets/images/producto/close.svg"} />
-                    <div className="preview-image">
-                        <img src={process.env.PUBLIC_URL + "/assets/images/producto/preview.svg"} alt="preview-image" />
-                        <div className="question-box">
-                            <label className="style-label-image" htmlFor="imagenProducto4">
+                <div className="add--container-preview add--hidden-images">
+                    <img className="add--icon-close" src={close} />
+                    <div className="add--preview-image">
+                        <img src={previewImage} alt="preview-image" />
+                        <div className="add--question-box">
+                            <label className="add--style-label-image" htmlFor="imagenProducto4">
                                 Cargar imagen
                             </label>
                             <input
                                 type="file"
                                 name="imagenProducto4"
                                 id="imagenProducto4"
-                                className="input-form"
+                                className="add--input-form"
                                 accept="image/png, image/jpeg, image/jpg"
                                 onChange={handleFileChange}
                             />
                         </div>
                     </div>
                 </div>
-                <div className="container-preview hidden-images">
-                    <img className="icon-close" src={process.env.PUBLIC_URL + "/assets/images/producto/close.svg"} />
-                    <div className="preview-image">
-                        <img src={process.env.PUBLIC_URL + "/assets/images/producto/preview.svg"} alt="preview-image" />
-                        <div className="question-box">
-                            <label className="style-label-image" htmlFor="imagenProducto5">
+                <div className="add--container-preview add--hidden-images">
+                    <img className="add--icon-close" src={close} />
+                    <div className="add--preview-image">
+                        <img src={previewImage} alt="preview-image" />
+                        <div className="add--question-box">
+                            <label className="add--style-label-image" htmlFor="imagenProducto5">
                                 Cargar imagen
                             </label>
                             <input
                                 type="file"
                                 name="imagenProducto5"
                                 id="imagenProducto5"
-                                className="input-form"
+                                className="add--input-form"
                                 accept="image/png, image/jpeg, image/jpg"
                                 onChange={handleFileChange}
                             />
                         </div>
                     </div>
                 </div>
-                <div className="container-preview hidden-images">
-                    <img className="icon-close" src={process.env.PUBLIC_URL + "/assets/images/producto/close.svg"} />
-                    <div className="preview-image">
-                        <img src={process.env.PUBLIC_URL + "/assets/images/producto/preview.svg"} alt="preview-image" />
-                        <div className="question-box">
-                            <label className="style-label-image" htmlFor="imagenProducto6">
+                <div className="add--container-preview add--hidden-images">
+                    <img className="add--icon-close" src={close} />
+                    <div className="add--preview-image">
+                        <img src={previewImage} alt="preview-image" />
+                        <div className="add--question-box">
+                            <label className="add--style-label-image" htmlFor="imagenProducto6">
                                 Cargar imagen
                             </label>
                             <input
                                 type="file"
                                 name="imagenProducto6"
                                 id="imagenProducto6"
-                                className="input-form"
+                                className="add--input-form"
                                 accept="image/png, image/jpeg, image/jpg"
                                 onChange={handleFileChange}
                             />
                         </div>
                     </div>
                 </div>
-                <div className="container-preview hidden-images">
-                    <img className="icon-close" src={process.env.PUBLIC_URL + "/assets/images/producto/close.svg"} />
-                    <div className="preview-image">
-                        <img src={process.env.PUBLIC_URL + "/assets/images/producto/preview.svg"} alt="preview-image" />
-                        <div className="question-box">
-                            <label className="style-label-image" htmlFor="imagenProducto7">
+                <div className="add--container-preview add--hidden-images">
+                    <img className="add--icon-close" src={close} />
+                    <div className="add--preview-image">
+                        <img src={previewImage} alt="preview-image" />
+                        <div className="add--question-box">
+                            <label className="add--style-label-image" htmlFor="imagenProducto7">
                                 Cargar imagen
                             </label>
                             <input
                                 type="file"
                                 name="imagenProducto7"
                                 id="imagenProducto7"
-                                className="input-form"
+                                className="add--input-form"
                                 accept="image/png, image/jpeg, image/jpg"
                                 onChange={handleFileChange}
                             />
                         </div>
                     </div>
                 </div>
-                <div className="container-preview hidden-images">
-                    <img className="icon-close" src={process.env.PUBLIC_URL + "/assets/images/producto/close.svg"} />
-                    <div className="preview-image">
-                        <img src={process.env.PUBLIC_URL + "/assets/images/producto/preview.svg"} alt="preview-image" />
-                        <div className="question-box">
-                            <label className="style-label-image" htmlFor="imagenProducto8">
+                <div className="add--container-preview add--hidden-images">
+                    <img className="add--icon-close" src={close} />
+                    <div className="add--preview-image">
+                        <img src={previewImage} alt="preview-image" />
+                        <div className="add--question-box">
+                            <label className="add--style-label-image" htmlFor="imagenProducto8">
                                 Cargar imagen
                             </label>
                             <input
                                 type="file"
                                 name="imagenProducto8"
                                 id="imagenProducto8"
-                                className="input-form"
+                                className="add--input-form"
                                 accept="image/png, image/jpeg, image/jpg"
                                 onChange={handleFileChange}
                             />
@@ -159,8 +164,8 @@ function AddThirdPart({ handleFileChange }) {
                     </div>
                 </div>
             </div>
-            <div className="container-agregar">
-                <img className="icon-add" src={process.env.PUBLIC_URL + "/assets/images/producto/add.svg"} />
+            <div className="add--container-agregar">
+                <img className="add--icon-add" src={iconAddProduct} />
                 <p>Agregar más fotos</p>
             </div>
         </>

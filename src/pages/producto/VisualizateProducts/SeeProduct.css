@@ -1,0 +1,119 @@
+    .see-product--all-content {
+        padding: 10rem 0;
+    }
+
+    .see-product--contenedor-centered {
+        padding: 0 2.5rem;
+    }
+
+    .see-product--container-select select {
+        cursor:pointer;
+        width: 21.5rem;
+        padding: 1rem;
+        border: 1px solid #556EA1;
+        box-sizing: border-box;
+        border-radius: 20px;
+
+        background: url(https://i.ibb.co/mtG2wk2/image.png) no-repeat right #ffffff;
+        background-size: 1.25rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-position-x: 92.5%;
+
+        font-family: "mont-regular" !important;
+        font-size: 1.3rem;
+        color: #556EA1;
+    }
+
+    .see-product--container-select select:focus {
+        outline: none;
+    }
+
+
+    /**CONTENIDO */
+    .see-product--container-advice {
+        border: 2px solid #55B446;
+        box-sizing: border-box;
+        border-radius: 24px;
+    }
+
+    .see-product--container-advice h5 {
+        font-family: "mont-semibold" !important;
+        font-size: 2rem;
+        color: #55B446;
+        text-align: center;
+        margin: 1.5rem 2rem;
+    }
+
+    /**TITLE PRODUCT */
+    .see-product--title-product {
+        font-family: "mont-semibold" !important;
+        font-size: 2.5rem;
+        color: #DC6A8D;
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    /**SELECT */
+    .see-product--container-select {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    @media (min-width : 480px){
+        .see-product--all-content{
+            width:43rem;
+            margin: 0 auto;
+        }
+    }
+    @media (min-width : 768px){
+        .see-product--all-content{
+            width:100%;
+        }
+        .see-product--title-product{
+            font-size:2.7rem;
+        }
+        .see-product--container-title{
+            width:70%;
+            margin:0 auto;
+        }
+        .see-product--container-select select{
+            font-size:1.4rem;
+            width:22.5rem;
+            border-radius:15px;
+        }
+        .see-product--container-contenido{
+            padding : 0 3rem;
+        }
+    }
+    @media (min-width : 1024px){
+        .see-product--container-advice{
+            border-radius:15px;
+        }
+        .see-product--title-product{
+            font-size:2.8rem;
+        }
+        .see-product--container-title{
+            width:80%;
+            margin:0 auto;
+        }
+        .see-product--container-contenido{
+            padding : 5rem 5rem;
+        }
+    }
+    @media (min-width : 1280px){
+        .see-product--container-advice h5{
+            font-size:2rem;
+        }
+        .see-product--title-product{
+            font-size:3rem;
+        }
+        .see-product--container-title{
+            width:90%;
+            margin:0 auto;
+        } 
+        .see-product--container-contenido{
+            padding : 6rem 6rem;
+        }
+    }

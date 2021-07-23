@@ -11,9 +11,9 @@ import SignIn from './../pages/auth/SignIn';
 import AddProduct from "../pages/producto/AddProduct/AddProduct";
 import RutaPrivada from "./PrivateRoute";
 import RutaPublica from "./PublicRoute";
-import ShowProduct from "../pages/producto/ShowProduct";
-import AddProductExcel from "../pages/producto/AddProductExcel";
-import SeeProducts from "../pages/producto/SeeProducts";
+import AddProductExcel from "../pages/producto/Excel/AddProductExcel";
+import ShowProduct from "../pages/producto/ShowProducts/ShowProduct";
+import SeeProducts from "../pages/producto/VisualizateProducts/SeeProducts";
 import Home from "../pages/Home/Home";
 
 
@@ -29,10 +29,10 @@ const AppRouter = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/add-product" component={AddProduct} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/add-new-product" component={AddProduct} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/product-excel" component={AddProductExcel} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/show-product" component={ShowProduct} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/see-products" component={SeeProducts} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/visualizate-products" component={SeeProducts} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/login" component={SignIn} tokenAutentificado={tokenAutentificado} />
         {/* <Route exact path="/caru" component={CarouselContainer} /> */}
       </Switch>

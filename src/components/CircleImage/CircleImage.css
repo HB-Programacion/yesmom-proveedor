@@ -1,0 +1,60 @@
+.item-circle {
+    margin: 2rem 0;
+    padding: 0 3.3rem;
+}
+
+.item-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.item-circle p {
+    margin: 2rem 0;
+    text-align: center;
+    font-family: "mont-heavy" !important;
+    font-size: 1.5rem;
+    color: #5A5A5A;
+}
+
+.container-image-step {
+    position: relative;
+    padding: 1rem;
+    border: 2px dashed #575756;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.img-excel {
+    width: 100%;
+}
+
+.container-circle {
+    position: absolute;
+    width: 25%;
+    top: 0;
+    left: 1rem;
+}
+
+
+.circle-yellow {
+    position: relative;
+    width: 100%;
+}
+
+.position-number {
+    position: relative;
+}
+
+.position-number p {
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-family: "omnes-bold" !important;
+    color: #ffffff;
+}
