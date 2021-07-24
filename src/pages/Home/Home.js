@@ -1,7 +1,8 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import AppLayout from "../../components/AppLayout/AppLayout";
-import ButtonFilled from "../../components/Producto/Button/ButtonFilled";
+
+import ButtonFilled from "../../components/Button/ButtonFilled";
 
 
 import ondasAzules from '../../images/ondas-azules.svg';
@@ -59,8 +60,8 @@ const Home = () => {
                                         </p>
                                     </div>
                                     <div className="home--container-buttons">
-                                        <ButtonFilled color="second">Iniciar sesión</ButtonFilled>
-                                        <ButtonFilled color="first">Registrate aquí</ButtonFilled>
+                                        <ButtonFilled color="yellow">Iniciar sesión</ButtonFilled>
+                                        <ButtonFilled color="pink">Registrate aquí</ButtonFilled>
                                     </div>
                                 </div>
 
@@ -162,7 +163,7 @@ const Home = () => {
                                                 </div>
 
                                                 <div className="home--container-send">
-                                                    <ButtonFilled color="second">
+                                                    <ButtonFilled color="yellow">
                                                         Enviar
                                                     </ButtonFilled>
                                                 </div>

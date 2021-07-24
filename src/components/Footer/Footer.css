@@ -1,11 +1,16 @@
+p{
+  margin:0;
+}
+
 .footer {
-    background: #556ea1;
-    color: #fff;
-    background-position: top center;
-    background-size: cover;
-    padding: 5rem 0;
-    background-repeat: no-repeat;
-    font-family: "mont-regular";
+  background: #556ea1;
+  background-image:url(../../images/footer/trama-footer.svg);
+  color: #fff;
+  background-position: top center;
+  background-size: cover;
+  padding: 5rem 0;
+  background-repeat: no-repeat;
+  font-family: "mont-regular";
   }
 
   .box-contenido-footer a {
@@ -19,6 +24,9 @@
   .footer a {
     color: #fff;
     text-decoration: none;
+  }
+  .footer a p{
+    margin-bottom:0;
   }
 
   .footer a:hover {
@@ -37,7 +45,7 @@
     margin-left: 0.7rem;
   }
   .padding-left {
-    padding-left: 6rem;
+    padding-left: 3rem;
   }
 
   .title-footer {
@@ -64,9 +72,30 @@
     }
     
   }
-
+  @media (min-width : 1280px){
+    .title-footer{
+      margin-bottom:2rem;
+      font-size:2rem;
+    }
+    .footer a{
+      font-size:1.5rem;
+    }
+    .padding-left.text-center p{
+      font-size: 1.5rem;
+      margin-bottom:0;
+    }
+    .icon-redes{
+      font-size:2rem;
+    }
+  }
   @media (max-width: 769px) {
-    
+    .footer {
+      background-image: url(../../images/footer/trama-footer-responsive.svg);
+      background-position: top center;
+      background-size: cover;
+      padding: 3rem 0;
+      background-repeat: no-repeat;
+      }
     .footer a {
       color: #fff;
       text-decoration: none;
@@ -114,3 +143,4 @@
       font-size: 0.65rem;
     } */
   }
+  

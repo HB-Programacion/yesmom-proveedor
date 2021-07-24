@@ -211,4 +211,8 @@
     .excel--item-excel {
         padding: 0 8rem;
     }
+
+    .excel--box-option img {
+        margin-bottom: 0
+    }
 }

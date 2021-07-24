@@ -264,7 +264,7 @@ textarea:focus {
 }
 
 .home--container-send {
-    width: 50%;
+    width:50%;
     margin: 3rem auto;
 }
 
@@ -306,8 +306,8 @@ textarea:focus {
 
     .home--container-buttons {
         display: flex;
-        width: 70%;
-        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
     }
 
     .home--container-buttons>div {

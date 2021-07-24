@@ -1,6 +1,6 @@
 import React from 'react';
 import AppLayout from '../../../components/AppLayout/AppLayout';
-import ButtonFilled from '../../../components/Producto/Button/ButtonFilled';
+import ButtonFilled from '../../../components/Button/ButtonFilled';
 
 import bannerMobile  from '../../../images/banner.png'
 import bannerDesktop from '../../../images/banner-desktop.png'
@@ -62,7 +62,7 @@ const AddProductExcel = () => {
                                             <img clas src={download} alt="formato" />
                                         </div>
                                         <div className="excel--only-button">
-                                            <ButtonFilled color="red" outline>
+                                            <ButtonFilled color="outline-blue">
                                                 Descarga el formato
                                             </ButtonFilled>
                                         </div>
@@ -79,7 +79,7 @@ const AddProductExcel = () => {
                                     </div>
                                 </div>
                                 <div className="excel--container-save">
-                                    <ButtonFilled >
+                                    <ButtonFilled color="pink">
                                         Guardar
                                     </ButtonFilled>
                                 </div>

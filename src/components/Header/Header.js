@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import DropMenuMobile from '../DropMenuMobile';
+
+import DropMenuMobile from './DropMenuMobile';
 
 import burger from '../../images/header/burger.svg';
 import cesta from '../../images/header/cesta.svg';
@@ -17,13 +18,12 @@ function Header({logged}) {
     const [active, setActive] = useState(false);
 
     const handleClick = () => {
-        console.log("click", active);
         setActive(!active);
     };
 
     return (
         <>
-            <div className="box-yesmom">
+            <div className="header-box-yesmom">
                 <div className="box-nav">
                     <nav className="navbar-yesmom">
                         <div className="burger-yesmom" onClick={handleClick}>

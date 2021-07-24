@@ -22,31 +22,6 @@ function Expand({eventKey, callback }) {
                 </svg>
 
             </div>
-
-            <style jsx>
-                {`
-                    .btn-click{
-                        cursor:pointer;
-                        display:flex;
-                    }
-                    .btn-click svg{
-                        margin: 0.5rem 0 0 0.5rem;
-                    }
-                    .active{
-                        transition: all 0.3s ease-in-out;
-                        transform:rotate(180deg);
-                    }
-                    .no-active{
-                        transition: all 0.3s ease-in-out;
-                        transform:rotate(0deg);
-                    }
-                    .detalles{
-                        font-family:"mont-regular";
-                        color:#556EA1!important;
-                        font-size:1.2rem!important;
-                    }
-                `}
-            </style>
         </>
     );
 }

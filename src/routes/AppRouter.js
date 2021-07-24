@@ -15,6 +15,9 @@ import AddProductExcel from "../pages/producto/Excel/AddProductExcel";
 import ShowProduct from "../pages/producto/ShowProducts/ShowProduct";
 import SeeProducts from "../pages/producto/VisualizateProducts/SeeProducts";
 import Home from "../pages/Home/Home";
+import Resumen from "../pages/ordenes/resumen/Resumen";
+import Login from "../pages/login/Login";
+import ResetPassword from "../pages/login/ResetPassword";
 
 
 const AppRouter = () => {
@@ -33,6 +36,11 @@ const AppRouter = () => {
         <Route exact path="/product-excel" component={AddProductExcel} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/show-product" component={ShowProduct} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/visualizate-products" component={SeeProducts} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/resumen" component={Resumen} tokenAutentificado={tokenAutentificado}/>
+        {/* LOGIN */}
+        <Route exact path="/iniciar-sesion" component={Login} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/restablecer-password" component={ResetPassword} tokenAutentificado={tokenAutentificado}/>
+        {/*******/}
         <Route exact path="/login" component={SignIn} tokenAutentificado={tokenAutentificado} />
         {/* <Route exact path="/caru" component={CarouselContainer} /> */}
       </Switch>

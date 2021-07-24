@@ -2,12 +2,23 @@ import React from 'react'
 import { Accordion, Card } from 'react-bootstrap'
 import Expand from './Expand'
 import Switch from './Switch'
-
 import iconEditar from '../../../images/header/icon-edit.svg';
 import './AccordionItem.css';
 
-
-function AccordionItem({ ek, nombre, creacion, visible, sku, precio, precioPromocional, inventario, aceptado, categoria }) {
+function AccordionItem({ 
+    ek, 
+    nombre, 
+    sku, 
+    precio,
+    numOrden,
+    fechaOrden,
+    tipoDocumento,
+    metodoPago,
+    cant,
+    acciones,
+    destinatario,
+    direccionEnvio
+}) {
     return (
         <>
             <Card>
@@ -18,15 +29,14 @@ function AccordionItem({ ek, nombre, creacion, visible, sku, precio, precioPromo
                         </div>
                         <div className="header-title">
                             <div className="item-details">
-                                <p>Nombre del producto <span>{nombre}</span></p>
+                                <p>Numero de órden <span>{numOrden}</span></p>
                             </div>
                             <div className="item-details">
-                                <p>Creación <span>{creacion}</span></p>
+                                <p>Fecha de órden <span>{fechaOrden}</span></p>
                             </div>
                             <div className="item-details container-expand">
-                                <div className="container-visible">
-                                    <p>Visible</p>
-                                    <Switch visible={visible}/>
+                                <div className="item-details">
+                                    <p>Precio <span>s/. {precio}</span></p>
                                 </div>
                                 <Expand eventKey={`${ek}`} />
                             </div>
@@ -38,24 +48,34 @@ function AccordionItem({ ek, nombre, creacion, visible, sku, precio, precioPromo
                     <Card.Body>
                         <div className="container-products">
                             <div className="item-details">
-                                <p>SKU del producto <span>{sku}</span></p>
+                                <p>Tipo de documento <span>{tipoDocumento}</span></p>
                             </div>
                             <div className="item-details">
-                                <p>Precio <span>s/. {precio} </span></p>
+                                <p>Método de pago <span>{metodoPago} </span></p>
                             </div>
                             <div className="item-details">
-                                <p>Precio promocional <span>s/. {precioPromocional} </span></p>
+                                <p># <span>{cant} </span></p>
                             </div>
                             <div className="item-details">
-                                <p>Inventario <span>{inventario}</span></p>
+                                <p>Acciones <span>{acciones}</span></p>
                             </div>
-                            <div className="item-details">
-                                <p>Aceptado</p>
-                            </div>
-                            <div className="item-details">
-                                <p>Categoria</p>
-                            </div>
+                            
                         </div>
+                        <div className="container-products">
+                            <div className="item-details">
+                                <p>Enviar a <span>{destinatario}</span></p>
+                            </div>
+                            <div className="item-details">
+                                <p>Dirección de envio <span>{direccionEnvio}</span></p>
+                            </div>
+                            <div className="item-details">
+                                <p>SKU de producto <span>{sku}</span></p>
+                            </div>
+                            <div className="item-details">
+                                <p>Nombre del producto <span>{nombre}</span></p>
+                            </div>
+                        </div> 
+
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>

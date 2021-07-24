@@ -1,1 +1,42 @@
 /**GLOBALS**/
+.title-rosa{
+    font-family: "mont-semibold" !important;
+    font-size: 2.5rem;
+    color: #DC6A8D;
+    text-align: center;
+    margin:2.5rem 0;
+}
+
+.select-ordenar{
+    cursor:pointer;
+    width: 21.5rem;
+    padding: 1rem;
+    border: 1px solid #556EA1;
+    box-sizing: border-box;
+    border-radius: 20px;
+
+    background: url(https://i.ibb.co/mtG2wk2/image.png) no-repeat right #ffffff;
+    background-size: 1.25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-position-x: 92.5%;
+
+    font-family: "mont-regular" !important;
+    font-size: 1.3rem;
+    color: #556EA1;
+}
+.select-ordenar:focus{
+    outline: none;
+}
+
+@media (min-width : 768px){
+    .select-ordenar{
+        font-size:1.4rem;
+        width:22.5rem;
+        border-radius:15px;
+    }
+    .title-rosa {
+        font-size: 2.7rem;
+    }
+}

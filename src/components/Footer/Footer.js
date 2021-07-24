@@ -104,34 +104,6 @@ const Footer = () => {
           
         </Container>
       </div>
-      <style jsx>
-        {`
-          p{
-            margin:0;
-          }
-          .footer {
-            background: #556ea1;
-            color: #fff;
-            background-image:url(${process.env.PUBLIC_URL}/assets/images/footer/trama-footer.svg);
-            background-position: top center;
-            background-size: cover;
-            padding: 5rem 0;
-            background-repeat: no-repeat;
-            font-family: "mont-regular";
-          }
-
-          @media (max-width :769px){
-            .footer {
-            background-image: url(${process.env.PUBLIC_URL}/assets/images/footer/trama-footer-responsive.svg);
-            background-position: top center;
-            background-size: cover;
-            padding: 3rem 0;
-            background-repeat: no-repeat;
-            }
-          }
-
-        `}
-      </style>
     </>
   );
 };

@@ -9,9 +9,12 @@
 
 .card {
     margin: 3rem 0 0 0;
-    border: 0 solid #FFFFFF;
+    border: 1px solid #FFFFFF!important;
     box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
     border-radius: 2rem !important;
+}
+.card p{
+    margin-bottom:0;
 }
 
 .card-header {
@@ -28,7 +31,7 @@
     font-family: "mont-semibold";
     font-size: 1.3rem;
     color: #575650;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.1px;
 }
 
 .item-details p span {
@@ -42,8 +45,9 @@
 }
 
 .card-body .container-products {
-    padding-top: 1rem;
+    padding: 1.5rem 0;
     border-top: 1px solid rgba(87, 86, 80, 0.5);
+    line-height:2.3rem;
 }
 
 .icon-editar {
@@ -60,4 +64,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/**EXPAND**/
+.btn-click{
+    cursor:pointer;
+    display:flex;
+}
+.btn-click svg{
+    margin: 0.5rem 0 0 0.5rem;
+}
+.active{
+    transition: all 0.3s ease-in-out;
+    transform:rotate(180deg);
+}
+.no-active{
+    transition: all 0.3s ease-in-out;
+    transform:rotate(0deg);
+}
+.detalles{
+    font-family:"mont-regular";
+    color:#556EA1!important;
+    font-size:1.2rem!important;
 }

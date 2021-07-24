@@ -6,30 +6,6 @@
         padding: 0 2.5rem;
     }
 
-    .see-product--container-select select {
-        cursor:pointer;
-        width: 21.5rem;
-        padding: 1rem;
-        border: 1px solid #556EA1;
-        box-sizing: border-box;
-        border-radius: 20px;
-
-        background: url(https://i.ibb.co/mtG2wk2/image.png) no-repeat right #ffffff;
-        background-size: 1.25rem;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background-position-x: 92.5%;
-
-        font-family: "mont-regular" !important;
-        font-size: 1.3rem;
-        color: #556EA1;
-    }
-
-    .see-product--container-select select:focus {
-        outline: none;
-    }
-
 
     /**CONTENIDO */
     .see-product--container-advice {
@@ -77,11 +53,6 @@
         .see-product--container-title{
             width:70%;
             margin:0 auto;
-        }
-        .see-product--container-select select{
-            font-size:1.4rem;
-            width:22.5rem;
-            border-radius:15px;
         }
         .see-product--container-contenido{
             padding : 0 3rem;

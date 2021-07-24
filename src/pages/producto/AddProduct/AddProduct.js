@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AppLayout from "../../../components/AppLayout/AppLayout";
-import ButtonFilled from "../../../components/Producto/Button/ButtonFilled";
+import ButtonFilled from "../../../components/Button/ButtonFilled";
 import clienteAxiosBusiness from '../../../config/axiosBusiness';
 import FirstStep from "./FirstStep";
 import AddSecondStep from "./SecondStep";
@@ -182,7 +182,7 @@ const AddProduct = () => {
             <div className="add--contenedor-centered">
               <div className="add--all-content">
                 <div className="add--title-content">
-                  <h4 className="add--title-add-producto">Carga manual</h4>
+                  <h4 className="title-rosa">Carga manual</h4>
                   <div className="add--details-about-product">
                       <p  onClick={()=>setSelection(0)}  className={`${selection === 0 ? "selected" : ""}`}>Datos del producto</p>
                       <p  onClick={()=>setSelection(1)}  className={`${selection === 1 ? "selected" : ""}`}>Precio del producto</p>
@@ -209,11 +209,11 @@ const AddProduct = () => {
                       <div className="add--container-boton">
                           {selection!==2 ?
                 
-                            <ButtonFilled color="second" fxClick={handleSelection}>
+                            <ButtonFilled color="yellow" fxClick={handleSelection}>
                               Continuar
                             </ButtonFilled>
                           : 
-                            <ButtonFilled color="first" fxClick={handleSubmit}>
+                            <ButtonFilled color="pink" fxClick={handleSubmit}>
                               Continuar
                             </ButtonFilled>
                           }

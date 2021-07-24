@@ -1,6 +1,5 @@
 import React from 'react';
 import AppLayout from '../../../components/AppLayout/AppLayout';
-import AccordionItem from '../../../components/Producto/Accordion/AccordionItem';
 import AccordionProduct from '../../../components/Producto/Accordion/AccordionProduct';
 
 import './SeeProduct.css';
@@ -21,7 +20,7 @@ const SeeProducts = () => {
                                         <h4 className="see-product--title-product">Visualización de productos</h4>
                                     </div>
                                     <div className="see-product--container-select">
-                                        <select>
+                                        <select className="select-ordenar">
                                             <option>Ordenar por </option>
                                             <option>Precio de mayor a menor</option>
                                             <option>Precio de menor a mayor</option>

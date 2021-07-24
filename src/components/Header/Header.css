@@ -56,6 +56,9 @@
     color: #616160;
     justify-content: flex-start;
 }
+.item-menu-yesmom{
+    text-decoration: none!important;
+}
 
 .item-menu-yesmom-cart {
     display: flex;
@@ -72,6 +75,7 @@
     animation: animateHeart 0.3s linear forwards !important;
 
 }
+
 
 @keyframes animateHeart {
     0% {

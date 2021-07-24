@@ -1,0 +1,282 @@
+.text-pink {
+    background-color: #EC608D;
+}
+
+
+input {
+    text-align: left;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-login {
+    padding-top: 12rem;
+    padding-bottom: 8rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    margin-top: 0;
+}
+
+.contenedor-login p {
+    margin: 0;
+}
+
+.container-contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-login {
+    font-size:2rem;
+    margin: 0;
+}
+
+.bienvenido {
+    font-family: "mont-regular" !important;
+    font-weight: 600;
+    color: #5A5A5A;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.reset-password{
+    font-size:1.3rem;
+}
+
+.container-form-login {
+    margin: 1.5rem 0;
+    padding: 2rem 1.5rem;
+    border: 10px solid #FFFFFF;
+    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
+    border-radius: 20px;
+}
+
+.separate-inputs {
+    margin-bottom: 2rem;
+}
+
+.wrapper-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.wrapper-input label {
+    font-family: "mont-light" !important;
+    color: #575650;
+    opacity: 0.8;
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+}
+
+.wrapper-input input {
+    border: none;
+    border-bottom: 1px solid #DADADA;
+    padding: 0.3rem;
+    padding-bottom: 0.1rem;
+    font-family: "mont-regular" !important;
+    font-weight: 600;
+    color: #575756;
+    font-size: 1.3rem;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.container-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.wrapper-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.wrapper-checkbox input {
+    height: 2.4rem;
+    width: 2.4rem;
+}
+
+.wrapper-checkbox label {
+    margin-bottom: 0;
+    margin-left: 0.5rem;
+    font-family: "mont-light" !important;
+    font-size: 1.1rem;
+    color: #575650;
+    mix-blend-mode: normal;
+    opacity: 0.8;
+}
+
+.forgot-password {
+    font-family: "mont-regular";
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #556EA1;
+}
+
+.contenedor-boton-pink {
+    margin-top:3rem!important;
+    margin-bottom:3rem!important;
+}
+
+.btn-only {
+    margin: 2rem 0;
+}
+
+.container-line {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.container-line hr {
+    flex-grow: 1;
+}
+
+.container-line p {
+    margin-top: -0.25rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    color: #575650;
+    opacity: 0.6;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: "mont-regular" !important;
+}
+
+.input-password {
+    position: relative;
+}
+
+.input-password input {
+    width: 100%;
+}
+
+.eye-icon {
+    position: absolute;
+    top: calc(50% - 0.2rem);
+    right: 0;
+    cursor: pointer;
+}
+
+.login--container-boton-yellow {
+    margin: 0 2.25rem;
+}
+
+/**480 - 768 - 1024 -1280 */
+@media (min-width: 480px) {
+    .contenedor-login {
+        padding-top: 12rem;
+        padding-bottom: 6rem;
+    }
+
+    .container-form-login {
+        padding: 3rem 2rem;
+    }
+
+    .login .yellow {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+    .all-content-reset{
+        width:48rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .text-pink {
+        background-color: #DC6A8D;
+        margin-top: 3rem !important;
+    }
+
+    .iniciar-sesion {
+        font-family: "mont-heavy" !important;
+        font-size: 2.3rem;
+    }
+
+    .container-form-login {
+        padding: 3rem 5rem;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .wrapper-input {
+        position: relative;
+    }
+
+    .eye-icon {
+        right: 1.5rem;
+    }
+
+    .wrapper-input input {
+        opacity: 0.8;
+        border: 1px solid #556EA1;
+        box-sizing: border-box;
+        border-radius: 10px;
+        padding: 0.8rem 1rem;
+    }
+
+    .google {
+        border: 1px solid #575650;
+    }
+
+    .google p {
+        color: #575650;
+        opacity: 0.5;
+    }
+
+    .wrapper-end {
+        margin-left: 4rem;
+        margin-right: 4rem;
+    }
+
+    .yellow {
+        margin: 0;
+    }
+
+    .icon {
+        margin-right: 4rem;
+    }
+    .btn-only{
+        margin-left:3rem;
+        margin-right:3rem;
+    }
+    .btn-only-reset{
+        margin-left:0;
+        margin-right:0;
+    }
+    .login--container-boton-yellow{
+        margin : 0 4.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .all-content {
+        min-width: 55rem;
+    }
+
+}
+
+@media(min-width:1280px) {
+    .container-form-login {
+        padding: 3rem 4rem;
+    }
+
+    .wrapper-input input {
+        height: 4rem;
+    }
+
+}
