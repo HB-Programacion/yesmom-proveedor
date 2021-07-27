@@ -17,6 +17,7 @@ import SeeProducts from "../pages/producto/VisualizateProducts/SeeProducts";
 import Home from "../pages/Home/Home";
 import Resumen from "../pages/ordenes/resumen/Resumen";
 import Login from "../pages/login/Login";
+import RecoverPassword from "../pages/login/RecoverPassword";
 import ResetPassword from "../pages/login/ResetPassword";
 
 
@@ -39,6 +40,7 @@ const AppRouter = () => {
         <Route exact path="/resumen" component={Resumen} tokenAutentificado={tokenAutentificado}/>
         {/* LOGIN */}
         <Route exact path="/iniciar-sesion" component={Login} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/recuperar-password" component={RecoverPassword} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/restablecer-password" component={ResetPassword} tokenAutentificado={tokenAutentificado}/>
         {/*******/}
         <Route exact path="/login" component={SignIn} tokenAutentificado={tokenAutentificado} />

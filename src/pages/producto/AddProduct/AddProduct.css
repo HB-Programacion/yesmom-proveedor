@@ -275,6 +275,10 @@ label[class="add--style-label-image"] {
         justify-content: center;
         align-items: center;
     }
+
+    .add--resumen-details{
+
+    }
     
 }
 
@@ -358,6 +362,10 @@ label[class="add--style-label-image"] {
     .add--box-main-proveedor input[type="color"]{
         width:6rem;
         height:6rem;
+    }
+    
+    .add--resumen-details{
+        min-width: 50rem;
     }
 }
 

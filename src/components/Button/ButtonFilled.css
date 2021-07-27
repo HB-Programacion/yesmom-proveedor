@@ -43,14 +43,14 @@
     text-align:center;
 }
 .blue p{
-    font-size:1.9rem;
+    font-size:1.8rem;
 }
 .outline-blue p{
     color:#556EA1;
 }
 .outline-black p{
     color:#575756;
-    font-size:1.9rem;
+    font-size:1.8rem;
 }
 .boton:hover{
     transform: scale(1.05);

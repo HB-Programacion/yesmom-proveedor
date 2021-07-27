@@ -38,9 +38,9 @@ input:focus {
     align-items: center;
 }
 
-.title-login {
+.title-login,.title-recover,.title-reset {
     font-size:2rem;
-    margin: 0;
+    margin: 0.5rem 0!important;
 }
 
 .bienvenido {
@@ -172,8 +172,21 @@ input:focus {
     cursor: pointer;
 }
 
-.login--container-boton-yellow {
-    margin: 0 2.25rem;
+.login--container-registrar {
+    margin: 0 2.5rem;
+}
+.container-form-reset{
+    margin-top:3rem;
+}
+
+.reset-password input::placeholder{
+    color:#4B66AE;
+}
+
+
+.show-desktop{
+    display:none;
+    z-index: -1;
 }
 
 /**480 - 768 - 1024 -1280 */
@@ -192,7 +205,13 @@ input:focus {
         margin-right: 1.5rem;
     }
     .all-content-reset{
-        width:48rem;
+        width:40rem;
+    }
+    .reset--container-contenido{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
     }
 }
 
@@ -200,6 +219,13 @@ input:focus {
     .text-pink {
         background-color: #DC6A8D;
         margin-top: 3rem !important;
+    }
+    .title-recover,.title-reset{
+        font-size:2.3rem;
+    }
+    .title-login{
+        font-size:2.3rem;
+        font-family:"mont-heavy"!important;
     }
 
     .iniciar-sesion {
@@ -258,19 +284,33 @@ input:focus {
         margin-left:0;
         margin-right:0;
     }
-    .login--container-boton-yellow{
-        margin : 0 4.5rem;
+    .login--container-registrar {
+        margin: 0 5rem;
+    }
+
+    .hide-desktop{
+        display: none;
+        z-index: -1;
+    }
+    .show-desktop{
+        display: block;
+        z-index: 1;
     }
 }
 
 @media (min-width: 1024px) {
-    .all-content {
-        min-width: 55rem;
+    .all-content{
+        width:47.5rem;
     }
-
+    .title-login,.title-reset,.title-recover{
+        font-size:2.5rem;
+    }
 }
 
 @media(min-width:1280px) {
+    .title-login,.title-reset,.title-recover{
+        font-size:3rem;
+    }
     .container-form-login {
         padding: 3rem 4rem;
     }
@@ -278,5 +318,7 @@ input:focus {
     .wrapper-input input {
         height: 4rem;
     }
-
+    .login--container-registrar {
+        margin: 0 4rem;
+    }
 }

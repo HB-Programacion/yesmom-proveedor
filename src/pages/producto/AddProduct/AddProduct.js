@@ -183,7 +183,7 @@ const AddProduct = () => {
               <div className="add--all-content">
                 <div className="add--title-content">
                   <h4 className="title-rosa">Carga manual</h4>
-                  <div className="add--details-about-product">
+                  <div className="add--details-about-product add--resumen-details">
                       <p  onClick={()=>setSelection(0)}  className={`${selection === 0 ? "selected" : ""}`}>Datos del producto</p>
                       <p  onClick={()=>setSelection(1)}  className={`${selection === 1 ? "selected" : ""}`}>Precio del producto</p>
                       <p  onClick={()=>setSelection(2)}  className={`${selection === 2 ? "selected" : ""}`}>Imagenes del producto</p>

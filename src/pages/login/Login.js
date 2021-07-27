@@ -81,7 +81,7 @@ const Login = () => {
                                     <p>¿Aún no eres parte de<br/> nuestro marketplace?</p>
                                     <hr />
                                 </div>
-                                <div className="login--container-boton-yellow login">
+                                <div className="login--container-registrar">
                                     <ButtonFilled color="yellow">
                                         Regístrate aquí
                                     </ButtonFilled>
