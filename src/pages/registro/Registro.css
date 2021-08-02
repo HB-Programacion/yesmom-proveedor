@@ -149,6 +149,9 @@
     .mq-mt-0{
         margin-top: 0!important;
     }
+    .mq-mb-0{
+        margin-bottom:0!important;
+    }
     .mq-mt-2,.mt-25{
         margin-top:2.5rem!important;
     }

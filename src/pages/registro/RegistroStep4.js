@@ -37,13 +37,13 @@ const RegistroStep4 = () => {
                 </Row>
                 <Row>
                     <Col md={6}>
-                        <div className="registro-box-input mt-0">
+                        <div className="registro-box-input mt-0 mq-mb-0">
                             <label htmlFor="refeDir">Referencia de la dirección*:</label>
                             <input type="text" id="refeDir" name="refeDir"/>
                         </div>
                     </Col>
                     <Col md={6}>
-                        <div className="registro-box-input mt-0 mb-0">
+                        <div className="registro-box-input mt-0 mq-mb-0">
                             <label htmlFor="ciudad">Ciudad*:</label>
                             <input type="text" id="ciudad" name="ciudad"/>
                         </div>
