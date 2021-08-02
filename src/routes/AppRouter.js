@@ -19,6 +19,7 @@ import Resumen from "../pages/ordenes/resumen/Resumen";
 import Login from "../pages/login/Login";
 import RecoverPassword from "../pages/login/RecoverPassword";
 import ResetPassword from "../pages/login/ResetPassword";
+import Registro from "../pages/registro/Registro";
 
 
 const AppRouter = () => {
@@ -42,6 +43,10 @@ const AppRouter = () => {
         <Route exact path="/iniciar-sesion" component={Login} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/recuperar-password" component={RecoverPassword} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/restablecer-password" component={ResetPassword} tokenAutentificado={tokenAutentificado}/>
+        {/*******/}
+        {/**REGISTRO */}
+
+        <Route exact path="/registro" component={Registro}/>
         {/*******/}
         <Route exact path="/login" component={SignIn} tokenAutentificado={tokenAutentificado} />
         {/* <Route exact path="/caru" component={CarouselContainer} /> */}
