@@ -23,13 +23,13 @@ const RegistroStep4 = () => {
                 </Row>
                 <Row>
                     <Col md={6}>
-                        <div className="registro-box-input">
+                        <div className="registro-box-input mq-mt-0">
                             <label htmlFor="telefono">Teléfono*:</label>
                             <input type="tel" id="telefono" name="telefono" />
                         </div>
                     </Col>
                     <Col md={6}>
-                            <div className="registro-box-input">
+                            <div className="registro-box-input mq-mt-0">
                                 <label htmlFor="direccion">Dirección del almacén*:</label>
                                 <input type="email" id="direccion" name="direccion"/>
                             </div>
@@ -37,13 +37,13 @@ const RegistroStep4 = () => {
                 </Row>
                 <Row>
                     <Col md={6}>
-                        <div className="registro-box-input">
+                        <div className="registro-box-input mq-mt-0">
                             <label htmlFor="refeDir">Referencia de la dirección*:</label>
                             <input type="text" id="refeDir" name="refeDir"/>
                         </div>
                     </Col>
                     <Col md={6}>
-                        <div className="registro-box-input">
+                        <div className="registro-box-input mq-mt-0">
                             <label htmlFor="ciudad">Ciudad*:</label>
                             <input type="text" id="ciudad" name="ciudad"/>
                         </div>

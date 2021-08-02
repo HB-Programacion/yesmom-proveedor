@@ -46,14 +46,25 @@ const Registro = () => {
                                     {selected === 1 && <RegistroStep2 />}
                                     {selected === 2 && <RegistroStep3 />}
                                     {selected === 3 && <RegistroStep4 />}
-                                
-                                    <ButtonFilled 
-                                        color="yellow" 
-                                        fxClick={selected===3 ? handleSubmit : handleSelection}
-                                    >
-                                        Continuar
-                                    </ButtonFilled>
+
+                                    <div className="hide-desktop">
+                                        <ButtonFilled 
+                                            color="yellow" 
+                                            fxClick={selected===3 ? handleSubmit : handleSelection}
+                                        >
+                                            Continuar
+                                        </ButtonFilled>                                    
+                                    </div>
                                 </form>
+                                
+                            </div>
+                            <div className="show-desktop registro-container-button">
+                                <ButtonFilled 
+                                    color="yellow" 
+                                    fxClick={selected===3 ? handleSubmit : handleSelection}
+                                >
+                                    Continuar
+                                </ButtonFilled>  
                             </div>
                         </div>
                     </div>

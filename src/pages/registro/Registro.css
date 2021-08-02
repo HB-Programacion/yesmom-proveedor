@@ -93,6 +93,50 @@
         margin-top:2.5rem!important;
     }
     .registro-all-content{
-        width:60rem;
+        width:53rem;
+    }
+    .registro-title{
+        font-size:1.5rem;
+    }
+    .registro-container-form{
+        padding-left:2rem;
+        padding-right:2rem;
+        padding-bottom:0;
+    }
+    .registro-box-input{
+        margin:3rem 0;
+    }
+    .registro-box-input input{
+        background: #FFFFFF;
+        opacity: 0.8;
+        border: 1px solid #556EA1;
+        box-sizing: border-box;
+        border-radius: 1rem;
+        height:4rem;
+        padding:0 1rem;
+    }
+    .registro-container-button{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+       
+    }
+    .registro-container-button > div{
+        border-radius: 30px;
+    }
+}
+
+@media (min-width : 1024px){
+    .registro-all-content{
+        width:76rem;
+    }
+    .registro-title{
+        font-size:1.8rem;
+    }
+    .registro-container-form{
+        padding:3rem;
+    }
+    .registro-box-input{
+        margin:2rem 0;
     }
 }
