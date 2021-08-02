@@ -35,8 +35,8 @@ const RegistroStep3 = () => {
                 </Col>
             </Row>
             <Row>
-                <Col md={6}>
-                    <div className="registro-box-input mt-0">
+                <Col>
+                    <div className="registro-box-input mt-0 mb-0">
                         <label htmlFor="cuentaInterbancaria">Código de cuenta interbancario (CCI)*:</label>
                         <input type="number" id="cuentaInterbancaria" name="cuentaInterbancaria"/>
                     </div>

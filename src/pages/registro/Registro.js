@@ -1,19 +1,22 @@
 import React from 'react'
 import { useState } from 'react';
-import AppLayout from '../../components/AppLayout/AppLayout'
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
+import AppLayout from '../../components/AppLayout/AppLayout'
 import ButtonFilled from '../../components/Button/ButtonFilled';
+import Stepper from '../../components/Registro/Stepper';
+
 import RegistroStep1 from './RegistroStep1';
 import RegistroStep2 from './RegistroStep2';
 import RegistroStep3 from './RegistroStep3';
 import RegistroStep4 from './RegistroStep4';
-
 import './Registro.css';
-import Stepper from '../../components/Registro/Stepper';
+import { Link } from 'react-router-dom';
 
 const Registro = () => {
 
-    const [selected,setSelected]= useState(0);
+    const [selected,setSelected]= useState(3);
     
 
     const handleSelection = () => {
@@ -26,7 +29,38 @@ const Registro = () => {
     }
     
     const handleSubmit = () => {
-        alert("Enviando...");
+        const MySwal = withReactContent(Swal);
+        MySwal.fire({
+            title: <p className="registro-title-swal">Terminos y condiciones</p>,
+            html:
+                <>
+                    <form>
+                        <div className="registro-box-checkbox">
+                            <input type="checkbox" />
+                            <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                A mattis nisi, vitae amet, eleifend etiam dolor. 
+                                Quisque quam amet neque at maecenas ornare sagittis sed.</label>
+                        </div>
+                        <div className="registro-box-checkbox">
+                            <input type="checkbox" />
+                            <label>Lorem ipsum dolor sit amet,<br/> consectetur.</label>
+                        </div>
+                        <div className="registro-box-checkbox">
+                            <input type="checkbox" />
+                            <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                A mattis nisi, vitae amet, eleifend etiam dolor. 
+                                Quisque quam amet neque at maecenas ornare sagittis sed.</label>
+                        </div>
+                        <div className="registro-box-checkbox">
+                            <input type="checkbox" />
+                            <label>Lorem ipsum dolor sit amet,<br/> consectetur.</label>
+                        </div>
+                    </form>
+                    <p className="to-politics">Ver comisiones y políticas de pago</p>
+                </>,
+            showConfirmButton:true ,
+            confirmButtonText:<p>Aceptar</p>,
+          })
     }
 
     return (
