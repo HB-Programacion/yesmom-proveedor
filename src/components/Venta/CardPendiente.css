@@ -1,0 +1,43 @@
+
+.card-pendiente{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0 2.5rem;
+    background: #FFFFFF;;
+    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
+    border-radius: 17px;
+}
+.card-pendiente p{
+    margin:0;
+    font-family: "mont-regular";
+    font-weight: 500;
+    font-size:2.5rem;
+    color: #575650;
+}
+.card-pendiente-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-grow:1;
+}
+.card-pendiente-text p{
+    margin: 0 2rem;
+}
+.card-ver-pendientes{
+    cursor:pointer;
+    width:8.5rem;
+    height:8.5rem;
+    background-color: #DC6A8D;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 17px;
+    border-bottom-right-radius: 17px;
+}
+.card-ver-pendientes p{
+    font-size:2rem;
+    color:#FFFFFF;
+}

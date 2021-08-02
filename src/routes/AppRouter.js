@@ -20,6 +20,7 @@ import Login from "../pages/login/Login";
 import RecoverPassword from "../pages/login/RecoverPassword";
 import ResetPassword from "../pages/login/ResetPassword";
 import Registro from "../pages/registro/Registro";
+import ResumenVenta from "../pages/ventas/ResumenVenta";
 
 
 const AppRouter = () => {
@@ -39,15 +40,16 @@ const AppRouter = () => {
         <Route exact path="/show-product" component={ShowProduct} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/visualizate-products" component={SeeProducts} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/resumen" component={Resumen} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/resumen-venta" component={ResumenVenta} tokenAutentificado={tokenAutentificado}/>
         {/* LOGIN */}
         <Route exact path="/iniciar-sesion" component={Login} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/recuperar-password" component={RecoverPassword} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/restablecer-password" component={ResetPassword} tokenAutentificado={tokenAutentificado}/>
         {/*******/}
         {/**REGISTRO */}
-
         <Route exact path="/registro" component={Registro}/>
         {/*******/}
+
         <Route exact path="/login" component={SignIn} tokenAutentificado={tokenAutentificado} />
         {/* <Route exact path="/caru" component={CarouselContainer} /> */}
       </Switch>

@@ -10,6 +10,10 @@ body {
   font-family: "mont-heavy";
   src: url("./fonts/Mont-Heavy.otf");
 }
+@font-face {
+  font-family: "mont-bold";
+  src: url("./fonts/Mont-bold.ttf");
+}
 
 @font-face {
   font-family: "omnes-bold";

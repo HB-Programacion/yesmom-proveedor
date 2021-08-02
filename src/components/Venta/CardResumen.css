@@ -1,0 +1,32 @@
+
+.card-resumen{
+    background: #FFFFFF;
+    border: 10px solid #FFFFFF;
+    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
+    border-radius: 20px;
+    padding:1rem 0;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.color-normal{
+    color:#575650;
+    opacity: 0.5;
+}
+.color-primary{
+    color:#556EA1;
+}
+.card-title-text{
+    font-family:"mont-semibold";
+    font-size:2.5rem;
+    margin-bottom:0;
+}
+.card-title-amount{
+    font-family: "mont-heavy";
+    font-size:5rem;
+}
+
+
+
