@@ -37,7 +37,7 @@ const RegistroStep1 = () => {
                         </div>
                     </Col>
                     <Col md={6}>
-                        <div className="registro-box-input mt-0 mq-mb-0">
+                        <div className="registro-box-input mt-0 mb-0 mq-mb-0">
                             <label htmlFor="password">Contraseña*:</label>
                             <div className="registro-input-password">
                                 <img src={eyeIcon} />

@@ -1,8 +1,9 @@
 .mt-0{
     margin-top:0;
 }
+
 .mb-0{
-    margin-bottom:0;
+    margin-bottom:0!important;
 }
 .mb-1{
     margin-bottom:1.5rem;
@@ -83,6 +84,9 @@
     border-radius:30px;
     border:2.5px dashed #DC6A8D;
 }
+.swal2-title{
+    padding-top:2rem!important;
+}
 .registro-title-swal{
     font-family:"mont-semibold";
     font-weight:600;
@@ -100,7 +104,7 @@
 }
 
 .registro-box-checkbox label{
-    margin-left:3rem;
+    margin-left:2rem;
     text-align: justify;
     font-family:"mont-regular";
     font-size:1.3rem;
@@ -108,12 +112,22 @@
     opacity: 0.8;
 }
 
+.swal2-html-container{
+    overflow: hidden;
+}
+
+
 /*boton confirm*/
 .swal2-confirm{
     width:100%;
     margin:0 2rem 2rem 2rem;
     background-color: #DC6A8D!important;
     border-radius:30px!important;
+    transition: 0.3s ease-in-out;
+}
+.swal2-confirm:hover{
+    background-image: none!important;
+    transform: scale(1.05);
 }
 .swal2-confirm:focus{
     box-shadow: none!important;
@@ -121,10 +135,15 @@
 .swal2-confirm p{
     margin:0;
     font-family:"omnes-regular";
-    font-size:2.3rem;
+    font-size:1.6rem;
     color:#FFFFFF;
 }
 
+.registro-politics{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .to-politics{
     margin-top:2rem;
     font-family:"mont-regular";
@@ -187,6 +206,26 @@
     .registro-container-button > div{
         border-radius: 30px;
     }
+
+    /**SWAL**/
+    .swal2-popup{
+        width:60rem;
+    }
+    
+    .swal2-html-container{
+        margin:0 3rem;
+    }
+    .swal2-confirm{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width:15rem;
+        padding:1rem 0;
+        border-radius: 20px!important;
+    }
+    .swal2-confirm p{
+        font-family:"omnes-bold";
+    }
 }
 
 @media (min-width : 1024px){
@@ -202,5 +241,22 @@
     }
     .registro-box-input{
         margin:2rem 0;
+    }
+    /**SWAL**/
+    .swal2-popup{
+        width:70rem;
+    }
+    .registro-title-swal{
+        text-align: left;
+        margin-left:2rem;
+    }
+    .swal2-html-container{
+        margin:0 5rem;
+    }
+    .registro-politics{
+        justify-content: flex-start;
+    }
+    .swal2-confirm p{
+        font-size:1.8rem;
     }
 }

@@ -94,7 +94,7 @@ const Home = () => {
                                 </div>
 
                                 <div className="home--empezar-a-vender">
-                                    <ButtonFilled color="first">
+                                    <ButtonFilled color="pink">
                                         Empezar a vender
                                     </ButtonFilled>
                                 </div>

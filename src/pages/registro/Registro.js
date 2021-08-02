@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import { Col,Row } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
@@ -12,7 +13,7 @@ import RegistroStep2 from './RegistroStep2';
 import RegistroStep3 from './RegistroStep3';
 import RegistroStep4 from './RegistroStep4';
 import './Registro.css';
-import { Link } from 'react-router-dom';
+
 
 const Registro = () => {
 
@@ -31,32 +32,41 @@ const Registro = () => {
     const handleSubmit = () => {
         const MySwal = withReactContent(Swal);
         MySwal.fire({
-            title: <p className="registro-title-swal">Terminos y condiciones</p>,
+            title: <p className="registro-title-swal">Términos y condiciones</p>,
             html:
                 <>
                     <form>
-                        <div className="registro-box-checkbox">
-                            <input type="checkbox" />
-                            <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                A mattis nisi, vitae amet, eleifend etiam dolor. 
-                                Quisque quam amet neque at maecenas ornare sagittis sed.</label>
-                        </div>
-                        <div className="registro-box-checkbox">
-                            <input type="checkbox" />
-                            <label>Lorem ipsum dolor sit amet,<br/> consectetur.</label>
-                        </div>
-                        <div className="registro-box-checkbox">
-                            <input type="checkbox" />
-                            <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                A mattis nisi, vitae amet, eleifend etiam dolor. 
-                                Quisque quam amet neque at maecenas ornare sagittis sed.</label>
-                        </div>
-                        <div className="registro-box-checkbox">
-                            <input type="checkbox" />
-                            <label>Lorem ipsum dolor sit amet,<br/> consectetur.</label>
-                        </div>
+                        <Row>
+                            <Col md={6} >
+                                <div className="registro-box-checkbox">
+                                    <input type="checkbox" />
+                                    <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                        A mattis nisi, vitae amet, eleifend etiam dolor. 
+                                        Quisque quam amet neque at maecenas ornare sagittis sed.</label>
+                                </div>
+                                <div className="registro-box-checkbox">
+                                    <input type="checkbox" />
+                                    <label>Lorem ipsum dolor sit amet,<br/> consectetur.</label>
+                                </div>
+                            </Col>
+                            <Col md={6}>
+                                <div className="registro-box-checkbox">
+                                    <input type="checkbox" />
+                                    <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                        A mattis nisi, vitae amet, eleifend etiam dolor. 
+                                        Quisque quam amet neque at maecenas ornare sagittis sed.</label>
+                                </div>
+
+                                <div className="registro-box-checkbox">
+                                    <input type="checkbox" />
+                                    <label>Lorem ipsum dolor sit amet,<br/> consectetur.</label>
+                                </div>
+                            </Col>
+                        </Row>
                     </form>
-                    <p className="to-politics">Ver comisiones y políticas de pago</p>
+                    <div className="registro-politics">
+                        <p className="to-politics">Ver comisiones y políticas de pago</p>
+                    </div>
                 </>,
             showConfirmButton:true ,
             confirmButtonText:<p>Aceptar</p>,
