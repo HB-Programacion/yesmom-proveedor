@@ -53,7 +53,7 @@ const Home = () => {
                                             Yes Mom es la marca aliada de papis y mamis, porque los ayuda a
                                             disfrutar esta maravillosa etapa sin preocupaciones. Nuestra
                                             plataforma digital reúne en un solo lugar todo lo que necesitan
-                                            para la llegada de su bebé y acompañar su crecimiento. ¡Forma
+                                            para la llegada de su bebé y acompañar su crecimiento.<br/><br/> ¡Forma
                                             parte de la experiencia de pertenecer a la única web que ayuda a
                                             armar las mejores listas de artículos y servicios para bebés en
                                             el mercado peruano!

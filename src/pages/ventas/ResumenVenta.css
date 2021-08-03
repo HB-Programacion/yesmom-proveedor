@@ -54,3 +54,44 @@
 .resumen-container-card-pendiente{
     margin:3rem 0;
 }
+
+@media (min-width : 480px){
+    .resumen-contenido-centered{
+        width:48rem;
+        margin:0 auto;
+    }
+}
+
+@media (min-width : 768px){
+    .resumen-contenido-centered{
+        width:100%;
+    }
+    .resumen-container-card-pendiente{
+        width:50%;
+    }
+    .resumen-container-pendientes{
+        display: flex;
+    }
+
+    .resumen-venta-banner p {
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width : 1024px){
+    .resumen-contenido-centered{
+        padding: 0 5rem;
+    }
+    .resumen-container-card-pendiente{
+        width:35%;
+    }
+
+    .resumen-venta-banner p {
+        font-size: 4rem;
+    }
+}
+@media (min-width : 1280px){
+    .resumen-venta-banner p {
+        font-size: 4.5rem;
+    }
+}
