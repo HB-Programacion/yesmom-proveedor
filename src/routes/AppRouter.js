@@ -20,6 +20,7 @@ import Login from "../pages/login/Login";
 import RecoverPassword from "../pages/login/RecoverPassword";
 import ResetPassword from "../pages/login/ResetPassword";
 import Registro from "../pages/registro/Registro";
+import Profile from "../pages/store/profile/Profile";
 
 
 const AppRouter = () => {
@@ -47,6 +48,9 @@ const AppRouter = () => {
         {/**REGISTRO */}
 
         <Route exact path="/registro" component={Registro}/>
+        {/**PROFILE - STORE */}
+        <Route exact path="/perfil-tienda" component={Profile} />
+
         {/*******/}
         <Route exact path="/login" component={SignIn} tokenAutentificado={tokenAutentificado} />
         {/* <Route exact path="/caru" component={CarouselContainer} /> */}
