@@ -8,6 +8,7 @@
 
 .profile-store--all-content {
   padding: 1rem 1.7rem 15rem 1.7rem;
+  min-height: calc(100% -382.5px);
 
 }
 
@@ -44,24 +45,31 @@
 
 .profile-store-content-card{
   width: 100%;
-  
+}
+.profile-store-content-card-input{
+  width: 100%;
+  margin-top: 16px;
 }
 
-.profile-store-content-card p:first-child{
-  font-family: "mont-thin" !important;
+.profile-store-content-card>p:first-child, .profile-store-recommendation, .obligatory-field{
+  font-family: "mont-thin" ;
   font-size: 13px;
   font-weight: 300;
   color: #575650;
   line-height: 15px;
   letter-spacing: -0.5px;
   text-align: justify;
+  opacity: 0.8;
 }
 
+.obligatory-field{
+  padding-top:10px;
+  margin-bottom: 59px;
+}
 
 .profile-store-content-input{
   display: flex;
-  height: 1.9rem;
-/*   border: 1px solid red; */
+  min-height: 60px;
   flex-direction: column;
 }
 
@@ -112,8 +120,42 @@ font-size: 23px;
 line-height: 25px;
 padding: 17px auto;
 }
-/* TODO: */
-.profile-store-container-form {
+/* text button input*/
+.text-button-image{
+  color: #fff !important;
+  font-family: "omnes-bold" !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 23px !important;
+  line-height: 25px !important;
+  display: flex !important;
+  align-items: center !important;
+  text-align: center !important;
+
+}
+/* DRAGNDROP */
+.profile-store-content-dragndrop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-store-container-button {
+  width: 100%;
+  float: right;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 90px;
+  border-radius: 40px;
+  padding: 0 60px;
+}
+.profile-store-container-button>.boton{
+  width: 100%;
+  height: 60px;
+  border-radius: 40px;
   
 }
 
@@ -122,6 +164,7 @@ padding: 17px auto;
       width:100%;
       margin: 0 auto;
       padding : 0 auto;
+      min-height: calc(100% -382.5px);
   }
   .profile-store--container-contenido{
       width: 45rem;
@@ -132,15 +175,29 @@ padding: 17px auto;
     width: 10.8rem;
   }
 }
+
 @media (min-width : 768px){
   .profile-store--all-content{
     width:100%;
+    min-height: calc(100% -382.5px);
   }
   
   .profile-store--container-contenido{
     width: 72rem;
     margin: 0 auto;
     padding : 0 auto;
+  }
+  /* text button input*/
+  .text-button-image{
+    color: #fff;
+  }
+  /* DRAGNDROP */
+  .profile-store-content-dragndrop{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
   }
 }
 @media (min-width : 1024px){
@@ -152,6 +209,10 @@ padding: 17px auto;
     width: 72rem;
     margin: 0 auto;
     padding : 0 auto;
+  }
+  /* text button input*/
+  .text-button-image{
+    color: #fff;
   }
 }
 @media (min-width : 1280px){
@@ -168,5 +229,64 @@ padding: 17px auto;
   }
   .profile-store-container-input, .profile-store-filename {
     width: 36.8rem;
+  }
+  .profile-store-content-card{
+    width: 776px;
+    margin: 16px auto 0 auto;
+  }
+  
+
+  /* DRAGNDROP */
+  .profile-store-content-dragndrop{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  /* text button input*/
+  .text-button-image{
+    color: #fff;
+  }
+  /* CONTAINER INPUT FILES */
+  .profile-store-content-input{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  /* INPUT FILES */
+  .profile-store-container-input{
+    display: flex;
+    border: 1px solid #556EA1;
+    padding: 0 10px;
+    border-radius: 20px;
+    width: 570px;
+    height: 60px !important;
+  }
+  
+  .profile-store-container-input-mobile {
+    display: none;
+   
+  }
+  .profile-store-container-button{
+    max-width: 317px;
+    float: right;
+    margin-top: 40px;
+    display: flex;
+    align-items: stretch;
+    height: 90px;
+    border-radius: 40px;
+  }
+  .profile-store-container-button>.boton{
+    width: 260px;
+    border-radius: 40px;
+  }
+  .profile-step-container-button{
+    display: flex;
+    height: 60px ;
+  }
+  .profile-step-container-button.boton{
+    border-radius: 30px;
   }
 }
