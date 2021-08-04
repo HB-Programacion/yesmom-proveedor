@@ -22,6 +22,7 @@ import ResetPassword from "../pages/login/ResetPassword";
 import Registro from "../pages/registro/Registro";
 import ResumenVenta from "../pages/ventas/ResumenVenta";
 import InfoPerfil from "../pages/Perfil/InfoPerfil";
+import Profile from "../pages/store/profile/Profile";
 
 
 const AppRouter = () => {
@@ -51,6 +52,9 @@ const AppRouter = () => {
         {/*******/}
         {/**REGISTRO */}
         <Route exact path="/registro" component={Registro}/>
+        {/**PROFILE - STORE */}
+        <Route exact path="/perfil-tienda" component={Profile} />
+
         {/*******/}
 
         <Route exact path="/login" component={SignIn} tokenAutentificado={tokenAutentificado} />
