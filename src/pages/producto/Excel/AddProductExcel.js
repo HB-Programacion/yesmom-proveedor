@@ -1,10 +1,11 @@
 import React from 'react';
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import ButtonFilled from '../../../components/Button/ButtonFilled';
+import { Col, Row } from 'react-bootstrap';
 
 import bannerMobile  from '../../../images/banner.png'
 import bannerDesktop from '../../../images/banner-desktop.png'
-
+import ondaBlanca from '../../../images/onda-blanca.svg';
 import excelFirst from '../../../images/producto/excel/ExcelFirst.png';
 import excelSecond from  '../../../images/producto/excel/ExcelSecond.png';
 import excelThird from  '../../../images/producto/excel/ExcelThird.png';
@@ -14,9 +15,9 @@ import arrow from '../../../images/producto/excel/arrow.svg';
 import download from '../../../images/producto/excel/download.svg';
 
 
-import './AddProductExcel.css';
 import CircleImage from '../../../components/CircleImage/CircleImage';
-import { Col, Row } from 'react-bootstrap';
+import './AddProductExcel.css';
+
 const AddProductExcel = () => {
 
     const steps=[
@@ -31,9 +32,13 @@ const AddProductExcel = () => {
                 <div className="excel--box-main-proveedor">
                     <div className="excel--contenedor-centered">
                         <div className="excel--container-banner">
-                            <img className="excel--mobile" src={bannerMobile} />
-                            <img className="excel--desktop" src={bannerDesktop} />
-                            <p>Productos</p>
+                            <img className="img-banner excel--mobile" src={bannerMobile} />
+                            <img className="img-banner excel--desktop" src={bannerDesktop} />
+                            <div className="excel--venta-container-title">
+                                <img className="onda-blanca" src={ondaBlanca} alt="ondas-blanca" />
+                                <p>Productos</p>
+                                <img className="onda-blanca" src={ondaBlanca} alt="ondas-blanca" />
+                            </div>
                         </div>
                         <div className="excel--all-content">
                             <div className="excel--container-contenido"> 

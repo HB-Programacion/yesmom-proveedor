@@ -9,11 +9,11 @@
     position: relative;
 }
 
-.resumen-venta-banner img {
+.resumen-venta-banner .img-banner {
     width: 100%;
 }
 
-.resumen-venta-banner p {
+.resumen-venta-banner .resumen-venta-container-title {
     margin: 0;
     position: absolute;
     top: 50%;
@@ -24,7 +24,16 @@
     font-family: "clicker" !important;
     color: #ffffff;
 }
-
+/**TITLE**/
+.resumen-venta-container-title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.resumen-venta-container-title p{
+    margin:0 1rem;
+}
 /**SUBTITLE**/
 .resumen-seguimiento-ventas{
     margin:3rem;
@@ -43,13 +52,7 @@
 /**CARDS**/
 
 .resumen-container-cards .card-resumen{
-    margin:2rem 0;
-}
-.resumen-container-cards .card-resumen:first-of-type{
-    margin-top:3rem;
-}
-.resumen-container-cards .card-resumen:last-of-type{
-    margin-bottom:4rem;
+    margin:1rem 0;
 }
 .resumen-container-card-pendiente{
     margin:3rem 0;

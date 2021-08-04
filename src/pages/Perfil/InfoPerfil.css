@@ -1,0 +1,10 @@
+.contenedor-info-perfil{
+    padding: 8.5rem 0 10rem 0;
+}
+
+.info-container-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

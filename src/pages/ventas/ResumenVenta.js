@@ -4,12 +4,13 @@ import { Row,Col } from 'react-bootstrap';
 
 import pig from '../../images/ventas/pig.svg';
 import bell from '../../images/ventas/bell.svg';
+import ondaBlanca from '../../images/onda-blanca.svg';
 import bannerMobile from '../../images/ventas/resumen-mobile.png';
 import bannerDesktop from '../../images/ventas/resumen-desktop.png';
-
-import './ResumenVenta.css';
 import CardResumen from '../../components/Venta/CardResumen';
 import CardPendiente from '../../components/Venta/CardPendiente';
+
+import './ResumenVenta.css';
 
 const ResumenVenta = () => {
     return (
@@ -18,9 +19,13 @@ const ResumenVenta = () => {
                 <div className="resumen-venta-contenido">
                     <div className="resumen-venta-all-content">
                         <div className="resumen-venta-banner">
-                            <img className="hide-desktop" src={bannerMobile} />
-                            <img className="show-desktop" src={bannerDesktop} />
-                            <p>Resumen de venta</p>
+                            <img className="img-banner hide-desktop" src={bannerMobile} />
+                            <img className="img-banner show-desktop" src={bannerDesktop} />
+                            <div className="resumen-venta-container-title">
+                                <img className="onda-blanca" src={ondaBlanca} alt="ondas-blanca" />
+                                <p>Resumen de venta</p>
+                                <img className="onda-blanca" src={ondaBlanca} alt="ondas-blanca" />
+                            </div>
                         </div>
                         <div className="resumen-contenido-centered">
 
@@ -30,7 +35,7 @@ const ResumenVenta = () => {
                                     <p>Seguimiento de ventas:</p>
                                 </div>
                                 <div className="resumen-container-cards">
-                                    <Row>
+                                    <Row className="mt-3 mb-3">
                                         <Col md={12} xl={4}>
                                             <CardResumen 
                                                 color="primary" 

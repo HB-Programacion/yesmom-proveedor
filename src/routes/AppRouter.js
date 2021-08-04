@@ -21,6 +21,7 @@ import RecoverPassword from "../pages/login/RecoverPassword";
 import ResetPassword from "../pages/login/ResetPassword";
 import Registro from "../pages/registro/Registro";
 import ResumenVenta from "../pages/ventas/ResumenVenta";
+import InfoPerfil from "../pages/Perfil/InfoPerfil";
 
 
 const AppRouter = () => {
@@ -45,6 +46,8 @@ const AppRouter = () => {
         <Route exact path="/iniciar-sesion" component={Login} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/recuperar-password" component={RecoverPassword} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/restablecer-password" component={ResetPassword} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/informacion-perfil" component={InfoPerfil} tokenAutentificado={tokenAutentificado}/>
+
         {/*******/}
         {/**REGISTRO */}
         <Route exact path="/registro" component={Registro}/>
