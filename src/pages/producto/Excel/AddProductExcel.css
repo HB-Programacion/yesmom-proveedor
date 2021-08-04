@@ -13,11 +13,11 @@
     position: relative;
 }
 
-.excel--container-banner img {
+.excel--container-banner .img-banner{
     width: 100%;
 }
 
-.excel--container-banner p {
+.excel--container-banner .excel--venta-container-title {
     margin: 0;
     position: absolute;
     top: 50%;
@@ -28,7 +28,14 @@
     font-family: "clicker" !important;
     color: #ffffff;
 }
-
+.excel--venta-container-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.excel--venta-container-title p{
+    margin: 0 1rem;
+}
 /*TITLE**/
 .excel--title-product {
     font-family: "mont-semibold" !important;

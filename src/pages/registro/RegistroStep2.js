@@ -55,13 +55,13 @@ const RegistroStep2 = () => {
 
                 <Row>
                     <Col md={6}>
-                        <div className="registro-box-input mt-0">
+                        <div className="registro-box-input mt-0 mq-mb-0">
                             <label htmlFor="direccion">Dirección*:</label>
                             <input type="text" id="direccion" name="direccion" />
                         </div>
                     </Col>
                     <Col md={6}>
-                        <div className="registro-box-input mt-0">
+                        <div className="registro-box-input mt-0 mb-0 mq-mb-0">
                             <label htmlFor="pagina">Página web*:</label>
                             <input type="text" id="pagina" name="pagina" />
                         </div>

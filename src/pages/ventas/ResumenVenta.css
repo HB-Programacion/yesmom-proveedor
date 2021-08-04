@@ -1,0 +1,100 @@
+
+.contenedor-resumen-venta{
+    padding: 6.5rem 0 10rem 0;
+}
+
+/*BANNER*/
+.resumen-venta-banner {
+    width: 100%;
+    position: relative;
+}
+
+.resumen-venta-banner .img-banner {
+    width: 100%;
+}
+
+.resumen-venta-banner .resumen-venta-container-title {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 3rem;
+    font-family: "clicker" !important;
+    color: #ffffff;
+}
+/**TITLE**/
+.resumen-venta-container-title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.resumen-venta-container-title p{
+    margin:0 1rem;
+}
+/**SUBTITLE**/
+.resumen-seguimiento-ventas{
+    margin:3rem;
+}
+.resumen-subtitles{
+    display: flex;
+    align-items: center;
+}
+.resumen-subtitles p{
+    margin:0 0 0 1rem;
+    font-family: "mont-bold";
+    font-size:2rem;
+    color:#DC6A8D;
+}
+
+/**CARDS**/
+
+.resumen-container-cards .card-resumen{
+    margin:1rem 0;
+}
+.resumen-container-card-pendiente{
+    margin:3rem 0;
+}
+
+@media (min-width : 480px){
+    .resumen-contenido-centered{
+        width:48rem;
+        margin:0 auto;
+    }
+}
+
+@media (min-width : 768px){
+    .resumen-contenido-centered{
+        width:100%;
+    }
+    .resumen-container-card-pendiente{
+        width:50%;
+    }
+    .resumen-container-pendientes{
+        display: flex;
+    }
+
+    .resumen-venta-banner p {
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width : 1024px){
+    .resumen-contenido-centered{
+        padding: 0 5rem;
+    }
+    .resumen-container-card-pendiente{
+        width:35%;
+    }
+
+    .resumen-venta-banner p {
+        font-size: 4rem;
+    }
+}
+@media (min-width : 1280px){
+    .resumen-venta-banner p {
+        font-size: 4.5rem;
+    }
+}

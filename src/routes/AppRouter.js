@@ -20,6 +20,8 @@ import Login from "../pages/login/Login";
 import RecoverPassword from "../pages/login/RecoverPassword";
 import ResetPassword from "../pages/login/ResetPassword";
 import Registro from "../pages/registro/Registro";
+import ResumenVenta from "../pages/ventas/ResumenVenta";
+import InfoPerfil from "../pages/Perfil/InfoPerfil";
 import Profile from "../pages/store/profile/Profile";
 
 
@@ -40,18 +42,21 @@ const AppRouter = () => {
         <Route exact path="/show-product" component={ShowProduct} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/visualizate-products" component={SeeProducts} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/resumen" component={Resumen} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/resumen-venta" component={ResumenVenta} tokenAutentificado={tokenAutentificado}/>
         {/* LOGIN */}
         <Route exact path="/iniciar-sesion" component={Login} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/recuperar-password" component={RecoverPassword} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/restablecer-password" component={ResetPassword} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/informacion-perfil" component={InfoPerfil} tokenAutentificado={tokenAutentificado}/>
+
         {/*******/}
         {/**REGISTRO */}
-
         <Route exact path="/registro" component={Registro}/>
         {/**PROFILE - STORE */}
         <Route exact path="/perfil-tienda" component={Profile} />
 
         {/*******/}
+
         <Route exact path="/login" component={SignIn} tokenAutentificado={tokenAutentificado} />
         {/* <Route exact path="/caru" component={CarouselContainer} /> */}
       </Switch>

@@ -1,13 +1,16 @@
 .mt-0{
     margin-top:0;
 }
+
 .mb-0{
-    margin-bottom:0;
+    margin-bottom:0!important;
 }
 .mb-1{
     margin-bottom:1.5rem;
 }
-
+.mt-25{
+    margin-top:0!important;
+}
 .contenedor-registro {
     padding-top: 10rem;
     padding-bottom: 8rem;
@@ -73,6 +76,82 @@
     right:0;
 }
 
+/**SWAL **/
+.swal2-container{
+    z-index:1000000;
+}
+.swal2-popup{
+    border-radius:30px;
+    border:2.5px dashed #DC6A8D;
+}
+.swal2-title{
+    padding-top:2rem!important;
+}
+.registro-title-swal{
+    font-family:"mont-semibold";
+    font-weight:600;
+    font-size:1.8rem;
+    color:#5A5A5A;
+}
+.registro-box-checkbox{
+    display: flex;
+    margin:1rem 0;
+}
+
+.registro-box-checkbox input{
+    color:red;
+    margin-top:0.25rem;
+}
+
+.registro-box-checkbox label{
+    margin-left:2rem;
+    text-align: justify;
+    font-family:"mont-regular";
+    font-size:1.3rem;
+    color: #575650;
+    opacity: 0.8;
+}
+
+.swal2-html-container{
+    overflow: hidden;
+}
+
+
+/*boton confirm*/
+.swal2-confirm{
+    width:100%;
+    margin:0 2rem 2rem 2rem;
+    background-color: #DC6A8D!important;
+    border-radius:30px!important;
+    transition: 0.3s ease-in-out;
+}
+.swal2-confirm:hover{
+    background-image: none!important;
+    transform: scale(1.05);
+}
+.swal2-confirm:focus{
+    box-shadow: none!important;
+}
+.swal2-confirm p{
+    margin:0;
+    font-family:"omnes-regular";
+    font-size:1.6rem;
+    color:#FFFFFF;
+}
+
+.registro-politics{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.to-politics{
+    margin-top:2rem;
+    font-family:"mont-regular";
+    font-size:1.3rem;
+    color:#556EA1;
+    text-decoration: underline;
+}
+/***/
 @media (min-width : 480px){
     .registro-container-contenido{
         display:flex;
@@ -89,10 +168,95 @@
     .mq-mt-0{
         margin-top: 0!important;
     }
-    .mq-mt-2{
+    .mq-mb-0{
+        margin-bottom:0!important;
+    }
+    .mq-mt-2,.mt-25{
         margin-top:2.5rem!important;
     }
     .registro-all-content{
+        width:53rem;
+    }
+    .registro-title{
+        font-size:1.5rem;
+    }
+    .registro-container-form{
+        padding-left:2rem;
+        padding-right:2rem;
+        padding-bottom:0;
+    }
+    .registro-box-input{
+        margin:3rem 0;
+    }
+    .registro-box-input input{
+        background: #FFFFFF;
+        opacity: 0.8;
+        border: 1px solid #556EA1;
+        box-sizing: border-box;
+        border-radius: 1rem;
+        height:4rem;
+        padding:0 1rem;
+    }
+    .registro-container-button{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+       
+    }
+    .registro-container-button > div{
+        border-radius: 30px;
+    }
+
+    /**SWAL**/
+    .swal2-popup{
         width:60rem;
+    }
+    
+    .swal2-html-container{
+        margin:0 3rem;
+    }
+    .swal2-confirm{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width:15rem;
+        padding:1rem 0;
+        border-radius: 20px!important;
+    }
+    .swal2-confirm p{
+        font-family:"omnes-bold";
+    }
+}
+
+@media (min-width : 1024px){
+    .registro-all-content{
+        width:76rem;
+    }
+    .registro-title{
+        font-size:1.8rem;
+    }
+    .registro-container-form{
+        padding:3rem;
+        padding-bottom:0;
+    }
+    .registro-box-input{
+        margin:2rem 0;
+    }
+    /**SWAL**/
+    .swal2-popup{
+        width:70rem;
+    }
+    .registro-title-swal{
+        text-align: left;
+        margin-left:2rem;
+    }
+    .swal2-html-container{
+        margin:0 5rem;
+    }
+    .registro-politics{
+        justify-content: flex-start;
+    }
+    .swal2-confirm p{
+        font-size:1.8rem;
     }
 }

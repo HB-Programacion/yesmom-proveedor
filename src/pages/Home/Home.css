@@ -8,7 +8,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgba(201, 219, 195, 0.5);
-    padding: 8rem 3rem;
+    padding: 12rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -294,6 +294,11 @@ textarea:focus {
 }
 
 @media (min-width:768px) {
+
+    .home--container-contenido{
+        background-image: url(../../images/banner-home-desktop.png);
+
+    }
     .home--title-page {
         font-size: 2.5rem;
     }
@@ -358,6 +363,9 @@ textarea:focus {
     h5 {
         font-size: 1.6rem!important;
     }
+    .home--all-content{
+        padding-top:8.5rem;
+    }
 
     .home--section-initial {
         width: 70%;
@@ -403,7 +411,11 @@ textarea:focus {
     h5 {
         font-size: 2rem!important;
     }
-
+    .home--container-contenido{
+        background-position: unset;
+        padding: 15rem 3rem 20rem 3rem;
+        /* height: 100vh; */
+    }
     .home--title-page {
         font-size: 3rem;
     }
@@ -423,6 +435,9 @@ textarea:focus {
         padding: 0 1rem;
     }
 
+    .home--empezar-a-vender>div {
+        width: 20%;
+    }
     .home--end-text {
         padding: 0 8rem;
     }
