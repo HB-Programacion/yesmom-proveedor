@@ -29,5 +29,13 @@
         justify-content: flex-start;
         margin-left:1rem;
     }
+    .info-container-button-only{
+        width:25%;
+    }
+}
+@media (min-width : 1024px){
+    .info-container-button-only{
+        width:20%;
+    }
 }
 

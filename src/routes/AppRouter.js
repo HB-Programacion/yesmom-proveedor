@@ -25,6 +25,7 @@ import InfoPerfil from "../pages/perfil/InfoPerfil";
 import InfoPerfilRegistro from "../pages/perfil/registro/Registro";
 import Profile from "../pages/store/profile/Profile";
 import ChangePassword from "../pages/perfil/cambiar-password/ChangePassword";
+import ProfileStoreGeneral from "../pages/perfil/tienda/ProfileStoreGeneral";
 
 
 const AppRouter = () => {
@@ -52,6 +53,7 @@ const AppRouter = () => {
         <Route exact path="/informacion-perfil" component={InfoPerfil} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/informacion-perfil/registro" component={InfoPerfilRegistro} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/informacion-perfil/cambiar-password" component={ChangePassword} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/informacion-perfil/perfil-tienda" component={ProfileStoreGeneral} tokenAutentificado={tokenAutentificado}/>
 
         {/*******/}
         {/**REGISTRO */}

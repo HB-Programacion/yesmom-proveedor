@@ -9,8 +9,8 @@ function Sidebar() {
     const pushLinks=[
         { name : "Registro" , to : "/informacion-perfil/registro" , active:"/informacion-perfil/registro"},
         { name : "Productos" , to : "/" , active:"/"},
-        { name : "Cambiar contraseña" , to : "/" , active:"/"},
-        { name : "Perfil de tienda" , to : "/" , active:"/"},
+        { name : "Cambiar contraseña" , to : "/informacion-perfil/cambiar-password" , active:"/informacion-perfil/cambiar-password"},
+        { name : "Perfil de tienda" , to : "/informacion-perfil/perfil-tienda" , active:"/informacion-perfil/perfil-tienda"},
         { name : "Términos y condiciones" , to : "" , active:"/"},
         { name : "Desactivar cuenta" , to : "" , active:"/"},
     ]

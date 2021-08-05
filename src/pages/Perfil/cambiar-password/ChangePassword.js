@@ -4,18 +4,16 @@ import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
 import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
 
-import RegistroStep1 from '../../registro/RegistroStep1';
-import RegistroStep2 from '../../registro/RegistroStep2';
-import RegistroStep3 from '../../registro/RegistroStep3';
-import RegistroStep4 from '../../registro/RegistroStep4';
-
 import back from '../../../images/perfil/back.svg';
 import iconEditar from '../../../images/header/icon-edit.svg';
 
 import ButtonFilled from '../../../components/Button/ButtonFilled';
 import Sidebar from '../../../components/Perfil/Sidebar/Sidebar';
 
+import iconEye from '../../../images/perfil/icon-eye.svg';
+
 import './ChangePassword.css';
+
 const ChangePassword = () => {
     return (
         <AppLayout>
@@ -24,7 +22,7 @@ const ChangePassword = () => {
                     <div className="info-all-content">
                         <div className="info-contenedor-flex">
                                 <div className="hide-desktop info-container-back">
-                                    <div>
+                                    <div> 
                                         <Link to="/informacion-perfil">
                                             <div className="show return">
                                                 <img src={back} alt="volver" />
@@ -39,32 +37,44 @@ const ChangePassword = () => {
                                 </div>
                                 <Sidebar />
                             </div>
-                            <div className="flex-right">
+                            <div className="flex-right flex-right-ml">
                                 <Description title="Cambiar contraseña" description="Aquí encontrarás tu contraseña. Si la quieres modificar asegúrate de que sea segura" />
-                                <div className="info-container-content">
+                                <div className="info-container-content change-container-content">
                                     <div className="registro-container-form info-container-form mt-5 mb-2">
-                                    <div className="info-icon-editar">
-                                        <img src={iconEditar} />
-                                    </div>
-                                    <RegistroStep1 />
-                                    </div>
-                                    <div className="registro-container-form info-container-form mt-5 mb-2">
-                                    <div className="info-icon-editar">
-                                        <img src={iconEditar} />
-                                    </div>
-                                    <RegistroStep2 />
-                                    </div>
-                                    <div className="registro-container-form info-container-form mt-5 mb-2">
-                                    <div className="info-icon-editar">
-                                        <img src={iconEditar} />
-                                    </div>
-                                    <RegistroStep3 />
-                                    </div>
-                                    <div className="registro-container-form info-container-form mt-5 mb-2">
-                                    <div className="info-icon-editar">
-                                        <img src={iconEditar} />
-                                    </div>
-                                    <RegistroStep4 />
+                                        <div className="info-icon-editar">
+                                            <img src={iconEditar} />
+                                        </div>
+                                        <form>
+
+                                            <div className="wrapper-input change-password-wrapper-input">
+                                                <h4 className="registro-title op-8 mb-4">Cambiar contraseña actual</h4>
+                                                
+                                                <label htmlFor="password" >Ingresa la contraseña actual*:</label>
+                                                <div className="input-password reset-password">
+                                                    <input type="password" id="password" name="password"/>
+                                                    <img className="eye-icon" src={iconEye} />
+                                                </div>
+                                            </div>
+                                            <div className="container-forgot-password">
+                                                    <Link to ="/">
+                                                        ¿Olvidaste tu contraseña?
+                                                    </Link>
+                                            </div>
+                                            <div className="wrapper-input">
+                                                <label htmlFor="password" >Nueva contraseña*:</label>
+                                                <div className="input-password reset-password">
+                                                    <input type="password" id="new_password" name="new_password"    />
+                                                    <img className="eye-icon" src={iconEye} />
+                                                </div>
+                                            </div>
+                                            <div className="wrapper-input">
+                                                <label htmlFor="password">Repetir nueva contraseña*:</label>
+                                                <div className="input-password reset-password">
+                                                    <input type="password" id="new_password" name="new_password"/>
+                                                    <img className="eye-icon" src={iconEye} />
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
