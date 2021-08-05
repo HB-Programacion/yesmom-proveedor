@@ -25,7 +25,7 @@ const InfoPerfil = () => {
                                     <Link to="/">
                                         <li className="list-group-item">Productos</li>
                                     </Link>
-                                    <Link to="/">
+                                    <Link to="/informacion-perfil/cambiar-password">
                                         <li className="list-group-item">Cambiar contraseña</li>
                                     </Link>
                                     <Link to="/">
