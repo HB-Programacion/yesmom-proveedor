@@ -40,7 +40,7 @@ const ChangePassword = () => {
                                 <Sidebar />
                             </div>
                             <div className="flex-right">
-                                <Description title="Registro" description="Aquí encontrarás los datos de la empresa" />
+                                <Description title="Cambiar contraseña" description="Aquí encontrarás tu contraseña. Si la quieres modificar asegúrate de que sea segura" />
                                 <div className="info-container-content">
                                     <div className="registro-container-form info-container-form mt-5 mb-2">
                                     <div className="info-icon-editar">
