@@ -21,8 +21,10 @@ import RecoverPassword from "../pages/login/RecoverPassword";
 import ResetPassword from "../pages/login/ResetPassword";
 import Registro from "../pages/registro/Registro";
 import ResumenVenta from "../pages/ventas/ResumenVenta";
-import InfoPerfil from "../pages/Perfil/InfoPerfil";
+import InfoPerfil from "../pages/perfil/InfoPerfil";
+import InfoPerfilRegistro from "../pages/perfil/registro/Registro";
 import Profile from "../pages/store/profile/Profile";
+import ChangePassword from "../pages/perfil/cambiar-password/ChangePassword";
 
 
 const AppRouter = () => {
@@ -48,6 +50,8 @@ const AppRouter = () => {
         <Route exact path="/recuperar-password" component={RecoverPassword} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/restablecer-password" component={ResetPassword} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/informacion-perfil" component={InfoPerfil} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/informacion-perfil/registro" component={InfoPerfilRegistro} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/informacion-perfil/cambiar-password" component={ChangePassword} tokenAutentificado={tokenAutentificado}/>
 
         {/*******/}
         {/**REGISTRO */}
