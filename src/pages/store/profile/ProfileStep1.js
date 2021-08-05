@@ -32,25 +32,26 @@ const ProfileStep1 = () => {
         title="1.- Adjunta un logo para tu tienda"
         paragraph="Subir un logo correctamente fortalece la imagen y seriedad del negocio, de esta manera, juntos podremos darles a nuestros clientes la confianza de comprar con nosotros."
         content={
-          <div className="profile-store-content-card">
-            <p>Debe tener como medidas 446x168 px y una resolución de 300px</p>
+          <div className="profile-store-content-card-input">
+            <p className="profile-store-recommendation">Debe tener como medidas 446x168 px y una resolución de 300px</p>
             <div className="profile-store-content-input">
-              <div className="profile-store-container-input">
-                <p className="profile-store-filename">{fileName} </p>
+              <div>
+                <div className="profile-store-container-input">
+                  <p className="profile-store-filename">{fileName} </p>
+                </div>
+                <div className="profile-store-container-input-mobile">
+                  <p className="profile-store-filename">{fileName} </p>
+                </div>
+                <p className="obligatory-field">*Campo obligatorio</p>
               </div>
-              <div className="profile-store-container-input-mobile">
-                <p className="profile-store-filename">{fileName} </p>
+              <div className="profile-step-container-button">
+                <ButtonFilled color="blue" >
+                  Cargar Imagen
+                  <input
+                    type="file"
+                    accept="image/*" onChange={handleFileChange} />
+                </ButtonFilled>
               </div>
-              <p>*Campo obligatorio</p>
-              <ButtonFilled color="blue" >
-
-                Cargar Imagen
-                <input
-                  type="file"
-                  accept="image/*" onChange={handleFileChange} />
-
-
-              </ButtonFilled>
             </div>
           </div>
         }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ButtonFilled from '../../../components/Button/ButtonFilled'
 import CardShadow from '../../../components/CardShadow/CardShadow'
 
 import './Profile.css'
@@ -29,21 +30,29 @@ const ProfileStep2 = () => {
   return (
     <div>
       <CardShadow
-        title="1.- Adjunta un logo para tu tienda"
-        paragraph="Subir un logo correctamente fortalece la imagen y seriedad del negocio, de esta manera, juntos podremos darles a nuestros clientes la confianza de comprar con nosotros."
+        title="2.- Adjunta cover de portada"
+        paragraph="La portada del anuncio nos ayudará a ser más visibles, un buen diseño y una buena foto es fundamental para generar el impacto visual que necesitamos para atraer más clientes."
         content={
-          <div className="profile-store-content-card">
-            <p>Debe tener como medidas 446x168 px y una resolución de 300px</p>
+          <div className="profile-store-content-card-input">
+            <p className="profile-store-recommendation">Debe tener como medidas 1111x352 px y una resolución de 300px:</p>
             <div className="profile-store-content-input">
-              <div className="profile-store-container-input">
-                <p className="profile-store-filename">{fileName} </p>
+              <div>
+                <div className="profile-store-container-input">
+                  <p className="profile-store-filename">{fileName} </p>
+                </div>
+                <div className="profile-store-container-input-mobile">
+                  <p className="profile-store-filename">{fileName} </p>
+                </div>
+                <p className="obligatory-field">*Campo obligatorio</p>
               </div>
-              <button>
-                Cargar Imagen
-                <input
-                  type="file"
-                  accept="image/*" onChange={handleFileChange} />
-              </button>
+              <div className="profile-step-container-button">
+                <ButtonFilled color="blue" >
+                  Cargar Imagen
+                  <input
+                    type="file"
+                    accept="image/*" onChange={handleFileChange} />
+                </ButtonFilled>
+              </div>
             </div>
           </div>
         }

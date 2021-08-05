@@ -46,12 +46,14 @@ const Profile = () => {
                 {selected === 0 && <ProfileStep1 />}
                 {selected === 1 && <ProfileStep2 />}
                 {selected === 2 && <ProfileStep3 />}
-                <ButtonFilled
-                  color="yellow"
-                  fxClick={selected === 2 ? handleSubmit : handleSelection}
-                >
-                  Continuar
-                </ButtonFilled>
+                <div className="profile-store-container-button">
+                  <ButtonFilled
+                    color="yellow"
+                    fxClick={selected === 2 ? handleSubmit : handleSelection}
+                  >
+                    Continuar
+                  </ButtonFilled>
+                </div>
               </form>
             </div>
           </div>
