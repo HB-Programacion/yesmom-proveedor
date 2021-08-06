@@ -121,6 +121,7 @@
 .swal2-confirm{
     width:100%;
     margin:0 2rem 2rem 2rem;
+    padding:1rem 0;
     background-color: #DC6A8D!important;
     border-radius:30px!important;
     transition: 0.3s ease-in-out;
@@ -135,7 +136,7 @@
 .swal2-confirm p{
     margin:0;
     font-family:"omnes-regular";
-    font-size:1.6rem;
+    font-size:2.3rem;
     color:#FFFFFF;
 }
 
