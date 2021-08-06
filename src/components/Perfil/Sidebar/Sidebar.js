@@ -11,7 +11,7 @@ function Sidebar() {
         { name : "Productos" , to : "/" , active:"/"},
         { name : "Cambiar contraseña" , to : "/informacion-perfil/cambiar-password" , active:"/informacion-perfil/cambiar-password"},
         { name : "Perfil de tienda" , to : "/informacion-perfil/perfil-tienda" , active:"/informacion-perfil/perfil-tienda"},
-        { name : "Términos y condiciones" , to : "" , active:"/"},
+        { name : "Términos y condiciones" , to : "/informacion-perfil/terminos" , active:"/informacion-perfil/terminos"},
         { name : "Desactivar cuenta" , to : "" , active:"/"},
     ]
     return (

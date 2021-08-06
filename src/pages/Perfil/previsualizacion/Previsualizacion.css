@@ -1,0 +1,14 @@
+.contenedor-info-perfil-prev{
+    padding:6.5rem 0;
+}
+
+.prev-container-image{
+    margin-top:4rem;
+    margin-bottom:2rem;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.prev-container-image img,.prev-container-banner img {
+    max-width: 100%;
+}
