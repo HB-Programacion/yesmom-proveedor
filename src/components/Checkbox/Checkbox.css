@@ -1,7 +1,7 @@
 .checkbox-container{
   position: relative;
   width: 100%;
-  min-width: 142px;
+  min-width: 172px;
 }
 .checkbox-item{
   position: absolute;
@@ -57,7 +57,7 @@
 @media (min-width : 1024px){
   .checkbox-option{
     width: calc(100% - 24px);
-    min-width: 115px;
+    min-width: 135px;
     user-select: none;
     cursor: pointer;
     position: relative;
@@ -72,7 +72,7 @@
 @media (min-width : 1280px){
   .checkbox-option{
     width: calc(100% - 24px);
-    min-width: 115px;
+    min-width: 135px;
     user-select: none;
     cursor: pointer;
     position: relative;
