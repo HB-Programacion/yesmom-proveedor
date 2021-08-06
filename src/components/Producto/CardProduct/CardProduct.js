@@ -11,12 +11,10 @@ const CardProduct = ({ image, title, description, price, discount }) => {
       <div className="card-product-content-text">
         <p>{title}</p>
         <p>{description}</p>
-        {discount &&
-          <div className="content-price">
-            <p className="real-price">{price}</p>
-            <p className="promotional-price">{price - discount}</p>
-          </div>
-        }
+        <div className="content-price">
+          <p className={discount ? "price-discount" : "real-price"}>S/ {parseFloat(price).toFixed(2)}</p>
+          {(discount || discount !== 0) && <p className="promotional-price">s/ {parseFloat(price - discount).toFixed(2)}</p>}
+        </div>
       </div>
     </div>
   )
