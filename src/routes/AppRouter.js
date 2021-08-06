@@ -25,6 +25,7 @@ import InfoPerfil from "../pages/perfil/InfoPerfil";
 import InfoPerfilRegistro from "../pages/perfil/registro/Registro";
 import Profile from "../pages/store/profile/Profile";
 import ChangePassword from "../pages/perfil/cambiar-password/ChangePassword";
+import ActiveProducts from "../pages/producto/ActiveProducts/ActiveProducts";
 
 
 const AppRouter = () => {
@@ -38,24 +39,25 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Home} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/add-new-product" component={AddProduct} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/product-excel" component={AddProductExcel} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/show-product" component={ShowProduct} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/visualizate-products" component={SeeProducts} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/resumen" component={Resumen} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/resumen-venta" component={ResumenVenta} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/" component={Home} tokenAutentificado={tokenAutentificado} />
+        <Route exact path="/add-new-product" component={AddProduct} tokenAutentificado={tokenAutentificado} />
+        <Route exact path="/product-excel" component={AddProductExcel} tokenAutentificado={tokenAutentificado} />
+        <Route exact path="/show-product" component={ShowProduct} tokenAutentificado={tokenAutentificado} />
+        <Route exact path="/productos-activos" component={ActiveProducts} />
+        <Route exact path="/visualizate-products" component={SeeProducts} tokenAutentificado={tokenAutentificado} />
+        <Route exact path="/resumen" component={Resumen} tokenAutentificado={tokenAutentificado} />
+        <Route exact path="/resumen-venta" component={ResumenVenta} tokenAutentificado={tokenAutentificado} />
         {/* LOGIN */}
-        <Route exact path="/iniciar-sesion" component={Login} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/recuperar-password" component={RecoverPassword} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/restablecer-password" component={ResetPassword} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/informacion-perfil" component={InfoPerfil} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/informacion-perfil/registro" component={InfoPerfilRegistro} tokenAutentificado={tokenAutentificado}/>
-        <Route exact path="/informacion-perfil/cambiar-password" component={ChangePassword} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/iniciar-sesion" component={Login} tokenAutentificado={tokenAutentificado} />
+        <Route exact path="/recuperar-password" component={RecoverPassword} tokenAutentificado={tokenAutentificado} />
+        <Route exact path="/restablecer-password" component={ResetPassword} tokenAutentificado={tokenAutentificado} />
+        <Route exact path="/informacion-perfil" component={InfoPerfil} tokenAutentificado={tokenAutentificado} />
+        <Route exact path="/informacion-perfil/registro" component={InfoPerfilRegistro} tokenAutentificado={tokenAutentificado} />
+        <Route exact path="/informacion-perfil/cambiar-password" component={ChangePassword} tokenAutentificado={tokenAutentificado} />
 
         {/*******/}
         {/**REGISTRO */}
-        <Route exact path="/registro" component={Registro}/>
+        <Route exact path="/registro" component={Registro} />
         {/**PROFILE - STORE */}
         <Route exact path="/perfil-tienda" component={Profile} />
 
