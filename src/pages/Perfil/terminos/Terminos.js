@@ -52,7 +52,7 @@ const Terminos = () => {
                                     </div>
                                 </div>
                             </div>
-                            <hr className="info-hr" />
+                            <hr className="info-hr"/>
                             <div className="info-container-buttons">
                                 <div className="info-container-button-only">
                                     <ButtonFilled color="pink">
