@@ -1,0 +1,19 @@
+
+.terminos-text-area{
+    font-family: "mont-regular"!important;
+    font-size: 1.2rem;
+    letter-spacing: 0.222222px;
+    color: rgba(90, 90, 90, 0.5);
+    height: 25rem;
+}
+
+.prev-container-form{
+    margin:3rem 0;
+    position: relative;
+}
+
+@media (min-width : 768px){
+    .prev-container-form{
+        padding:2rem;
+    }
+}

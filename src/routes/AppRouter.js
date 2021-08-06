@@ -25,7 +25,10 @@ import InfoPerfil from "../pages/perfil/InfoPerfil";
 import InfoPerfilRegistro from "../pages/perfil/registro/Registro";
 import Profile from "../pages/store/profile/Profile";
 import ChangePassword from "../pages/perfil/cambiar-password/ChangePassword";
+import ProfileStoreGeneral from "../pages/perfil/tienda/ProfileStoreGeneral";
 import ActiveProducts from "../pages/producto/ActiveProducts/ActiveProducts";
+import Previsualizacion from "../pages/perfil/previsualizacion/Previsualizacion";
+import Terminos from "../pages/perfil/terminos/Terminos";
 
 
 const AppRouter = () => {
@@ -48,12 +51,15 @@ const AppRouter = () => {
         <Route exact path="/resumen" component={Resumen} tokenAutentificado={tokenAutentificado} />
         <Route exact path="/resumen-venta" component={ResumenVenta} tokenAutentificado={tokenAutentificado} />
         {/* LOGIN */}
-        <Route exact path="/iniciar-sesion" component={Login} tokenAutentificado={tokenAutentificado} />
-        <Route exact path="/recuperar-password" component={RecoverPassword} tokenAutentificado={tokenAutentificado} />
-        <Route exact path="/restablecer-password" component={ResetPassword} tokenAutentificado={tokenAutentificado} />
-        <Route exact path="/informacion-perfil" component={InfoPerfil} tokenAutentificado={tokenAutentificado} />
-        <Route exact path="/informacion-perfil/registro" component={InfoPerfilRegistro} tokenAutentificado={tokenAutentificado} />
-        <Route exact path="/informacion-perfil/cambiar-password" component={ChangePassword} tokenAutentificado={tokenAutentificado} />
+        <Route exact path="/iniciar-sesion" component={Login} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/recuperar-password" component={RecoverPassword} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/restablecer-password" component={ResetPassword} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/informacion-perfil" component={InfoPerfil} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/informacion-perfil/registro" component={InfoPerfilRegistro} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/informacion-perfil/cambiar-password" component={ChangePassword} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/informacion-perfil/perfil-tienda" component={ProfileStoreGeneral} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/informacion-perfil/previsualizacion" component={Previsualizacion} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/informacion-perfil/terminos" component={Terminos} tokenAutentificado={tokenAutentificado}/>
 
         {/*******/}
         {/**REGISTRO */}

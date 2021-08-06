@@ -21,15 +21,22 @@
     font-size:1.4rem;
     padding:0.5rem 1rem;
 }
-.perfil-sidebar-list li:hover, .perfil-close-session:hover{
+.perfil-sidebar-list li:hover{
     background-color: #333333;
     color:#FFFFFF!important;
 }
-
+.perfil-close-session:hover{
+    color:#575650;
+}
 .perfil-link-active li{
     font-family: "mont-heavy"!important;
-    color: #575650!important;;
+    color: #575650!important;
 }
+.perfil-link-active li:hover{
+    color: #575650!important;
+    background-color: white;
+}
+
 
 @media (min-width : 768px){
     .perfil-sidebar{

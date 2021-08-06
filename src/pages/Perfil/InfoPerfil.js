@@ -28,10 +28,10 @@ const InfoPerfil = () => {
                                     <Link to="/informacion-perfil/cambiar-password">
                                         <li className="list-group-item">Cambiar contraseña</li>
                                     </Link>
-                                    <Link to="/">
+                                    <Link to="/informacion-perfil/perfil-tienda">
                                         <li className="list-group-item">Perfil de tienda</li>
                                     </Link>
-                                    <Link to="/">
+                                    <Link to="/informacion-perfil/terminos">
                                         <li className="list-group-item">Términos y condiciones</li>
                                     </Link>
                                     <Link to="/">
