@@ -1,49 +1,4 @@
 
-.contenedor-info-perfil-registro{
-    padding: 10.5rem 0;
-}
-.return{
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-.info-container-back a{
-    text-decoration: none;
-}
-.return p{
-    margin : 0;
-    font-family:"mont-regular"!important;
-    font-size:1.3rem;
-    color: #EC668D;
-    margin-left:1rem;
-}
-
-.info-hr{
-    margin:3rem 0;
-    margin-right: -2rem;
-    margin-left: -2rem;
-    border-top: 1px solid rgba(87, 86, 80, 0.5);;
-}
-.info-container-form{
-    position: relative;
-}
-.info-icon-editar{
-    position: absolute;
-    right:1rem;
-    top:2rem;
-}
-
-.info-container-buttons{
-    margin-top:5rem;
-}
-.info-container-button-only{
-    margin:2rem;
-}
-.info-container-content .registro-title{
-    opacity: 0.8;
-}
-
 @media (min-width : 480px) and (max-width:767px){
     .info-all-content{
         width:45rem;
@@ -55,63 +10,11 @@
     }
 }
 
-@media (min-width : 768px){
-    .info-container-content .registro-title{
-        opacity: 1;
-    }
-    
-    .info-contenedor-flex{
-        display: flex;
-    }
-    .flex-left{
-        flex-basis:20%;
-    }
-    .flex-right{
-        margin-left:1rem;
-        flex-basis:80%;
-    }
-    .info-container-buttons{
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: row-reverse;
-    }
-    .info-container-button-only{
-        margin:0 0.5rem;
-    }
-    .info-container-form{
-        margin:0 auto;
-        width:95%;
-    }
-}
-
 @media (min-width : 1024px){
-    .contenedor-info-perfil-registro{
-        padding-top:12rem;
-    }
-    .info-contenedor-flex{
-        justify-content: space-around;
-    }
-    .flex-left{
-        flex-basis:30%;
-    }
-    .flex-right{
-        margin-left:5rem;
-        flex-basis:70%;
-    }
+    
+    
+    
     .info-perfil-contenido{
         padding: 0 5rem;
-    }
-}
-@media (min-width : 1280px){
-    
-    .info-contenedor-flex{
-        width:95%;
-        margin: 0 auto;
-    }
-    .flex-left{
-        flex-basis:25%;
-    }
-    .info-container-buttons{
-        width:95%;
     }
 }

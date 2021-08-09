@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const ResetPassword = () => {
+const Recover = () => {
     return (
         <AppLayout>
             <div className="contenedor-login">
@@ -51,4 +51,4 @@ const ResetPassword = () => {
     )
 }
 
-export default ResetPassword
+export default Recover

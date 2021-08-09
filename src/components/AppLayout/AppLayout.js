@@ -6,7 +6,7 @@ import './AppLayout.css';
 const AppLayout = ({ children }) => {
     return (
         <div>
-            <Header logged={false}/>
+            <Header logged={true}/>
             {children}
             <Footer />
         </div>

@@ -184,9 +184,9 @@ const AddProduct = () => {
               <div className="add--title-content">
                 <h4 className="title-rosa">Carga manual</h4>
                 <div className="add--details-about-product add--resumen-details">
-                  <p onClick={() => setSelection(0)} className={`${selection === 0 ? "selected" : ""}`}>Datos del producto</p>
-                  <p onClick={() => setSelection(1)} className={`${selection === 1 ? "selected" : ""}`}>Precio del producto</p>
-                  <p onClick={() => setSelection(2)} className={`${selection === 2 ? "selected" : ""}`}>Imagenes del producto</p>
+                  <p onClick={() => setSelection(0)} className={`${selection === 0 ? "detail-selected" : ""}`}>Datos del producto</p>
+                  <p onClick={() => setSelection(1)} className={`${selection === 1 ? "detail-selected" : ""}`}>Precio del producto</p>
+                  <p onClick={() => setSelection(2)} className={`${selection === 2 ? "detail-selected" : ""}`}>Imagenes del producto</p>
                 </div>
               </div>
               {selection == 2 && <h6 className="add--title-imagenes">* Todas las imagenes tienen que ser en fondo blanco sin marco de agua  / formato de 300 px x 300 px / png o jpg</h6>}

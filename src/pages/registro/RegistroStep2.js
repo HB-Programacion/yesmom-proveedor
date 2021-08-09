@@ -22,7 +22,7 @@ const RegistroStep2 = () => {
                         <label htmlFor="razon">Razón social*:</label>
                         <input type="number" id="razon" name="razon"/>
                     </div>
-                    <div className="col-md-6 registro-box-input">
+                    <div className="col-md-6 registro-box-input mt-0">
                         <label htmlFor="ruc">RUC*:</label>
                         <input type="number" id="ruc" name="ruc" />
                     </div>
@@ -32,7 +32,7 @@ const RegistroStep2 = () => {
                         <label htmlFor="phoneEmpresa">Teléfono de la empresa*:</label>
                         <input type="tel" id="phoneEmpresa" name="phoneEmpresa"/>
                     </div>
-                    <div className="col-md-6 registro-box-input">
+                    <div className="col-md-6 registro-box-input mt-0">
                         <label htmlFor="pais">Pais*:</label>
                         <input type="text" id="pais" name="pais" />
                     </div>

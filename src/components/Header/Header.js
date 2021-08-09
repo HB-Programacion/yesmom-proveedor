@@ -52,8 +52,8 @@ function Header({logged}) {
                         <div className="container-icon hide">
                             {
                                 logged ?
-                                    <Link className="/">
-                                        <AvatarLogged logged={logged} name="   Baby Plaza   "/>
+                                    <Link to="/informacion-perfil">
+                                        <AvatarLogged logged={logged} name="Baby Plaza"/>
                                     </Link> 
                                 :
                                 <Link  to="/iniciar-sesion" className="item-menu-yesmom">

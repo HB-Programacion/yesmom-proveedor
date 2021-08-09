@@ -1,9 +1,7 @@
 .contenedor-info-perfil{
     padding: 12.5rem 0 10rem 0;
 }
-.info-perfil-contenido{
-    padding:0 2.5rem;
-}
+
 .info-container-title{
     display: flex;
     justify-content: center;
@@ -28,14 +26,6 @@
     .info-container-title{
         justify-content: flex-start;
         margin-left:1rem;
-    }
-    .info-container-button-only{
-        width:25%;
-    }
-}
-@media (min-width : 1024px){
-    .info-container-button-only{
-        width:20%;
     }
 }
 

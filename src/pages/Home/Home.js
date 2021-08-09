@@ -110,11 +110,13 @@ const Home = () => {
                                 </div>
 
                                 <div className="home--empezar-a-vender">
-                                    <Link to="/iniciar-sesion">
-                                        <ButtonFilled color="pink">
-                                            Empezar a vender
-                                        </ButtonFilled>
-                                    </Link>
+                                    <div>
+                                        <Link to="/iniciar-sesion">
+                                            <ButtonFilled color="pink">
+                                                Empezar a vender
+                                            </ButtonFilled>
+                                        </Link>
+                                    </div>
                                 </div>
                             </section>
 

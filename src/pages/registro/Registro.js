@@ -91,7 +91,7 @@ const Registro = () => {
                                     {selected === 2 && <RegistroStep3 />}
                                     {selected === 3 && <RegistroStep4 />}
 
-                                    <div className="hide-desktop">
+                                    <div className="registro-hide-desktop">
                                         <ButtonFilled 
                                             color="yellow" 
                                             fxClick={selected===3 ? handleSubmit : handleSelection}
@@ -102,7 +102,7 @@ const Registro = () => {
                                 </form>
                                 
                             </div>
-                            <div className="show-desktop registro-container-button">
+                            <div className="registro-show-desktop registro-container-button">
                                 <ButtonFilled 
                                     color="yellow" 
                                     fxClick={selected===3 ? handleSubmit : handleSelection}

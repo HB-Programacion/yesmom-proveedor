@@ -258,11 +258,6 @@ textarea {
     padding: 1.5rem 1rem;
 }
 
-.home--box-input input:focus,
-textarea:focus {
-    outline: none;
-}
-
 .home--container-send {
     width:50%;
     margin: 3rem auto;
@@ -363,9 +358,9 @@ textarea:focus {
     h5 {
         font-size: 1.6rem!important;
     }
-    .home--all-content{
+    /* .home--all-content{
         padding-top:8.5rem;
-    }
+    } */
 
     .home--section-initial {
         width: 70%;

@@ -19,9 +19,9 @@ const Resumen = () => {
                             <div className="resumen--container-title">
                                 <h4 className="title-rosa title-resumen">Resumen de órdenes</h4>
                                 <div className="add--details-about-product resumen-details">
-                                    <p  onClick={()=>setSelection(0)}  className={`${selection === 0 ? "selected" : ""}`}>Listos para enviar</p>
-                                    <p  onClick={()=>setSelection(1)}  className={`${selection === 1 ? "selected" : ""}`}>Pendientes</p>
-                                    <p  onClick={()=>setSelection(2)}  className={`${selection === 2 ? "selected" : ""}`}>Enviados</p>
+                                    <p  onClick={()=>setSelection(0)}  className={`${selection === 0 ? "detail-selected" : ""}`}>Listos para enviar</p>
+                                    <p  onClick={()=>setSelection(1)}  className={`${selection === 1 ? "detail-selected" : ""}`}>Pendientes</p>
+                                    <p  onClick={()=>setSelection(2)}  className={`${selection === 2 ? "detail-selected" : ""}`}>Enviados</p>
                                 </div>
 
                             </div>
