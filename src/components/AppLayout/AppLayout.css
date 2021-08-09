@@ -1,4 +1,7 @@
 /**GLOBALS**/
+a{
+    text-decoration: none!important;
+}
 .title-rosa{
     font-family: "mont-semibold" !important;
     font-size: 2.5rem;

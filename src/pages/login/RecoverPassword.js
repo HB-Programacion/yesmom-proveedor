@@ -2,6 +2,7 @@ import React from 'react'
 import AppLayout from '../../components/AppLayout/AppLayout'
 import imgUser from '../../images/login/img-user.svg';
 import ButtonFilled from '../../components/Button/ButtonFilled';
+import { Link } from 'react-router-dom';
 
 
 
@@ -27,14 +28,18 @@ const ResetPassword = () => {
                                     </div>
 
                                     <div className="btn-only btn-only-reset">
-                                        <ButtonFilled color="pink">
-                                            Continuar
-                                        </ButtonFilled>
+                                        <Link to="/restablecer-password">
+                                            <ButtonFilled color="pink">
+                                                Continuar
+                                            </ButtonFilled>
+                                        </Link>
                                     </div>
                                     <div className="btn-only btn-only-reset">
-                                        <ButtonFilled color="yellow">
-                                            Cancelar
-                                        </ButtonFilled>
+                                        <Link to="/iniciar-sesion">
+                                            <ButtonFilled color="yellow">
+                                                Cancelar
+                                            </ButtonFilled>
+                                        </Link>
                                     </div>
                                 </form>
                             </div>

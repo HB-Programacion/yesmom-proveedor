@@ -17,7 +17,7 @@ import './Registro.css';
 
 const Registro = () => {
 
-    const [selected,setSelected]= useState(3);
+    const [selected,setSelected]= useState(0);
     
 
     const handleSelection = () => {
