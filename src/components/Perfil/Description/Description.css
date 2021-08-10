@@ -3,11 +3,7 @@
 .description-container{
     margin:3rem 0 1rem 0;
 }
-.text-description-title{
-    font-family: "mont-semibold"!important;
-    font-size:1.8rem;
-    text-align: left;
-}
+
 .text-description-subtitle{
     font-family: "mont-light";
     font-size:1.3rem;
@@ -23,9 +19,7 @@
     .description-container{
         margin-top:0;
     }
-    .text-description-title{
-        font-size:2.5rem;
-    }
+    
     .hr-description{
         margin-left:0;
         margin-right:0;
@@ -34,17 +28,9 @@
 
 }
 @media(min-width:1024px){
-    .text-description-title{
-        font-size:3rem!important;
-    }
+    
     .text-description-subtitle{
         font-size:1.5rem;
     }
     
-}
-
-@media (min-width : 1280px){
-    .text-description-title{
-        font-size:3.5rem!important;
-    }
 }

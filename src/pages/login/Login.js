@@ -82,9 +82,11 @@ const Login = () => {
                                     <hr />
                                 </div>
                                 <div className="login--container-registrar">
-                                    <ButtonFilled color="yellow">
-                                        Regístrate aquí
-                                    </ButtonFilled>
+                                    <Link to="/registro">
+                                        <ButtonFilled color="yellow">
+                                            Regístrate aquí
+                                        </ButtonFilled>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

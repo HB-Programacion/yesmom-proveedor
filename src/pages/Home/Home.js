@@ -19,9 +19,11 @@ import pin from '../../images/home/pin.svg';
 import circleYellow from '../../images/producto/excel/circle-yellow.svg';
 import borderProveedor from '../../images/border-image-proveedor.svg';
 import imageProveedor from '../../images/image-proveedor.png';
+import CircleImage from "../../components/CircleImage/CircleImage";
 
 import './Home.css';
-import CircleImage from "../../components/CircleImage/CircleImage";
+import { Link } from "react-router-dom";
+
 const Home = () => {
 
 
@@ -32,13 +34,19 @@ const Home = () => {
         { id : 4 , img:venderFourth, description : "¡Listo! Ya puedes vender y ganar más con Yes Mom"},
     ]
 
+    const sections = {
+        porqueVender : "porque-vender-yesmom",
+        comoVender : "como-vender",
+        contacto :"contacto",
+    }
+
     return (
         <>
             <AppLayout>
                 <div className="home--box-main-proveedor">
                     <div className="home--contenedor-centered">
                         <div className="home--all-content">
-                            <div className="home--container-contenido">
+                            <section className="home--container-contenido" id={sections.porqueVender}>
                                 <div className="home--section-initial">
                                     <h3 className="home--title-page">¿Por qué vender en Yes mom?</h3>
 
@@ -60,14 +68,22 @@ const Home = () => {
                                         </p>
                                     </div>
                                     <div className="home--container-buttons">
-                                        <ButtonFilled color="yellow">Iniciar sesión</ButtonFilled>
-                                        <ButtonFilled color="pink">Registrate aquí</ButtonFilled>
+                                        <div>
+                                            <Link to="/iniciar-sesion">
+                                                <ButtonFilled color="yellow">Iniciar sesión</ButtonFilled>
+                                            </Link>
+                                        </div>
+                                        <div>
+                                            <Link to="/registro">
+                                                <ButtonFilled color="pink">Registrate aquí</ButtonFilled>
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
 
-                            </div>
+                            </section>
 
-                            <section className="home--container-section home--vender-yesmom">
+                            <section className="home--container-section home--vender-yesmom" id={sections.comoVender}>
                                 <h4 className="home--star-text">
                                     <div className="home--container-title-section">
                                         <img className="home--icon-start-1" src={blackStar} />
@@ -94,13 +110,17 @@ const Home = () => {
                                 </div>
 
                                 <div className="home--empezar-a-vender">
-                                    <ButtonFilled color="pink">
-                                        Empezar a vender
-                                    </ButtonFilled>
+                                    <div>
+                                        <Link to="/iniciar-sesion">
+                                            <ButtonFilled color="pink">
+                                                Empezar a vender
+                                            </ButtonFilled>
+                                        </Link>
+                                    </div>
                                 </div>
                             </section>
 
-                            <section className="home--container-section home--como-ayudarte">
+                            <section className="home--container-section home--como-ayudarte" id={sections.contacto}>
                                 <img className="home--abs-2" src={nubeBlanca} />
                                 <img className="home--abs-1" src={nubeBlanca} />
                                 <img className="home--abs-3" src={nubeBlanca} />

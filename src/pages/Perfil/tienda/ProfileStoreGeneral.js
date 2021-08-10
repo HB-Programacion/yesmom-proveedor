@@ -13,7 +13,6 @@ import previewImage from '../../../images/producto/preview.svg';
 import close from '../../../images/producto/close.svg';
 
 import './ProfileStoreGeneral.css';
-import { Col, Row } from 'react-bootstrap';
 
 const ProfileStoreGeneral = () => {
     return (

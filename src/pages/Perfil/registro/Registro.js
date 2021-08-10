@@ -12,10 +12,12 @@ import RegistroStep4 from '../../registro/RegistroStep4';
 import back from '../../../images/perfil/back.svg';
 import iconEditar from '../../../images/header/icon-edit.svg';
 
-import './Registro.css';
+
 import ButtonFilled from '../../../components/Button/ButtonFilled';
 import Sidebar from '../../../components/Perfil/Sidebar/Sidebar';
 
+
+import './Registro.css';
 const Registro = () => {
     return (
         <AppLayout>
