@@ -1,0 +1,85 @@
+.checkbox-container{
+  position: relative;
+  width: 100%;
+  min-width: 172px;
+}
+.checkbox-item{
+  position: absolute;
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #5A5A5A;
+  background-color: #fff;
+  border-radius: 3px;
+  vertical-align: sub;
+  top: 49%;
+  transform: translateY(-45%);
+  left: -8px;
+  outline: none;
+  margin-left: 12px;
+}
+.checkbox-item:checked{
+  background-color: #5A5A5A;
+}
+.checkbox-item:after {
+  position: absolute;
+  content: "";
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: url("../../images/producto/icon-check.svg");
+  background-size: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.checkbox-option{
+  width: calc(100% - 24px);
+  min-width: 115px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  left: 25px;
+  color: #5A5A5A;
+  font-size: 13px;
+  font-family: "mont-regular";
+  line-height: 42px;
+}
+
+
+@media (min-width : 480px){
+        
+}
+@media (min-width : 768px){
+        
+}
+@media (min-width : 1024px){
+  .checkbox-option{
+    width: calc(100% - 24px);
+    min-width: 135px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    left: 25px;
+    color: #5A5A5A;
+    font-size: 13px;
+    font-family: "mont-regular";
+    line-height: 42px;
+  }
+}
+
+@media (min-width : 1280px){
+  .checkbox-option{
+    width: calc(100% - 24px);
+    min-width: 135px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    left: 25px;
+    color: #5A5A5A;
+    font-size: 15px;
+    font-family: "mont-regular";
+    line-height: 42px;
+  }
+}

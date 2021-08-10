@@ -1,0 +1,36 @@
+
+
+.description-container{
+    margin:3rem 0 1rem 0;
+}
+
+.text-description-subtitle{
+    font-family: "mont-light";
+    font-size:1.3rem;
+    color:#575650;
+}
+.hr-description{
+    margin-right:-2.5rem;
+    margin-left:-2.5rem;
+    border-top: 2px solid #DADADA;
+}
+
+@media (min-width : 768px){
+    .description-container{
+        margin-top:0;
+    }
+    
+    .hr-description{
+        margin-left:0;
+        margin-right:0;
+    }
+
+
+}
+@media(min-width:1024px){
+    
+    .text-description-subtitle{
+        font-size:1.5rem;
+    }
+    
+}

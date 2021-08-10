@@ -34,16 +34,16 @@ const AddProduct = () => {
     categoria: "",
     subcategoria: "",
     terminos: "",
-    material:"",
+    material: "",
     sku: "",
     cantDisponible: "",
     precio: "",
     precioPromocional: "",
     fechaInicioPromocion: "",
     fechaFinPromocion: "",
-    largo:"",
-    ancho:"",
-    alto:""
+    largo: "",
+    ancho: "",
+    alto: ""
   });
   const [selectedFile, setSelectedFile] = useState({
     imagenProducto1: "",
@@ -56,11 +56,11 @@ const AddProduct = () => {
     imagenProducto8: "",
   });
 
-  const [selection,setSelection] = useState(0);
+  const [selection, setSelection] = useState(0);
 
 
-  const handleSelection = ()=> {
-    setSelection(selection+1);
+  const handleSelection = () => {
+    setSelection(selection + 1);
   }
 
   const handleInputChange = (e) => {
@@ -71,7 +71,7 @@ const AddProduct = () => {
         ...formTextAddProduct,
         [e.target.name]: "",
       });
-    }  else  {
+    } else {
       setFormTextAddProduct({
         ...formTextAddProduct,
         [e.target.name]: e.target.value,
@@ -123,24 +123,24 @@ const AddProduct = () => {
     console.log(formDimensiones, "dimensiones")
     console.log(formTextAddProduct, "texto");
     console.log(selectedFile, "imagenes")
-    
-    for(var pair of data.entries()) {
-      console.log(pair[0]+ ', '+ pair[1]);
-   }
+
+    for (var pair of data.entries()) {
+      console.log(pair[0] + ', ' + pair[1]);
+    }
     console.log("**************");
     await clienteAxiosBusiness
       .post("/product/new-product?userType=admin", data)
       .then((res) => {
         console.log("RESPUESTA EXITOSA");
         console.log(res, "res");
-         /* MySwal.fire({
-           position: "center",
-           icon: "success",
-           title: "Tu blog se guardo exitosamente",
-           showConfirmButton: false,
-           // timer: 3500,
-         });
-         window.location.reload(); */
+        /* MySwal.fire({
+          position: "center",
+          icon: "success",
+          title: "Tu blog se guardo exitosamente",
+          showConfirmButton: false,
+          // timer: 3500,
+        });
+        window.location.reload(); */
       })
       .catch((e) => {
         console.log(e, "error");
@@ -176,53 +176,52 @@ const AddProduct = () => {
 
   return (
     <>
-        <AppLayout>
+      <AppLayout>
 
-            <div className="add--box-main-proveedor">
-            <div className="add--contenedor-centered">
-              <div className="add--all-content">
-                <div className="add--title-content">
-                  <h4 className="title-rosa">Carga manual</h4>
-                  <div className="add--details-about-product add--resumen-details">
-                      <p  onClick={()=>setSelection(0)}  className={`${selection === 0 ? "selected" : ""}`}>Datos del producto</p>
-                      <p  onClick={()=>setSelection(1)}  className={`${selection === 1 ? "selected" : ""}`}>Precio del producto</p>
-                      <p  onClick={()=>setSelection(2)}  className={`${selection === 2 ? "selected" : ""}`}>Imagenes del producto</p>
-                  </div>
+        <div className="add--box-main-proveedor">
+          <div className="add--contenedor-centered">
+            <div className="add--all-content">
+              <div className="add--title-content">
+                <h4 className="title-rosa">Carga manual</h4>
+                <div className="add--details-about-product add--resumen-details">
+                  <p onClick={() => setSelection(0)} className={`${selection === 0 ? "detail-selected" : ""}`}>Datos del producto</p>
+                  <p onClick={() => setSelection(1)} className={`${selection === 1 ? "detail-selected" : ""}`}>Precio del producto</p>
+                  <p onClick={() => setSelection(2)} className={`${selection === 2 ? "detail-selected" : ""}`}>Imagenes del producto</p>
                 </div>
-                  {selection == 2 && <h6 className="add--title-imagenes">* Todas las imagenes tienen que ser en fondo blanco sin marco de agua  / formato de 300 px x 300 px / png o jpg</h6>}
-                  <form className="add--container-form" action="" /* onSubmit={handleSubmit} */ encType="add--multipart/form-data">
-                      {selection === 0 && 
-                        <FirstStep 
-                          formTextAddProduct={formTextAddProduct} 
-                          handleInputChange={handleInputChange} 
-                        />
-                      }
-                      {selection === 1 && 
-                        <AddSecondStep 
-                          formTextAddProduct={formTextAddProduct} 
-                          handleInputChange={handleInputChange} 
-                        />
-                      }
-                      {selection === 2 && <AddThirdPart handleFileChange={handleFileChange}/> }
-                  </form>
-                  <div className="add--flex-boton">
-                      <div className="add--container-boton">
-                          {selection!==2 ?
-                
-                            <ButtonFilled color="yellow" fxClick={handleSelection}>
-                              Continuar
-                            </ButtonFilled>
-                          : 
-                            <ButtonFilled color="pink" fxClick={handleSubmit}>
-                              Continuar
-                            </ButtonFilled>
-                          }
-                      </div> 
-                  </div>
+              </div>
+              {selection == 2 && <h6 className="add--title-imagenes">* Todas las imagenes tienen que ser en fondo blanco sin marco de agua  / formato de 300 px x 300 px / png o jpg</h6>}
+              <form className="add--container-form" action="" /* onSubmit={handleSubmit} */ encType="add--multipart/form-data">
+                {selection === 0 &&
+                  <FirstStep
+                    formTextAddProduct={formTextAddProduct}
+                    handleInputChange={handleInputChange}
+                  />
+                }
+                {selection === 1 &&
+                  <AddSecondStep
+                    formTextAddProduct={formTextAddProduct}
+                    handleInputChange={handleInputChange}
+                  />
+                }
+                {selection === 2 && <AddThirdPart handleFileChange={handleFileChange} />}
+              </form>
+              <div className="add--flex-boton">
+                <div className="add--container-boton">
+                  {selection !== 2 ?
+                    <ButtonFilled color="yellow" fxClick={handleSelection}>
+                      Continuar
+                    </ButtonFilled>
+                    :
+                    <ButtonFilled color="pink" fxClick={handleSubmit}>
+                      Continuar
+                    </ButtonFilled>
+                  }
+                </div>
               </div>
             </div>
           </div>
-        </AppLayout>
+        </div>
+      </AppLayout>
     </>
   );
 };

@@ -10,14 +10,18 @@ import contacto from "../../images/header/contacto.svg";
 import iniciarSesion from "../../images/header/iniciar-sesion.svg";
 import logoYesmom from "../../images/header/logo-yesmom.svg";
 
-import {} from "../../images/header/burger.svg";
-
 import "./Header.css";
+import AvatarLogged from "./AvatarLogged";
 function Header({ logged }) {
-  const [active, setActive] = useState(false);
 
   const handleClick = () => {
     setActive(!active);
+  };
+
+  const sections = {
+    porqueVender: "porque-vender-yesmom",
+    comoVender: "como-vender",
+    contacto: "contacto",
   };
 
   return (
@@ -29,15 +33,31 @@ function Header({ logged }) {
               <img className="img-burger" src={burger} alt="burger yesmom" />
             </div>
             <div className="container-icon">
-              <img className="img-navbar" src={logoYesmom} alt="logo yesmom" />
+              <Link to="/">
+                <img
+                  className="img-navbar"
+                  src={logoYesmom}
+                  alt="logo yesmom"
+                />
+              </Link>
             </div>
 
             <div className="container-icon hide">
-              <img
-                className="img-burger"
-                src={iniciarSesion}
-                alt="login yesmom"
-              />
+              {logged ? (
+                <Link to="/informacion-perfil">
+                  <AvatarLogged logged={logged} name="Baby Plaza" />
+                </Link>
+              ) : (
+                <Link to="/iniciar-sesion" className="item-menu-yesmom">
+                  <div className="container-icon">
+                    <img
+                      className="image-icon"
+                      src={iniciarSesion}
+                      alt="icon iniciar-sesion menu"
+                    />
+                  </div>
+                </Link>
+              )}
             </div>
 
             <div
@@ -46,8 +66,11 @@ function Header({ logged }) {
               }`}
             >
               <div className="box-items-menu-responsive">
-                <div>
-                  <Link to="/" className="item-menu-yesmom">
+                <div className="header-to-id">
+                  <a
+                    href={`/#${sections.porqueVender}`}
+                    className="item-menu-yesmom"
+                  >
                     <div className="container-icon">
                       <img
                         className="image-icon"
@@ -56,10 +79,13 @@ function Header({ logged }) {
                       />
                     </div>
                     <h6 className="text-navbar">¿Por qué Yes Mom?</h6>
-                  </Link>
+                  </a>
                 </div>
-                <div>
-                  <Link to="/" className="item-menu-yesmom">
+                <div className="header-to-id">
+                  <a
+                    href={`/#${sections.comoVender}`}
+                    className="item-menu-yesmom"
+                  >
                     <div className="container-icon">
                       <img
                         className="image-icon"
@@ -68,10 +94,13 @@ function Header({ logged }) {
                       />
                     </div>
                     <h6 className="text-navbar">¿Cómo vender?</h6>
-                  </Link>
+                  </a>
                 </div>
-                <div>
-                  <Link to="/" className="item-menu-yesmom">
+                <div className="header-to-id">
+                  <a
+                    href={`/#${sections.contacto}`}
+                    className="item-menu-yesmom"
+                  >
                     <div className="container-icon">
                       <img
                         className="image-icon"
@@ -80,19 +109,23 @@ function Header({ logged }) {
                       />
                     </div>
                     <h6 className="text-navbar">Contacto</h6>
-                  </Link>
+                  </a>
                 </div>
                 <div>
-                  <Link to="/" className="item-menu-yesmom">
-                    <div className="container-icon">
-                      <img
-                        className="image-icon"
-                        src={iniciarSesion}
-                        alt="icon iniciar-sesion menu"
-                      />
-                    </div>
-                    <h6 className="text-navbar">Iniciar sesión</h6>
-                  </Link>
+                  {logged ? (
+                    <AvatarLogged logged={logged} name="   Baby Plaza   " />
+                  ) : (
+                    <Link to="/iniciar-sesion" className="item-menu-yesmom">
+                      <div className="container-icon">
+                        <img
+                          className="image-icon"
+                          src={iniciarSesion}
+                          alt="icon iniciar-sesion menu"
+                        />
+                      </div>
+                      <h6 className="text-navbar">Iniciar sesión</h6>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>

@@ -1,16 +1,4 @@
-.mt-0{
-    margin-top:0;
-}
 
-.mb-0{
-    margin-bottom:0!important;
-}
-.mb-1{
-    margin-bottom:1.5rem;
-}
-.mt-25{
-    margin-top:0!important;
-}
 .contenedor-registro {
     padding-top: 10rem;
     padding-bottom: 8rem;
@@ -18,63 +6,13 @@
     margin-right: 2.5rem;
     margin-top: 0;
 }
-.registro-container-form{
-    margin: 1.5rem 0;
-    padding: 2rem 0.7rem 4rem 0.7rem;
-    background: #FFFFFF;
-    border: 10px solid #FFFFFF;
-    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
-    border-radius: 20px;
-}
 
-.registro-title{
-    font-family: "mont-semibold";
-    font-weight: 600;
-    font-size: 1.3rem;
-    color: #575650;
-}
 .registro-container-stepper{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.registro-box-all-inputs{
-    margin-bottom:4rem;
-}
-.registro-box-input {
-    margin:4rem 0;
-    display:flex;
-    flex-direction: column;
-}
-.registro-box-input:first-of-type{
-    margin-top:2.5rem;
-}
-.registro-box-input label{
-    font-family: "mont-light";
-    font-size:1.3rem;
-    color: #575650;
-    opacity: 0.8;
-    margin-bottom:0.8rem;
-}
-.registro-box-input input{
-    border:none;
-    border-bottom:1px solid #DADADA;
 
-    font-family:"mont-light";
-    font-size:1.2rem;
-}
-
-.registro-input-password{
-    position:relative;
-}
-.registro-input-password input{
-    width:100%;
-}
-.registro-input-password img{
-    position:absolute;
-    top: calc(50% - 1rem);
-    right:0;
-}
 
 /**SWAL **/
 .swal2-container{
@@ -121,6 +59,7 @@
 .swal2-confirm{
     width:100%;
     margin:0 2rem 2rem 2rem;
+    padding:1rem 0;
     background-color: #DC6A8D!important;
     border-radius:30px!important;
     transition: 0.3s ease-in-out;
@@ -135,7 +74,7 @@
 .swal2-confirm p{
     margin:0;
     font-family:"omnes-regular";
-    font-size:1.6rem;
+    font-size:2.3rem;
     color:#FFFFFF;
 }
 
@@ -151,6 +90,9 @@
     color:#556EA1;
     text-decoration: underline;
 }
+.registro-show-desktop{
+    display: none;
+}
 /***/
 @media (min-width : 480px){
     .registro-container-contenido{
@@ -165,38 +107,11 @@
 }
 
 @media (min-width : 768px){
-    .mq-mt-0{
-        margin-top: 0!important;
-    }
-    .mq-mb-0{
-        margin-bottom:0!important;
-    }
-    .mq-mt-2,.mt-25{
-        margin-top:2.5rem!important;
-    }
+    
     .registro-all-content{
         width:53rem;
     }
-    .registro-title{
-        font-size:1.5rem;
-    }
-    .registro-container-form{
-        padding-left:2rem;
-        padding-right:2rem;
-        padding-bottom:0;
-    }
-    .registro-box-input{
-        margin:3rem 0;
-    }
-    .registro-box-input input{
-        background: #FFFFFF;
-        opacity: 0.8;
-        border: 1px solid #556EA1;
-        box-sizing: border-box;
-        border-radius: 1rem;
-        height:4rem;
-        padding:0 1rem;
-    }
+    
     .registro-container-button{
         display: flex;
         align-items: center;
@@ -226,19 +141,17 @@
     .swal2-confirm p{
         font-family:"omnes-bold";
     }
+
+    .registro-hide-desktop{
+        display: none;
+    }
 }
 
 @media (min-width : 1024px){
     .registro-all-content{
         width:76rem;
     }
-    .registro-title{
-        font-size:1.8rem;
-    }
-    .registro-container-form{
-        padding:3rem;
-        padding-bottom:0;
-    }
+    
     .registro-box-input{
         margin:2rem 0;
     }

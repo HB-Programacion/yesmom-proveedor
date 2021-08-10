@@ -7,6 +7,7 @@ import iconEye from '../../images/login/icon-eye.svg';
 import ButtonFilled from '../../components/Button/ButtonFilled';
 
 
+import './Login.css';
 
 const ResetPassword = () => {
     return (
@@ -37,12 +38,12 @@ const ResetPassword = () => {
                                     </div>
 
                                     <div className="btn-only btn-only-reset mt-5">
-                                        <div className="hide-desktop">
+                                        <div className="reset-hide-desktop">
                                             <ButtonFilled color="pink">
                                                 Continuar
                                             </ButtonFilled>
                                         </div>
-                                        <div className="show-desktop">
+                                        <div className="reset-show-desktop">
                                             <ButtonFilled color="pink">
                                                 Confirmar contraseña
                                             </ButtonFilled>

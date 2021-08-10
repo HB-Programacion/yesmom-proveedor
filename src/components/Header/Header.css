@@ -42,6 +42,9 @@
 .container-icon{
     cursor:pointer;
 }
+.container-icon a{
+    text-decoration: none;
+}
 
 .burger-yesmom {
     display: none;
@@ -126,10 +129,15 @@
 .box-items-menu-desktop {
     display: block;
 }
-
+.header-to-id{
+    cursor: pointer;
+}
 @media (min-width:993px) {
     .hide{
         display:none;
+    }
+    .navbar-yesmom{
+        padding: 1rem 5rem;
     }
     .box-items-menu {
         display: block;
@@ -170,7 +178,7 @@
     }
 
     .navbar-yesmom {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 2rem;
     }
 
     .box-items-menu-responsive {

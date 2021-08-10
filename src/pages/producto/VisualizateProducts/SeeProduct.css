@@ -1,12 +1,9 @@
-    .see-product--all-content {
-        padding: 10rem 0;
+    .see-product--box-main-proveedor{
+        padding:10rem 0;
     }
-
-    .see-product--contenedor-centered {
-        padding: 0 2.5rem;
+    .see-product--contenedor-centered{
+        padding : 0 2.5rem;
     }
-
-
     /**CONTENIDO */
     .see-product--container-advice {
         border: 2px solid #55B446;

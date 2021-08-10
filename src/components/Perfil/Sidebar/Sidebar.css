@@ -1,0 +1,45 @@
+
+.perfil-sidebar{
+    display: none;
+}
+
+.perfil-sidebar-list{
+    margin-top:1rem;
+    padding:1rem 0;
+    border : 1px solid rgba(90, 90, 90, 0.5); 
+    border-right: none;
+    border-left: none;
+}
+.perfil-sidebar-list a{
+    text-decoration: none;
+}
+.perfil-sidebar-list li,.perfil-close-session{
+    cursor:pointer;
+    list-style: none;
+    font-family: "mont-light";
+    color:#575650;
+    font-size:1.4rem;
+    padding:0.5rem 1rem;
+}
+.perfil-sidebar-list li:hover{
+    background-color: #333333;
+    color:#FFFFFF!important;
+}
+.perfil-close-session:hover{
+    color:#575650;
+}
+.perfil-link-active li{
+    font-family: "mont-heavy"!important;
+    color: #575650!important;
+}
+.perfil-link-active li:hover{
+    color: #575650!important;
+    background-color: white;
+}
+
+
+@media (min-width : 768px){
+    .perfil-sidebar{
+        display: block;
+    }
+}

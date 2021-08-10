@@ -1,0 +1,164 @@
+.card-product-container{
+  box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
+  border-radius: 30px;
+  padding: 54px 60px;
+  min-height: 480px;
+  padding: 10px;
+  width: 170px;
+  margin-bottom: 37px;
+}
+.card-product-content-image{
+  height: 195px;
+  width: 100%;
+}
+
+.card-product-content-image > img{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* TEXT CARD */
+.card-product-content-text{
+  padding-left: 5px;
+}
+.card-product-content-text>p:first-child{
+  font-family: "Mont-semibold";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  color: #575756;
+  margin: 24px 0 17px 0;
+}
+.card-product-content-text>p:nth-child(2){
+  font-family: "Mont-light";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+  margin: 24px 0 17px 0;
+}
+
+.content-price{
+  margin-top: 29px;
+}
+.price-discount{
+  font-family: "Mont-regular";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 42px;
+  text-decoration-line: line-through;
+  color: #4B64A4;
+}
+.promotional-price{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Mont-semibold";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 32px;
+  color: #F22C74;
+  border: 1px solid #F22C74;
+  width: 118px;
+  height: 39px;
+  border-radius: 4px;
+}
+.real-price{
+  margin-top: 80px;
+  font-family: "Mont-semibold";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 42px;
+  color: #4B64A4;
+}
+
+@media (min-width : 480px){
+  .card-product-container{
+    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
+    border-radius: 30px;
+    padding: 54px 60px;
+    min-height: 480px;
+    padding: 10px;
+    width: 200px;
+  }   
+}
+@media (min-width : 768px){
+  .card-product-container{
+    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
+    border-radius: 30px;
+    padding: 54px 60px;
+    min-height: 480px;
+    padding: 10px;
+    width: 230px;
+  }   
+}
+@media (min-width : 1024px){
+  .card-product-container{
+    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
+    border-radius: 30px;
+    padding: 54px 60px;
+    min-height: 480px;
+    padding: 10px;
+    width: 297px;
+    margin-bottom: 47px;
+  }
+  /* TEXT CARD */
+.card-product-content-text>p:first-child{
+  font-family: "Mont-semibold";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  color: #575756;
+  margin: 24px 0 17px 0;
+}
+.card-product-content-text>p:nth-child(2){
+  font-family: "Mont-light";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 21px;
+  color: #000000;
+  margin: 24px 0 17px 0;
+}
+}
+@media (min-width : 1280px){
+  .card-product-container{
+    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
+    border-radius: 30px;
+    padding: 54px 60px;
+    min-height: 480px;
+    padding: 10px;
+    width: 297px;
+    margin-bottom: 47px;
+  }
+  /* TEXT CARD */
+.card-product-content-text>p:first-child{
+  font-family: "Mont-semibold";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  color: #575756;
+  margin: 24px 0 17px 0;
+}
+.card-product-content-text>p:nth-child(2){
+  font-family: "Mont-light";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 21px;
+  color: #000000;
+  margin: 24px 0 17px 0;
+}
+}

@@ -1,0 +1,38 @@
+.info-perfil-title{
+    font-family:"mont-semibold";
+    font-size:2rem;
+    color:#DC6A8D;
+    text-align: center;
+    line-height: 2.25rem;
+}
+.info-perfil-title span{
+    font-family: "mont-regular";
+    font-size:1.5rem;
+}
+
+@media (min-width : 768px){
+    .info-perfil-title{
+        text-align: left;
+    }
+
+    .info-perfil-title span{
+        font-size:1.3rem;
+    }
+}
+@media (min-width : 1024px){
+    .info-perfil-title{
+        font-size:2.5rem;
+        line-height: 3rem;
+    }
+    .info-perfil-title span{
+        font-size:1.4rem;
+    }
+}
+@media (min-width : 1280px){
+    .info-perfil-title{
+        font-size:3rem;
+    }
+    .info-perfil-title span{
+        font-size:1.4rem;
+    }
+}
