@@ -38,7 +38,6 @@ export const routes = [
     { path : "/add-new-product" , component : AddProduct },
     { path : "/product-excel" , component : AddProductExcel},
     { path : "/show-product" , component : ShowProduct },
-    { path : "/productos-activos" , component : ActiveProducts },
     { path : "/visualizate-products" , component : SeeProducts },
     { path : "/resumen" , component : Resumen },
     { path : "/resumen-venta" , component : ResumenVenta },
@@ -53,6 +52,7 @@ export const routes = [
     //Perfil
     { path : "/informacion-perfil" , component : InfoPerfil },
     { path : "/informacion-perfil/registro" , component : InfoPerfilRegistro },
+    { path : "/informacion-perfil/productos-activos" , component : ActiveProducts },
     { path : "/informacion-perfil/cambiar-password" , component : ChangePassword },
     { path : "/informacion-perfil/perfil-tienda" , component : ProfileStoreGeneral },
     { path : "/informacion-perfil/previsualizacion" , component : Previsualizacion },
