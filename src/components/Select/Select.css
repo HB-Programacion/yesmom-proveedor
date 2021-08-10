@@ -1,0 +1,60 @@
+.container-select {
+  flex-grow: 1;
+}
+
+.container-select select {
+  width: calc(100% - 1rem);
+  padding: 1rem;
+  border: 1px solid #556EA1;
+  box-sizing: border-box;
+  border-radius: 20px;
+  height: 35px;
+
+  background: url(https://i.ibb.co/mtG2wk2/image.png) no-repeat right #ffffff;
+  background-size: 1.25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-position-x: 92.5%;
+
+  font-family: "mont-regular" !important;
+  font-size: 1.2rem;
+  color: #556EA1;
+
+}
+.container-select select>option{
+  outline: none;
+  border: none;
+  border:0px;
+   outline:0px;
+   scroll-behavior: smooth;
+}
+
+.container-select select:focus {
+  outline: none;
+}
+
+.select-label {
+  margin: 0;
+  font-family: "mont-regular" !important;
+  font-size: 1.3rem;
+  color: #575650;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width : 480px){
+        
+}
+@media (min-width : 768px){
+        
+}
+@media (min-width : 1024px){
+  .container-select select {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+}
+       
+}
+@media (min-width : 1280px){
+       
+}
