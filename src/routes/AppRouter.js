@@ -7,6 +7,7 @@ import {
 
 import { routes } from "./routes";
 import { Suspense } from "react";
+import Loading from "../components/Loading/Loading";
 
 
 const AppRouter = () => {
@@ -19,7 +20,7 @@ const AppRouter = () => {
 
   return (
     <Router>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <div>
           <Switch>
             {
