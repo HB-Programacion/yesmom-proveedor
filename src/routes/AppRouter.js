@@ -29,6 +29,7 @@ import ProfileStoreGeneral from "../pages/perfil/tienda/ProfileStoreGeneral";
 import ActiveProducts from "../pages/producto/ActiveProducts/ActiveProducts";
 import Previsualizacion from "../pages/perfil/previsualizacion/Previsualizacion";
 import Terminos from "../pages/perfil/terminos/Terminos";
+import DesactivarCuenta from "../pages/perfil/desactivar-cuenta/DesactivarCuenta";
 
 
 const AppRouter = () => {
@@ -60,6 +61,7 @@ const AppRouter = () => {
         <Route exact path="/informacion-perfil/perfil-tienda" component={ProfileStoreGeneral} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/informacion-perfil/previsualizacion" component={Previsualizacion} tokenAutentificado={tokenAutentificado}/>
         <Route exact path="/informacion-perfil/terminos" component={Terminos} tokenAutentificado={tokenAutentificado}/>
+        <Route exact path="/informacion-perfil/desactivar-cuenta" component={DesactivarCuenta} tokenAutentificado={tokenAutentificado}/>
 
         {/*******/}
         {/**REGISTRO */}

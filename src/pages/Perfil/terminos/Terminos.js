@@ -10,7 +10,7 @@ import iconEditar from '../../../images/header/icon-edit.svg';
 import ButtonFilled from '../../../components/Button/ButtonFilled';
 import Sidebar from '../../../components/Perfil/Sidebar/Sidebar';
 
-import iconEye from '../../../images/perfil/icon-eye.svg';
+
 
 import './Terminos.css';
 
@@ -39,31 +39,33 @@ const Terminos = () => {
                             </div>
                             <div className="flex-right flex-right-ml">
                                 <Description title="Términos y condiciones" description="Aquí podrás llenar los términos y condiciones de tu tienda" />
-                                <div className="info-container-content change-container-content">
-                                    <div className="registro-container-form prev-container-form">
+                                <div className="info-container-content terminos-container-content">
+                                    <div className="registro-container-form terminos-container-form mt-5">
                                         <div className="info-icon-editar">
                                             <img src={iconEditar} />
                                         </div>
-                                        <h4 className="registro-title op-8 mb-4">Agregar términos y condiciones</h4>
-                                        <textarea
-                                            placeholder="Escriba aquí los terminos y condiciones generales de la tienda para el comprador..."
-                                            className="w-100 terminos-text-area" 
-                                        />
+                                        <div className="flex-terminos">
+                                            <h4 className="registro-title op-8 mb-4">Agregar términos y condiciones</h4>
+                                            <textarea
+                                                placeholder="Escriba aquí los terminos y condiciones generales de la tienda para el comprador..."
+                                                className="w-100 terminos-text-area" 
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <hr className="info-hr" />
-                            <div className="info-container-buttons">
-                                <div className="info-container-button-only">
-                                    <ButtonFilled color="pink">
-                                        Guardar
-                                    </ButtonFilled>      
-                                </div>
-                                <div className="info-container-button-only">
-                                    <ButtonFilled color="outline-pink">
-                                        Cancelar
-                                    </ButtonFilled>
-                                </div>
+                        </div>
+                        <hr className="info-hr"/>
+                        <div className="info-container-buttons">
+                            <div className="info-container-button-only">
+                                <ButtonFilled color="pink">
+                                    Guardar
+                                </ButtonFilled>      
+                            </div>
+                            <div className="info-container-button-only">
+                                <ButtonFilled color="outline-pink">
+                                    Cancelar
+                                </ButtonFilled>
                             </div>
                         </div>
                     </div>

@@ -7,13 +7,23 @@
     height: 25rem;
 }
 
-.prev-container-form{
+.terminos-container-form{
     margin:3rem 0;
+    padding-top:3rem;
+    padding-bottom:3rem;
     position: relative;
 }
 
 @media (min-width : 768px){
-    .prev-container-form{
-        padding:2rem;
+    .terminos-container-form{
+        padding:3rem;
+    }
+}
+@media (min-width : 1024px){
+    .terminos-container-form{
+        padding:4rem 3rem;
+    }
+    .flex-terminos{
+        display: flex;
     }
 }

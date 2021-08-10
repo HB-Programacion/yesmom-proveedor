@@ -34,7 +34,7 @@ const InfoPerfil = () => {
                                     <Link to="/informacion-perfil/terminos">
                                         <li className="list-group-item">Términos y condiciones</li>
                                     </Link>
-                                    <Link to="/">
+                                    <Link to="/informacion-perfil/desactivar-cuenta">
                                         <li className="list-group-item">Desactivar cuenta</li>
                                     </Link>
                                     <Link to="/">
