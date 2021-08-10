@@ -32,18 +32,20 @@ function AvatarLogged({ logged , name }) {
                     variant={"info"}
                     title={`${name}`}
                 >
-                    <Dropdown.Item href="/product-excel">
-                        <p>Importar productos</p>
-                    </Dropdown.Item>
-                    <Dropdown.Item href="/add-new-product">
-                        <p>Carga manual</p>
-                    </Dropdown.Item>
-                    <Dropdown.Item href="/visualizate-products">
-                        <p>Visualización de productos</p>
-                    </Dropdown.Item>
-                    <Dropdown.Item href="/">
-                        <p>Eliminar producto</p>
-                    </Dropdown.Item>
+                    <div className="items-dropdown-menu">
+                        <Link to="/product-excel">
+                            <p>Importar productos</p>
+                        </Link>
+                        <Link to="/add-new-product">
+                            <p>Carga manual</p>
+                        </Link>
+                        <Link to="/visualizate-products">
+                            <p>Visualización de productos</p>
+                        </Link>
+                        <Link to="/">
+                            <p>Eliminar producto</p>
+                        </Link>
+                    </div>
                 </DropdownButton>
             </div>
         </>

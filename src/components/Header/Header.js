@@ -13,6 +13,7 @@ import logoYesmom from '../../images/header/logo-yesmom.svg';
 
 import './Header.css';
 import AvatarLogged from './AvatarLogged';
+import { HashLink } from 'react-router-hash-link';
 function Header({logged}) {
 
     const [active, setActive] = useState(false);
@@ -74,7 +75,7 @@ function Header({logged}) {
                         >
                             <div className="box-items-menu-responsive">
                                 <div className="header-to-id">
-                                    <a href={`/#${sections.porqueVender}`} className="item-menu-yesmom">
+                                    <HashLink to={`/#${sections.porqueVender}`} className="item-menu-yesmom">
                                         <div className="container-icon">
                                             <img
                                                 className="image-icon"
@@ -83,10 +84,10 @@ function Header({logged}) {
                                             />
                                         </div>
                                         <h6 className="text-navbar">¿Por qué Yes Mom?</h6>
-                                    </a>
+                                    </HashLink>
                                 </div>
                                 <div className="header-to-id">
-                                    <a href={`/#${sections.comoVender}`} className="item-menu-yesmom">
+                                    <HashLink to={`/#${sections.comoVender}`} className="item-menu-yesmom">
                                         <div className="container-icon">
                                             <img
                                                 className="image-icon"
@@ -95,10 +96,10 @@ function Header({logged}) {
                                             />
                                         </div>
                                         <h6 className="text-navbar">¿Cómo vender?</h6>
-                                    </a>
+                                    </HashLink>
                                 </div>
                                 <div className="header-to-id">
-                                    <a href={`/#${sections.contacto}`} className="item-menu-yesmom">
+                                    <HashLink to={`/#${sections.contacto}`} className="item-menu-yesmom">
                                         <div className="container-icon">
                                             <img
                                                 className="image-icon"
@@ -107,7 +108,7 @@ function Header({logged}) {
                                             />
                                         </div>
                                         <h6 className="text-navbar">Contacto</h6>
-                                    </a>
+                                    </HashLink>
                                 </div>
                                 <div >
                                     {

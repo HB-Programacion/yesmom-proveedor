@@ -8,7 +8,7 @@ const Loading = () => {
         <div className="loading__main">
             <Loader 
                 type="ThreeDots" 
-                color="#00BFFF" 
+                color="#DC6A8D" 
                 height={80} 
                 width={80} 
             />
