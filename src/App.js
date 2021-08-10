@@ -1,15 +1,14 @@
+import { Provider } from 'react-redux';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 import AppRouter from './routes/AppRouter'
+
+import store from './redux/store/store';
 
 function App() {
   return (
-    <AppRouter/>
+    <Provider store={store}>
+        <AppRouter/>
+    </Provider>
   );
 }
 

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import AppLayout from '../../components/AppLayout/AppLayout'
 
-import './Login.css';
 
 import imgUser from '../../images/login/img-user.svg';
 import iconEye from '../../images/login/icon-eye.svg';
@@ -10,9 +10,17 @@ import iconEye from '../../images/login/icon-eye.svg';
 import ButtonFilled from '../../components/Button/ButtonFilled';
 import iconFacebook from '../../images/login/icon-facebook.svg';
 import iconGoogle from '../../images/login/icon-google.svg';
+import { login } from '../../redux/actions/auth';
 
+import './Login.css';
 
 const Login = () => {
+
+    const dispatch = useDispatch();
+    const handleLogin = () => {
+        dispatch ( login() );
+    }
+
     return (
         <AppLayout>
             <div className="contenedor-login">
@@ -52,7 +60,7 @@ const Login = () => {
                                     </div>
 
                                     <div className="contenedor-boton-pink btn-only">
-                                        <ButtonFilled color="pink">
+                                        <ButtonFilled color="pink" fxClick= { handleLogin} >
                                             Ingresar
                                         </ButtonFilled>
                                     </div>
