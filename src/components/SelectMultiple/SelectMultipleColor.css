@@ -1,0 +1,41 @@
+.css-5duvv3-control{
+	border-color: #556EA1 !important;
+	border-radius: 15px !important;
+}
+.css-1vp9nu5-control, .css-1vp9nu5-control:hover, .css-1vp9nu5-control:active{
+	border-color: #556EA1 !important;
+	border-radius: 15px !important;
+	box-shadow: 0 0 0 ;
+	outline: none ;
+}
+
+.css-1vp9nu5-control:hover{
+	border-color: #556EA1 !important;
+	border-radius: 15px !important;
+	box-shadow: 0 0 0 ;
+	outline: none ;
+}
+.css-1vp9nu5-control:active {
+	border-color: #556EA1 !important;
+	border-radius: 15px !important;
+	box-shadow: 0 0 0 ;
+	outline: none ;
+}
+.css-2613qy-menu:active .css-1vp9nu5-control{
+	border-color: #556EA1 !important;
+	border-radius: 15px !important;
+	box-shadow: 0 0 0 ;
+	outline: none ;
+}
+.css-2613qy-menu{
+	border-color: #556EA1 !important;
+	border-radius: 15px !important;
+	box-shadow: 0 0 0 ;
+	outline: none ;
+}
+
+.css-g1d714-ValueContainer, .css-2b097c-container{
+	width: 100%;
+	font-family: "mont-regular" !important;
+  font-size: 14px;
+}

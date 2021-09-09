@@ -2,19 +2,20 @@ import React from 'react'
 
 import './Input.css';
 
-const Input = ({ placeholder, onChange }) => {
-  return (
-    <div className="input-container">
-      <input
-        className="style-input"
-        type="text"
-        name="search"
-        id="search"
-        onChange={onChange}
-        placeholder={placeholder}
-      />
-    </div>
-  )
+const Input = ({ placeholder, onChange, id, type = 'text', value }) => {
+	return (
+		<div className="input-container">
+			<input
+				className="style-input"
+				type={type}
+				name={id}
+				id={id}
+				value={value}
+				onChange={onChange}
+				placeholder={placeholder}
+			/>
+		</div>
+	)
 }
 
 export default Input
