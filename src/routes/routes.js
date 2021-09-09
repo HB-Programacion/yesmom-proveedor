@@ -41,7 +41,7 @@ export const routes = [
     { path : "/visualizate-products" , component : SeeProducts },
     { path : "/resumen" , component : Resumen },
     { path : "/resumen-venta" , component : ResumenVenta },
-    { path : "/perfil-tienda" , component : Profile },
+    { path : "/perfil-tienda" , component : Profile }, //////////////////////////////////////////////
     
     //Auth
 
