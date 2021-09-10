@@ -425,7 +425,40 @@ input[type="file"] {
     margin:2rem;
 }
 /***/
+.box-styled__checkbox{
+    height:2.4rem;
+    width:2.4rem;
+    border: 1px solid #556EA1;
+    position:absolute;
+    padding:0;
+    display:none;
+    overflow:hidden;
+}
+.box-styled__text:before{
 
+    content:"";
+    display:inline-block;
+    width:22px;
+    height:22px;
+    border: 1px solid #575650;
+    border-radius: 5px;
+    margin-right: 8px;
+    line-height: 24px;
+    vertical-align: text-top;
+    cursor:pointer;
+}
+.box-styled__checkbox:checked + .box-styled__text:before{
+    border: 2px solid #f22c74;
+    background: url("https://i.ibb.co/TKQkDmv/check-pink.png") center/16px no-repeat;
+}
+
+.error-input-login{
+    margin : 0;
+    font-family: "mont-bold";
+    font-size:1.2rem;
+    height:1.5rem;
+    color:#ff0033;
+}
 @media (min-width : 480px){
     .contenedor-login {
         padding-top: 12rem;

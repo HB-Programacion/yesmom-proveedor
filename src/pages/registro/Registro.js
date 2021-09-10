@@ -17,6 +17,7 @@ import './Registro.css';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import clienteAxiosBusiness from '../../config/axiosBusiness';
 
 //Some regex
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -113,6 +114,19 @@ const Registro = () => {
                 if(isConfirmed){
                     alert("DATOS OK Y ACEPTÓ");
                     console.log("Los datos son : 26",infoPersona);
+
+                    try{
+                        const response = await clienteAxiosBusiness.post('/supplier/save',infoPersona);
+
+                        const { data } = response;
+                        console.log(data);
+
+                        if(data?.response?.ok){
+                            alert("Proveedor guardado satisfactoriamente")
+                        }
+                    }catch(e){
+                        alert(e.message);
+                    }
                 }else{
                     alert("DATOS OK PERO NO ACEPTÓ")
                 }
