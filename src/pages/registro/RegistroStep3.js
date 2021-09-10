@@ -1,6 +1,9 @@
 import React from 'react'
 import { Row, Col} from 'react-bootstrap';
-const RegistroStep3 = () => {
+
+
+const RegistroStep3 = ({register , errors}) => {
+
     return (
         <>
         <h4 className="registro-title"> 3. Información bancaria</h4>
@@ -8,14 +11,26 @@ const RegistroStep3 = () => {
             <Row>
                 <Col md={6}>
                     <div className="registro-box-input mb-1">
-                        <label htmlFor="titular">Titular de la cuenta*:</label>
-                        <input type="text" id="titular" name="titular" />
+                        <label htmlFor="titularCuenta">Titular de la cuenta*:</label>
+                        <input 
+                            type="text" 
+                            id="titularCuenta" 
+                            name="titularCuenta" 
+                            {...register('titularCuenta')}
+                        />
+                        <p className="error-input">{errors?.titularCuenta?.message}</p>
                     </div>
                 </Col>
                 <Col md={6}>
                     <div className="registro-box-input ">
-                        <label htmlFor="banco">Entidad bancaria*:</label>
-                        <input type="text" id="banco" name="banco"/>
+                        <label htmlFor="entidadBancaria">Entidad bancaria*:</label>
+                        <input 
+                            type="text" 
+                            id="entidadBancaria" 
+                            name="entidadBancaria"
+                            {...register('entidadBancaria')}
+                        />
+                        <p className="error-input">{errors?.entidadBancaria?.message}</p>
                     </div>
                 </Col>
             </Row>
@@ -23,22 +38,40 @@ const RegistroStep3 = () => {
             <Row>
                 <Col md={6}>
                     <div className="registro-box-input mt-0">
-                        <label htmlFor="cuenta">Número de cuenta (En soles)*:</label>
-                        <input type="number" id="cuenta" name="cuenta" />
+                        <label htmlFor="numeroCuentaSoles">Número de cuenta (En soles)*:</label>
+                        <input 
+                            type="text" 
+                            id="numeroCuentaSoles" 
+                            name="numeroCuentaSoles" 
+                            {...register('numeroCuentaSoles')}
+                        />
+                        <p className="error-input">{errors?.numeroCuentaSoles?.message}</p>
                     </div>
                 </Col>
                 <Col md={6}>
                     <div className="registro-box-input mt-0">
-                        <label htmlFor="idTitular">DNI o RUC del titular de la cuenta*:</label>
-                        <input type="number" id="idTitular" name="idTitular"/>
+                        <label htmlFor="dniRucTitular">DNI o RUC del titular de la cuenta*:</label>
+                        <input 
+                            type="number" 
+                            id="dniRucTitular" 
+                            name="dniRucTitular"
+                            {...register('dniRucTitular')}
+                        />
+                        <p className="error-input">{errors?.dniRucTitular?.message}</p>
                     </div>
                 </Col>
             </Row>
             <Row>
                 <Col>
                     <div className="registro-box-input mt-0 mb-0 mq-mb-0">
-                        <label htmlFor="cuentaInterbancaria">Código de cuenta interbancario (CCI)*:</label>
-                        <input type="number" id="cuentaInterbancaria" name="cuentaInterbancaria"/>
+                        <label htmlFor="cciCuenta">Código de cuenta interbancario (CCI)*:</label>
+                        <input 
+                            type="number" 
+                            id="cciCuenta" 
+                            name="cciCuenta"
+                            {...register('cciCuenta')}
+                        />
+                        <p className="error-input">{errors?.cciCuenta?.message}</p>
                     </div>
                 </Col>
             </Row>

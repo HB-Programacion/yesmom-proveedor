@@ -1,7 +1,8 @@
 import React from 'react'
 import { Row,  Col } from 'react-bootstrap'
 
-const RegistroStep4 = () => {
+const RegistroStep4 = ({register , errors}) => {
+
     return (
         <>
             <h4 className="registro-title"> 4. Información del almacén</h4>
@@ -10,42 +11,78 @@ const RegistroStep4 = () => {
                 <Row>
                     <Col md={6}>
                         <div className="registro-box-input">
-                            <label htmlFor="name">Nombre del encargado del almacén*:</label>
-                            <input type="text" id="name" name="name" />
+                            <label htmlFor="nombreEncargadoAlmacen">Nombre del encargado del almacén*:</label>
+                            <input 
+                                type="text" 
+                                id="nombreEncargadoAlmacen" 
+                                name="nombreEncargadoAlmacen" 
+                                {...register('nombreEncargadoAlmacen')}
+                            />
+                            <p className="error-input">{errors?.nombreEncargadoAlmacen?.message}</p>
                         </div>
                     </Col>
                     <Col md={6}>
                         <div className="registro-box-input mt-25">
-                            <label htmlFor="emailEncargado">Dirección de correo electrónico del encargado*:</label>
-                            <input type="email" id="emailEncargado" name="emailEncargado"/>
+                            <label htmlFor="correoEncargadoAlmacen">Dirección de correo electrónico del encargado*:</label>
+                            <input 
+                                type="email" 
+                                id="correoEncargadoAlmacen" 
+                                name="correoEncargadoAlmacen"
+                                {...register('correoEncargadoAlmacen')}
+                            />
+                            <p className="error-input">{errors?.correoEncargadoAlmacen?.message}</p>
                         </div>
                     </Col>
                 </Row>
                 <Row>
                     <Col md={6}>
                         <div className="registro-box-input mt-0">
-                            <label htmlFor="telefono">Teléfono*:</label>
-                            <input type="tel" id="telefono" name="telefono" />
+                            <label htmlFor="telefonoAlmacen">Teléfono*:</label>
+                            <input 
+                                type="tel" 
+                                id="telefonoAlmacen" 
+                                name="telefonoAlmacen" 
+                                {...register('telefonoAlmacen')}
+                            />
+                            <p className="error-input">{errors?.telefonoAlmacen?.message}</p>
                         </div>
                     </Col>
                     <Col md={6}>
                             <div className="registro-box-input mt-0">
-                                <label htmlFor="direccion">Dirección del almacén*:</label>
-                                <input type="email" id="direccion" name="direccion"/>
+                                <label htmlFor="direccionAlmacen">Dirección del almacén*:</label>
+                                <input 
+                                    type="text" 
+                                    id="direccionAlmacen" 
+                                    name="direccionAlmacen"
+                                    {...register('direccionAlmacen')}
+                                />
+                                <p className="error-input">{errors?.direccionAlmacen?.message}</p>
                             </div>
                     </Col>
                 </Row>
                 <Row>
                     <Col md={6}>
                         <div className="registro-box-input mt-0 mq-mb-0">
-                            <label htmlFor="refeDir">Referencia de la dirección*:</label>
-                            <input type="text" id="refeDir" name="refeDir"/>
+                            <label htmlFor="referenciaAlmacen">Referencia de la dirección*:</label>
+                            <input 
+                                type="text" 
+                                id="referenciaAlmacen" 
+                                name="referenciaAlmacen"
+                                {...register('referenciaAlmacen')}
+                            />
+                            <p className="error-input">{errors?.referenciaAlmacen?.message}</p>
                         </div>
                     </Col>
                     <Col md={6}>
                         <div className="registro-box-input mt-0 mb-0 mq-mb-0">
-                            <label htmlFor="ciudad">Ciudad*:</label>
-                            <input type="text" id="ciudad" name="ciudad"/>
+                            <label htmlFor="ciudadAlmacen">Ciudad*:</label>
+                            <input 
+                                type="text" 
+                                id="ciudadAlmacen" 
+                                name="ciudadAlmacen"
+                                {...register('ciudadAlmacen')}
+                            />
+                            <p className="error-input">{errors?.ciudadAlmacen?.message}</p>
                         </div>
                     </Col>
                 </Row>
