@@ -49,22 +49,29 @@ const SignIn = lazy(() => import("../pages/auth/SignIn"));
 
 //without token
 export const routes = [
-  { path: "/", component: Home },
-  { path: "/registro", component: Registro },
-  { path: "/add-new-product", component: AddProduct },
-  { path: "/product-excel", component: AddProductExcel },
-  { path: "/show-product", component: ShowProduct },
-  { path: "/productos-activos", component: ActiveProducts },
-  { path: "/visualizate-products", component: SeeProducts },
-  { path: "/resumen", component: Resumen },
-  { path: "/resumen-venta", component: ResumenVenta },
-  { path: "/perfil-tienda", component: Profile },
+    { path : "/" , component : Home },
+    { path : "/registro" , component : Registro },
+    { path : "/add-new-product" , component : AddProduct },
+    { path : "/product-excel" , component : AddProductExcel},
+    { path : "/show-product" , component : ShowProduct },
+    { path : "/visualizate-products" , component : SeeProducts },
+    { path : "/resumen" , component : Resumen },
+    { path : "/resumen-venta" , component : ResumenVenta },
+    { path : "/perfil-tienda" , component : Profile },
+    
+    //Auth
 
   //Auth
 
-  { path: "/iniciar-sesion", component: Login },
-  { path: "/recuperar-password", component: RecoverPassword },
-  { path: "/restablecer-password", component: ResetPassword },
+    //Perfil
+    { path : "/informacion-perfil" , component : InfoPerfil },
+    { path : "/informacion-perfil/registro" , component : InfoPerfilRegistro },
+    { path : "/informacion-perfil/productos-activos" , component : ActiveProducts },
+    { path : "/informacion-perfil/cambiar-password" , component : ChangePassword },
+    { path : "/informacion-perfil/perfil-tienda" , component : ProfileStoreGeneral },
+    { path : "/informacion-perfil/previsualizacion" , component : Previsualizacion },
+    { path : "/informacion-perfil/terminos" , component : Terminos },
+    { path : "/informacion-perfil/desactivar-cuenta" , component : DesactivarCuenta },
 
   //Perfil
   { path: "/informacion-perfil", component: InfoPerfil },
