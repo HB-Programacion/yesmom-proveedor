@@ -13,8 +13,23 @@ import Sidebar from '../../../components/Perfil/Sidebar/Sidebar';
 
 
 import './Terminos.css';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
+
+const schemaValidator = yup.object().shape({
+    terminos : yup.string().required('*Este campo es requerido').max(1200,'*Máximo 1200 caracteres permitidos')
+})
 const Terminos = () => {
+
+    const { register , handleSubmit , formState : { errors }} = useForm({
+        resolver : yupResolver(schemaValidator)
+    });
+
+    const submitForm = () => {
+        alert('Test terminos guardados')
+    }
     return (
         <AppLayout>
             <div className="contenedor-info-perfil-registro">
@@ -45,11 +60,19 @@ const Terminos = () => {
                                             <img src={iconEditar} />
                                         </div>
                                         <div className="flex-terminos">
-                                            <h4 className="registro-title op-8 mb-4">Agregar términos y condiciones</h4>
-                                            <textarea
-                                                placeholder="Escriba aquí los terminos y condiciones generales de la tienda para el comprador..."
-                                                className="w-100 terminos-text-area" 
-                                            />
+                                            <label htmlFor="terminos">
+                                                <h4 className="registro-title op-8 mb-4">Agregar términos y condiciones</h4>
+                                            </label>
+                                            <div className="w-100">
+                                                <textarea
+                                                    id="terminos"
+                                                    name="terminos"
+                                                    placeholder="Escriba aquí los terminos y condiciones generales de la tienda para el comprador..."
+                                                    className="w-100 terminos-text-area" 
+                                                    {...register('terminos')}
+                                                />
+                                                <p className="error-input">{errors?.terminos?.message}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -58,7 +81,7 @@ const Terminos = () => {
                         <hr className="info-hr"/>
                         <div className="info-container-buttons">
                             <div className="info-container-button-only">
-                                <ButtonFilled color="pink">
+                                <ButtonFilled color="pink" fxClick={ handleSubmit (submitForm )}>
                                     Guardar
                                 </ButtonFilled>      
                             </div>

@@ -61,7 +61,7 @@ const Registro = () => {
     const type = document.getElementById('contrasenia').type;
 
     type==='password' ?  document.getElementById('contrasenia').type = 'text':  document.getElementById('contrasenia').type='password';
-}
+  }
 
   const submitForm = (values) => {
     alert('Test edit')

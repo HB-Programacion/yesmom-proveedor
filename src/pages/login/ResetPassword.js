@@ -60,7 +60,8 @@ const ResetPassword = () => {
                                             />
                                             <img className="eye-icon" src={iconEye} onClick= {() => handleRef('password') }/>
                                         </div>
-                                        <p className="error-input-login">{errors?.password?.message}</p>
+                                        { errors?.password?.message && <p className="error-input-login">{errors?.password?.message}</p>}
+                                        
                                     </div>
                                     <div className="wrapper-input">
                                         <div className="input-password reset-password">

@@ -24,6 +24,9 @@
     .terminos-container-form{
         padding:3rem;
     }
+    .terminos-text-area{
+        border-color : #4B64A4;
+    }
 }
 @media (min-width : 1024px){
     .terminos-container-form{
