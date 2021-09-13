@@ -1,8 +1,9 @@
 import React from 'react'
-import eyeIcon from '../../images/registro/eye.svg';
+import eyeIcon from '../../../images/registro/eye.svg'; 
+import eyeIconBlue from '../../../images/registro/eye-blue.svg'; 
 import { Col , Row} from 'react-bootstrap';
 
-const RegistroStep1 = ({register , errors}) => {
+const RegistroStep1 = ({register , errors , showPassword}) => {
     
     //Registrar inputs
     return (
@@ -66,7 +67,8 @@ const RegistroStep1 = ({register , errors}) => {
                         <div className="registro-box-input mt-0 mb-0 mq-mb-0">
                             <label htmlFor="contrasenia">Contraseña*:</label>
                             <div className="registro-input-password">
-                                <img src={eyeIcon} />
+                                <img className="registro-hide-desktop" src={eyeIcon} onClick ={ showPassword }/>
+                                <img className="show-only-desktop" src={eyeIconBlue} onClick ={ showPassword }/>
                                 <input 
                                     type="password" 
                                     id="contrasenia" 

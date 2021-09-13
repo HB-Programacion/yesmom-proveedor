@@ -316,7 +316,7 @@ input[type="file"] {
 }
 .registro-container-form{
     margin: 1.5rem 0;
-    padding: 5rem 0.7rem 4rem 0.7rem;
+    padding: 5rem 0.7rem 1rem 0.7rem;
     background: #FFFFFF;
     border: 10px solid #FFFFFF;
     box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
@@ -452,13 +452,27 @@ input[type="file"] {
     background: url("https://i.ibb.co/TKQkDmv/check-pink.png") center/16px no-repeat;
 }
 
-.error-input-login{
+.error-input-login, .error-input{
     margin : 0;
     font-family: "mont-bold";
     font-size:1.2rem;
     height:1.5rem;
     color:#ff0033;
 }
+
+.show-only-desktop{
+    display:none;
+}
+
+.registro-box-input input[type=number]::-webkit-inner-spin-button,
+.registro-box-input input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none; 
+    margin: 0;
+}
+.registro-box-input input[type=number] { 
+    -moz-appearance:textfield; 
+}
+
 @media (min-width : 480px){
     .contenedor-login {
         padding-top: 12rem;
@@ -606,6 +620,13 @@ input[type="file"] {
 
     .eye-icon {
         right: 1.5rem;
+    }
+
+    .registro-hide-desktop{
+        display: none;
+    }
+    .show-only-desktop{
+        display:block;
     }
 }
 

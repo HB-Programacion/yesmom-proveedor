@@ -98,14 +98,6 @@
     display:flex;
     flex-direction: column;
 }
-.registro-box-input input[type=number]::-webkit-inner-spin-button,
-.registro-box-input input[type=number]::-webkit-outer-spin-button{
-    -webkit-appearance: none; 
-    margin: 0;
-}
-.registro-box-input input[type=number] { 
-    -moz-appearance:textfield; 
-}
 
 .error-input{
     margin : 0;
@@ -113,6 +105,10 @@
     font-size:1.2rem;
     height:1.5rem;
     color:#ff0033;
+}
+
+.show-only-desktop {
+    display: none;
 }
 
 /***/
@@ -166,6 +162,10 @@
 
     .registro-hide-desktop{
         display: none;
+    }
+
+    .show-only-desktop{
+        display:block;
     }
 }
 

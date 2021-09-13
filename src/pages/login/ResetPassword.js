@@ -14,7 +14,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 const schemaValidator = yup.object().shape({
     password : yup.string().required('*Este campo es requerido').min(5,'*La contraseña debe tener como mínimo 5 caracteres'),
-    password_2 : yup.string().required('*Este campo es requerido').min(5,'*La contraseña debe tener como mínimo 5 caracteres'),
+    confirmPassword: yup.string().oneOf([yup.ref('password'),null],'*Las contraseñas no coinciden'),
 })
 
 
@@ -32,13 +32,7 @@ const ResetPassword = () => {
     }
 
     const submitForm = (data) => {
-        const { password , password_2 } = data;
-
-        if(password !== password_2){
-            alert('Las password no coinciden')
-        }else{
-            alert('okssss')
-        }
+        alert('oksss');
     }
 
     return (
@@ -72,14 +66,14 @@ const ResetPassword = () => {
                                         <div className="input-password reset-password">
                                             <input 
                                                 type="password" 
-                                                id="password_2" 
-                                                name="password_2" 
+                                                id="confirmPassword" 
+                                                name="confirmPassword" 
                                                 placeholder="Repetir contraseña"
-                                                {...register('password_2')} 
+                                                {...register('confirmPassword')} 
                                             />
-                                            <img className="eye-icon" src={iconEye} onClick= {() => handleRef('password_2') }/>
+                                            <img className="eye-icon" src={iconEye} onClick= {() => handleRef('confirmPassword') }/>
                                         </div>
-                                        <p className="error-input-login">{errors?.password_2?.message}</p>
+                                        <p className="error-input-login">{errors?.confirmPassword?.message}</p>
                                     </div>
 
                                     <div className="btn-only btn-only-reset mt-5" onClick = { handleSubmit(submitForm)}>

@@ -8,70 +8,22 @@ import AppLayout from '../../components/AppLayout/AppLayout'
 import ButtonFilled from '../../components/Button/ButtonFilled';
 import Stepper from '../../components/Registro/Stepper';
 
-import RegistroStep1 from './RegistroStep1';
-import RegistroStep2 from './RegistroStep2';
-import RegistroStep3 from './RegistroStep3';
-import RegistroStep4 from './RegistroStep4';
+import RegistroStep1 from '../../components/Registro/RegistroSteps/RegistroStep1';
+import RegistroStep2 from '../../components/Registro/RegistroSteps/RegistroStep2';
+import RegistroStep3 from '../../components/Registro/RegistroSteps/RegistroStep3';
+import RegistroStep4 from '../../components/Registro/RegistroSteps/RegistroStep4';
 import './Registro.css';
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import clienteAxiosBusiness from '../../config/axiosBusiness';
-
-//Some regex
-const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
-const dniRegExp = /^\d{8}(?:[-\s]\d{4})?$/;
-const urlRegExp = /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/
-
-//Schema global
-const schemaValidator = yup.object().shape({
-    //Registro 1
-    nombreCompletoEncargado : yup.string().required('*Este campo es requerido'),
-    telefono: yup.string().required('*Este campo es requerido').matches(phoneRegExp, '*Teléfono incorrecto'),
-    nombreTienda : yup.string().required('*Este campo es requerido'),
-    correoElectronico : yup.string().email('*Correo electrónico inválido').required('*Este campo es requerido'),
-    contrasenia : yup.string().required('*Este campo es requerido').min(5,'*La contraseña debe tener como mínimo 5 caracteres'),
-})
-
-const schemaValidatorStep2 = yup.object().shape({
-    //Registro 2
-    nombreCompletoRepresentante: yup.string().required('*Este campo es requerido'),
-    documentoRepresentante: yup.string().required('*Este campo es requerido').matches(dniRegExp,' *DNI incorrecto'),
-    razonSocial : yup.string().required('*Este campo es requerido'),
-    ruc : yup.string().required('Este campo es requerido').matches(/^[0-9]+$/,'*RUC incorrecto')
-            .min(11, '*Deben ser exactamente 11 digitos')
-            .max(11, 'Deben ser exactamente 11 digitos'),
-    telefonoEmpresa: yup.string().required('*Este campo es requerido').matches(phoneRegExp, '*Teléfono incorrecto'),
-    pais: yup.string().required('*Este campo es requerido'),
-    ciudad: yup.string().required('*Este campo es requerido'),
-    distrito: yup.string().required('*Este campo es requerido'),
-    direccion: yup.string().required('*Este campo es requerido'),
-    paginaWeb: yup.string().required('*Este campo es requerido').matches(urlRegExp,'*Pagina web incorrecta'),
-})
-
-const schemaValidatorStep3 = yup.object().shape({
-    //Registro 3
-    titularCuenta : yup.string().required('*Este campo es requerido'),
-    entidadBancaria: yup.string().required('*Este campo es requerido'),
-    numeroCuentaSoles: yup.string().required('*Este campo es requerido')
-            .matches(/^[0-9]+$/, "*Solo ingresa digitos"),
-    dniRucTitular: yup.string().required('*Este campo es requerido').matches(dniRegExp,' *DNI incorrecto'),
-    cciCuenta: yup.string().required('*Este campo es requerido')
-                .matches(/^[0-9]+$/, "*Solo ingresa digitos")
-                .min(20, '*Deben ser exactamente 20 digitos')
-                .max(20, 'Deben ser exactamente 20 digitos'),
-})
-
-const schemaValidatorStep4 = yup.object().shape({
-    //Registro 4
-    nombreEncargadoAlmacen : yup.string().required('*Este campo es requerido'),
-    correoEncargadoAlmacen : yup.string().email('*Correo electrónico inválido').required('*Este campo es requerido'),
-    telefonoAlmacen : yup.string().required('*Este campo es requerido').matches(phoneRegExp, '*Teléfono incorrecto'),
-    direccionAlmacen : yup.string().required('*Este campo es requerido'),
-    referenciaAlmacen : yup.string().required('*Este campo es requerido'),
-    ciudadAlmacen : yup.string().required('*Este campo es requerido'),
-})
+import { 
+    schemaValidator, 
+    schemaValidatorStep2,
+    schemaValidatorStep3,
+    schemaValidatorStep4,
+} from '../../utils/validateRegistro/ValidationSchemas';
 
 const Registro = () => {
 
@@ -186,6 +138,12 @@ const Registro = () => {
         return resp;
     }
 
+    const handleRef = () => {
+        const type = document.getElementById('contrasenia').type;
+
+        type==='password' ?  document.getElementById('contrasenia').type = 'text':  document.getElementById('contrasenia').type='password';
+    }
+
     return (
         <AppLayout>
                 <div className="contenedor-registro">
@@ -201,6 +159,7 @@ const Registro = () => {
                                 <form>
                                     {selected === 0 && 
                                         <RegistroStep1 
+                                            showPassword = { handleRef }
                                             register = { register }
                                             errors = { errors }
                                         />
@@ -244,10 +203,10 @@ const Registro = () => {
                                 <ButtonFilled 
                                     color="yellow" 
                                     fxClick={
-                                        selected === 0 && handleSubmit(handleSelection)   ||   
-                                        selected === 1 && handleSubmit_2(handleSelection)   ||
-                                        selected === 2 && handleSubmit_3(handleSelection)   ||
-                                        selected === 3 && handleSubmit_4(handleSelection)   
+                                        (selected === 0 && handleSubmit(handleSelection) )  ||   
+                                        (selected === 1 && handleSubmit_2(handleSelection))   ||
+                                        (selected === 2 && handleSubmit_3(handleSelection))   ||
+                                        (selected === 3 && handleSubmit_4(handleSelection))   
                                     }
                                 >
                                     Continuar

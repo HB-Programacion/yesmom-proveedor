@@ -250,7 +250,7 @@ textarea {
     margin: 1rem 0;
     font-family: "mont-light" !important;
     font-size: 1.3rem;
-    color: #DADADA;
+    color: #5a5a5a;
     border: none;
     border-bottom: 1px solid #DADADA;
 }
@@ -425,6 +425,11 @@ textarea {
 
     .home--container-section {
         padding: 10rem 0;
+    }
+
+    .home--container-form {
+        padding-left : 2rem;
+        padding-right: 2rem;
     }
 }
 
