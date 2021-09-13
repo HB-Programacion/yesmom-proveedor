@@ -4,10 +4,10 @@ import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
 import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
 
-import RegistroStep1 from '../../registro/RegistroStep1';
-import RegistroStep2 from '../../registro/RegistroStep2';
-import RegistroStep3 from '../../registro/RegistroStep3';
-import RegistroStep4 from '../../registro/RegistroStep4';
+import RegistroStep1 from '../../../components/Registro/RegistroSteps/RegistroStep1';
+import RegistroStep2 from '../../../components/Registro/RegistroSteps/RegistroStep2';
+import RegistroStep3 from '../../../components/Registro/RegistroSteps/RegistroStep3';
+import RegistroStep4 from '../../../components/Registro/RegistroSteps/RegistroStep4';
 
 import back from '../../../images/perfil/back.svg';
 import iconEditar from '../../../images/header/icon-edit.svg';
@@ -18,12 +18,55 @@ import Sidebar from '../../../components/Perfil/Sidebar/Sidebar';
 
 
 import './Registro.css';
-const Registro = () => {
-  const history = useHistory();
+import { useForm } from 'react-hook-form';
+import { mergedSchema } from '../../../utils/validateRegistro/ValidationSchemas';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-  const handleClick = () => {
-    history.push("/product-excel");
-  };
+
+const Registro = () => {
+
+  const { register , handleSubmit , formState:{errors} } = useForm({
+    resolver : yupResolver(mergedSchema),
+    defaultValues: {
+      "nombreCompletoEncargado": "Lincoln Villanueva Siccha",
+      "telefono": "969670765",
+      "nombreTienda": "LinkStore",
+      "correoElectronico": "lvs1205@gmail.com",
+      "contrasenia":"12link23",
+      "nombreCompletoRepresentante": "Lincoln Elmer Villanueva Siccha",
+      "documentoRepresentante":"44371856",
+      "razonSocial":"Link Sac",
+      "ruc":10443718562,
+      "telefonoEmpresa":"969670765",
+      "pais":"Perú",
+      "ciudad":"Lima",
+      "distrito":"Miraflores",
+      "direccion":"Jr Agua Marina 276-Dpto 202",
+      "paginaWeb":"www.ofertasperu.store",
+      "titularCuenta":"Lincoln Villanueva Siccha",
+      "entidadBancaria":"Bcp",
+      "numeroCuentaSoles":"1644646454645477",
+      "dniRucTitular":"44371856",
+      "cciCuenta":"14544445465466466223",
+      "nombreEncargadoAlmacen":"Lady Villanueva",
+      "correoEncargadoAlmacen":"iris.lvs198@gmail.com",
+      "telefonoAlmacen":"992841777",
+      "direccionAlmacen":"Jr su casa ahi nomas",
+      "referenciaAlmacen":"Cerca al vecino",
+      "ciudadAlmacen":"Santiago de Surco"
+    } 
+  });
+
+  const handleRef = () => {
+    const type = document.getElementById('contrasenia').type;
+
+    type==='password' ?  document.getElementById('contrasenia').type = 'text':  document.getElementById('contrasenia').type='password';
+}
+
+  const submitForm = (values) => {
+    alert('Test edit')
+    alert(JSON.stringify(values))
+  }
 
   return (
     <AppLayout>
@@ -54,25 +97,38 @@ const Registro = () => {
                     <div className="info-icon-editar">
                       <img src={iconEditar} />
                     </div>
-                    <RegistroStep1 />
+                    <RegistroStep1 
+                      register= { register}
+                      errors = { errors }
+                      showPassword = { handleRef }
+                    />
                   </div>
                   <div className="registro-container-form info-container-form mt-5 mb-2">
                     <div className="info-icon-editar">
                       <img src={iconEditar} />
                     </div>
-                    <RegistroStep2 />
+                    <RegistroStep2 
+                      register= { register}
+                      errors = { errors }
+                    />
                   </div>
                   <div className="registro-container-form info-container-form mt-5 mb-2">
                     <div className="info-icon-editar">
                       <img src={iconEditar} />
                     </div>
-                    <RegistroStep3 />
+                    <RegistroStep3 
+                      register= { register}
+                      errors = { errors }
+                    />
                   </div>
                   <div className="registro-container-form info-container-form mt-5 mb-2">
                     <div className="info-icon-editar">
                       <img src={iconEditar} />
                     </div>
-                    <RegistroStep4 />
+                    <RegistroStep4 
+                      register= { register}
+                      errors = { errors }
+                    />
                   </div>
                 </div>
               </div>
@@ -81,7 +137,7 @@ const Registro = () => {
 
             <div className="info-container-buttons">
               <div className="info-container-button-only">
-                <ButtonFilled color="pink" fxClick={handleClick}>
+                <ButtonFilled color="pink" fxClick={ handleSubmit(submitForm) }>
                   Guardar
                 </ButtonFilled>
               </div>

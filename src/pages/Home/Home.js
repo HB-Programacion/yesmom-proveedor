@@ -24,8 +24,21 @@ import CircleImage from "../../components/CircleImage/CircleImage";
 import './Home.css';
 import { Link } from "react-router-dom";
 
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+const schemaValidator = yup.object().shape({
+    fullname : yup.string().required('*Este campo es requerido').matches(/^[a-z ,.'-]+$/i,'*Nombres incorrectos'),
+    email : yup.string().email('*Correo electrónico incorrecto').required('*Este campo es requerido'),
+    question : yup.string().required('*Este campo es requerido').max(200,'*Máximo 200 caracteres permitidos'),
+})
+
 const Home = () => {
 
+    const { register , handleSubmit , formState : { errors } } = useForm({
+        resolver : yupResolver(schemaValidator)
+    })
 
     const steps=[
         { id : 1 , img:venderFirst, description : "Crea una cuenta en el marketplace de Yes Mom"},
@@ -40,6 +53,10 @@ const Home = () => {
         contacto :"contacto",
     }
 
+
+    const submitForm = (values) => {
+        alert('Enviando datos'+JSON.stringify(values));
+    }
     return (
         <>
             <AppLayout>
@@ -168,22 +185,36 @@ const Home = () => {
                                                 <div className="home--container-form">
                                                     <form>
                                                         <div className="home--box-input">
-                                                            <label htmlFor="nombres">Nombre y Apellido</label>
-                                                            <input type="text" id="nombres" />
+                                                            <label htmlFor="fullname">Nombre y Apellido</label>
+                                                            <input 
+                                                                type="text" 
+                                                                id="fullname" 
+                                                                {...register('fullname')}
+                                                            />
+                                                            <p className="error-input-login">{errors?.fullname?.message}</p>
                                                         </div>
                                                         <div className="home--box-input">
-                                                            <label htmlFor="correo">Dirección de correo electrónico</label>
-                                                            <input type="email" id="correo" />
+                                                            <label htmlFor="email">Dirección de correo electrónico</label>
+                                                            <input 
+                                                                type="email" 
+                                                                id="email" 
+                                                                {...register('email')}
+                                                            />
+                                                            <p className="error-input-login">{errors?.email?.message}</p>
                                                         </div>
                                                         <div className="home--box-input">
-                                                            <label htmlFor="textarea">Escribe aquí tu pregunta....</label>
-                                                            <textarea id="textarea" />
+                                                            <label htmlFor="question">Escribe aquí tu pregunta....</label>
+                                                            <textarea 
+                                                                id="question"
+                                                                {...register("question", { max: 200 })}
+                                                            />
+                                                            <p className="error-input-login">{errors?.question?.message}</p>
                                                         </div>
                                                     </form>
                                                 </div>
 
                                                 <div className="home--container-send">
-                                                    <ButtonFilled color="yellow">
+                                                    <ButtonFilled color="yellow" fxClick= { handleSubmit(submitForm)} >
                                                         Enviar
                                                     </ButtonFilled>
                                                 </div>

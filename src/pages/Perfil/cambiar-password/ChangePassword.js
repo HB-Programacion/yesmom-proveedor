@@ -14,7 +14,34 @@ import iconEye from '../../../images/perfil/icon-eye.svg';
 
 import './ChangePassword.css';
 
+import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { ref } from 'yup';
+
+
+const schemaValidator = yup.object().shape({
+    password : yup.string().required('*Este campo es requerido'),
+    new_password : yup.string().required('*Este campo es requerido').min(5,'*Nueva contraseña debe tener mínimo 5 caracteres'),
+    confirmPassword : yup.string().oneOf([yup.ref('new_password'),null], '*Las contraseñas no coinciden')
+})
+
 const ChangePassword = () => {
+
+    const { register , handleSubmit , formState : { errors }  } = useForm({
+        resolver : yupResolver(schemaValidator),
+    })
+
+    const submitForm = ( values ) => {
+        alert('Test change password');
+    }
+
+    const handleRef = (id) => {
+        const type = document.getElementById(id).type;
+    
+        type === "password" ? document.getElementById(id).type="text" : document.getElementById(id).type="password"
+    }
+
     return (
         <AppLayout>
             <div className="contenedor-info-perfil-registro">
@@ -51,9 +78,15 @@ const ChangePassword = () => {
                                                 
                                                 <label htmlFor="password" >Ingresa la contraseña actual*:</label>
                                                 <div className="input-password reset-password">
-                                                    <input type="password" id="password" name="password"/>
-                                                    <img className="eye-icon" src={iconEye} />
+                                                    <input 
+                                                        type="password" 
+                                                        id="password" 
+                                                        name="password"
+                                                        {...register('password')}
+                                                    />
+                                                    <img className="eye-icon" src={iconEye} onClick={ () => handleRef('password')}/>
                                                 </div>
+                                                <p className="error-input">{errors?.password?.message}</p>
                                             </div>
                                             <div className="container-forgot-password">
                                                     <Link to ="/">
@@ -61,18 +94,30 @@ const ChangePassword = () => {
                                                     </Link>
                                             </div>
                                             <div className="wrapper-input">
-                                                <label htmlFor="password" >Nueva contraseña*:</label>
+                                                <label htmlFor="new_password" >Nueva contraseña*:</label>
                                                 <div className="input-password reset-password">
-                                                    <input type="password" id="new_password" name="new_password"    />
-                                                    <img className="eye-icon" src={iconEye} />
+                                                    <input 
+                                                        type="password" 
+                                                        id="new_password" 
+                                                        name="new_password"    
+                                                        {...register('new_password')}
+                                                    />
+                                                    <img className="eye-icon" src={iconEye} onClick={ () => handleRef('new_password')} />
                                                 </div>
+                                                <p className="error-input">{errors?.new_password?.message}</p>
                                             </div>
                                             <div className="wrapper-input">
-                                                <label htmlFor="password">Repetir nueva contraseña*:</label>
+                                                <label htmlFor="confirmPassword">Repetir nueva contraseña*:</label>
                                                 <div className="input-password reset-password">
-                                                    <input type="password" id="new_password" name="new_password"/>
-                                                    <img className="eye-icon" src={iconEye} />
+                                                    <input 
+                                                        type="password" 
+                                                        id="confirmPassword" 
+                                                        name="confirmPassword"
+                                                        {...register('confirmPassword')}
+                                                    />
+                                                    <img className="eye-icon" src={iconEye} onClick={ () => handleRef('confirmPassword')}/>
                                                 </div>
+                                                <p className="error-input">{errors?.confirmPassword?.message}</p>
                                             </div>
                                         </form>
                                     </div>
@@ -83,7 +128,7 @@ const ChangePassword = () => {
 
                         <div className="info-container-buttons">
                             <div className="info-container-button-only">
-                                <ButtonFilled color="pink">
+                                <ButtonFilled color="pink" fxClick = { handleSubmit(submitForm) }>
                                     Guardar
                                 </ButtonFilled>      
                             </div>
