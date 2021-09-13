@@ -1,29 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import DropMenuMobile from "./DropMenuMobile";
-
 import burger from "../../images/header/burger.svg";
 import cesta from "../../images/header/cesta.svg";
 import tienda from "../../images/header/tienda.svg";
 import contacto from "../../images/header/contacto.svg";
 import iniciarSesion from "../../images/header/iniciar-sesion.svg";
 import logoYesmom from "../../images/header/logo-yesmom.svg";
-
 import "./Header.css";
 import AvatarLogged from "./AvatarLogged";
+import { HashLink } from "react-router-hash-link";
 function Header({ logged }) {
-
+  const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive(!active);
   };
-
   const sections = {
     porqueVender: "porque-vender-yesmom",
     comoVender: "como-vender",
     contacto: "contacto",
   };
-
   return (
     <>
       <div className="header-box-yesmom">
@@ -41,7 +37,6 @@ function Header({ logged }) {
                 />
               </Link>
             </div>
-
             <div className="container-icon hide">
               {logged ? (
                 <Link to="/informacion-perfil">
@@ -59,7 +54,6 @@ function Header({ logged }) {
                 </Link>
               )}
             </div>
-
             <div
               className={`box-items-menu ${
                 active ? "" : "box-items-menu-desktop"
@@ -67,8 +61,8 @@ function Header({ logged }) {
             >
               <div className="box-items-menu-responsive">
                 <div className="header-to-id">
-                  <a
-                    href={`/#${sections.porqueVender}`}
+                  <HashLink
+                    to={`/#${sections.porqueVender}`}
                     className="item-menu-yesmom"
                   >
                     <div className="container-icon">
@@ -79,11 +73,11 @@ function Header({ logged }) {
                       />
                     </div>
                     <h6 className="text-navbar">¿Por qué Yes Mom?</h6>
-                  </a>
+                  </HashLink>
                 </div>
                 <div className="header-to-id">
-                  <a
-                    href={`/#${sections.comoVender}`}
+                  <HashLink
+                    to={`/#${sections.comoVender}`}
                     className="item-menu-yesmom"
                   >
                     <div className="container-icon">
@@ -94,11 +88,11 @@ function Header({ logged }) {
                       />
                     </div>
                     <h6 className="text-navbar">¿Cómo vender?</h6>
-                  </a>
+                  </HashLink>
                 </div>
                 <div className="header-to-id">
-                  <a
-                    href={`/#${sections.contacto}`}
+                  <HashLink
+                    to={`/#${sections.contacto}`}
                     className="item-menu-yesmom"
                   >
                     <div className="container-icon">
@@ -109,7 +103,7 @@ function Header({ logged }) {
                       />
                     </div>
                     <h6 className="text-navbar">Contacto</h6>
-                  </a>
+                  </HashLink>
                 </div>
                 <div>
                   {logged ? (
@@ -140,5 +134,4 @@ function Header({ logged }) {
     </>
   );
 }
-
 export default Header;

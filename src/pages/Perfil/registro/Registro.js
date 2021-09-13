@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
 import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
@@ -19,77 +19,83 @@ import Sidebar from '../../../components/Perfil/Sidebar/Sidebar';
 
 import './Registro.css';
 const Registro = () => {
-    return (
-        <AppLayout>
-            <div className="contenedor-info-perfil-registro">
-                <div className="info-perfil-contenido">
-                    <div className="info-all-content">
-                        <div className="info-contenedor-flex">
-                                <div className="hide-desktop info-container-back">
-                                    <div>
-                                        <Link to="/informacion-perfil">
-                                            <div className="show return">
-                                                <img src={back} alt="volver" />
-                                                <p className="info-perfil-back">Volver</p>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </div>
-                            <div className="flex-left">
-                                <div className="info-container-title">
-                                    <TitlePerfil name="Baby Plaza Store" email="example@babyplaza.com" />
-                                </div>
-                                <Sidebar />
-                            </div>
-                            <div className="flex-right">
-                                <Description title="Registro" description="Aquí encontrarás los datos de la empresa" />
-                                <div className="info-container-content">
-                                    <div className="registro-container-form info-container-form mt-5 mb-2">
-                                    <div className="info-icon-editar">
-                                        <img src={iconEditar} />
-                                    </div>
-                                    <RegistroStep1 />
-                                    </div>
-                                    <div className="registro-container-form info-container-form mt-5 mb-2">
-                                    <div className="info-icon-editar">
-                                        <img src={iconEditar} />
-                                    </div>
-                                    <RegistroStep2 />
-                                    </div>
-                                    <div className="registro-container-form info-container-form mt-5 mb-2">
-                                    <div className="info-icon-editar">
-                                        <img src={iconEditar} />
-                                    </div>
-                                    <RegistroStep3 />
-                                    </div>
-                                    <div className="registro-container-form info-container-form mt-5 mb-2">
-                                    <div className="info-icon-editar">
-                                        <img src={iconEditar} />
-                                    </div>
-                                    <RegistroStep4 />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr className="info-hr" />
+  const history = useHistory();
 
-                        <div className="info-container-buttons">
-                            <div className="info-container-button-only">
-                                <ButtonFilled color="pink">
-                                    Guardar
-                                </ButtonFilled>      
-                            </div>
-                            <div className="info-container-button-only">
-                                <ButtonFilled color="outline-pink">
-                                    Cancelar
-                                </ButtonFilled>
-                            </div>
-                        </div>
+  const handleClick = () => {
+    history.push("/product-excel");
+  };
+
+  return (
+    <AppLayout>
+      <div className="contenedor-info-perfil-registro">
+        <div className="info-perfil-contenido">
+          <div className="info-all-content">
+            <div className="info-contenedor-flex">
+              <div className="hide-desktop info-container-back">
+                <div>
+                  <Link to="/informacion-perfil">
+                    <div className="show return">
+                      <img src={back} alt="volver" />
+                      <p className="info-perfil-back">Volver</p>
                     </div>
+                  </Link>
                 </div>
+              </div>
+              <div className="flex-left">
+                <div className="info-container-title">
+                  <TitlePerfil name="Baby Plaza Store" email="example@babyplaza.com" />
+                </div>
+                <Sidebar />
+              </div>
+              <div className="flex-right">
+                <Description title="Registro" description="Aquí encontrarás los datos de la empresa" />
+                <div className="info-container-content">
+                  <div className="registro-container-form info-container-form mt-5 mb-2">
+                    <div className="info-icon-editar">
+                      <img src={iconEditar} />
+                    </div>
+                    <RegistroStep1 />
+                  </div>
+                  <div className="registro-container-form info-container-form mt-5 mb-2">
+                    <div className="info-icon-editar">
+                      <img src={iconEditar} />
+                    </div>
+                    <RegistroStep2 />
+                  </div>
+                  <div className="registro-container-form info-container-form mt-5 mb-2">
+                    <div className="info-icon-editar">
+                      <img src={iconEditar} />
+                    </div>
+                    <RegistroStep3 />
+                  </div>
+                  <div className="registro-container-form info-container-form mt-5 mb-2">
+                    <div className="info-icon-editar">
+                      <img src={iconEditar} />
+                    </div>
+                    <RegistroStep4 />
+                  </div>
+                </div>
+              </div>
             </div>
-        </AppLayout>
-    )
+            <hr className="info-hr" />
+
+            <div className="info-container-buttons">
+              <div className="info-container-button-only">
+                <ButtonFilled color="pink" fxClick={handleClick}>
+                  Guardar
+                </ButtonFilled>
+              </div>
+              <div className="info-container-button-only">
+                <ButtonFilled color="outline-pink">
+                  Cancelar
+                </ButtonFilled>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </AppLayout>
+  )
 }
 
 export default Registro

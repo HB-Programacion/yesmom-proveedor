@@ -1,21 +1,22 @@
 .container-select {
-  flex-grow: 1;
+  width: 100%;
+	min-width: 168px;
 }
 
 .container-select select {
-  width: calc(100% - 1rem);
+  width: calc(100% );
   padding: 1rem;
   border: 1px solid #556EA1;
   box-sizing: border-box;
-  border-radius: 20px;
-  height: 35px;
+  border-radius: 15px;
+  height: 37px;
 
   background: url(https://i.ibb.co/mtG2wk2/image.png) no-repeat right #ffffff;
   background-size: 1.25rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-position-x: 92.5%;
+  background-position-x: calc(100% - 20px);
 
   font-family: "mont-regular" !important;
   font-size: 1.2rem;
@@ -26,8 +27,8 @@
   outline: none;
   border: none;
   border:0px;
-   outline:0px;
-   scroll-behavior: smooth;
+	outline:0px;
+	scroll-behavior: smooth;
 }
 
 .container-select select:focus {
@@ -49,10 +50,7 @@
         
 }
 @media (min-width : 1024px){
-  .container-select select {
-    font-size: 1.5rem;
-    padding: 1.5rem;
-}
+
        
 }
 @media (min-width : 1280px){

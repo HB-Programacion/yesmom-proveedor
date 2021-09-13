@@ -54,8 +54,36 @@
     position: absolute;
     right: 0;
     top: 0;
+    cursor: pointer;
+}
+.modal-update-product{
+  border: 3px dashed #DC6A8D;
+  border-radius: 30px;
+  width: 95vw;
+  height: 80vh;
+}
+/* inicio scrollbar - modal sweetalert */
+.swal2-html-container::-webkit-scrollbar {
+  width: 12px;
 }
 
+.swal2-html-container::-webkit-scrollbar-track {
+	background: #f7f7f7;
+}
+
+.swal2-html-container::-webkit-scrollbar-thumb {
+	background-color: #cfcfcf;
+	border-radius: 5px;
+	border: 3px solid #f7f7f7;
+}
+/* fin scrollbar - modal sweetalert */
+.update-product-title{
+  font-family: Mont;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+}
 .container-visible {
     display: flex;
 }
@@ -86,4 +114,31 @@
     font-family:"mont-regular";
     color:#556EA1!important;
     font-size:1.2rem!important;
+}
+
+
+@media (min-width : 480px){
+	.modal-update-product{
+		width: 95vw;
+		height: 85vh;
+	}
+}
+@media (min-width : 768px){
+	.modal-update-product{
+		width: 85vw;
+		height: 85vh;
+	}  
+}
+@media (min-width : 1024px){
+	.modal-update-product{
+		width: 60vw;
+		height: 75vh;
+	}  
+}
+@media (min-width : 1280px){
+	.modal-update-product{
+		width: 50vw;
+		height: 70vh;
+		max-width: 900px;
+	}
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link , NavLink} from 'react-router-dom';
+/* import { Link , NavLink} from 'react-router-dom'; */
+import { HashLink as Link } from 'react-router-hash-link';
 import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
-  faTwitter,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import './Footer.css';
@@ -29,9 +29,9 @@ const Footer = () => {
                   <b>CONTENIDO</b>
                 </h6>
                 <div className="box-contenido-footer">
-                  <NavLink to={`/#${sections.porqueVender}`}>
+                  <Link to={`/#${sections.porqueVender}`}>
                     <p>¿Por qué vender en Yes Mom?</p>
-                  </NavLink>
+                  </Link>
                   <Link to={`/#${sections.comoVender}`}>
                     <p>¿Comó vender en Yes Mom? </p>
                   </Link>

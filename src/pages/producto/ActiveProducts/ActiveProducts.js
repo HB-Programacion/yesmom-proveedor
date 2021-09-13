@@ -38,7 +38,7 @@ const ActiveProducts = () => {
       <Menu />
       <div className="active-products-container">
         <div className="content-nav">
-          <Return /* returnto="" */ />
+          <Return returnto="/informacion-perfil" />
           <TitlePerfil name="Baby Plaza Store" email="example@babyplaza.com" />
           <Sidebar />
         </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 
 import close from '../../images/header/close.svg';
@@ -51,7 +52,7 @@ function DropMenuMobile({ active, setActive , logged}) {
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
                 <div>
-                  <a href={`/#${sections.porqueVender}`} className="item-menu-yesmom">
+                  <HashLink to={`/#${sections.porqueVender}`} className="item-menu-yesmom">
                     <div className="container-image-icon">
                         <img
                           className="image-icon"
@@ -60,13 +61,13 @@ function DropMenuMobile({ active, setActive , logged}) {
                         />
                     </div>
                     <h6 className="text-navbar">¿Por qué Yes Mom?</h6>
-                  </a>
+                  </HashLink>
                 </div>
               </li>
 
               <li className="list-group-item">
                 <div>
-                  <a href={`/#${sections.comoVender}`} className="item-menu-yesmom">
+                  <HashLink to={`/#${sections.comoVender}`} className="item-menu-yesmom">
                     <div className="container-image-icon">
                         <img
                           className="image-icon"
@@ -75,13 +76,13 @@ function DropMenuMobile({ active, setActive , logged}) {
                         />
                     </div>
                     <h6 className="text-navbar">¿Cómo vender?</h6>
-                  </a>
+                  </HashLink>
                 </div>
               </li>
 
               <li className="list-group-item">
                 <div>
-                  <a href={`/#${sections.contacto}`} className="item-menu-yesmom">
+                  <HashLink to={`/#${sections.contacto}`} className="item-menu-yesmom">
                     <div className="container-image-icon">
                         <img
                             className="image-icon"
@@ -90,7 +91,7 @@ function DropMenuMobile({ active, setActive , logged}) {
                         />
                     </div>
                     <h6 className="text-navbar">Contacto</h6>
-                  </a>
+                  </HashLink>
                 </div>
               </li>
 

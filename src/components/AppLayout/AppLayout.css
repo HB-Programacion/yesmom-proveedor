@@ -20,7 +20,7 @@ a{
     text-decoration: none!important;
 }
 .title-rosa{
-    font-family: "mont-semibold" !important;
+    font-family: "mont-bold" !important;
     font-size: 2.5rem;
     color: #DC6A8D;
     text-align: center;
@@ -327,7 +327,7 @@ input[type="file"] {
     margin-bottom:4rem;
 }
 .registro-box-input {
-    margin:4rem 0;
+    margin:4rem 0 2.5rem 0;
     display:flex;
     flex-direction: column;
 }
@@ -356,8 +356,9 @@ input[type="file"] {
     width:100%;
 }
 .registro-input-password img{
+    cursor:pointer;
     position:absolute;
-    top: calc(50% - 1rem);
+    top: 0.5rem;
     right:0;
 }
 
@@ -517,7 +518,7 @@ input[type="file"] {
         padding:0 1rem;
     }
     .registro-input-password img{
-        top: calc(50% - 0.5rem);
+        top: 1.5rem;
         right:1rem;
     }
     .registro-title{
