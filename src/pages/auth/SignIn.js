@@ -12,17 +12,6 @@ const SignIn = ({ fechaAutentificado }) => {
     username: "",
     password: ""
   });
-  // const url = 'https://randomuser.me/api';
-
-  // let data = {
-  //   name: 'Sara'
-  // }
-
-  // var request = new Request(`${process.env.REACT_APP_BACKEND_URL_AUTH}/autenticar?email=1`, {
-  //     method: 'POST',
-  //     body: state,
-  //     // headers: new Headers()
-  // });
 
 
   const handleSubmit = async (e) => {

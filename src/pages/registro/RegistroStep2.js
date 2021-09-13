@@ -4,7 +4,6 @@ import { Row, Col} from 'react-bootstrap'
 
 const RegistroStep2 = ({ register , errors}) => {
 
-    console.log(errors);
     return (
         <>
            <h4 className="registro-title"> 2. Información de la empresa</h4>
