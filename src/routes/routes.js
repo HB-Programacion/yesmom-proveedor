@@ -72,3 +72,38 @@ export const routes = [
   //Admin - todo : reemplazar
   { path: "/login", component: SignIn },
 ];
+
+
+
+//Rutas que se muestran autenticado o no 
+export const bothRoutes = [
+  { path: "/", component: Home },
+  { path: "/registro", component: Registro },
+  { path: "/login", component: SignIn },//No va
+]
+
+//Rutas que se muestran sin estar autenticado , si estas autenticado no se deben mostrar
+export const publicRoutes = [
+  { path: "/iniciar-sesion", component: Login },
+  { path: "/recuperar-password", component: RecoverPassword },
+  { path: "/restablecer-password", component: ResetPassword },
+]
+
+//Rutas que se muestran si estas autenticado
+export const protectedRoutes = [
+  { path: "/p/resumen-venta", component: ResumenVenta },
+  { path: "/p/perfil-tienda", component: Profile },
+  { path: "/p/product-excel", component: AddProductExcel },
+  { path: "/p/add-new-product", component: AddProduct },
+  { path: "/p/show-product", component: ShowProduct },
+  { path: "/p/visualizate-products", component: SeeProducts },
+  { path: "/p/resumen", component: Resumen },
+  { path: "/p/informacion-perfil", component: InfoPerfil },
+  { path: "/p/informacion-perfil/registro", component: InfoPerfilRegistro },
+  { path: "/p/informacion-perfil/productos-activos", component: ActiveProducts },
+  { path: "/p/informacion-perfil/cambiar-password", component: ChangePassword },
+  { path: "/p/informacion-perfil/perfil-tienda", component: ProfileStoreGeneral },
+  { path: "/p/informacion-perfil/previsualizacion", component: Previsualizacion },
+  { path: "/p/informacion-perfil/terminos", component: Terminos },
+  { path: "/p/informacion-perfil/desactivar-cuenta", component: DesactivarCuenta },
+]

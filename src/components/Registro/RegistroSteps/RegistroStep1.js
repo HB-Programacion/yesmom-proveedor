@@ -29,7 +29,7 @@ const RegistroStep1 = ({register , errors , showPassword}) => {
                         <div className="registro-box-input mt-0">
                             <label htmlFor="telefono">Teléfono*:</label>
                             <input 
-                                type="tel" 
+                                type="number" 
                                 id="telefono" 
                                 name="telefono"
                                 {...register('telefono')}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import ButtonFilled from '../../../components/Button/ButtonFilled';
 import { Col, Row } from 'react-bootstrap';
@@ -17,14 +17,82 @@ import download from '../../../images/producto/excel/download.svg';
 
 import CircleImage from '../../../components/CircleImage/CircleImage';
 import './AddProductExcel.css';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddProductExcel = () => {
+
+    const initialState = {
+        filesProducts : "",
+        filesImages : ""
+    }
+    const [ files, setFiles] = useState(initialState);
 
     const steps=[
         { id : 1 , img:excelFirst, description : "Descarga nuestro formato Excel para la carga de productos"},
         { id : 2 , img:excelSecond, description : "Completa la información de tus productos en el formato y súbelo en nuestra web"},
         { id : 3 , img:excelThird, description : "¡Listo! Solo debes esperar a nuestra confirmación para comenzar a vender"},
     ]
+
+    const handleFileChange = (e) => {
+        if(e.target.files.length>0){
+            setFiles({
+                ...files,
+                [e.target.name] : e.target.files[0]
+            });
+        }
+    }
+
+    const handleUploadProducts = async () => {
+        if(files?.fileImages && files?.fileProducts){
+            //Existen datos
+            const { fileImages , fileProducts } = files;
+            const formData = new FormData();
+
+
+            formData.append('fileImages',fileImages);
+            formData.append('fileProducts',fileProducts);
+            
+            try{
+                Swal.fire({
+                    title : "Subiendo productos...",
+                    text : "Espera un momento....",
+                    allowOutsideClick : false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                })
+                
+                const { data } = await axios({
+                    method : 'POST',
+                    headers: {
+                        'access-token' : localStorage.getItem('TokenYesmonProveedor')
+                    }, 
+                    url : `${process.env.REACT_APP_BACKEND_URL_BUSINESS}/product/excel/1`,
+                    data : formData
+                })
+                
+                Swal.close();
+                //Exitoso
+                console.log(data);
+                if(data?.response?.subida){
+                    alert('Productos subidos');
+                    console.log("ok");
+                    setFiles(initialState);
+                }
+                if(data?.CodigoRespuesta==="12"){
+                    alert('Token invalido o expirado');
+                    setFiles(initialState);
+                }
+                
+            }catch(e){
+                Swal.close();
+                alert(e.message);
+            }
+        }else{
+            alert('Llena todos los datos')
+        }
+    }
 
     return (
         <>
@@ -59,32 +127,70 @@ const AddProductExcel = () => {
                                 <div className="excel--container-import">
                                     <img src={arrow}/>
                                     <h4 className="excel--title-product">Importar productos</h4>
+                                    <div className="excel-container-download">
+                                            <div className="excel--flex-1 download">
+                                                <img clas src={download} alt="formato" />
+                                            </div>
+                                            <div className="excel--only-button">
+                                                <ButtonFilled color="outline-blue">
+                                                    Descarga el formato
+                                                </ButtonFilled>
+                                            </div>  
+                                    </div>
                                 </div>
 
                                 <div className="excel--container-boxes-option">
                                     <div className="excel--box-option">
-                                        <div className="excel--flex-1 download">
-                                            <img clas src={download} alt="formato" />
+                                        <div className="excel--flex-1">
+                                            <p>Archivo de productos</p>
                                         </div>
-                                        <div className="excel--only-button">
-                                            <ButtonFilled color="outline-blue">
-                                                Descarga el formato
-                                            </ButtonFilled>
+                                        
+                                        <div>
+                                            <label htmlFor="input-excel-products">
+                                                <div className="excel--only-button">
+                                                    <ButtonFilled color="blue" fsize="less">
+                                                        Elige desde tu computadora
+                                                    </ButtonFilled>
+                                                </div>
+                                            </label>
+                                            <p className="excel-file-loaded">{files?.fileProducts?.name}</p>
                                         </div>
+                                        <input 
+                                            type="file" 
+                                            className="input-excel-products"
+                                            id="input-excel-products"
+                                            name="fileProducts"
+                                            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                                            onChange = { handleFileChange }
+                                        />
                                     </div>
                                     <div className="excel--box-option">
                                         <div className="excel--flex-1">
-                                            <p>Arrastra el archivo aquí, o</p>
+                                            <p>Archivo de imágenes (.zip)</p>
                                         </div>
-                                        <div className="excel--only-button">
-                                            <ButtonFilled color="blue" fsize="less">
-                                                Elige desde tu computadora...
-                                            </ButtonFilled>
+                                        <div>
+                                            <label htmlFor="input-zip-images">
+                                                <div className="excel--only-button">
+                                                    <ButtonFilled color="blue" fsize="less">
+                                                        Elige desde tu computadora
+                                                    </ButtonFilled>
+                                                </div>
+                                            </label>
+                                            <p className="excel-file-loaded">{files?.fileImages?.name}</p>
                                         </div>
                                     </div>
+                                    {/* hide */}
+                                    <input 
+                                        type="file" 
+                                        className="input-zip"
+                                        id="input-zip-images"
+                                        name="fileImages"
+                                        accept=".zip,.rar,.7zip" 
+                                        onChange = { handleFileChange }
+                                    />
                                 </div>
                                 <div className="excel--container-save">
-                                    <ButtonFilled color="pink">
+                                    <ButtonFilled color="pink" fxClick = { handleUploadProducts }>
                                         Guardar
                                     </ButtonFilled>
                                 </div>
