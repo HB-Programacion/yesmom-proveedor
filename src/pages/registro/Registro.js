@@ -16,7 +16,6 @@ import './Registro.css';
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
 import clienteAxiosBusiness from '../../config/axiosBusiness';
 import { 
     schemaValidator, 
@@ -154,7 +153,6 @@ const Registro = () => {
                             <div className="registro-container-stepper">
                                 <Stepper selected={selected} setSelected={setSelected}/>
                             </div>
-
                             <div className="registro-container-form">
                                 <form>
                                     {selected === 0 && 

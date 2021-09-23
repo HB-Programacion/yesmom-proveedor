@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom';
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
 import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
@@ -9,7 +8,6 @@ import RegistroStep2 from '../../../components/Registro/RegistroSteps/RegistroSt
 import RegistroStep3 from '../../../components/Registro/RegistroSteps/RegistroStep3';
 import RegistroStep4 from '../../../components/Registro/RegistroSteps/RegistroStep4';
 
-import back from '../../../images/perfil/back.svg';
 import iconEditar from '../../../images/header/icon-edit.svg';
 
 
@@ -21,6 +19,7 @@ import './Registro.css';
 import { useForm } from 'react-hook-form';
 import { mergedSchema } from '../../../utils/validateRegistro/ValidationSchemas';
 import { yupResolver } from '@hookform/resolvers/yup';
+import BackComponent from '../../../components/Return/BackComponent';
 
 
 const Registro = () => {
@@ -76,12 +75,7 @@ const Registro = () => {
             <div className="info-contenedor-flex">
               <div className="hide-desktop info-container-back">
                 <div>
-                  <Link to="/informacion-perfil">
-                    <div className="show return">
-                      <img src={back} alt="volver" />
-                      <p className="info-perfil-back">Volver</p>
-                    </div>
-                  </Link>
+                  <BackComponent />
                 </div>
               </div>
               <div className="flex-left">

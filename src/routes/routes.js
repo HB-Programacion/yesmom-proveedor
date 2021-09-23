@@ -23,7 +23,7 @@ const Profile = lazy(() => import("../pages/store/profile/Profile"));
 const Login = lazy(() => import("../pages/login/Login"));
 const RecoverPassword = lazy(() => import("../pages/login/RecoverPassword"));
 const ResetPassword = lazy(() => import("../pages/login/ResetPassword"));
-const InfoPerfil = lazy(() => import("../pages/perfil/InfoPerfil"));
+/* const InfoPerfil = lazy(() => import("../pages/perfil/InfoPerfil")); */
 const InfoPerfilRegistro = lazy(() =>
   import("../pages/perfil/registro/Registro")
 );
@@ -57,7 +57,7 @@ export const routes = [
   { path: "/recuperar-password", component: RecoverPassword },
   { path: "/restablecer-password", component: ResetPassword },
   //Perfil
-  { path: "/informacion-perfil", component: InfoPerfil },
+/*   { path: "/informacion-perfil", component: InfoPerfil }, */
   { path: "/informacion-perfil/registro", component: InfoPerfilRegistro },
   { path: "/informacion-perfil/productos-activos", component: ActiveProducts },
   { path: "/informacion-perfil/cambiar-password", component: ChangePassword },
@@ -98,7 +98,7 @@ export const protectedRoutes = [
   { path: "/p/show-product", component: ShowProduct },
   { path: "/p/visualizate-products", component: SeeProducts },
   { path: "/p/resumen", component: Resumen },
-  { path: "/p/informacion-perfil", component: InfoPerfil },
+ /*  { path: "/p/informacion-perfil", component: InfoPerfil }, */
   { path: "/p/informacion-perfil/registro", component: InfoPerfilRegistro },
   { path: "/p/informacion-perfil/productos-activos", component: ActiveProducts },
   { path: "/p/informacion-perfil/cambiar-password", component: ChangePassword },

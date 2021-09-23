@@ -21,7 +21,7 @@ import { useForm } from 'react-hook-form';
 
 const schemaValidator = yup.object().shape({
   email : yup.string().email('*Correo electrónico incorrecto').required('*Este campo es requerido'),
-  password : yup.string().required('*Este campo es requerido').min(5,'*Contraseña debe tener como mínimo 5 caracteres'),
+  password : yup.string().required('*Este campo es requerido'),
 })
 
 const Login = () => {
@@ -32,9 +32,9 @@ const Login = () => {
     resolver : yupResolver(schemaValidator),
   })
 
-  const submitForm = () => {
-    dispatch( startLogin() );
-    alert('Logeado')
+  const submitForm = async (values ) => {
+    console.log(values);
+    dispatch( startLogin( values ) );
   };
 
 

@@ -11,6 +11,7 @@ import ProfileStep2 from "./ProfileStep2"
 import ProfileStep3 from "./ProfileStep3"
 import "./Profile.css";
 import ButtonFilled from "../../../components/Button/ButtonFilled";
+import StepperTienda from "../../../components/Perfil/Stepper/StepperTienda";
 
 const Profile = () => {
   const [selected, setSelected] = useState(0);
@@ -39,7 +40,7 @@ const Profile = () => {
             </div>
             <p className="title-rosa">Completar perfil de tienda</p>
             <div className="profile-store-container-stepper">
-              <Stepper selected={selected} setSelected={setSelected} />
+              <StepperTienda selected={selected} setSelected={setSelected} />
             </div>
             <div className="profile-store-container-form">
               <form>

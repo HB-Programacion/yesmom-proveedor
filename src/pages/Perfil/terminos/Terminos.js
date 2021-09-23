@@ -1,10 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
 import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
 
-import back from '../../../images/perfil/back.svg';
 import iconEditar from '../../../images/header/icon-edit.svg';
 
 import ButtonFilled from '../../../components/Button/ButtonFilled';
@@ -16,6 +14,7 @@ import './Terminos.css';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import BackComponent from '../../../components/Return/BackComponent';
 
 
 const schemaValidator = yup.object().shape({
@@ -38,12 +37,7 @@ const Terminos = () => {
                         <div className="info-contenedor-flex">
                             <div className="hide-desktop info-container-back">
                                 <div> 
-                                    <Link to="/informacion-perfil">
-                                        <div className="show return">
-                                            <img src={back} alt="volver" />
-                                            <p className="info-perfil-back">Volver</p>
-                                        </div>
-                                    </Link>
+                                    <BackComponent />
                                 </div>
                             </div>
                             <div className="flex-left">

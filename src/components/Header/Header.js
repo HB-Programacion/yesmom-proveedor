@@ -10,7 +10,10 @@ import logoYesmom from "../../images/header/logo-yesmom.svg";
 import "./Header.css";
 import AvatarLogged from "./AvatarLogged";
 import { HashLink } from "react-router-hash-link";
-function Header({ logged }) {
+import { useSelector } from "react-redux";
+function Header() {
+
+  const { logged = false } = useSelector(state => state.auth);
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive(!active);
@@ -39,7 +42,7 @@ function Header({ logged }) {
             </div>
             <div className="container-icon hide">
               {logged ? (
-                <Link to="/informacion-perfil">
+                <Link to="/p/informacion-perfil/registro">
                   <AvatarLogged logged={logged} name="Baby Plaza" />
                 </Link>
               ) : (

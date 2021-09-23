@@ -8,13 +8,14 @@ const PrivateRoute = ({
     ...rest
 }) => {
     
+    console.log('Autenticado ', isAuthenticated);
     console.log("Ruta protegida");
     
     return (
         <Route
             {...rest}
             component={( props) => ( 
-                isAuthenticated ? <Component {...props} /> : <Redirect to="/iniciar-sesion" />
+                isAuthenticated ? <Component {...props} /> : <Redirect to="/hola" />
              )   
             }
         />

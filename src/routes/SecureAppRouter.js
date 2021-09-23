@@ -1,4 +1,4 @@
-import React, {useEffect,useState } from "react";
+import React, { useState , useEffect, Suspense } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -6,9 +6,10 @@ import {
   Redirect
 } from "react-router-dom";
 
+import { useDispatch, useSelector } from 'react-redux';
 import { bothRoutes, protectedRoutes, publicRoutes } from "./routes";
-import { Suspense } from "react";
 import Loading from "../components/Loading/Loading";
+import { login } from '../redux/actions/auth'
 
 import PublicRoute from "./PublicRoutes/PublicRoute";
 import PrivateRoute from "./ProtectedRoutes/PrivateRoute";
@@ -17,7 +18,30 @@ import ProtectedRoutes from "./ProtectedRoutes/ProtectedRoutes";
 
 export const SecureAppRouter = () => {
 
-    const [isAuthenticated , setIsAuthenticated] = useState(false);
+    const dispatch = useDispatch();
+/*     const [ isAuthenticated , setIsAuthenticated] = useState(
+        localStorage.getItem('TokenYesmonProveedor') ? true : false
+    ) */
+    const { 
+        logged:isAuthenticated = (
+            localStorage.getItem('TokenYesmonProveedor') ? true : false
+        )
+    } = useSelector(state => state.auth);
+
+    /* let isAuthenticated ;
+    if(localStorage.getItem('TokenYesmonProveedor')){
+        isAuthenticated = true;
+    }else{
+        isAuthenticated = false;
+    } */
+    useEffect(()=>{
+        const token = localStorage.getItem('TokenYesmonProveedor');
+        if(token){//Existe token autenticado
+          dispatch( login(token))
+        }
+      },[])
+
+
     return (
         <Router>
             <Suspense fallback= { <Loading />}>

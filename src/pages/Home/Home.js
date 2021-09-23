@@ -27,6 +27,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useSelector } from "react-redux";
 
 const schemaValidator = yup.object().shape({
     fullname : yup.string().required('*Este campo es requerido').matches(/^[a-z ,.'-]+$/i,'*Nombres incorrectos'),
@@ -36,6 +37,7 @@ const schemaValidator = yup.object().shape({
 
 const Home = () => {
 
+    const { logged=false } = useSelector(state => state.auth);
     const { register , handleSubmit , formState : { errors } } = useForm({
         resolver : yupResolver(schemaValidator)
     })
@@ -86,12 +88,18 @@ const Home = () => {
                                     </div>
                                     <div className="home--container-buttons">
                                         <div>
-                                            <Link to="/iniciar-sesion">
+                                            <Link to={
+                                                logged ? '/p/informacion-perfil/registro'
+                                                : '/iniciar-sesion'
+                                            }>
                                                 <ButtonFilled color="yellow">Iniciar sesión</ButtonFilled>
                                             </Link>
                                         </div>
                                         <div>
-                                            <Link to="/registro">
+                                            <Link to={
+                                                logged ? '/p/informacion-perfil/registro'
+                                                : '/registro'
+                                            }>
                                                 <ButtonFilled color="pink">Registrate aquí</ButtonFilled>
                                             </Link>
                                         </div>

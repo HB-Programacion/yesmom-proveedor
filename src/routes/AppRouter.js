@@ -1,4 +1,4 @@
-import React, {useEffect,useState } from "react";
+import React, { useEffect  } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -8,15 +8,10 @@ import {
 import { routes } from "./routes";
 import { Suspense } from "react";
 import Loading from "../components/Loading/Loading";
+import { login } from "../redux/actions/auth";
 
 
 const AppRouter = () => {
-
-  const [tokenAutentificado, setTokenAutentificado] = useState(localStorage.getItem('TokenYesmonProveedor'));
-
-  useEffect(() => {
-    setTokenAutentificado(localStorage.getItem('TokenYesmonProveedor'))
-  }, []);
 
   return (
     <Router>
