@@ -15,7 +15,7 @@ export const authReducer = ( state = {} , action) => {
                 token : action.payload
             }
         case types.authLogout:
-            localStorage.removeItem('YesmomToken');
+            localStorage.removeItem('TokenYesmonProveedor');
             return {
                 logged:false
             }

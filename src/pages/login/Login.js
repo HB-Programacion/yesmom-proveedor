@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useHistory} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import AppLayout from '../../components/AppLayout/AppLayout'
 
 
@@ -10,7 +10,7 @@ import iconEye from '../../images/login/icon-eye.svg';
 import ButtonFilled from '../../components/Button/ButtonFilled';
 /* import iconFacebook from '../../images/login/icon-facebook.svg';
 import iconGoogle from '../../images/login/icon-google.svg'; */
-import { login, startLogin } from '../../redux/actions/auth';
+import { startLogin } from '../../redux/actions/auth';
 
 import './Login.css';
 
@@ -25,7 +25,6 @@ const schemaValidator = yup.object().shape({
 })
 
 const Login = () => {
-  const history = useHistory();
   const dispatch = useDispatch();
 
   const { register,  handleSubmit , formState : { errors } } = useForm({
@@ -33,7 +32,7 @@ const Login = () => {
   })
 
   const submitForm = async (values ) => {
-    console.log(values);
+    // console.log(values);
     dispatch( startLogin( values ) );
   };
 

@@ -6,4 +6,7 @@ export const types = {
     authLogin : "[AUTH] login",
     authLogout : "[AUTH] logout",
     
+    //Supplier
+
+    loadInfoSupplier  : "[SUPPLIER] load info"
 }

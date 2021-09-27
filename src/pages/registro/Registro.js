@@ -27,7 +27,7 @@ import {
 const Registro = () => {
 
     //Primer form
-    const { register , handleSubmit , formState:{errors} } = useForm({
+    const { register , handleSubmit , formState:{errors} , reset } = useForm({
         resolver : yupResolver(schemaValidator)
     });
     //Segundo form
@@ -73,6 +73,7 @@ const Registro = () => {
                         console.log(data);
 
                         if(data?.response?.ok){
+                            reset();
                             alert("Proveedor guardado satisfactoriamente")
                         }
                     }catch(e){

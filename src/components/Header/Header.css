@@ -212,4 +212,9 @@
         margin: 0;
         margin-left: 0.5rem;
     }
+    .item-menu-yesmom:hover {
+        text-decoration: none !important;
+        transform: none;
+        animation: unset!important;
+    }
 }

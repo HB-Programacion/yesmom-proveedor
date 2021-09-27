@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/actions/auth";
 
 
 import close from '../../images/header/close.svg';
@@ -11,10 +13,13 @@ import iniciarSesion from '../../images/header/iniciar-sesion.svg';
 import loggedOptions from '../../images/header/logged-options.svg';
 
 import './DropMenuMobile.css';
-function DropMenuMobile({ active, setActive , logged}) {
+function DropMenuMobile({ active, setActive}) {
 
+  const { logged=false } = useSelector(state => state.auth);  
+  const { name } = useSelector(state => state.supplier);
   const { pathname } = useLocation();
   const [ expand , setExpand] = useState(false);
+  const dispatch = useDispatch();
 
   const pushLinks=[
     { name : "Registro" , to : "/p/informacion-perfil/registro"},
@@ -29,6 +34,10 @@ function DropMenuMobile({ active, setActive , logged}) {
     porqueVender : "porque-vender-yesmom",
     comoVender : "como-vender",
     contacto :"contacto",
+  }
+
+  const handleLogout = () => {
+    dispatch(logout());
   }
 
   return (
@@ -109,7 +118,7 @@ function DropMenuMobile({ active, setActive , logged}) {
                           </div>
                           <div className="box-expand">
                             <div className="options-proveedor">
-                              <h6 className="text-navbar">Baby Plaza</h6>
+                              <h6 className="text-navbar">{name}</h6>
                               <div className="expand-options" onClick={()=>setExpand( expand => !expand)}>
                                 <img src={loggedOptions} />
                               </div>
@@ -132,7 +141,7 @@ function DropMenuMobile({ active, setActive , logged}) {
                         </Link>
                        }
                        
-                    {expand && 
+                    {(expand && logged) && 
                       <div className="expanded-options">
 
                         {pushLinks.map((link,i) => (
@@ -140,9 +149,19 @@ function DropMenuMobile({ active, setActive , logged}) {
                         ))}
                       </div>
                     }
+
                     
                 </div>
               </li>
+              {
+                (logged && expand) &&
+
+                <li className="list-group-item">
+                  <div className="group-logout">
+                    <h6 className="text-navbar text-added-logout" onClick= { handleLogout }>Cerrar sesión</h6>
+                  </div>
+                </li>
+              }
 
             </ul>
 
