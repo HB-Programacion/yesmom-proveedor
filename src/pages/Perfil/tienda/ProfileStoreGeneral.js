@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
 import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
@@ -14,6 +14,67 @@ import './ProfileStoreGeneral.css';
 import BackComponent from '../../../components/Return/BackComponent';
 
 const ProfileStoreGeneral = () => {
+
+    const initialState = {
+        imgLogo : "",
+        imgCover :"",
+        imgBanners : {
+            imgBanner_1:"",
+            imgBanner_2:"",
+            imgBanner_3:"",
+        },
+    }
+    const [ images , setImages ] = useState(initialState);
+
+    const handleImageChange = (e) => {
+        const name = e.target.name;
+        if(e.target.files.length > 0){
+            //Setear la imagen
+            // console.log(e.target.files[0]);
+            setImages({
+                ...images,
+                [name] : e.target.files[0]
+            })
+        }else{
+            //Setear vacio
+            setImages({
+                ...images,
+                [name] : ""
+            })
+        }
+    }
+
+    const handleImageBanners = (e) => {
+        const name = e.target.name;
+        const currentBanners = images.imgBanners;
+        if(e.target.files.length > 0){
+            //Hay imagen de Banner
+            setImages({
+                ...images,
+                imgBanners : {
+                    ...currentBanners,
+                    [name] : e.target.files[0]
+                }
+            })
+        }else{
+            setImages({
+                ...images,
+                imgBanners : {
+                    ...currentBanners,
+                    [name] : ""
+                }
+            })
+        }
+    }
+
+    const handleUpdateProfile = () => {
+        console.log(images);
+    }
+
+    const handleCancel = () => {
+        console.log('Cancelando');
+    }
+
     return (
         <AppLayout>
             <div className="contenedor-info-perfil-registro">
@@ -57,15 +118,28 @@ const ProfileStoreGeneral = () => {
                                                                     <input
                                                                         className="w-100 box-cargar-imagen"
                                                                         type="text"
+                                                                        disabled
                                                                         name="nameTienda"
                                                                         id="nameTienda"
+                                                                        value={ 
+                                                                            images?.imgLogo?.name ? images.imgLogo.name : ""
+                                                                        }
                                                                     />
                                                                     <h6>*Campo obligatorio</h6>
                                                                 </div>
                                                                 <div className="profile-container-button">
-                                                                    <ButtonFilled color="blue">
-                                                                        Cargar imagen
-                                                                    </ButtonFilled>
+                                                                    <input
+                                                                        type="file"
+                                                                        onChange = { handleImageChange }
+                                                                        name = "imgLogo"
+                                                                        id = "imgLogo"
+                                                                        accept="image/png, image/jpeg"
+                                                                    />
+                                                                    <label htmlFor="imgLogo" className="label-image-profile-store">
+                                                                        <ButtonFilled color="blue">
+                                                                            Cargar imagen
+                                                                        </ButtonFilled>
+                                                                    </label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -86,15 +160,28 @@ const ProfileStoreGeneral = () => {
                                                                     <input
                                                                         className="w-100 box-cargar-imagen"
                                                                         type="text"
+                                                                        disabled
+                                                                        value={ 
+                                                                            images?.imgCover?.name ? images.imgCover.name : ""
+                                                                        }
                                                                         name="nameTienda"
                                                                         id="nameTienda"
                                                                     />
                                                                     <h6>*Campo obligatorio</h6>
                                                                 </div>
                                                                 <div className="profile-container-button">
-                                                                    <ButtonFilled color="blue">
-                                                                        Cargar imagen
-                                                                    </ButtonFilled>
+                                                                    <input
+                                                                        type="file"
+                                                                        onChange = { handleImageChange }            
+                                                                        id = "imgCover"
+                                                                        name = "imgCover"
+                                                                        accept="image/png, image/jpeg"
+                                                                    />
+                                                                    <label htmlFor="imgCover" className="label-image-profile-store">
+                                                                        <ButtonFilled color="blue">
+                                                                            Cargar imagen
+                                                                        </ButtonFilled>
+                                                                    </label>
                                                                 </div>
                                                             </div> 
                                                         </div>
@@ -120,14 +207,16 @@ const ProfileStoreGeneral = () => {
                                                             <div className="add--preview-image profile-store-preview-image">
                                                                 <img src={previewImage} alt="preview-image" className="mq-mt-3"/>
                                                                 <div className="add--question-box">
-                                                                <label className="add--style-label-image" htmlFor="imagenBanner1">
+                                                                <label className="add--style-label-image" htmlFor="imgBanner_1">
                                                                     Subir imagen
                                                                 </label>
                                                                 <input
                                                                     type="file"
-                                                                    name="imagenBanner1"
-                                                                    id="imagenBanner1"
+                                                                    name="imgBanner_1"
+                                                                    onChange= { handleImageBanners }
+                                                                    id="imgBanner_1"
                                                                     className="add--input-form"
+                                                                    accept="image/png, image/jpeg"
                                                                 />
                                                                 </div>
                                                             </div>
@@ -137,14 +226,16 @@ const ProfileStoreGeneral = () => {
                                                             <div className="add--preview-image profile-store-preview-image">
                                                                 <img src={previewImage} alt="preview-image" className="mq-mt-3" />
                                                                 <div className="add--question-box">
-                                                                <label className="add--style-label-image" htmlFor="imagenBanner2">
+                                                                <label className="add--style-label-image" htmlFor="imgBanner_2">
                                                                     Subir imagen
                                                                 </label>
                                                                 <input
                                                                     type="file"
-                                                                    name="imagenBanner2"
-                                                                    id="imagenBanner2"
+                                                                    name="imgBanner_2"
+                                                                    onChange= { handleImageBanners }
+                                                                    id="imgBanner_2"
                                                                     className="add--input-form"
+                                                                    accept="image/png, image/jpeg"
                                                                 />
                                                                 </div>
                                                             </div>
@@ -154,14 +245,16 @@ const ProfileStoreGeneral = () => {
                                                             <div className="add--preview-image profile-store-preview-image">
                                                                 <img src={previewImage} alt="preview-image" className="mq-mt-3"/>
                                                                 <div className="add--question-box">
-                                                                <label className="add--style-label-image" htmlFor="imagenBanner3">
+                                                                <label className="add--style-label-image" htmlFor="imgBanner_3">
                                                                     Subir imagen
                                                                 </label>
                                                                 <input
                                                                     type="file"
-                                                                    name="imagenBanner3"
-                                                                    id="imagenBanner3"
+                                                                    name="imgBanner_3"
+                                                                    onChange= { handleImageBanners }
+                                                                    id="imgBanner_3"
                                                                     className="add--input-form"
+                                                                    accept="image/png, image/jpeg"
                                                                 />
                                                                 </div>
                                                             </div>
@@ -179,12 +272,12 @@ const ProfileStoreGeneral = () => {
 
                         <div className="info-container-buttons">
                             <div className="info-container-button-only">
-                                <ButtonFilled color="pink">
-                                    Previsualizar
+                                <ButtonFilled color="pink" fxClick= { handleUpdateProfile }>
+                                    Guardar
                                 </ButtonFilled>      
                             </div>
                             <div className="info-container-button-only">
-                                <ButtonFilled color="outline-pink">
+                                <ButtonFilled color="outline-pink" fxClick={ handleCancel }>
                                     Cancelar
                                 </ButtonFilled>
                             </div>
