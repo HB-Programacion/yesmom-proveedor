@@ -41,6 +41,8 @@ const DesactivarCuenta = lazy(() =>
   import("../pages/perfil/desactivar-cuenta/DesactivarCuenta")
 );
 const SignIn = lazy(() => import("../pages/auth/SignIn"));
+
+const ComponentNotFound = lazy(() => import("../pages/404"));
 //without token
 export const routes = [
   { path: "/", component: Home },
@@ -78,13 +80,14 @@ export const routes = [
 //Rutas que se muestran autenticado o no 
 export const bothRoutes = [
   { path: "/", component: Home },
-  { path: "/registro", component: Registro },
   { path: "/login", component: SignIn },//No va
+  { path : "/404" , component : ComponentNotFound}
 ]
 
 //Rutas que se muestran sin estar autenticado , si estas autenticado no se deben mostrar
 export const publicRoutes = [
   { path: "/iniciar-sesion", component: Login },
+  { path: "/registro", component: Registro },
   { path: "/recuperar-password", component: RecoverPassword },
   { path: "/restablecer-password", component: ResetPassword },
 ]
@@ -94,7 +97,7 @@ export const protectedRoutes = [
   { path: "/p/resumen-venta", component: ResumenVenta },
   { path: "/p/perfil-tienda", component: Profile },
   { path: "/p/product-excel", component: AddProductExcel },
-  { path: "/p/add-new-product", component: AddProduct },
+  /* { path: "/p/add-new-product", component: AddProduct }, */
   { path: "/p/show-product", component: ShowProduct },
   { path: "/p/visualizate-products", component: SeeProducts },
   { path: "/p/resumen", component: Resumen },

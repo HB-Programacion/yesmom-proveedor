@@ -7,18 +7,18 @@ function Sidebar() {
 
     const {pathname} = useLocation();
     const pushLinks=[
-        { name : "Registro" , to : "/informacion-perfil/registro" , active:"/informacion-perfil/registro"},
+        { name : "Registro" , to : "/p/informacion-perfil/registro" },
         { name : "Productos" , to : "/" , active:"/"},
-        { name : "Cambiar contraseña" , to : "/informacion-perfil/cambiar-password" , active:"/informacion-perfil/cambiar-password"},
-        { name : "Perfil de tienda" , to : "/informacion-perfil/perfil-tienda" , active:"/informacion-perfil/perfil-tienda"},
-        { name : "Términos y condiciones" , to : "/informacion-perfil/terminos" , active:"/informacion-perfil/terminos"},
-        { name : "Desactivar cuenta" , to : "/informacion-perfil/desactivar-cuenta" , active:"/informacion-perfil/desactivar-cuenta"},
+        { name : "Cambiar contraseña" , to : "/p/informacion-perfil/cambiar-password" },
+        { name : "Perfil de tienda" , to : "/p/informacion-perfil/perfil-tienda" },
+        { name : "Términos y condiciones" , to : "/p/informacion-perfil/terminos" },
+        { name : "Desactivar cuenta" , to : "/p/informacion-perfil/desactivar-cuenta" },
     ]
     return (
         <div className="perfil-sidebar">
             <ul className="perfil-sidebar-list">
-                {pushLinks.map(({name,to,active},i)=>(
-                    <Link key={i} to={to} className={`${active === pathname ? "perfil-link-active" : ""}`}>
+                {pushLinks.map(({name,to},i)=>(
+                    <Link key={i} to={to} className={`${to === pathname ? "perfil-link-active" : ""}`}>
                         <li>{ name }</li>
                     </Link>
                 ))}

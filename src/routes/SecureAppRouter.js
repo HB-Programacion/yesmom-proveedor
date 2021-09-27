@@ -14,6 +14,7 @@ import { login } from '../redux/actions/auth'
 import PublicRoute from "./PublicRoutes/PublicRoute";
 import PrivateRoute from "./ProtectedRoutes/PrivateRoute";
 import ProtectedRoutes from "./ProtectedRoutes/ProtectedRoutes";
+import Home from "../pages/Home/Home";
 
 
 export const SecureAppRouter = () => {
@@ -47,17 +48,7 @@ export const SecureAppRouter = () => {
             <Suspense fallback= { <Loading />}>
                 <div>
                     <Switch>
-                       {
-                           //Las rutas para ambos casos
-                           bothRoutes.map((route,i) => (
-                                <Route 
-                                    key={i}
-                                    path={route.path}
-                                    exact
-                                    component = { route.component}
-                                />
-                           ))
-                       } 
+                       
                        {
                            //Rutas publicas solo sin estar autenticado
                            publicRoutes.map((route, i) => (
@@ -77,7 +68,21 @@ export const SecureAppRouter = () => {
                             path="/p"
                        />
 
-                       <Redirect to="/" />
+
+
+                        {
+                            //Las rutas para ambos casos
+                            bothRoutes.map((route,i) => (
+                                <Route 
+                                    key={i}
+                                    exact
+                                    path={route.path}
+                                    component = { route.component}
+                                    />
+                                ))
+                        } 
+
+                       <Redirect to="/"/>
                     </Switch>
                 </div>
             </Suspense>

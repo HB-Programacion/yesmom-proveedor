@@ -3,7 +3,7 @@ import Switch from 'react-bootstrap/esm/Switch'
 import { Redirect, Route } from 'react-router'
 import { protectedRoutes } from '../routes'
 
-const ProtectedRoutes = () => {
+const ProtectedRoutes = (history) => {
     
     return (
         <div>
@@ -11,7 +11,7 @@ const ProtectedRoutes = () => {
                 {
                     protectedRoutes.map((route,i)=>(
                         <Route 
-                            exact
+                            key= {i}
                             path={route.path} 
                             component = { route.component}
                         />
@@ -19,7 +19,7 @@ const ProtectedRoutes = () => {
                 }
 
                 {/* Si no entra en ninguna */}
-                {/* <Redirect to="/informacion-perfil/registro" /> */}
+                {/* <Redirect to="/p/informacion-perfil/registro" /> */}
             </Switch>
         </div>
     )

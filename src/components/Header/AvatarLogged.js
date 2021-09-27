@@ -33,13 +33,13 @@ function AvatarLogged({ logged , name }) {
                     title={`${name}`}
                 >
                     <div className="items-dropdown-menu">
-                        <Link to="/product-excel">
+                        <Link to="/p/product-excel">
                             <p>Importar productos</p>
                         </Link>
-                        <Link to="/add-new-product">
+                        <Link to="/p/add-new-product">
                             <p>Carga manual</p>
                         </Link>
-                        <Link to="/visualizate-products">
+                        <Link to="/p/visualizate-products">
                             <p>Visualización de productos</p>
                         </Link>
                         <Link to="/">
