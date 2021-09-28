@@ -16,7 +16,7 @@ import './DropMenuMobile.css';
 function DropMenuMobile({ active, setActive}) {
 
   const { logged=false } = useSelector(state => state.auth);  
-  const { name } = useSelector(state => state.supplier);
+  const { nombreTienda=""} = useSelector(state => state.supplier);
   const { pathname } = useLocation();
   const [ expand , setExpand] = useState(false);
   const dispatch = useDispatch();
@@ -118,7 +118,7 @@ function DropMenuMobile({ active, setActive}) {
                           </div>
                           <div className="box-expand">
                             <div className="options-proveedor">
-                              <h6 className="text-navbar">{name}</h6>
+                              <h6 className="text-navbar">{nombreTienda}</h6>
                               <div className="expand-options" onClick={()=>setExpand( expand => !expand)}>
                                 <img src={loggedOptions} />
                               </div>

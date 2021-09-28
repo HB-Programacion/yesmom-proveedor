@@ -107,6 +107,7 @@ a {
 
 .text-added-logout{
     font-size:1.8rem!important;
+    cursor:pointer;
 }
 @media (min-width : 480px){
     .drop-menu{

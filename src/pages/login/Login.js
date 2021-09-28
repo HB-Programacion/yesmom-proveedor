@@ -10,7 +10,7 @@ import iconEye from '../../images/login/icon-eye.svg';
 import ButtonFilled from '../../components/Button/ButtonFilled';
 /* import iconFacebook from '../../images/login/icon-facebook.svg';
 import iconGoogle from '../../images/login/icon-google.svg'; */
-import { startLogin } from '../../redux/actions/auth';
+import { startAuth } from '../../redux/actions/auth';
 
 import './Login.css';
 
@@ -33,7 +33,7 @@ const Login = () => {
 
   const submitForm = async (values ) => {
     // console.log(values);
-    dispatch( startLogin( values ) );
+    dispatch( startAuth( values ) );
   };
 
 

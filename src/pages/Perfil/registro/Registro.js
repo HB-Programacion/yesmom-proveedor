@@ -20,9 +20,13 @@ import { useForm } from 'react-hook-form';
 import { mergedSchema } from '../../../utils/validateRegistro/ValidationSchemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import BackComponent from '../../../components/Return/BackComponent';
+import { useSelector } from 'react-redux';
 
 
 const Registro = () => {
+
+  const supplier = useSelector(state => state.supplier);
+  console.log('Supplier es ', supplier);
 
   const { register , handleSubmit , formState:{errors} } = useForm({
     resolver : yupResolver(mergedSchema),

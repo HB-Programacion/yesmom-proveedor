@@ -8,8 +8,8 @@ const PrivateRoute = ({
     ...rest
 }) => {
     
-    console.log('Autenticado ', isAuthenticated);
-    console.log("Ruta protegida");
+    // console.log('Autenticado ', isAuthenticated);
+    // console.log("Ruta protegida");
     
     return (
         <Route

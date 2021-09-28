@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 function Header() {
 
   const { logged = false } = useSelector(state => state.auth);
-  const { name="" } = useSelector(state => state.supplier);
+  const { nombreTienda="" } = useSelector(state => state.supplier);
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive(!active);
@@ -44,7 +44,7 @@ function Header() {
             <div className="container-icon hide">
               {logged ? (
                 <Link to="/p/informacion-perfil/registro">
-                  <AvatarLogged logged={logged} name={name} />
+                  <AvatarLogged logged={logged} name={nombreTienda} />
                 </Link>
               ) : (
                 <Link to="/iniciar-sesion" className="item-menu-yesmom">
@@ -111,7 +111,7 @@ function Header() {
                 </div>
                 <div>
                   {logged ? (
-                    <AvatarLogged logged={logged} name={name} />
+                    <AvatarLogged logged={logged} name={nombreTienda} />
                   ) : (
                     <Link to="/iniciar-sesion" className="item-menu-yesmom">
                       <div className="container-icon">

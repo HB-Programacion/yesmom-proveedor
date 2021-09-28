@@ -1,20 +1,25 @@
+import axios from "axios";
 import clienteAxiosAuth from "../../config/axiosAuth";
+import { validateToken } from "../../utils/helpers/validateToken";
 import { types } from "../types/types"
 import { startLoadingInfoSupplier } from "./supplier";
 
 
 
-export const startLogin = ( access ) => {
+export const startAuth = ( access ) => {
     
     return async ( dispatch) => { //getState
 
         try{
-            
+        
             const { data }  = await clienteAxiosAuth.post('/autenticar/supplier?email=1',access);
+    
             if(data?.token){
-                alert('Logeado');
-                dispatch( login( data.token ));
-                dispatch( startLoadingInfoSupplier())
+                // alert('Logeado');
+
+                dispatch( validateLoginSupplier(data.token));
+                // dispatch ( login(data.token));
+                // dispatch( startLoadingInfoSupplier(data.token))
                 //TODO : Cuando se lee de localstorage tmb debe llamar los datos!!!
             }else{
                 alert('Revisa tus accesos');
@@ -27,6 +32,35 @@ export const startLogin = ( access ) => {
 
 
         /* dispatch(login()); */
+    }
+}
+
+export const validateLoginSupplier = ( token ) => {
+    return async (dispatch) => {
+        try {
+
+            const flagValidated = await validateToken(token);
+            
+            if(flagValidated){
+                // alert('Bienvenido de nuevo')
+                dispatch( startLogin (token));
+
+            }else{
+                dispatch(logout());
+                alert('Inicia sesión de nuevo')
+            }
+            
+        }catch(e){
+            console.log(e);
+        }
+    }
+}
+
+//Para setear data
+export const startLogin = ( token) =>{
+    return (dispatch) => {
+        dispatch( login( token ));
+        dispatch( startLoadingInfoSupplier(token))
     }
 }
 

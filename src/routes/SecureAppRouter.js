@@ -8,14 +8,14 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 import { bothRoutes, protectedRoutes, publicRoutes } from "./routes";
-import Loading from "../components/Loading/Loading";
-import { login } from '../redux/actions/auth'
+import { login, logout, startLogin, validateLoginSupplier } from '../redux/actions/auth'
 
 import PublicRoute from "./PublicRoutes/PublicRoute";
 import PrivateRoute from "./ProtectedRoutes/PrivateRoute";
 import ProtectedRoutes from "./ProtectedRoutes/ProtectedRoutes";
 import Home from "../pages/Home/Home";
-
+import { validateToken } from "../utils/helpers/validateToken";
+import Loading from "../components/Loading/Loading";
 
 export const SecureAppRouter = () => {
 
@@ -23,25 +23,27 @@ export const SecureAppRouter = () => {
 /*     const [ isAuthenticated , setIsAuthenticated] = useState(
         localStorage.getItem('TokenYesmonProveedor') ? true : false
     ) */
+
     const { 
         logged:isAuthenticated = (
             localStorage.getItem('TokenYesmonProveedor') ? true : false
         )
     } = useSelector(state => state.auth);
 
-    /* let isAuthenticated ;
-    if(localStorage.getItem('TokenYesmonProveedor')){
-        isAuthenticated = true;
-    }else{
-        isAuthenticated = false;
-    } */
+    // const getValidation = async (token) => {
+    //     const flag = await validateLoginSupplier(token);
+    //     if(flag){
+    //         dispatch( startLogin(token))
+    //     }
+    // }
+
     useEffect(()=>{
         const token = localStorage.getItem('TokenYesmonProveedor');
         if(token){//Existe token autenticado
-          dispatch( login(token))
+            // getValidation(token);
+            dispatch( validateLoginSupplier(token))
         }
-      },[])
-
+    },[dispatch])
 
     return (
         <Router>
