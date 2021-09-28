@@ -205,16 +205,21 @@ h5 {
 
 .home--item-sociales {
     display: flex;
+    align-items: center;
 }
 .home--item-sociales img {
     width:2rem;
     height:auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
 }
 
 .home--item-sociales p {
     font-family: "mont-regular" !important;
     font-size: 1.5rem;
     color: #5A5A5A;
+    margin-bottom: 0;
 }
 
 /**FORM */
@@ -380,9 +385,9 @@ textarea {
     h5 {
         font-size: 1.6rem!important;
     }
-    /* .home--all-content{
-        padding-top:8.5rem;
-    } */
+    .home--all-content{
+        padding-top:8rem;
+    }
 
     .home--section-initial {
         width: 70%;
@@ -473,6 +478,6 @@ textarea {
     }
 
     .home--item-sociales p {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 }

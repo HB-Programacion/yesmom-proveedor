@@ -32,7 +32,7 @@ const Profile = () => {
   return (
     <AppLayout>
       <Menu />
-      <div className="profile-store--contenedor-centered">
+      <div className="profile-store--contenedor-centered animated fade-in">
         <div className="profile-store--all-content">
           <div className="profile-store--container-contenido">
             <div className="profile-store--container-advice">

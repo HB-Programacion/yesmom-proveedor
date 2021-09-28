@@ -31,7 +31,7 @@ const Terminos = () => {
     }
     return (
         <AppLayout>
-            <div className="contenedor-info-perfil-registro">
+            <div className="contenedor-info-perfil-registro animated fade-in">
                 <div className="info-perfil-contenido">
                     <div className="info-all-content">
                         <div className="info-contenedor-flex">

@@ -28,7 +28,7 @@ const ProfileStep2 = () => {
     }
   };
   return (
-    <div>
+    <div className="animated fade-in">
       <CardShadow
         title="2.- Adjunta cover de portada"
         paragraph="La portada del anuncio nos ayudará a ser más visibles, un buen diseño y una buena foto es fundamental para generar el impacto visual que necesitamos para atraer más clientes."

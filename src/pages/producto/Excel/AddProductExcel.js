@@ -95,7 +95,7 @@ const AddProductExcel = () => {
     }
 
     return (
-        <>
+        <div className="animated fade-in">
             <AppLayout>
                 <div className="excel--box-main-proveedor">
                     <div className="excel--contenedor-centered">
@@ -200,7 +200,7 @@ const AddProductExcel = () => {
                     </div>
                 </div>
             </AppLayout>
-        </>
+        </div>
     )
 }
 

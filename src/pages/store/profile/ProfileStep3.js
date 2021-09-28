@@ -36,7 +36,7 @@ const ProfileStep3 = () => {
   };
 
   return (
-    <div>
+    <div className="animated fade-in">
       <CardShadow
         title="3.- Adjunta banners promocionales"
         paragraph="Es importante entender que este es el contacto más importante que tenemos con el consumidor final. Si tenemos un diseño con una buena calidad de imagen y una diagramación atractiva para nuestro público, es mucho más probable de que se concrete una compra."

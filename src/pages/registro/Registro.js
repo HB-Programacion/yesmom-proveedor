@@ -146,7 +146,7 @@ const Registro = () => {
 
     return (
         <AppLayout>
-                <div className="contenedor-registro">
+                <div className="contenedor-registro animated fade-in">
                     <div className="registro-container-contenido">
                         <div className="registro-all-content">
                             <p className="title-rosa">Formulario de registro</p>

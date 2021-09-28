@@ -15,7 +15,7 @@ import './ResumenVenta.css';
 const ResumenVenta = () => {
     return (
         <AppLayout>
-            <div className="contenedor-resumen-venta">
+            <div className="contenedor-resumen-venta animated fade-in">
                 <div className="resumen-venta-contenido">
                     <div className="resumen-venta-all-content">
                         <div className="resumen-venta-banner">

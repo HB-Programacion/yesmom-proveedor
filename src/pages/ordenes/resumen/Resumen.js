@@ -12,7 +12,7 @@ const Resumen = () => {
     const [selection , setSelection ]=useState(0);
     return (
         <AppLayout>
-            <div className="resumen--box-main-proveedor">
+            <div className="resumen--box-main-proveedor animated fade-in">
                 <div className="resumen--contenedor-centered">
                     <div className="resumen--all-content">
                         <div className="resumen--container-contenido">

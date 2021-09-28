@@ -178,7 +178,7 @@ const AddProduct = () => {
     <>
       <AppLayout>
 
-        <div className="add--box-main-proveedor">
+        <div className="add--box-main-proveedor animated fade-in">
           <div className="add--contenedor-centered">
             <div className="add--all-content">
               <div className="add--title-content">

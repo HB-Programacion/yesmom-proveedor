@@ -5,7 +5,7 @@ import ImageProducto from '../../../components/Producto/Image/ImageProducto'
 import './ShowProduct.css'
 const ShowProduct = () => {
     return (
-        <>
+        <div className="animated fade-in">
             <AppLayout>
 
                 <div className="show--box-main-proveedor">
@@ -141,7 +141,7 @@ const ShowProduct = () => {
                 </div>
             </AppLayout>
 
-        </>
+        </div>
     )
 }
 

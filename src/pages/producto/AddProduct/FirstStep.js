@@ -3,7 +3,7 @@ import iconAddProduct from "../../../images/producto/add.svg";
 
 function FirstStep({ formTextAddProduct, handleInputChange }) {
     return (
-        <>
+        <div className="animated fade-in">
             <div className="add--question-box">
                 <label className="add--style-label" htmlFor="nameProduct">
                     Nombre de Producto
@@ -307,7 +307,7 @@ function FirstStep({ formTextAddProduct, handleInputChange }) {
                     <h6>* Material del producto</h6>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
