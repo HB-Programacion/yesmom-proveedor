@@ -27,7 +27,7 @@ const ProfileStep1 = () => {
     }
   };
   return (
-    <div>
+    <div className="animated fade-in">
       <CardShadow
         title="1.- Adjunta un logo para tu tienda"
         paragraph="Subir un logo correctamente fortalece la imagen y seriedad del negocio, de esta manera, juntos podremos darles a nuestros clientes la confianza de comprar con nosotros."

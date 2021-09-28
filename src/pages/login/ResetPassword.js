@@ -37,7 +37,7 @@ const ResetPassword = () => {
 
     return (
         <AppLayout>
-            <div className="contenedor-login">
+            <div className="contenedor-login animated fade-in">
                 <div className="reset--container-contenido">
                     <div className="all-content all-content-reset">
                         <div className="center">

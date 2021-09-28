@@ -20,7 +20,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="footer">
+      <div className="footer animated fade-in">
         <Container>
           <Row>
             <Col xs={12} sm={12} md={3} lg={3} xl={3}>

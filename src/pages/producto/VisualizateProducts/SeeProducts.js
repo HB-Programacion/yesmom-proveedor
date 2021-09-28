@@ -6,7 +6,7 @@ import './SeeProduct.css';
 
 const SeeProducts = () => {
     return (
-        <>
+        <div className="animated fade-in">
             <AppLayout>
                     <div className="see-product--box-main-proveedor">
                         <div className="see-product--contenedor-centered">
@@ -38,7 +38,7 @@ const SeeProducts = () => {
                         </div>
                     </div>
             </AppLayout>
-        </>
+        </div>
     )
 }
 

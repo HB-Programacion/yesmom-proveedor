@@ -2,7 +2,7 @@ import React from "react";
 
 function AddSecondStep({ formTextAddProduct , handleInputChange }) {
     return (
-        <>
+        <div className="animated fade-in">
             <div className="add--question-box">
                 <label className="add--style-label" htmlFor="sku">
                     SKU del producto
@@ -105,7 +105,7 @@ function AddSecondStep({ formTextAddProduct , handleInputChange }) {
             </div>
             <br />
 
-        </>
+        </div>
     );
 }
 

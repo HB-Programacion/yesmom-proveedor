@@ -33,7 +33,7 @@ const Previsualizacion = () => {
   return (
     <AppLayout>
       <Menu />
-      <div className="preview-products-container">
+      <div className="preview-products-container animated fade-in">
         <div className="title-rosa preview-products-title">
           <p>Previsualización</p>
         </div>

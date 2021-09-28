@@ -25,8 +25,8 @@ function Header() {
     contacto: "contacto",
   };
   return (
-    <>
-      <div className="header-box-yesmom">
+    <div className="">
+      <div className="header-box-yesmom ">
         <div className="box-nav">
           <nav className="navbar-yesmom">
             <div className="burger-yesmom" onClick={handleClick}>
@@ -134,7 +134,7 @@ function Header() {
           setActive={handleClick}
         />
       </div>
-    </>
+    </div>
   );
 }
 export default Header;

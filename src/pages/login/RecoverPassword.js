@@ -27,7 +27,7 @@ const Recover = () => {
 
     return (
         <AppLayout>
-            <div className="contenedor-login">
+            <div className="contenedor-login animated fade-in">
                 <div className="container-contenido">
                     <div className="all-content all-content-reset">
                         <div className="center">

@@ -8,7 +8,7 @@ import DragnDrop from '../../../components/DragnDrop/DragnDrop';
 
 function AddThirdPart({ handleFileChange }) {
   return (
-    <>
+    <div className="animated fade-in">
       <div className="add--container-images">
         {/* 
         <DragnDrop image={previewImage} name="imagenProducto1" id="imagenProducto1" onChange={handleFileChange} required='true' />
@@ -180,7 +180,7 @@ function AddThirdPart({ handleFileChange }) {
         <img className="add--icon-add" src={iconAddProduct} />
         <p>Agregar más fotos</p>
       </div>
-    </>
+    </div>
   )
 }
 

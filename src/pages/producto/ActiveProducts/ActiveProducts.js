@@ -36,7 +36,7 @@ const ActiveProducts = () => {
   return (
     <AppLayout>
       <Menu />
-      <div className="active-products-container">
+      <div className="active-products-container animated fade-in">
         <div className="content-nav">
           <Return returnto="/informacion-perfil" />
           <TitlePerfil name="Baby Plaza Store" email="example@babyplaza.com" />

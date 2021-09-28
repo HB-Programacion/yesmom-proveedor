@@ -9,7 +9,7 @@
     max-width: inherit;
     box-shadow: 0px 1px 10px #999;
     padding: 1.25rem 1.5rem;
-
+z-index: 9999!important;
 }
 
 .burger-yesmom img {
@@ -157,7 +157,7 @@
     }
     .item-menu-yesmom h6{
         font-family:"mont-semibold"!important;
-        font-size:1.4rem!important;
+        font-size:1.3rem!important;
         margin: 0.5rem 0!important;
     }
     .box-items-menu-responsive > div{
