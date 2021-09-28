@@ -52,7 +52,7 @@ export const routes = [
   { path: "/show-product", component: ShowProduct },
   { path: "/visualizate-products", component: SeeProducts },
   { path: "/resumen", component: Resumen },
-  { path: "/resumen-venta", component: ResumenVenta },
+  { path: "/p/resumen-venta", component: ResumenVenta },
   { path: "/perfil-tienda", component: Profile }, //////////////////////////////////////////////
   //Auth
   { path: "/iniciar-sesion", component: Login },
@@ -60,12 +60,12 @@ export const routes = [
   { path: "/restablecer-password", component: ResetPassword },
   //Perfil
 /*   { path: "/informacion-perfil", component: InfoPerfil }, */
-  { path: "/informacion-perfil/registro", component: InfoPerfilRegistro },
-  { path: "/informacion-perfil/productos-activos", component: ActiveProducts },
-  { path: "/informacion-perfil/cambiar-password", component: ChangePassword },
-  { path: "/informacion-perfil/perfil-tienda", component: ProfileStoreGeneral },
-  { path: "/informacion-perfil/previsualizacion", component: Previsualizacion },
-  { path: "/informacion-perfil/terminos", component: Terminos },
+  { path: "/p/informacion-perfil/registro", component: InfoPerfilRegistro },
+  { path: "/p/informacion-perfil/productos-activos", component: ActiveProducts },
+  { path: "/p/informacion-perfil/cambiar-password", component: ChangePassword },
+  { path: "/p/informacion-perfil/perfil-tienda", component: ProfileStoreGeneral },
+  { path: "/p/informacion-perfil/previsualizacion", component: Previsualizacion },
+  { path: "/p/informacion-perfil/terminos", component: Terminos },
   {
     path: "/informacion-perfil/desactivar-cuenta",
     component: DesactivarCuenta,
