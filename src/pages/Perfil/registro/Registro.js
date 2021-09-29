@@ -70,7 +70,7 @@ const Registro = () => {
               </div>
               <div className="flex-left">
                 <div className="info-container-title">
-                  <TitlePerfil name="Baby Plaza Store" email="example@babyplaza.com" />
+                  <TitlePerfil />
                 </div>
                 <Sidebar />
               </div>
