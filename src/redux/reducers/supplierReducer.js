@@ -12,7 +12,8 @@ export const supplierReducer = ( state = initialState , action) => {
                 ...state,
                 ...action.payload
             }
-            
+        case types.cleanSupplier : 
+            return { }
     
         default:
             return state;

@@ -12,7 +12,6 @@ export const schemaValidator = yup.object().shape({
     telefono: yup.string().required('*Este campo es requerido').matches(phoneRegExp, '*Teléfono incorrecto'),
     nombreTienda : yup.string().required('*Este campo es requerido'),
     correoElectronico : yup.string().email('*Correo electrónico inválido').required('*Este campo es requerido'),
-    contrasenia : yup.string().required('*Este campo es requerido').min(5,'*La contraseña debe tener como mínimo 5 caracteres'),
 })
 
 export const schemaValidatorStep2 = yup.object().shape({

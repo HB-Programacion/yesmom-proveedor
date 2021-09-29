@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
 import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
@@ -26,38 +26,9 @@ import { useSelector } from 'react-redux';
 const Registro = () => {
 
   const supplier = useSelector(state => state.supplier);
-  console.log('Supplier es ', supplier);
 
-  const { register , handleSubmit , formState:{errors} } = useForm({
+  const { register , handleSubmit , formState:{errors} , reset} = useForm({
     resolver : yupResolver(mergedSchema),
-    defaultValues: {
-      "nombreCompletoEncargado": "Lincoln Villanueva Siccha",
-      "telefono": "969670765",
-      "nombreTienda": "LinkStore",
-      "correoElectronico": "lvs1205@gmail.com",
-      "contrasenia":"12link23",
-      "nombreCompletoRepresentante": "Lincoln Elmer Villanueva Siccha",
-      "documentoRepresentante":"44371856",
-      "razonSocial":"Link Sac",
-      "ruc":10443718562,
-      "telefonoEmpresa":"969670765",
-      "pais":"Perú",
-      "ciudad":"Lima",
-      "distrito":"Miraflores",
-      "direccion":"Jr Agua Marina 276-Dpto 202",
-      "paginaWeb":"www.ofertasperu.store",
-      "titularCuenta":"Lincoln Villanueva Siccha",
-      "entidadBancaria":"Bcp",
-      "numeroCuentaSoles":"1644646454645477",
-      "dniRucTitular":"44371856",
-      "cciCuenta":"14544445465466466223",
-      "nombreEncargadoAlmacen":"Lady Villanueva",
-      "correoEncargadoAlmacen":"iris.lvs198@gmail.com",
-      "telefonoAlmacen":"992841777",
-      "direccionAlmacen":"Jr su casa ahi nomas",
-      "referenciaAlmacen":"Cerca al vecino",
-      "ciudadAlmacen":"Santiago de Surco"
-    } 
   });
 
   const handleRef = () => {
@@ -70,6 +41,21 @@ const Registro = () => {
     alert('Test edit')
     alert(JSON.stringify(values))
   }
+
+
+  useEffect(() => {
+    if( Object.keys(supplier).length > 0 ){
+      const defaultValues = supplier;
+
+      //Solo datos necesarios 
+      delete defaultValues.autorizado;
+      delete defaultValues.createdAt;
+
+      reset(defaultValues);
+      // console.log(defaultValues);
+    }
+  },[supplier])
+
 
   return (
     <AppLayout>
@@ -89,7 +75,7 @@ const Registro = () => {
                 <Sidebar />
               </div>
               <div className="flex-right">
-                <Description title="Registro" description="Aquí encontrarás los datos de la empresa" />
+                <Description title="Información de Registro" description="Aquí encontrarás los datos de la empresa" />
                 <div className="info-container-content">
                   <div className="registro-container-form info-container-form mt-5 mb-2">
                     <div className="info-icon-editar">
@@ -99,6 +85,7 @@ const Registro = () => {
                       register= { register}
                       errors = { errors }
                       showPassword = { handleRef }
+                      edited = { true }
                     />
                   </div>
                   <div className="registro-container-form info-container-form mt-5 mb-2">

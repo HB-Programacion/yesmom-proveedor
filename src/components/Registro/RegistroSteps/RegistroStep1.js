@@ -3,7 +3,7 @@ import eyeIcon from '../../../images/registro/eye.svg';
 import eyeIconBlue from '../../../images/registro/eye-blue.svg'; 
 import { Col , Row} from 'react-bootstrap';
 
-const RegistroStep1 = ({register , errors , showPassword}) => {
+const RegistroStep1 = ({register , errors , showPassword , edited}) => {
     
     //Registrar inputs
     return (
@@ -63,22 +63,26 @@ const RegistroStep1 = ({register , errors , showPassword}) => {
                             <p className="error-input">{errors?.correoElectronico?.message}</p>
                         </div>
                     </Col>
-                    <Col md={6}>
-                        <div className="registro-box-input mt-0 mb-0 mq-mb-0">
-                            <label htmlFor="contrasenia">Contraseña*:</label>
-                            <div className="registro-input-password">
-                                <img className="registro-hide-desktop" src={eyeIcon} onClick ={ showPassword }/>
-                                <img className="show-only-desktop" src={eyeIconBlue} onClick ={ showPassword }/>
-                                <input 
-                                    type="password" 
-                                    id="contrasenia" 
-                                    name="contrasenia"
-                                    {...register('contrasenia')}
-                                />
-                                <p className="error-input">{errors?.contrasenia?.message}</p>
+                    {
+                        !edited &&
+
+                        <Col md={6}>
+                            <div className="registro-box-input mt-0 mb-0 mq-mb-0">
+                                <label htmlFor="contrasenia">Contraseña*:</label>
+                                <div className="registro-input-password">
+                                    <img className="registro-hide-desktop" src={eyeIcon} onClick ={ showPassword }/>
+                                    <img className="show-only-desktop" src={eyeIconBlue} onClick ={ showPassword }/>
+                                    <input 
+                                        type="password" 
+                                        id="contrasenia" 
+                                        name="contrasenia"
+                                        {...register('contrasenia')}
+                                    />
+                                    <p className="error-input">{errors?.contrasenia?.message}</p>
+                                </div>
                             </div>
-                        </div>
-                    </Col>
+                        </Col>
+                    }
                 </Row>
                     
             </div>

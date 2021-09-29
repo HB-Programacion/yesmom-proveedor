@@ -1,3 +1,4 @@
+import axios from "axios";
 import { types } from "../types/types";
 
 
@@ -5,39 +6,33 @@ export const startLoadingInfoSupplier = (token) => {
     return async (dispatch) => {
         //Traer data del usuario
         //Llamar a endpoint con el token
-        console.log('loading data');
+        try{
+            const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/getOne`,{
+                headers : {
+                    'access-token' : token
+                }
+            })
 
-        dispatch( loadingDataSupplier());
+            if(data?.response?.ok){
+                const { response : { item } } = data;
+                dispatch( loadingDataSupplier(item));
+            }
+        }catch(e){
+            console.log(e.message);
+        }
+
+
 
     }
 }
 
-export const loadingDataSupplier = () => ({
+export const loadingDataSupplier = ( data ) => ({
     type : types.loadInfoSupplier,
-    payload : {
-        "ruc": 11111111111,
-        "autorizado": false,
-        "cciCuenta": "11111111111111111111",
-        "ciudad": "Lima",
-        "correoElectronico": "mwly@gmail.com",
-        "createdAt": "2021-09-27T22:07:12.212Z",
-        "direccion": "Av. Metropolitana 1173",
-        "distrito": "Comas",
-        "dniRucTitular": "74231653",
-        "documentoRepresentante": "74231653",
-        "entidadBancaria": "Bcp",
-        "nombreCompletoEncargado": "Melany Nicolle Tirado Mendieta",
-        "nombreCompletoRepresentante": "Melany Nicolle Tirado Mendieta",
-        "nombreTienda": "Cat Store",
-        "numeroCuentaSoles": "11111111111111111",
-        "paginaWeb": "www.abcde.com",
-        "pais": "Perú",
-        "razonSocial": "Comercio",
-        "telefono": "933475707",
-        "telefonoEmpresa": "933475707",
-        "titularCuenta": "Melany Tirado"
-    }
+    payload : data
 })
 
+export const cleanSupplier = () => ({
+    type : types.cleanSupplier
+})
 //Perfil
 export const getInfoProfile = () => {}
