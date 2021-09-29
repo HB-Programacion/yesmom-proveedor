@@ -8,8 +8,8 @@ import store from './redux/store/store';
 function App() {
   return (
     <Provider store={store}>
-        <SecureAppRouter/>
-        {/* <AppRouter /> */}
+        {/* <SecureAppRouter/> */}
+        <AppRouter />
     </Provider>
   );
 }
