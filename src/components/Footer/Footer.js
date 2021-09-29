@@ -44,7 +44,7 @@ const Footer = () => {
             <Col xs={12} sm={12} md={3} lg={3} xl={3}>
               <div className="padding-left text-left pb-1">
                 <h6 className="title-footer">
-                  <b className="p-1"></b>
+                  <b className="p-1 hide-mobile"></b>
                 </h6>
                 <div className="box-contenido-footer">
 
