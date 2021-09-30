@@ -42,7 +42,7 @@
   position: relative;
   left: 25px;
   color: #5A5A5A;
-  font-size: 13px;
+  font-size: 1.2rem;
   font-family: "mont-regular";
   line-height: 42px;
 }
@@ -63,7 +63,6 @@
     position: relative;
     left: 25px;
     color: #5A5A5A;
-    font-size: 13px;
     font-family: "mont-regular";
     line-height: 42px;
   }
@@ -78,7 +77,6 @@
     position: relative;
     left: 25px;
     color: #5A5A5A;
-    font-size: 15px;
     font-family: "mont-regular";
     line-height: 42px;
   }

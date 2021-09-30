@@ -8,7 +8,7 @@ import './Sidebar.css';
 
 const pushLinks=[
     { name : "Registro" , to : "/p/informacion-perfil/registro" },
-    { name : "Productos" , to : "/" , active:"/"},
+    { name : "Productos" , to : "/p/informacion-perfil/productos-activos"},
     { name : "Cambiar contraseña" , to : "/p/informacion-perfil/cambiar-password" },
     { name : "Perfil de tienda" , to : "/p/informacion-perfil/perfil-tienda" },
     { name : "Términos y condiciones" , to : "/p/informacion-perfil/terminos" },

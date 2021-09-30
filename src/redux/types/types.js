@@ -10,4 +10,5 @@ export const types = {
 
     loadInfoSupplier  : "[SUPPLIER] load info",
     cleanSupplier : '[SUPPLIER] clean supplier',
+    // loadSupplierProducts : "[SUPPLIER] get products"
 }
