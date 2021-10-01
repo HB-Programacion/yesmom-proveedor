@@ -9,6 +9,7 @@ export const getSupplierProducts = async ( token ) => {
         
         if(data?.productosGeneral){
             const cleanData = prepareDataProductSupplier( data.productosGeneral );
+        
             return cleanData;
         }else{
             return [];
@@ -24,6 +25,7 @@ export const getSupplierProducts = async ( token ) => {
 export const prepareDataProductSupplier = ( data ) => {
     //schema
     const products = data.map((  { imagen , product} ) => ({
+        id : product._id,
         image : imagen.url,
         title : product.nombre,
         description: product.descripcion,

@@ -10,16 +10,10 @@ export const supplierReducer = ( state = initialState , action) => {
         case types.loadInfoSupplier:
             return {
                 ...state,
-                ...action.payload
+                ...action.payload,
             }
-/*         case types.loadSupplierProducts :
-            return {
-                ...state,
-                
-            } */
         case types.cleanSupplier : 
             return { }
-        
         default:
             return state;
     }

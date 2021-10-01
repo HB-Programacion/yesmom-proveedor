@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getSupplierProducts } from "../../utils/helpers/getSupplierProducts";
 import { types } from "../types/types";
 
 
@@ -26,21 +27,45 @@ export const startLoadingInfoSupplier = (token) => {
     }
 }
 
-// export const getSupplierProducts = () => {
-//     return async () => {
-//         try {
-//             const userType = "admin";
-//             const idSupplier = "614cdeb4686d50c2139605be";
+//Productos
+export const startLoadingSupplierProducts = () => {
+    return  async (dispatch ) => {
+        const data = await getSupplierProducts();
+        dispatch(loadSupplierProducts(data) );
+    }
+}
 
-//             const { data }  = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/get-product-pagination/${userType}?skip=0&limit=10&state=A&supplier=${idSupplier}`);
-            
-//             console.log(data);
-//         }catch(e){
-//             console.log('Algo salio mal');
-//         }
-//     }
-// }
+export const setActiveProduct = ( idProduct) => ({
+    type : types.setActiveProduct, 
+    payload : idProduct  
+})
+export const unsetActiveProduct = ( idProduct) => ({
+    type : types.unsetActiveProduct,   
+    payload : idProduct  
+})
 
+export const startDeletingProduct = (idProduct ) => {
+    return async (dispatch ) => {
+
+        //Enviar al endpoint
+        //Enviar como arreglo : [ "id513123"];
+
+        dispatch(deleteProduct(idProduct));
+    }
+}
+
+export const startDeletingAllProducts = () => {
+    return async () => {
+        
+    }
+}
+
+
+
+export const deleteProduct = (id ) => ({
+    type : types.deleteProduct,
+    payload : id
+})
 export const loadingDataSupplier = ( data ) => ({
     type : types.loadInfoSupplier,
     payload : data
