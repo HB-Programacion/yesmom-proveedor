@@ -39,32 +39,42 @@ export const setActiveProduct = ( idProduct) => ({
     type : types.setActiveProduct, 
     payload : idProduct  
 })
+
+export const setActiveAllProducts = () => ({
+    type : types.setActiveAllProducts
+})
+
 export const unsetActiveProduct = ( idProduct) => ({
     type : types.unsetActiveProduct,   
     payload : idProduct  
 })
 
-export const startDeletingProduct = (idProduct ) => {
-    return async (dispatch ) => {
+export const unsetActiveAllProducts= ( ) => ({
+    type : types.unsetActiveAllProducts,   
+})
 
+export const startDeletingProduct = ( ) => {
+    return async (dispatch , getState) => {
+
+        const { active } = getState().supplierProducts
+        console.log('Eliminando estos : ', active );
         //Enviar al endpoint
         //Enviar como arreglo : [ "id513123"];
 
-        dispatch(deleteProduct(idProduct));
+        dispatch(deleteProduct());
+    }
+}
+export const cleanDataSupplier = () => {
+
+    return (dispatch) => {
+        dispatch ( cleanSupplier());
+        dispatch ( cleanSupplierProducts());
     }
 }
 
-export const startDeletingAllProducts = () => {
-    return async () => {
-        
-    }
-}
 
-
-
-export const deleteProduct = (id ) => ({
-    type : types.deleteProduct,
-    payload : id
+export const deleteProduct = () => ({
+    type : types.deleteProduct
 })
 export const loadingDataSupplier = ( data ) => ({
     type : types.loadInfoSupplier,
@@ -73,6 +83,10 @@ export const loadingDataSupplier = ( data ) => ({
 export const loadSupplierProducts = ( data) => ({
     type : types.loadSupplierProducts,
     payload : data
+})
+
+export const cleanSupplierProducts = () => ({
+    type : types.cleanSupplierProducts
 })
 export const cleanSupplier = () => ({
     type : types.cleanSupplier

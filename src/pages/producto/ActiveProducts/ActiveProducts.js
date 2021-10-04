@@ -17,7 +17,7 @@ import { getSupplierProducts } from '../../../utils/helpers/getSupplierProducts'
 import Loading from '../../../components/Loading/Loading'
 import { useDispatch, useSelector } from 'react-redux'
 import BackComponent from '../../../components/Return/BackComponent'
-import { setActiveProduct, startDeletingProduct, startLoadingSupplierProducts, unsetActiveProduct} from '../../../redux/actions/supplier'
+import { deleteProduct, setActiveProduct, startDeletingProduct, startLoadingSupplierProducts, unsetActiveProduct} from '../../../redux/actions/supplier'
 
 const products = [
   { title: 'baby clothes', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac', image: 'https://i.pinimg.com/originals/86/7b/90/867b9004d298622723781c4fd7e25d50.jpg', price: 60.50, discount: 10.20 },
@@ -63,12 +63,7 @@ const ActiveProducts = () => {
 
   const handleActiveProduct = ( idProduct ) => {
     
-    if(!active.includes(idProduct)){
-
       dispatch( setActiveProduct (idProduct) )
-    }else{
-      dispatch( unsetActiveProduct (idProduct) )
-    }
   }
 
   const getActive = ( idProduct ) => {
@@ -81,14 +76,17 @@ const ActiveProducts = () => {
   }
 
   const handleRemoveProduct = ( idProduct ) => {
-    
-    const prompt = window.confirm(`Eliminar ${idProduct}`);
-    if(prompt){
-      dispatch ( startDeletingProduct(idProduct )) ;
-    }else{
-      // alert('Cancel')
-    }
+    dispatch( unsetActiveProduct (idProduct) )
+  }
 
+  const handleDeleteActive = () => {
+      if(active.length > 0){
+        const ok = window.confirm('Eliminar producto(s)');
+        if(ok){
+          console.log('Eliminando activos');
+          dispatch( startDeletingProduct());
+        }
+      }
   }
 
   useEffect(() => {
@@ -136,35 +134,48 @@ const ActiveProducts = () => {
 
                         <Checkbox content='Seleccionar todo' />
                         <div className="container-icon-delete">
-                          <img className='icon-delete' src={iconDelete} alt="" />
+                          <img 
+                            className={`icon-delete ${active.length==0 ? 'icon-delete-disabled' : ''}`}
+                            src={iconDelete} 
+                            alt=""
+                            onClick = { handleDeleteActive }  
+                          />
                         </div>
                         <Input placeholder="Buscar..." />
                       </div>
                     </div>
-                    
-                    <div className="active-products-grid">
-                      {products.map((item, i) => (
-                        
-                        <div className="active-products-item" key={i} onClick= { () => handleActiveProduct(item.id) }>
-                          {
-                            getActive(item.id) && 
-                            <img 
-                              className="icon-close" 
-                              src={iconClose} 
-                              alt="icono eliminar" 
-                              onClick = { ()  => handleRemoveProduct(item.id) }
+                    {
+                      products.length === 0 ? 
+                      <p> No hay productos </p>
+                      :
+                      <div className="active-products-grid">
+                        {products.map((item, i) => (
+                          
+                          <div 
+                            className="active-products-item" 
+                            key={i} 
+                            onClick= {!getActive(item.id) ? () => handleActiveProduct(item.id) : () =>{} }
+                          >
+                            {
+                              getActive(item.id) && 
+                              <img 
+                                className="icon-close" 
+                                src={iconClose} 
+                                alt="icono eliminar" 
+                                onClick = { ()  => handleRemoveProduct(item.id) }
+                              />
+                            }
+                            <CardProduct 
+                              image={item?.image} 
+                              title={item?.title} 
+                              description={item?.description} 
+                              price={item?.price} 
+                              discount={item?.discount} 
                             />
-                          }
-                          <CardProduct 
-                            image={item?.image} 
-                            title={item?.title} 
-                            description={item?.description} 
-                            price={item?.price} 
-                            discount={item?.discount} 
-                          />
-                        </div>
-                      ))}
-                    </div>
+                          </div>
+                        ))}
+                      </div>
+                    }
                   </div>
                 </div>
               </div>

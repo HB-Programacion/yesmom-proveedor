@@ -13,7 +13,7 @@ import iniciarSesion from '../../images/header/iniciar-sesion.svg';
 import loggedOptions from '../../images/header/logged-options.svg';
 
 import './DropMenuMobile.css';
-import { cleanSupplier } from "../../redux/actions/supplier";
+import { cleanDataSupplier } from "../../redux/actions/supplier";
 function DropMenuMobile({ active, setActive}) {
 
   const { logged=false } = useSelector(state => state.auth);  
@@ -45,7 +45,7 @@ function DropMenuMobile({ active, setActive}) {
 
   const handleLogout = () => {
     dispatch(logout());
-    dispatch ( cleanSupplier());
+    dispatch ( cleanDataSupplier());
   }
 
   return (

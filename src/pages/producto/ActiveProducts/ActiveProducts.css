@@ -39,6 +39,12 @@
 
 .icon-delete{
   margin: 4px 12px 4px 15px;
+  cursor: pointer;
+}
+
+.icon-delete-disabled{
+  opacity: 0.5;
+  cursor:unset;
 }
 .content-page{
   width: 100%;
