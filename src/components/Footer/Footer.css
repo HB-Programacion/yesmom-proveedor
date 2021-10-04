@@ -56,7 +56,7 @@ p{
       padding: 2.5rem 0;
     }
     .footer a{
-      font-size:1.8rem;
+      font-size:1.7rem;
     }
     .footer .padding-left {
       padding-left: 0rem;
@@ -75,13 +75,13 @@ p{
   @media (min-width : 1280px){
     .title-footer{
       margin-bottom:2rem;
-      font-size:2rem;
+      font-size:1.8rem;
     }
     .footer a{
-      font-size:1.5rem;
+      font-size:1.4rem;
     }
     .padding-left.text-center p{
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       margin-bottom:0;
     }
     .icon-redes{
@@ -99,7 +99,7 @@ p{
     .footer a {
       color: #fff;
       text-decoration: none;
-      font-size:1.5rem
+      font-size:1.4rem
     }
 
     .footer a:hover {
@@ -110,7 +110,7 @@ p{
     .title-footer {
       margin-bottom: 0.5rem;
       margin-top: 1rem;
-      font-size: 2rem;
+      font-size: 1.65rem;
     }
 
     .icon-redes {

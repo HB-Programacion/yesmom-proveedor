@@ -5,7 +5,7 @@ function FirstStep({ formTextAddProduct, handleInputChange }) {
     return (
         <div className="animated fade-in">
             <div className="add--question-box">
-                <label className="add--style-label" htmlFor="nameProduct">
+                <label className="add--style-label space-top" htmlFor="nameProduct">
                     Nombre de Producto
                 </label>
                 <div className="add--container-input">
@@ -22,7 +22,7 @@ function FirstStep({ formTextAddProduct, handleInputChange }) {
                 </div>
             </div>
             <div className="add--question-box">
-                <label className="add--style-label" htmlFor="marca">
+                <label className="add--style-label space-top" htmlFor="marca">
                     Modelo o Marca
                 </label>
                 <div className="add--container-input">
@@ -40,7 +40,7 @@ function FirstStep({ formTextAddProduct, handleInputChange }) {
                 </div>
             </div>
             <div className="add--question-box">
-                <label className="add--style-label" htmlFor="modelo">
+                <label className="add--style-label space-top" htmlFor="modelo">
                     Descripción de producto
                 </label>
                 <div className="add--container-input">
@@ -58,7 +58,7 @@ function FirstStep({ formTextAddProduct, handleInputChange }) {
                 </div>
             </div>
             <div className="add--question-box">
-                <label className="add--style-label" htmlFor="accesorios">
+                <label className="add--style-label space-top" htmlFor="accesorios">
                     Accesorios
                 </label>
                 <div className="add--container-input">
@@ -141,7 +141,7 @@ function FirstStep({ formTextAddProduct, handleInputChange }) {
                 </div>
             </div>
             <div className="add--question-box">
-                <label className="add--style-label" htmlFor="talla">
+                <label className="add--style-label space-top" htmlFor="talla">
                     Talla
                 </label>
                 <div className="more-options">
@@ -229,7 +229,7 @@ function FirstStep({ formTextAddProduct, handleInputChange }) {
                 </div>
             </div>
             <div className="add--question-box">
-                <label className="add--style-label" htmlFor="terminos">
+                <label className="add--style-label space-top" htmlFor="terminos">
                     Términos y condiciones del producto
                 </label>
                 <div className="add--container-input">
@@ -249,10 +249,10 @@ function FirstStep({ formTextAddProduct, handleInputChange }) {
                 </div>
             </div>
             <div className="add--question-box">
-                <label className="add--style-label" htmlFor="dimensiones">
+                <label className="add--style-label space-top" htmlFor="dimensiones">
                     Dimensiones y peso
                 </label>
-                <div className="more-options">
+                <div className="more-options options-dimensions">
                     <div className="add--container-input">
                         <input
                             className="add--style-input"
@@ -290,7 +290,7 @@ function FirstStep({ formTextAddProduct, handleInputChange }) {
                     </div>
                 </div>
             </div>
-            <div className="add--question-box">
+            <div className="add--question-box space-top">
                 <label className="add--style-label" htmlFor="material">
                     Material
                 </label>

@@ -201,6 +201,13 @@
         flex-direction:column;
         width:100%;
     }
+    .options-dimensions{
+        flex-direction:row;
+    }
+    .options-dimensions .add--container-input{
+        margin-right: .5rem;
+    }
+    
     .add--container-input{
         width:100%;
     }
@@ -211,6 +218,9 @@
     
     .add--resumen-details{
         min-width: 50rem;
+    }
+    .space-top{
+        margin-top:-4rem
     }
 }
 

@@ -26,12 +26,12 @@
 }
 .card-title-amount{
     font-family: "mont-heavy";
-    font-size:5rem;
+    font-size:3.5rem;
 }
 
 @media (min-width : 768px){
     .color-normal .card-title-amount{
-        font-size:4rem
+        font-size:3.5rem
     }
 }
 

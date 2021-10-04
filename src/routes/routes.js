@@ -47,7 +47,7 @@ const ComponentNotFound = lazy(() => import("../pages/404"));
 export const routes = [
   { path: "/", component: Home },
   { path: "/registro", component: Registro },
-  { path: "/add-new-product", component: AddProduct },
+  // { path: "/add-new-product", component: AddProduct },
   { path: "/product-excel", component: AddProductExcel },
   { path: "/show-product", component: ShowProduct },
   { path: "/visualizate-products", component: SeeProducts },

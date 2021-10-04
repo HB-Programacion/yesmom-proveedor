@@ -150,11 +150,11 @@ const Home = () => {
               >
                 <h4 className="home--star-text">
                   <div className="home--container-title-section">
-                    <img className="home--icon-start-1" src={blackStar} />
+                    <img className="home--icon-start-1 heartbeat" src={blackStar} />
                     <p className="home--title-section">
                       ¿Cómo vender en Yes mom?
                     </p>
-                    <img className="home--icon-start-2" src={blackStar} />
+                    <img className="home--icon-start-2 heartbeat" src={blackStar} />
                   </div>
                 </h4>
                 <div className="home--container-description">
@@ -212,7 +212,7 @@ const Home = () => {
                       <div className="home--img-and-social">
                         <div className="home--container-image">
                           <img
-                            className="home--border-image-1"
+                            className="home--border-image-1 heartbeat"
                             src={borderProveedor}
                           />
                           <img
@@ -221,7 +221,7 @@ const Home = () => {
                             alt="proveedor imagen"
                           />
                           <img
-                            className="home--border-image-2"
+                            className="home--border-image-2 "
                             src={borderProveedor}
                           />
                         </div>
