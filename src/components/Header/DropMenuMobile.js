@@ -4,19 +4,6 @@ import { HashLink } from "react-router-hash-link";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/actions/auth";
 
-<<<<<<< HEAD
-import close from "../../images/header/close.svg";
-import cesta from "../../images/header/cesta.svg";
-import tienda from "../../images/header/tienda.svg";
-import contacto from "../../images/header/contacto.svg";
-import iniciarSesion from "../../images/header/iniciar-sesion.svg";
-import loggedOptions from "../../images/header/logged-options.svg";
-
-import "./DropMenuMobile.css";
-function DropMenuMobile({ active, setActive }) {
-  const { logged = false } = useSelector((state) => state.auth);
-  const { nombreTienda = "" } = useSelector((state) => state.supplier);
-=======
 
 import close from '../../images/header/close.svg';
 import cesta from '../../images/header/cesta.svg';
@@ -31,7 +18,6 @@ function DropMenuMobile({ active, setActive}) {
 
   const { logged=false } = useSelector(state => state.auth);  
   const { nombreTienda=""} = useSelector(state => state.supplier);
->>>>>>> df84fa4e0cb88bb7b9ff83faf417e32c290c014f
   const { pathname } = useLocation();
   const [expand, setExpand] = useState(false);
   const dispatch = useDispatch();
@@ -59,12 +45,8 @@ function DropMenuMobile({ active, setActive}) {
 
   const handleLogout = () => {
     dispatch(logout());
-<<<<<<< HEAD
-  };
-=======
     dispatch ( cleanSupplier());
   }
->>>>>>> df84fa4e0cb88bb7b9ff83faf417e32c290c014f
 
   return (
     <>
