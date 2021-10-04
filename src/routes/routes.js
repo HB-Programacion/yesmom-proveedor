@@ -67,7 +67,7 @@ export const routes = [
   { path: "/p/informacion-perfil/previsualizacion", component: Previsualizacion },
   { path: "/p/informacion-perfil/terminos", component: Terminos },
   {
-    path: "/informacion-perfil/desactivar-cuenta",
+    path: "/p/informacion-perfil/desactivar-cuenta",
     component: DesactivarCuenta,
   },
   //

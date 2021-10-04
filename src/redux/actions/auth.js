@@ -2,7 +2,7 @@ import axios from "axios";
 import clienteAxiosAuth from "../../config/axiosAuth";
 import { validateToken } from "../../utils/helpers/validateToken";
 import { types } from "../types/types"
-import { startLoadingInfoSupplier } from "./supplier";
+import { cleanSupplier, startLoadingInfoSupplier } from "./supplier";
 
 
 
@@ -47,6 +47,7 @@ export const validateLoginSupplier = ( token ) => {
 
             }else{
                 dispatch(logout());
+                dispatch( cleanSupplier());
                 alert('Inicia sesión de nuevo')
             }
             
@@ -63,6 +64,7 @@ export const startLogin = ( token) =>{
         dispatch( startLoadingInfoSupplier(token))
     }
 }
+
 
 export const logout = () => ({
     type : types.authLogout

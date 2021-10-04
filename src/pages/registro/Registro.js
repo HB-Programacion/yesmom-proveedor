@@ -31,15 +31,15 @@ const Registro = () => {
         resolver : yupResolver(schemaValidator)
     });
     //Segundo form
-    const { register: register_2 , handleSubmit : handleSubmit_2 , formState: formState_2 } = useForm({
+    const { register: register_2 , handleSubmit : handleSubmit_2 , formState: formState_2 , reset : reset_2 } = useForm({
         resolver : yupResolver(schemaValidatorStep2)
     });
     //Tercer form
-    const { register: register_3 , handleSubmit : handleSubmit_3 , formState: formState_3 } = useForm({
+    const { register: register_3 , handleSubmit : handleSubmit_3 , formState: formState_3 , reset : reset_3} = useForm({
         resolver : yupResolver(schemaValidatorStep3)
     });
     //Cuarto form
-    const { register: register_4 , handleSubmit : handleSubmit_4 , formState: formState_4 } = useForm({
+    const { register: register_4 , handleSubmit : handleSubmit_4 , formState: formState_4 , reset : reset_4 } = useForm({
         resolver : yupResolver(schemaValidatorStep4)
     });
 
@@ -64,7 +64,7 @@ const Registro = () => {
                 const { isConfirmed } = await submitForm();
                 if(isConfirmed){
                     alert("DATOS OK Y ACEPTÓ");
-                    console.log("Los datos son : 26",infoPersona);
+                    // console.log("Los datos son : 26",infoPersona);
 
                     try{
                         const response = await clienteAxiosBusiness.post('/supplier/save',infoPersona);
@@ -74,6 +74,9 @@ const Registro = () => {
 
                         if(data?.response?.ok){
                             reset();
+                            reset_2();
+                            reset_3();
+                            reset_4();
                             alert("Proveedor guardado satisfactoriamente")
                         }
                     }catch(e){

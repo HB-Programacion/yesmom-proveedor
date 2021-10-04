@@ -8,5 +8,10 @@ export const types = {
     
     //Supplier
 
-    loadInfoSupplier  : "[SUPPLIER] load info"
+    loadInfoSupplier  : "[SUPPLIER] load info",
+    cleanSupplier : '[SUPPLIER] clean supplier',
+    loadSupplierProducts : "[SUPPLIER] get products",
+    setActiveProduct : "[PRODUCT] set active",
+    unsetActiveProduct : "[PRODUCT] remove active",
+    deleteProduct : "[PRODUCT] delete product",
 }

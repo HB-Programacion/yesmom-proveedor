@@ -42,7 +42,11 @@
   position: relative;
   left: 25px;
   color: #5A5A5A;
+<<<<<<< HEAD
   font-size: 1.1rem;
+=======
+  font-size: 1.2rem;
+>>>>>>> df84fa4e0cb88bb7b9ff83faf417e32c290c014f
   font-family: "mont-regular";
   line-height: 42px;
 }
@@ -63,7 +67,10 @@
     position: relative;
     left: 25px;
     color: #5A5A5A;
+<<<<<<< HEAD
     font-size: 1rem;
+=======
+>>>>>>> df84fa4e0cb88bb7b9ff83faf417e32c290c014f
     font-family: "mont-regular";
     line-height: 42px;
   }
@@ -78,7 +85,10 @@
     position: relative;
     left: 25px;
     color: #5A5A5A;
+<<<<<<< HEAD
     font-size: 1.3rem;
+=======
+>>>>>>> df84fa4e0cb88bb7b9ff83faf417e32c290c014f
     font-family: "mont-regular";
     line-height: 42px;
   }
