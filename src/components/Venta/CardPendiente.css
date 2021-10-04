@@ -41,3 +41,15 @@
     font-size:2rem;
     color:#FFFFFF;
 }
+
+@media (min-width : 768px){
+    .card-pendiente p{
+        font-size:1.8rem;
+    }
+    .card-pendiente{
+        margin:0 2rem;
+    }
+    .card-ver-pendientes{
+        height:6.5rem;
+    }
+}

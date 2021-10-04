@@ -22,16 +22,16 @@ const ResumenVenta = () => {
                             <img className="img-banner resumen-venta-hide-desktop" src={bannerMobile} />
                             <img className="img-banner resumen-venta-show-desktop" src={bannerDesktop} />
                             <div className="resumen-venta-container-title">
-                                <img className="onda-blanca" src={ondaBlanca} alt="ondas-blanca" />
+                                <img className="onda-blanca heartbeat" src={ondaBlanca} alt="ondas-blanca" />
                                 <p>Resumen de venta</p>
-                                <img className="onda-blanca" src={ondaBlanca} alt="ondas-blanca" />
+                                <img className="onda-blanca heartbeat" src={ondaBlanca} alt="ondas-blanca" />
                             </div>
                         </div>
                         <div className="resumen-contenido-centered">
 
                             <section className="resumen-seguimiento-ventas">
                                 <div className="resumen-subtitles">
-                                    <img src={pig}  alt="pig"/>
+                                    <img src={pig}  alt="pig" className="heartbeat"/>
                                     <p>Seguimiento de ventas:</p>
                                 </div>
                                 <div className="resumen-container-cards">
@@ -62,7 +62,7 @@ const ResumenVenta = () => {
                                 <div className="resumen-container-pendientes">
 
                                     <div className="resumen-subtitles">
-                                        <img src={bell}  alt="bell"/>
+                                        <img src={bell}  alt="bell" className="heartbeat"/>
                                         <p>Órdenes pendientes:</p>
                                     </div>
 

@@ -11,6 +11,7 @@ import yesmomDeskImg from '../../../images/perfil/yesmom-banner-desktop.png';
 
 import './Previsualizacion.css';
 import ButtonFilled from '../../../components/Button/ButtonFilled';
+import { Container } from 'react-bootstrap';
 
 const products = [
   { title: 'baby clothes', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac', image: 'https://i.pinimg.com/originals/86/7b/90/867b9004d298622723781c4fd7e25d50.jpg', price: 60.50, discount: 10.20 },
@@ -47,6 +48,7 @@ const Previsualizacion = () => {
               <p>Promociones</p>
             </div>
           </div>
+          <Container fluid="true">
           <div className="preview-products-second-content">
             <img className="preview-products-logo" src={proveedorMobImg} alt="logo proveedor" />
             <img className="preview-products-banner-mobile" src={proveedorMobBanner} alt="logo proveedor" />
@@ -61,6 +63,7 @@ const Previsualizacion = () => {
               </div>
             </div>
           </div>
+          </Container>
         </div>
 
         <img className="preview-products-ymbanner-mob" src={yesmomMobImg} alt="logo proveedor" />

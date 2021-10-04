@@ -89,7 +89,7 @@ a {
 
 .expanded-options a {
     font-family: "mont-light";
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: #575650;
     text-decoration: none;
     margin-bottom:0.5rem;
@@ -106,7 +106,7 @@ a {
 }
 
 .text-added-logout{
-    font-size:1.8rem!important;
+    font-size:1.5rem!important;
     cursor:pointer;
 }
 @media (min-width : 480px){

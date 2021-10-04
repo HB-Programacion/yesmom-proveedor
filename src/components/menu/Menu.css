@@ -5,7 +5,7 @@
 .menu-product-section{
   width: 100%;
   min-width: 286px;
-  height: 85px;
+  height: 5.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,7 +81,7 @@
 .item-text-product-active{
   color: #ffffff;
   margin-bottom: 0;
-  font-size: 15px;
+  font-size: 1.3rem;
   line-height: 34px;
   display: flex;
   align-items: center;
@@ -92,21 +92,22 @@
 .item-text-product{
   color: #575650;
   margin-bottom: 0;
-  font-size: 15px;
+  font-size: 1.3rem;
   line-height: 34px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  font-family: "mont-semibold";
 }
 
-.item-text-product >img{
-  margin-left: 8px;
+.item-text-product img{
+  padding-left: .5rem;
 }
 
 @media (min-width : 993px){
   .menu-product-container{
-    padding-top: 8.7rem;
+    padding-top: 8rem;
   }
 
 }
@@ -127,7 +128,7 @@
   .item-text-product-active{
     color: #ffffff;
     margin-bottom: 0;
-    font-size: 18px;
+    font-size: 1.25rem;
     line-height: 34px;
     display: flex;
     align-items: center;
@@ -138,7 +139,7 @@
   .item-text-product{
     color: #575650;
     margin-bottom: 0;
-    font-size: 18px;
+    font-size: 1.25rem;
     line-height: 34px;
     display: flex;
     align-items: center;

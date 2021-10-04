@@ -18,7 +18,7 @@
 .registro-title-swal{
     font-family:"mont-semibold";
     font-weight:600;
-    font-size:1.8rem;
+    font-size:1.7rem;
     color:#5A5A5A;
 }
 .registro-box-checkbox{
@@ -35,7 +35,7 @@
     margin-left:2rem;
     text-align: justify;
     font-family:"mont-regular";
-    font-size:1.3rem;
+    font-size:1.2rem;
     color: #575650;
     opacity: 0.8;
 }
@@ -48,6 +48,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.2rem;
 }
 .to-politics{
     margin-top:2rem;
@@ -75,6 +76,10 @@
 
 .show-only-desktop {
     display: none;
+}
+
+.swal2-confirm p{
+    font-size:1.6rem;
 }
 
 /***/
