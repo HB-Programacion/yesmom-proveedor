@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import ButtonFilled from '../../../components/Button/ButtonFilled'
-import CardShadow from '../../../components/CardShadow/CardShadow'
+import ButtonFilled from '../Button/ButtonFilled'
+import CardShadow from '../CardShadow/CardShadow'
 
-import './Profile.css'
 
-const ProfileStep1 = () => {
+const ProfileStep2 = () => {
   const [fileName, setFileName] = useState('')
 
   const handleFileChange = (event) => {
@@ -17,6 +16,7 @@ const ProfileStep1 = () => {
       let reader = new FileReader();
       reader.onload = (e) => {
         if (sizeMegaByte > 1) {
+          console.log("El tamaño máximo es de 1mb")
           setFileName(input.files[0].name)
         } else {
           setFileName(input.files[0].name)
@@ -29,11 +29,11 @@ const ProfileStep1 = () => {
   return (
     <div className="animated fade-in">
       <CardShadow
-        title="1.- Adjunta un logo para tu tienda"
-        paragraph="Subir un logo correctamente fortalece la imagen y seriedad del negocio, de esta manera, juntos podremos darles a nuestros clientes la confianza de comprar con nosotros."
+        title="2.- Adjunta cover de portada"
+        paragraph="La portada del anuncio nos ayudará a ser más visibles, un buen diseño y una buena foto es fundamental para generar el impacto visual que necesitamos para atraer más clientes."
         content={
           <div className="profile-store-content-card-input">
-            <p className="profile-store-recommendation">Debe tener como medidas 446x168 px y una resolución de 300px</p>
+            <p className="profile-store-recommendation">Debe tener como medidas 1111x352 px y una resolución de 300px:</p>
             <div className="profile-store-content-input">
               <div>
                 <div className="profile-store-container-input">
@@ -60,4 +60,4 @@ const ProfileStep1 = () => {
   )
 }
 
-export default ProfileStep1
+export default ProfileStep2

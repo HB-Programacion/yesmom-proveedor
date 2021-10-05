@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import ButtonFilled from '../../../components/Button/ButtonFilled'
-import CardShadow from '../../../components/CardShadow/CardShadow'
-import DragnDrop from '../../../components/DragnDrop/DragnDrop'
-import previewImage from '../../../images/producto/preview.svg';
+import ButtonFilled from '../Button/ButtonFilled';
+import CardShadow from '../../components/CardShadow/CardShadow'
+import DragnDrop from '../../components/DragnDrop/DragnDrop'
+import previewImage from '../../images/producto/preview.svg';
 
-import './Profile.css'
 
 const ProfileStep3 = () => {
   const [fileName, setFileName] = useState('')

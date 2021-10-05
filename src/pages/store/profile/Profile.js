@@ -6,13 +6,14 @@ import CardShadow from "../../../components/CardShadow/CardShadow";
 import Menu from "../../../components/menu/Menu";
 
 import Stepper from "../../../components/Registro/Stepper";
-import ProfileStep1 from "./ProfileStep1"
-import ProfileStep2 from "./ProfileStep2"
-import ProfileStep3 from "./ProfileStep3"
-import "./Profile.css";
+import ProfileStep1 from "../../../components/PerfilTienda/ProfileStep1";
+import ProfileStep2 from "../../../components/PerfilTienda/ProfileStep2";
+import ProfileStep3 from "../../../components/PerfilTienda/ProfileStep3";
+
 import ButtonFilled from "../../../components/Button/ButtonFilled";
 import StepperTienda from "../../../components/Perfil/Stepper/StepperTienda";
 
+import "./Profile.css";
 const Profile = () => {
   const [selected, setSelected] = useState(0);
 
