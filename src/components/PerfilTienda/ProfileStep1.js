@@ -1,29 +1,33 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import ButtonFilled from '../Button/ButtonFilled'
 import CardShadow from '../CardShadow/CardShadow'
 
 
+const MAX_MB = 2000000;
+
 const ProfileStep1 = () => {
-  const [fileName, setFileName] = useState('')
+  const [imageLogo, setImageLogo] = useState('')
+  const refLogo = useRef('');
 
-  const handleFileChange = (event) => {
-    event.preventDefault();
-    let input = event.target;
-    console.log(event.target.files[0])
-    if (input.files && input.files[0]) {
-      const sizeByte = input.files[0].size;
-      const sizeMegaByte = parseFloat(sizeByte / (1024 * 1024)).toFixed(2);
-      let reader = new FileReader();
-      reader.onload = (e) => {
-        if (sizeMegaByte > 1) {
-          setFileName(input.files[0].name)
-        } else {
-          setFileName(input.files[0].name)
-        }
-      };
-      reader.readAsDataURL(input.files[0]);
 
+  const handleFileChange = (e) => {
+    // console.log(e.target.files);
+    if(e.target.files.length >0 ){
+      const file = e.target.files[0];
+      // console.log('Hay archivo');
+      if(file.size > MAX_MB){
+        alert('Imagen pesada , máximo 2MB')
+        refLogo.current.value = '';
+      }else{
+        setImageLogo(e.target.files[0]);
+      }
+    }else{
+      console.log('No hay archivo');
+      setImageLogo("");
+      refLogo.current.value = '';
     }
+
+    
   };
   return (
     <div className="animated fade-in">
@@ -36,15 +40,15 @@ const ProfileStep1 = () => {
             <div className="profile-store-content-input">
               <div>
                 <div className="profile-store-container-input">
-                  <p className="profile-store-filename">{fileName} </p>
+                  <p className="profile-store-filename">{imageLogo?.name} </p>
                 </div>
                 <div className="profile-store-container-input-mobile">
-                  <p className="profile-store-filename">{fileName} </p>
+                  <p className="profile-store-filename">{imageLogo?.name} </p>
                 </div>
                 <p className="obligatory-field">*Campo obligatorio</p>
               </div>
               <div className="profile-step-container-button">
-                <label htmlFor = "imageLogo" >
+                <label htmlFor = "imageLogo" className="label-for-logo">
                   <ButtonFilled color="blue" >
                     Cargar Imagen
                   </ButtonFilled>
@@ -52,7 +56,10 @@ const ProfileStep1 = () => {
                 <input
                   type="file"
                   id = "imageLogo"
-                  accept="image/*" onChange={handleFileChange} />
+                  accept="image/*" 
+                  onChange={handleFileChange}
+                  ref={ refLogo } 
+                />
               </div>
             </div>
           </div>

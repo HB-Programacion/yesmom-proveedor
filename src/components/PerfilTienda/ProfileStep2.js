@@ -1,30 +1,30 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import ButtonFilled from '../Button/ButtonFilled'
 import CardShadow from '../CardShadow/CardShadow'
 
-
+const MAX_MB = 2000000;
 const ProfileStep2 = () => {
-  const [fileName, setFileName] = useState('')
+  const [imageCover, setImageCover] = useState('')
+  const refCover = useRef('');
 
-  const handleFileChange = (event) => {
-    event.preventDefault();
-    let input = event.target;
-    console.log(event.target.files[0])
-    if (input.files && input.files[0]) {
-      const sizeByte = input.files[0].size;
-      const sizeMegaByte = parseFloat(sizeByte / (1024 * 1024)).toFixed(2);
-      let reader = new FileReader();
-      reader.onload = (e) => {
-        if (sizeMegaByte > 1) {
-          console.log("El tamaño máximo es de 1mb")
-          setFileName(input.files[0].name)
-        } else {
-          setFileName(input.files[0].name)
-        }
-      };
-      reader.readAsDataURL(input.files[0]);
-
+  const handleFileChange = (e) => {
+    
+    if(e.target.files.length >0 ){
+      const file = e.target.files[0];
+      // console.log('Hay archivo');
+      if(file.size > MAX_MB){
+        alert('Imagen pesada , máximo 2MB')
+        refCover.current.value = '';
+      }else{
+        setImageCover(e.target.files[0]);
+      }
+    }else{
+      console.log('No hay archivo');
+      setImageCover("");
+      refCover.current.value = '';
     }
+
+    
   };
   return (
     <div className="animated fade-in">
@@ -37,20 +37,26 @@ const ProfileStep2 = () => {
             <div className="profile-store-content-input">
               <div>
                 <div className="profile-store-container-input">
-                  <p className="profile-store-filename">{fileName} </p>
+                  <p className="profile-store-filename">{imageCover?.name} </p>
                 </div>
                 <div className="profile-store-container-input-mobile">
-                  <p className="profile-store-filename">{fileName} </p>
+                  <p className="profile-store-filename">{imageCover?.name} </p>
                 </div>
                 <p className="obligatory-field">*Campo obligatorio</p>
               </div>
               <div className="profile-step-container-button">
-                <ButtonFilled color="blue" >
-                  Cargar Imagen
-                  <input
-                    type="file"
-                    accept="image/*" onChange={handleFileChange} />
-                </ButtonFilled>
+                <label htmlFor="imageCover" className="label-for-logo">
+                  <ButtonFilled color="blue" >
+                    Cargar Imagen
+                  </ButtonFilled>
+                </label>
+                <input
+                  type="file"
+                  id="imageCover"
+                  accept="image/*" 
+                  onChange={handleFileChange} 
+                  ref ={ refCover }
+                />
               </div>
             </div>
           </div>

@@ -14,6 +14,8 @@ import ButtonFilled from "../../../components/Button/ButtonFilled";
 import StepperTienda from "../../../components/Perfil/Stepper/StepperTienda";
 
 import "./Profile.css";
+
+
 const Profile = () => {
   const [selected, setSelected] = useState(0);
 
