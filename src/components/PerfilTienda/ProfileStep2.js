@@ -3,8 +3,9 @@ import ButtonFilled from '../Button/ButtonFilled'
 import CardShadow from '../CardShadow/CardShadow'
 
 const MAX_MB = 2000000;
-const ProfileStep2 = () => {
-  const [imageCover, setImageCover] = useState('')
+const ProfileStep2 = ( { imageCover, setCover}) => {
+
+  // const [imageCover, setImageCover] = useState('')
   const refCover = useRef('');
 
   const handleFileChange = (e) => {
@@ -16,11 +17,13 @@ const ProfileStep2 = () => {
         alert('Imagen pesada , máximo 2MB')
         refCover.current.value = '';
       }else{
-        setImageCover(e.target.files[0]);
+        // setImageCover(e.target.files[0]);
+        setCover(e.target.files[0]);
       }
     }else{
       console.log('No hay archivo');
-      setImageCover("");
+      // setImageCover("");
+      setCover("");
       refCover.current.value = '';
     }
 

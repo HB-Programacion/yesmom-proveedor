@@ -5,8 +5,9 @@ import CardShadow from '../CardShadow/CardShadow'
 
 const MAX_MB = 2000000;
 
-const ProfileStep1 = () => {
-  const [imageLogo, setImageLogo] = useState('')
+const ProfileStep1 = ( { setLogo, imageLogo  }) => {
+  
+  // const [imageLogo, setImageLogo] = useState('')
   const refLogo = useRef('');
 
 
@@ -19,11 +20,13 @@ const ProfileStep1 = () => {
         alert('Imagen pesada , máximo 2MB')
         refLogo.current.value = '';
       }else{
-        setImageLogo(e.target.files[0]);
+        // setImageLogo(e.target.files[0]);
+        setLogo(e.target.files[0]);
       }
     }else{
       console.log('No hay archivo');
-      setImageLogo("");
+      // setImageLogo("");
+      setLogo("");
       refLogo.current.value = '';
     }
 

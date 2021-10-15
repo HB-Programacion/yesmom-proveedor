@@ -6,7 +6,7 @@ import previewImage from '../../images/producto/preview.svg';
 
 const MAX_MB = 2000000;
 
-const ProfileStep3 = () => {
+const ProfileStep3 = ( { handleImageChange}) => {
   
   const [ imgBanners , setImgBanners ]= useState({
     imgBanner_1 :'',
@@ -16,26 +16,26 @@ const ProfileStep3 = () => {
 
   const [selectedFile, setSelectedFile] = useState("");
 
-  const handleFileChange = (e) => {
-    if(e.target.files.length >0 ){
-      const file = e.target.files[0];
-      if(file.size > MAX_MB){
-        alert('Imagen pesada , máximo 2MB')
-      }else{
-        setImgBanners({
-          ...imgBanners,
-          [e.target.name] : file
-        });
-      }
-    }else{
-      console.log('No hay archivo');
-      setImgBanners({
-        ...imgBanners,
-          [e.target.name] : ''
-      });
-    }
+  // const handleFileChange = (e) => {
+  //   if(e.target.files.length >0 ){
+  //     const file = e.target.files[0];
+  //     if(file.size > MAX_MB){
+  //       alert('Imagen pesada , máximo 2MB')
+  //     }else{
+  //       setImgBanners({
+  //         ...imgBanners,
+  //         [e.target.name] : file
+  //       });
+  //     }
+  //   }else{
+  //     console.log('No hay archivo');
+  //     setImgBanners({
+  //       ...imgBanners,
+  //         [e.target.name] : ''
+  //     });
+  //   }
 
-  };
+  // };
 
   return (
     <div className="animated fade-in">
@@ -46,9 +46,9 @@ const ProfileStep3 = () => {
           <div className="profile-store-content-card" >
             <p>Debe tener como medidas 1111x352 px y una resolución de 300px:</p>
             <div className="profile-store-content-dragndrop">
-              <DragnDrop image={previewImage} name="imgBanner_1" id="imgBanner_1" onChange={handleFileChange} required='true' />
-              <DragnDrop image={previewImage} name="imgBanner_2" id="imgBanner_2" onChange={handleFileChange} required='true' />
-              <DragnDrop image={previewImage} name="imgBanner_3" id="imgBanner_3" onChange={handleFileChange} required='true' />
+              <DragnDrop image={previewImage} name="imgBanner_1" id="imgBanner_1" onChange={handleImageChange} required='true' />
+              <DragnDrop image={previewImage} name="imgBanner_2" id="imgBanner_2" onChange={handleImageChange} required='true' />
+              <DragnDrop image={previewImage} name="imgBanner_3" id="imgBanner_3" onChange={handleImageChange} required='true' />
             </div>
           </div>
         }

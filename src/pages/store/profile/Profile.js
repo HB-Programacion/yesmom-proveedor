@@ -17,19 +17,88 @@ import "./Profile.css";
 
 
 const Profile = () => {
+
+  const initialState = {
+      imgLogo : "",
+      imgCover :"",
+      imgBanners : {
+          imgBanner_1:"",
+          imgBanner_2:"",
+          imgBanner_3:"",
+      },
+  }
+  const [ images , setImages ] = useState(initialState);
   const [selected, setSelected] = useState(0);
 
   const handleSelection = () => {
     setSelected(selected => {
-      if (selected !== 2) {
-        return selected + 1;
+      //Primer form
+      if(selected === 0){
+        if(images.imgLogo!== ""){
+          return selected +1;
+        }else{
+          alert('Logo obligatorio');
+          return selected;
+        }
       }
+      //Segundo form
+      if(selected === 1){
+        if(images.imgCover!== ""){
+          return selected +1;
+        }else{
+          alert('Cover obligatorio');
+          return selected;
+        }
+      }
+
+      //Ultimo form banners
+      if(selected === 2){
+        handleSubmit();
+      }
+      
       return selected;
     });
   }
 
+const handleImageBanners = (e) => {
+    const name = e.target.name;
+    const currentBanners = images.imgBanners;
+    if(e.target.files.length > 0){
+        //Hay imagen de Banner
+        setImages({
+            ...images,
+            imgBanners : {
+                ...currentBanners,
+                [name] : e.target.files[0]
+            }
+        })
+    }else{
+        setImages({
+            ...images,
+            imgBanners : {
+                ...currentBanners,
+                [name] : ""
+            }
+        })
+    }
+}
+
+  const handleLogo = (file) => {
+    setImages({
+      ...images,
+      imgLogo : file
+    })
+  }
+  const handleCover = (file) => {
+    setImages({
+      ...images,
+      imgCover : file
+    })
+  }
+
   const handleSubmit = () => {
     alert("Enviando...");
+    console.log(images);
   }
 
   return (
@@ -47,13 +116,13 @@ const Profile = () => {
             </div>
             <div className="profile-store-container-form">
               <form>
-                {selected === 0 && <ProfileStep1 />}
-                {selected === 1 && <ProfileStep2 />}
-                {selected === 2 && <ProfileStep3 />}
+                {selected === 0 && <ProfileStep1 setLogo={ handleLogo } imageLogo = { images.imgLogo } />}
+                {selected === 1 && <ProfileStep2 setCover={ handleCover } imageCover = { images.imgCover }/>}
+                {selected === 2 && <ProfileStep3 handleImageChange={handleImageBanners}/>}
                 <div className="profile-store-container-button">
                   <ButtonFilled
                     color="yellow"
-                    fxClick={selected === 2 ? handleSubmit : handleSelection}
+                    fxClick={handleSelection}
                   >
                     Continuar
                   </ButtonFilled>
