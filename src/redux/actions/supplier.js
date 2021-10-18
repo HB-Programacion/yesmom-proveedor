@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getSupplierImages } from "../../utils/helpers/getSupplierImages";
 import { getSupplierProducts } from "../../utils/helpers/getSupplierProducts";
 import { types } from "../types/types";
 
@@ -35,6 +36,20 @@ export const startLoadingSupplierProducts = () => {
     }
 }
 
+export const startLoadingSupplierImages = () => {
+    return async (dispatch , getState) => {
+        const { token } = getState().auth;
+        const data = await getSupplierImages(token);
+        console.log(data);
+        dispatch(loadSupplierImages(data) );
+    }
+}
+
+
+export const updateStore = ( data ) => ({
+    type : types.updateActiveStore,
+    payload : data
+})
 export const setActiveProduct = ( idProduct) => ({
     type : types.setActiveProduct, 
     payload : idProduct  
@@ -82,6 +97,10 @@ export const loadingDataSupplier = ( data ) => ({
 })
 export const loadSupplierProducts = ( data) => ({
     type : types.loadSupplierProducts,
+    payload : data
+})
+export const loadSupplierImages = ( data) => ({
+    type : types.loadSupplierImages,
     payload : data
 })
 

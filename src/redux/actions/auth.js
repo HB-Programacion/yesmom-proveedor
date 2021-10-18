@@ -16,7 +16,6 @@ export const startAuth = ( access ) => {
     
             if(data?.token){
                 // alert('Logeado');
-
                 dispatch( validateLoginSupplier(data.token));
                 // dispatch ( login(data.token));
                 // dispatch( startLoadingInfoSupplier(data.token))

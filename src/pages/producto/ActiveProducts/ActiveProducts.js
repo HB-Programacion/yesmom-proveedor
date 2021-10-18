@@ -91,6 +91,8 @@ const ActiveProducts = () => {
 
   useEffect(() => {
     loadSupplierProducts();
+
+    return () => setLoading(false);
   },[])
 
 

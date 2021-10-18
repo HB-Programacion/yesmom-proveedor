@@ -7,6 +7,7 @@ import {
 import thunk from 'redux-thunk';
 
 import { authReducer } from "../reducers/authReducer";
+import { supplierImageReducer } from "../reducers/supplier.imageReducer";
 import { supplierProductReducer } from "../reducers/supplier.productReducer";
 import { supplierReducer } from "../reducers/supplierReducer";
 
@@ -18,6 +19,7 @@ const reducers = combineReducers({
     auth : authReducer,
     supplier : supplierReducer,
     supplierProducts : supplierProductReducer,
+    supplierImages : supplierImageReducer,
     //More reducers 
 })
 

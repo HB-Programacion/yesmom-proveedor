@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
 import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
@@ -12,68 +13,94 @@ import close from '../../../images/producto/close.svg';
 
 import './ProfileStoreGeneral.css';
 import BackComponent from '../../../components/Return/BackComponent';
+import Loading from '../../../components/Loading/Loading';
+import { startLoadingSupplierImages, updateStore } from '../../../redux/actions/supplier';
 
 const ProfileStoreGeneral = () => {
 
-    const initialState = {
-        imgLogo : "",
-        imgCover :"",
-        imgBanners : {
-            imgBanner_1:"",
-            imgBanner_2:"",
-            imgBanner_3:"",
-        },
-    }
-    const [ images , setImages ] = useState(initialState);
+    const dispatch = useDispatch();
+    const  { logged=false } = useSelector(state => state.auth);
+    const  { name="" , images : imagesInitial , activeStore } = useSelector(state => state.supplierImages);
+    // console.log(imagesInitial);
+    // const initialState = {
+    //     imgLogo : "",
+    //     imgCover :"",
+    //     imgBanners : {
+    //         imgBanner_1:"",
+    //         imgBanner_2:"",
+    //         imgBanner_3:"",
+    //     },
+    // }
+    const [ images , setImages ] = useState(activeStore);
+    const [ loading , setLoading ] = useState(true);
 
     const handleImageChange = (e) => {
         const name = e.target.name;
         if(e.target.files.length > 0){
             //Setear la imagen
             // console.log(e.target.files[0]);
-            setImages({
-                ...images,
+            dispatch( updateStore({
+                ...activeStore,
                 [name] : e.target.files[0]
-            })
+            }));
         }else{
             //Setear vacio
-            setImages({
-                ...images,
+
+            dispatch( updateStore({
+                ...activeStore,
                 [name] : ""
-            })
+            }))
         }
     }
 
     const handleImageBanners = (e) => {
         const name = e.target.name;
-        const currentBanners = images.imgBanners;
+        const currentBanners = activeStore.imgBanners;
         if(e.target.files.length > 0){
             //Hay imagen de Banner
-            setImages({
-                ...images,
+
+            dispatch( updateStore ( {
+                ...activeStore,
                 imgBanners : {
                     ...currentBanners,
                     [name] : e.target.files[0]
                 }
-            })
+            }))
         }else{
-            setImages({
-                ...images,
+
+            dispatch( updateStore({
+                ...activeStore,
                 imgBanners : {
                     ...currentBanners,
                     [name] : ""
                 }
-            })
+            }))
         }
     }
 
     const handleUpdateProfile = () => {
-        console.log(images);
+        console.log(activeStore);
     }
 
     const handleCancel = () => {
         console.log('Cancelando');
     }
+
+    const loadSupplierImages = async () => {
+        if(logged){
+            await dispatch( startLoadingSupplierImages());
+
+            setLoading(false);
+        }
+    }
+    useEffect(()=>{
+        loadSupplierImages();
+    },[])
+
+    if(loading){
+        return <Loading /> 
+    }
+
 
     return (
         <AppLayout>
@@ -104,7 +131,11 @@ const ProfileStoreGeneral = () => {
                                             <div className="profile-store-wrapper-tienda">
                                                 <h4 className="profile-flex-left registro-title op-8 mb-4">Nombre de la tienda</h4>
                                                 <div className="profile-flex-right">
-                                                    <input type="text" className="profile-store-input"/>
+                                                    <input 
+                                                        type="text" 
+                                                        className="profile-store-input"
+                                                        value = { name }
+                                                    />
                                                 </div>
                                             </div>
                                             <div className="profile-store-wrapper-tienda">
@@ -205,7 +236,11 @@ const ProfileStoreGeneral = () => {
                                                         <div className="add--container-preview profile-store-container-preview">
                                                             <img className="add--icon-close" src={close} />
                                                             <div className="add--preview-image profile-store-preview-image">
-                                                                <img src={previewImage} alt="preview-image" className="mq-mt-3"/>
+                                                                <img 
+                                                                    src={imagesInitial.imgBanners.imgBanner_1.length >0 ? imagesInitial.imgBanners.imgBanner_1 : previewImage } 
+                                                                    alt="preview-image" 
+                                                                    className="mq-mt-3 img-preview-perfil-proveedor"
+                                                                />
                                                                 <div className="add--question-box">
                                                                 <label className="add--style-label-image" htmlFor="imgBanner_1">
                                                                     Subir imagen
@@ -224,7 +259,11 @@ const ProfileStoreGeneral = () => {
                                                         <div className="add--container-preview profile-store-container-preview">
                                                             <img className="add--icon-close" src={close} />
                                                             <div className="add--preview-image profile-store-preview-image">
-                                                                <img src={previewImage} alt="preview-image" className="mq-mt-3" />
+                                                                <img 
+                                                                    src={imagesInitial.imgBanners.imgBanner_2.length >0 ? imagesInitial.imgBanners.imgBanner_2 : previewImage} 
+                                                                    alt="preview-image" 
+                                                                    className="mq-mt-3 img-preview-perfil-proveedor" 
+                                                                />
                                                                 <div className="add--question-box">
                                                                 <label className="add--style-label-image" htmlFor="imgBanner_2">
                                                                     Subir imagen
@@ -243,7 +282,11 @@ const ProfileStoreGeneral = () => {
                                                         <div className="add--container-preview profile-store-container-preview">
                                                             <img className="add--icon-close" src={close} />
                                                             <div className="add--preview-image profile-store-preview-image">
-                                                                <img src={previewImage} alt="preview-image" className="mq-mt-3"/>
+                                                                <img 
+                                                                    src={imagesInitial.imgBanners.imgBanner_3.length >0 ? imagesInitial.imgBanners.imgBanner_3 : previewImage} 
+                                                                    alt="preview-image" 
+                                                                    className="mq-mt-3 img-preview-perfil-proveedor"  
+                                                                />
                                                                 <div className="add--question-box">
                                                                 <label className="add--style-label-image" htmlFor="imgBanner_3">
                                                                     Subir imagen
