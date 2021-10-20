@@ -15,6 +15,7 @@ import './ProfileStoreGeneral.css';
 import BackComponent from '../../../components/Return/BackComponent';
 import Loading from '../../../components/Loading/Loading';
 import { startLoadingSupplierImages, updateStore } from '../../../redux/actions/supplier';
+import { getPrevieWImage } from '../../../utils/helpers/getPreviewImage';
 
 const ProfileStoreGeneral = () => {
 
@@ -34,6 +35,11 @@ const ProfileStoreGeneral = () => {
     const [ images , setImages ] = useState(activeStore);
     const [ loading , setLoading ] = useState(true);
 
+    const [ preview , setPreview ] = useState({
+        imgBanner_1:"",
+        imgBanner_2:"",
+        imgBanner_3:"",
+    })
     const handleImageChange = (e) => {
         const name = e.target.name;
         if(e.target.files.length > 0){
@@ -43,6 +49,8 @@ const ProfileStoreGeneral = () => {
                 ...activeStore,
                 [name] : e.target.files[0]
             }));
+
+            getPrevieWImage(e.target.files[0]);
         }else{
             //Setear vacio
 
@@ -59,22 +67,32 @@ const ProfileStoreGeneral = () => {
         if(e.target.files.length > 0){
             //Hay imagen de Banner
 
-            dispatch( updateStore ( {
-                ...activeStore,
-                imgBanners : {
-                    ...currentBanners,
-                    [name] : e.target.files[0]
-                }
-            }))
+            // dispatch( updateStore ( {
+            //     ...activeStore,
+            //     imgBanners : {
+            //         ...currentBanners,
+            //         [name] : e.target.files[0]
+            //     }
+            // }))
+            
+            setPreview({
+                ...preview,
+                [name] : getPrevieWImage(e.target.files[0])
+            })
         }else{
 
-            dispatch( updateStore({
-                ...activeStore,
-                imgBanners : {
-                    ...currentBanners,
-                    [name] : ""
-                }
-            }))
+            // dispatch( updateStore({
+            //     ...activeStore,
+            //     imgBanners : {
+            //         ...currentBanners,
+            //         [name] : ""
+            //     }
+            // }))
+
+            setPreview({
+                ...preview,
+                [name] : ""
+            })
         }
     }
 
@@ -97,12 +115,17 @@ const ProfileStoreGeneral = () => {
         loadSupplierImages();
     },[])
 
+    useEffect(() => {
+        if(imagesInitial){
+            setPreview(imagesInitial.imgBanners);
+        }
+
+    }, [imagesInitial])
+
     if(loading){
         return <Loading /> 
     }
 
-
-    console.log(images)
     return (
         <AppLayout>
             <div className="contenedor-info-perfil-registro animated fade-in">
@@ -238,7 +261,7 @@ const ProfileStoreGeneral = () => {
                                                             <img className="add--icon-close" src={close} />
                                                             <div className="add--preview-image profile-store-preview-image">
                                                                 <img 
-                                                                    src={imagesInitial.imgBanners.imgBanner_1.length >0 ? imagesInitial.imgBanners.imgBanner_1 : previewImage } 
+                                                                    src={preview.imgBanner_1.length >0 ? preview.imgBanner_1 : previewImage}  
                                                                     alt="preview-image" 
                                                                     className="mq-mt-3 img-preview-perfil-proveedor"
                                                                 />
@@ -261,7 +284,7 @@ const ProfileStoreGeneral = () => {
                                                             <img className="add--icon-close" src={close} />
                                                             <div className="add--preview-image profile-store-preview-image">
                                                                 <img 
-                                                                    src={imagesInitial.imgBanners.imgBanner_2.length >0 ? imagesInitial.imgBanners.imgBanner_2 : previewImage} 
+                                                                    src={preview.imgBanner_2.length >0 ? preview.imgBanner_2 : previewImage} 
                                                                     alt="preview-image" 
                                                                     className="mq-mt-3 img-preview-perfil-proveedor" 
                                                                 />
@@ -284,7 +307,7 @@ const ProfileStoreGeneral = () => {
                                                             <img className="add--icon-close" src={close} />
                                                             <div className="add--preview-image profile-store-preview-image">
                                                                 <img 
-                                                                    src={imagesInitial.imgBanners.imgBanner_3.length >0 ? imagesInitial.imgBanners.imgBanner_3 : previewImage} 
+                                                                    src={preview.imgBanner_3.length >0 ? preview.imgBanner_3 : previewImage} 
                                                                     alt="preview-image" 
                                                                     className="mq-mt-3 img-preview-perfil-proveedor"  
                                                                 />
