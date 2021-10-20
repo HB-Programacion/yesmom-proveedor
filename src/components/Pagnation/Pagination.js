@@ -3,7 +3,8 @@ import nextPage from '../../images/producto/icon-next-page.svg'
 
 import './Pagination.css'
 
-const Pagination = () => {
+const Pagination = ( { maxSteps }) => {
+  console.log(maxSteps);
   const [currentPage, setCurrentPage] = useState(1)
   const handlePrev = () => {
     if (currentPage === 1) return

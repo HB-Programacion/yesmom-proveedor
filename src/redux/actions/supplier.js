@@ -30,8 +30,9 @@ export const startLoadingInfoSupplier = (token) => {
 
 //Productos
 export const startLoadingSupplierProducts = () => {
-    return  async (dispatch ) => {
-        const data = await getSupplierProducts();
+    return  async (dispatch  , getState ) => {
+        const { token } = getState().auth;
+        const data = await getSupplierProducts(token);
         dispatch(loadSupplierProducts(data) );
     }
 }
@@ -71,12 +72,34 @@ export const unsetActiveAllProducts= ( ) => ({
 export const startDeletingProduct = ( ) => {
     return async (dispatch , getState) => {
 
-        const { active } = getState().supplierProducts
+        const { active } = getState().supplierProducts;
+        const { token } =getState().auth;
         console.log('Eliminando estos : ', active );
         //Enviar al endpoint
         //Enviar como arreglo : [ "id513123"];
 
-        dispatch(deleteProduct());
+        try{
+            const { data } = await axios.patch(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/productstate` ,{
+                "products" : active,
+                "state" : "D"
+            },{
+                headers : {
+                    'access-token' : token
+                }
+            })
+
+            if(data?.ok){
+                alert('Eliminado');
+                dispatch(deleteProduct());
+            }else{
+                alert('Hubo un error');
+            }
+        }catch(err){
+            console.log(err);
+            alert('Algo salió mal');
+        }
+        
+
     }
 }
 export const cleanDataSupplier = () => {

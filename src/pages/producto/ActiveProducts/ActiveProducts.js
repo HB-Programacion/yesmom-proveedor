@@ -148,7 +148,7 @@ const ActiveProducts = () => {
                     </div>
                     {
                       products.length === 0 ? 
-                      <p> No hay productos </p>
+                      <p className="empty-products"> No hay productos </p>
                       :
                       <div className="active-products-grid">
                         {products.map((item, i) => (
@@ -182,7 +182,10 @@ const ActiveProducts = () => {
                 </div>
               </div>
                 <div className="content-page">
-                  <Pagination />
+                  {
+                    products.length > 5 &&
+                    <Pagination maxSteps={ Math.ceil( products.length ) }/>
+                  }
                 </div>
             </div>
         </div>

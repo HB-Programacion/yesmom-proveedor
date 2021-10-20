@@ -102,6 +102,7 @@ const ProfileStoreGeneral = () => {
     }
 
 
+    console.log(images)
     return (
         <AppLayout>
             <div className="contenedor-info-perfil-registro animated fade-in">
@@ -153,7 +154,7 @@ const ProfileStoreGeneral = () => {
                                                                         name="nameTienda"
                                                                         id="nameTienda"
                                                                         value={ 
-                                                                            images?.imgLogo?.name ? images.imgLogo.name : ""
+                                                                            images.imgLogo?.name ? images.imgLogo.name : ""
                                                                         }
                                                                     />
                                                                     <h6>*Campo obligatorio</h6>
