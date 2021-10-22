@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
@@ -16,78 +16,108 @@ import BackComponent from '../../../components/Return/BackComponent';
 import Loading from '../../../components/Loading/Loading';
 import { startLoadingSupplierImages, updateStore } from '../../../redux/actions/supplier';
 import { getPrevieWImage } from '../../../utils/helpers/getPreviewImage';
+import { useHistory } from 'react-router';
+import { updateStoreSupplier } from '../../../utils/helpers/updateStoreSupplier';
 
+
+const MAX_MB = 2000000;
 const ProfileStoreGeneral = () => {
 
+    const router = useHistory();
     const dispatch = useDispatch();
-    const  { logged=false } = useSelector(state => state.auth);
-    const  { name="" , images : imagesInitial , activeStore } = useSelector(state => state.supplierImages);
+    const  { logged=false , token } = useSelector(state => state.auth);
+    //Limpiar los input file
+    const refCover = useRef();
+    const refLogo = useRef();
+    const  { name="" , images : imagesInitial } = useSelector(state => state.supplierImages);
     // console.log(imagesInitial);
-    // const initialState = {
-    //     imgLogo : "",
-    //     imgCover :"",
-    //     imgBanners : {
-    //         imgBanner_1:"",
-    //         imgBanner_2:"",
-    //         imgBanner_3:"",
-    //     },
-    // }
-    const [ images , setImages ] = useState(activeStore);
+    const initialState = {
+        imgLogo : "",
+        imgCover :"",
+        imgBanners : {
+            imgBanner_1:"",
+            imgBanner_2:"",
+            imgBanner_3:"",
+        },
+    }
+    const [ images , setImages ] = useState(initialState);
+    const [ nameStore, setNameStore ] = useState('');
     const [ loading , setLoading ] = useState(true);
 
-    const [ preview , setPreview ] = useState({
+
+    const initialPreviews = {
         imgBanner_1:"",
         imgBanner_2:"",
         imgBanner_3:"",
-    })
+    }
+    const [ preview , setPreview ] = useState(initialPreviews);
+
     const handleImageChange = (e) => {
         const name = e.target.name;
         if(e.target.files.length > 0){
-            //Setear la imagen
-            // console.log(e.target.files[0]);
-            dispatch( updateStore({
-                ...activeStore,
-                [name] : e.target.files[0]
-            }));
+            const file = e.target.files[0];
+            if(file.size > MAX_MB){
+                alert('Imagen pesada , máximo 2MB');
+                if(name === 'imgCover'){
+                    refCover.current.value='';
+                }else if(name==='imgLogo'){
+                    refLogo.current.value='';
+                }
+            }else{
 
-            getPrevieWImage(e.target.files[0]);
+                setImages({
+                    ...images,
+                    [name] : e.target.files[0]
+                })
+            }
+
         }else{
-            //Setear vacio
 
-            dispatch( updateStore({
-                ...activeStore,
+            if(name === 'imgCover'){
+                refCover.current.value='';
+            }else if(name==='imgLogo'){
+                refLogo.current.value='';
+            }
+
+            setImages({
+                ...images,
                 [name] : ""
-            }))
+            })
         }
     }
 
     const handleImageBanners = (e) => {
         const name = e.target.name;
-        const currentBanners = activeStore.imgBanners;
+        const currentBanners = images.imgBanners;
         if(e.target.files.length > 0){
             //Hay imagen de Banner
-
-            // dispatch( updateStore ( {
-            //     ...activeStore,
-            //     imgBanners : {
-            //         ...currentBanners,
-            //         [name] : e.target.files[0]
-            //     }
-            // }))
-            
-            setPreview({
-                ...preview,
-                [name] : getPrevieWImage(e.target.files[0])
-            })
+            const file = e.target.files[0];
+            if(file.size > MAX_MB){
+                alert('Imagen pesada , máximo 2MB');
+                document.getElementsByName(name).value="";
+            }else{
+                setImages({
+                    ...images,
+                    imgBanners : {
+                        ...currentBanners,
+                        [name] : e.target.files[0]
+                    }
+                })
+                
+                setPreview({
+                    ...preview,
+                    [name] : getPrevieWImage(e.target.files[0])
+                })
+            }
         }else{
 
-            // dispatch( updateStore({
-            //     ...activeStore,
-            //     imgBanners : {
-            //         ...currentBanners,
-            //         [name] : ""
-            //     }
-            // }))
+            setImages({
+                ...images,
+                imgBanners : {
+                    ...currentBanners,
+                    [name] : ""
+                }
+            })
 
             setPreview({
                 ...preview,
@@ -96,12 +126,30 @@ const ProfileStoreGeneral = () => {
         }
     }
 
-    const handleUpdateProfile = () => {
-        console.log(activeStore);
+    const handleUpdateProfile = async () => {
+
+        const confirm = window.confirm('Guardar');
+        if(confirm){
+
+            setLoading(true);
+            const flag = await updateStoreSupplier({
+                token,
+                images,
+                nameStore
+            });
+
+            // setLoading(false);
+            if(flag){
+                setImages(initialState);
+                setPreview(initialPreviews);
+                
+            }
+            window.location.reload();
+        }
     }
 
     const handleCancel = () => {
-        console.log('Cancelando');
+        router.goBack();
     }
 
     const loadSupplierImages = async () => {
@@ -118,9 +166,14 @@ const ProfileStoreGeneral = () => {
     useEffect(() => {
         if(imagesInitial){
             setPreview(imagesInitial.imgBanners);
+            setNameStore(imagesInitial.name)
         }
 
     }, [imagesInitial])
+
+    useEffect(() => {
+        setNameStore(name);
+    }, [name])
 
     if(loading){
         return <Loading /> 
@@ -158,7 +211,8 @@ const ProfileStoreGeneral = () => {
                                                     <input 
                                                         type="text" 
                                                         className="profile-store-input"
-                                                        value = { name }
+                                                        value = { nameStore }
+                                                        onChange = { (e) => setNameStore(e.target.value) }
                                                     />
                                                 </div>
                                             </div>
@@ -189,6 +243,7 @@ const ProfileStoreGeneral = () => {
                                                                         name = "imgLogo"
                                                                         id = "imgLogo"
                                                                         accept="image/png, image/jpeg"
+                                                                        ref = { refLogo}
                                                                     />
                                                                     <label htmlFor="imgLogo" className="label-image-profile-store">
                                                                         <ButtonFilled color="blue">
@@ -231,6 +286,7 @@ const ProfileStoreGeneral = () => {
                                                                         id = "imgCover"
                                                                         name = "imgCover"
                                                                         accept="image/png, image/jpeg"
+                                                                        ref = { refCover}
                                                                     />
                                                                     <label htmlFor="imgCover" className="label-image-profile-store">
                                                                         <ButtonFilled color="blue">

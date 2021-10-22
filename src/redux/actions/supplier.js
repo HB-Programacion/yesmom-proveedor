@@ -41,7 +41,6 @@ export const startLoadingSupplierImages = () => {
     return async (dispatch , getState) => {
         const { token } = getState().auth;
         const data = await getSupplierImages(token);
-        console.log(data);
         dispatch(loadSupplierImages(data) );
     }
 }

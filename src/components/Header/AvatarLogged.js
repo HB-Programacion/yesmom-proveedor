@@ -12,7 +12,7 @@ function AvatarLogged({ name }) {
     const dispatch = useDispatch();
     const getShortName = ( name ) => {
         
-        const namesSeparated = name.trim().split(" ");
+        const namesSeparated = name.toUpperCase().trim().split(" ");
         let initials ="";
         namesSeparated.forEach((string,i) => {
             if( i < 2){

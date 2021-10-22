@@ -12,15 +12,6 @@ const initialState = {
             imgBanner_3:"",
         },
     },
-    activeStore : { 
-        imgLogo : "",
-        imgCover :"",
-        imgBanners : {
-            imgBanner_1:"",
-            imgBanner_2:"",
-            imgBanner_3:"",
-        },
-    }
 }
 
 export const supplierImageReducer = ( state = initialState  , action) => {
@@ -33,13 +24,6 @@ export const supplierImageReducer = ( state = initialState  , action) => {
                 name,
                 images,
             }
-        case types.updateActiveStore :
-            console.log(action.payload);
-            return {
-                ... state,
-                activeStore : action.payload
-            }
-    
         default:
             return state;
     }
