@@ -57,7 +57,7 @@
     cursor: pointer;
 }
 .modal-update-product{
-  border: 3px dashed #DC6A8D;
+  border: 3px dashed #DC6A8D!important;
   border-radius: 30px;
   width: 95vw;
   height: 80vh;
@@ -78,9 +78,10 @@
 }
 /* fin scrollbar - modal sweetalert */
 .update-product-title{
-  font-family: Mont;
+  font-family: 'mont-bold';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
+  color:#DC6A8D;
   font-size: 18px;
   line-height: 21px;
 }

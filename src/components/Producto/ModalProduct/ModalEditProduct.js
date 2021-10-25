@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import moment from "moment";
+
 import Input from '../../Input/Input'
 import Select from '../../Select/Select'
 import SelectMultipleColor from '../../SelectMultiple/SelectMultipleColor'
 import SelectMultiple from '../../SelectMultiple/SelectMultiple'
+
 import './ModalEditProduct.css'
 
-const ModalEditProduct = ({ product }) => {
-	const [nombre, setNombre] = useState(product.nombre)
-	const [descripcion, setDescripcion] = useState(product.descripcion)
-	const [precio, setPrecio] = useState(product.precio)
+
+const ModalEditProduct = ({ register ,  product }) => {
+
+	const [nombre, setNombre] = useState(product.title)
+	const [descripcion, setDescripcion] = useState(product.description)
+	const [precio, setPrecio] = useState(product.price)
 	const [peso, setPeso] = useState(product.peso)
 	const [color, setColor] = useState([...product.color])
 	const [colorNew, setColorNew] = useState([])
@@ -91,9 +95,20 @@ const ModalEditProduct = ({ product }) => {
 		<div className="content-update-product">
 			<div className="updprod-section">
 				<label htmlFor="nombre">Nombre del producto</label>
-				<Input onChange={(e) => setNombre(e.target.value)} id='name' type='text' value={nombre} />
+				<input 
+					name="nombre"
+					className="style-input" 
+					{...register('nombre')}
+				/>
+				{/* <Input 
+					onChange={(e) => setNombre(e.target.value)} 
+					id='name' 
+					type='text' 
+					value={nombre}
+					register= { register }
+				/> */}
 			</div>
-			<div className="updprod-section">
+			{/* <div className="updprod-section">
 				<label htmlFor="decripcion">Decripción del producto</label>
 				<Input onChange={(e) => setDescripcion(e.target.value)} id='description' type='text' value={descripcion} />
 			</div>
@@ -106,7 +121,7 @@ const ModalEditProduct = ({ product }) => {
 				<SelectMultiple defaultArray={tallaNew} allSizes={arrayTallasGen} onChange={handleChangeTalla} />
 			</div>
 			<div className="updprod-section">
-				<label htmlFor="nombre">Nombre del producto</label>
+				<label htmlFor="nombre">Precio del producto</label>
 				<Input onChange={(e) => setPrecio(e.target.value)} id='' type='number' value={precio} />
 			</div>
 			<div className="updprod-section">
@@ -138,7 +153,7 @@ const ModalEditProduct = ({ product }) => {
 			<div className="updprod-section">
 				<label htmlFor="nombre">Fecha fin de promoción</label>
 				<Input onChange={(e) => setFechaFinPromocion(e.target.value)} id='' type='date' value={fechaFinPromocion} />
-			</div>
+			</div> */}
 		</div>
 	)
 }

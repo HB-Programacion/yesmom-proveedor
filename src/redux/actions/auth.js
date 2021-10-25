@@ -2,7 +2,7 @@ import axios from "axios";
 import clienteAxiosAuth from "../../config/axiosAuth";
 import { validateToken } from "../../utils/helpers/validateToken";
 import { types } from "../types/types"
-import { cleanDataSupplier, startLoadingInfoSupplier } from "./supplier";
+import { cleanDataSupplier, startLoadingInfoSupplier , startLoadingSupplierProducts } from "./supplier";
 
 
 
@@ -61,6 +61,7 @@ export const startLogin = ( token) =>{
     return (dispatch) => {
         dispatch( login( token ));
         dispatch( startLoadingInfoSupplier(token))
+        dispatch ( startLoadingSupplierProducts());
     }
 }
 

@@ -13,33 +13,57 @@ import iconEditar from '../../../images/header/icon-edit.svg';
 import ModalEditProduct from '../ModalProduct/ModalEditProduct';
 
 import './AccordionItem.css';
+import { getDateParsed } from '../../../utils/helpers/getDateParsed';
 
-function AccordionItem({ ek, product }) {
+//Validacion
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { schemaUpdate } from '../../../utils/validateUpdate.js/ValidationSchema';
 
-	const handleUpdateProduct = () => {
+
+
+const AccordionItem = ({ ek, product }) =>  {
+
+	const { register , formState : { errors } , handleSubmit } = useForm({
+		resolver : yupResolver(schemaUpdate)
+	});
+
+	const handleUpdateProduct = async () => {
 		const MySwal = withReactContent(Swal);
 
-		<div className="container-update-product">
-			{
-				MySwal.fire({
-					title: <p className="update-product-title">Modificar Producto</p>,
-					html:
-						<>
-							<div className="content-modal-update">
-								<ModalEditProduct product={product} />
-							</div>
-						</>,
-					customClass: { popup: "modal-update-product" },
-					showConfirmButton: false,
-					showCancelButton: true,
-					allowOutsideClick: false,
-					confirmButtonText: <p>Aceptar</p>,
-					cancelButtonText: <p>Cancelar</p>,
-				})
-			}
-		</div>
+		const { isConfirmed } = await MySwal.fire({
+			title: <p className="update-product-title">Modificar Producto</p>,
+			html:
+				<>
+					<div className="content-modal-update">
+						<ModalEditProduct register={ register } product={product} />
+					</div>
+				</>,
+			customClass: { popup: "modal-update-product" },
+			showConfirmButton: true,
+			showCancelButton: true,
+			allowOutsideClick: false,
+			confirmButtonText: <p>Aceptar</p>,
+			cancelButtonText: <p>Cancelar</p>,
+			preConfirm: (a) => {
+				console.log(a);
+				handleSubmit( submitForm );
+			},
+		})
+
+		if(isConfirmed){
+			console.log('Aceptó')
+		}else{
+			console.log('Canceló')
+		}
+
 	}
 
+	const submitForm = (value) => {
+		console.log(value);
+	}
+
+	
 	return (
 		<>
 			<Card>
@@ -50,10 +74,10 @@ function AccordionItem({ ek, product }) {
 						</div>
 						<div className="header-title">
 							<div className="item-details">
-								<p>Nombre del producto <span>{product.nombre}</span></p>
+								<p>Nombre del producto <span>{product.title}</span></p>
 							</div>
 							<div className="item-details">
-								<p>Creación <span>{product.creacion}</span></p>
+								<p>Creación <span>{getDateParsed(product.createdAt)}</span></p>
 							</div>
 							<div className="item-details container-expand">
 								<div className="container-visible">
@@ -72,13 +96,13 @@ function AccordionItem({ ek, product }) {
 								<p>SKU del producto <span>{product.sku}</span></p>
 							</div>
 							<div className="item-details">
-								<p>Precio <span>s/. {product.precio} </span></p>
+								<p>Precio <span>s/. {product.price} </span></p>
 							</div>
 							<div className="item-details">
 								<p>Precio promocional <span>s/. {product.precioPromocional} </span></p>
 							</div>
 							<div className="item-details">
-								<p>Inventario <span>{product.inventario}</span></p>
+								<p>Inventario <span>{product.cantDisponible}</span></p>
 							</div>
 							<div className="item-details">
 								<p>Aceptado <span>{product.aceptado ? <img src={iconCheckAvailable} alt="" /> : <img src={iconCheckDisable} alt="" />}</span></p>

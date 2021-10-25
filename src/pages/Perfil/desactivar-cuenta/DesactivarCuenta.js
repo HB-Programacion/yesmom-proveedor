@@ -51,9 +51,9 @@ const DesactivarCuenta = () => {
         })    
 
         if(isConfirmed){
-            alert('Aceptó')
+            console.log('Aceptó')
         }else{
-            alert('Canceló')
+            console.log('Canceló')
         }
 
     }
