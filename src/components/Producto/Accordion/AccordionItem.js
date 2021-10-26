@@ -19,6 +19,7 @@ import { getDateParsed } from '../../../utils/helpers/getDateParsed';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { schemaUpdate } from '../../../utils/validateUpdate.js/ValidationSchema';
+import ButtonFilled from '../../Button/ButtonFilled';
 
 
 
@@ -36,7 +37,18 @@ const AccordionItem = ({ ek, product }) =>  {
 			html:
 				<>
 					<div className="content-modal-update">
-						<ModalEditProduct register={ register } product={product} />
+						<form onSubmit={ handleSubmit(submitForm )}>
+							<ModalEditProduct 
+								register={ register } 
+								product={ product } 
+								errors = { errors }
+								hola = "aa"
+							/>
+						</form>	
+					</div>
+
+					<div className="btn-update-modal" onClick = { handleSubmit ( submitForm )}>
+						Submit Form
 					</div>
 				</>,
 			customClass: { popup: "modal-update-product" },
@@ -45,19 +57,19 @@ const AccordionItem = ({ ek, product }) =>  {
 			allowOutsideClick: false,
 			confirmButtonText: <p>Aceptar</p>,
 			cancelButtonText: <p>Cancelar</p>,
-			preConfirm: (a) => {
-				console.log(a);
-				handleSubmit( submitForm );
-			},
 		})
 
 		if(isConfirmed){
 			console.log('Aceptó')
+			handleSubmit();
+			console.log(errors);
 		}else{
 			console.log('Canceló')
 		}
 
 	}
+
+	console.log(errors);
 
 	const submitForm = (value) => {
 		console.log(value);

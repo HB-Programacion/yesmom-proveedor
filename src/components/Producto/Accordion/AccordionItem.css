@@ -117,7 +117,13 @@
     font-size:1.2rem!important;
 }
 
+.btn-update-modal{
+    width :20rem;
+    background : #e1e1e1;
+    cursor:pointer;
+    margin : 0 auto;
 
+}
 @media (min-width : 480px){
 	.modal-update-product{
 		width: 95vw;
