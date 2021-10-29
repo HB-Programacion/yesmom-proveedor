@@ -16,6 +16,13 @@
   line-height: 41px;
   color: #556EA1;
 }
+input[type=number].style-input::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number].style-input { -moz-appearance:textfield; }
 .style-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #556EA1;
   opacity: 1; /* Firefox */

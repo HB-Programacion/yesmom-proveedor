@@ -1,32 +1,59 @@
 import axios from "axios";
+import { getUrlName } from "./getUlrName";
 
 
 
-export const updateStoreSupplier = async ( { token ,images , nameStore} ) => {
+export const updateStoreSupplier = async ( { token ,images , nameStore , imagesInitial} ) => {
 
     try{   
 
-        console.log(images);
         const { imgLogo , imgCover , imgBanners } = images;
         const formData = new FormData();
 
+        console.log(nameStore);
         //Name
         formData.append('nombreTienda', nameStore);
-        if(imgLogo!= ''){
+        formData.append('nombreTiendaUrl', getUrlName(nameStore));
+
+        
+        if(imgLogo!==''){
             formData.append('logo',imgLogo);
         }
-        if(imgCover!=''){
+        if(imgCover!==''){
             formData.append('portada',imgCover);
         }
 
         // let fileList = new DataTransfer();
 
-        imgBanners.imgBanner_1 !='' && formData.append('banner',imgBanners.imgBanner_1);
-        // fileList.items.add(imgBanners.imgBanner_1)
-        imgBanners.imgBanner_2 !='' && formData.append('banner',imgBanners.imgBanner_2);
-        // fileList.items.add(imgBanners.imgBanner_2);
-        imgBanners.imgBanner_3 !='' && formData.append('banner',imgBanners.imgBanner_3);
-        // fileList.items.add(imgBanners.imgBanner_3);
+        let arrayChanges = [];
+
+        if(imgBanners.imgBanner_1 !==''){
+            formData.append('banner',imgBanners.imgBanner_1);
+            //Si tiene Id , quiere actualizar
+            if(imagesInitial.imgBanners.imgBanner_1.id !=='')  {
+                const obj = { id : imagesInitial.imgBanners.imgBanner_1.id , name : imgBanners.imgBanner_1.name }
+                arrayChanges.push(obj);
+            }
+        }
+        if(imgBanners.imgBanner_2 !==''){
+            formData.append('banner',imgBanners.imgBanner_2);
+            //Si tiene Id , quiere actualizar
+            if(imagesInitial.imgBanners.imgBanner_2.id !==''){
+                const obj = { id : imagesInitial.imgBanners.imgBanner_2.id , name : imgBanners.imgBanner_2.name }
+                arrayChanges.push(obj);
+            }
+        }
+        if(imgBanners.imgBanner_3 !==''){
+            formData.append('banner',imgBanners.imgBanner_3);
+            if(imagesInitial.imgBanners.imgBanner_3.id !==''){
+                const obj = { id : imagesInitial.imgBanners.imgBanner_3.id , name : imgBanners.imgBanner_3.name }
+                arrayChanges.push(obj);
+            }
+        }
+
+        if(arrayChanges.length >0 ){
+            formData.append('bannerJson',JSON.stringify(arrayChanges));
+        }
 
         // console.log(fileList.files);
         
@@ -34,9 +61,9 @@ export const updateStoreSupplier = async ( { token ,images , nameStore} ) => {
         // formData.append('banner[]', fileList.files);
 
 
-        for (var pair of formData.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]); 
-        }
+        // for (var pair of formData.entries()) {
+        //     console.log(pair[0]+ ', ' + pair[1]); 
+        // }
 
         //actualizar
 

@@ -6,10 +6,13 @@ import Select from '../../Select/Select'
 import SelectMultipleColor from '../../SelectMultiple/SelectMultipleColor'
 import SelectMultiple from '../../SelectMultiple/SelectMultiple'
 
+
+import { allowedColors , allowedTallas } from '../../../utils/helpers/getAllowedColors';
+
 import './ModalEditProduct.css'
-
-
 const ModalEditProduct = ({ register ,  product , errors}) => {
+
+	console.log(errors);
 
 	// const [nombre, setNombre] = useState(product.title)
 	// const [descripcion, setDescripcion] = useState(product.description)
@@ -17,7 +20,7 @@ const ModalEditProduct = ({ register ,  product , errors}) => {
 	// const [peso, setPeso] = useState(product.peso)
 	const [color, setColor] = useState([...product.color])
 	const [colorNew, setColorNew] = useState([])
-	const [talla, setTalla] = useState([...product.talla])
+	const [talla, setTalla] = useState(product.talla)
 	const [tallaNew, setTallaNew] = useState([])
 	// const [categoria, setCategoria] = useState(product.categoria)
 	// const [dimensiones, setDimensiones] = useState({
@@ -28,37 +31,20 @@ const ModalEditProduct = ({ register ,  product , errors}) => {
 	// const [fechaInicioPromocion, setFechaInicioPromocion] = useState(moment.utc(product.fechaInicioPromocion).format('YYYY-MM-DD'))
 	// const [fechaFinPromocion, setFechaFinPromocion] = useState(moment.utc(product.fechaFinPromocion).format('YYYY-MM-DD'))
 
-	const [selectedOptionColor, setSelectedOptionColor] = useState(null)
-	const [selectedOptionTalla, setSelectedOptionTalla] = useState(null)
+	const [selectedOptionColor, setSelectedOptionColor] = useState([])
+	const [selectedOptionTalla, setSelectedOptionTalla] = useState([])
 
-	let arrayColoresGen = [
-		{ value: 'verde', label: 'verde', color: 'green' },
-		{ value: 'morado', label: 'morado', color: '#8512BE' },
-		{ value: 'turqueza', label: 'turqueza', color: '#87E4EC' },
-		{ value: 'rosado', label: 'rosado', color: 'pink' },
-		{ value: 'amarillo', label: 'amarillo', color: '#F9EB37' },
-		{ value: 'anaranjado', label: 'anaranjado', color: '#FF8C00' },
-		{ value: 'rojo', label: 'rojo', color: '#FF0000' },
-		{ value: 'azul', label: 'azul', color: '#0000CD' }
-	];
 
-	const arrayTallasGen = [
-		{ value: '0', label: '0' },
-		{ value: '2', label: '2' },
-		{ value: '4', label: '4' },
-		{ value: '6', label: '6' },
-		{ value: '8', label: '8' },
-		{ value: '10', label: '10' },
-	];
+
 
 	const functionCompareColor = () => {
 		let newArray = []
 		let iguales = 0;
-		for (let i in arrayColoresGen) {
-			for (let j in arrayColoresGen) {
-				if (arrayColoresGen[i].value == color[j]) {
+		for (let i in allowedColors) {
+			for (let j in allowedColors) {
+				if (allowedColors[i].value == color[j]) {
 					iguales++;
-					newArray.push(arrayColoresGen[parseInt(i)])
+					newArray.push(allowedColors[parseInt(i)])
 				}
 			}
 		}
@@ -67,11 +53,11 @@ const ModalEditProduct = ({ register ,  product , errors}) => {
 	const functionCompareTalla = () => {
 		let newArray = []
 		let iguales = 0;
-		for (let i in arrayTallasGen) {
-			for (let j in arrayTallasGen) {
-				if (arrayTallasGen[i].value == talla[j]) {
+		for (let i in allowedTallas) {
+			for (let j in allowedTallas) {
+				if (allowedTallas[i].value == talla[j]) {
 					iguales++;
-					newArray.push(arrayTallasGen[parseInt(i)])
+					newArray.push(allowedTallas[parseInt(i)])
 				}
 			}
 		}
@@ -84,11 +70,14 @@ const ModalEditProduct = ({ register ,  product , errors}) => {
 	}, [])
 
 	const handleChangeColor = selectedOptionColor => {
-		setSelectedOptionColor({ selectedOptionColor });
+		console.log(selectedOptionColor)
+		// let arrColors = [...selectedOptionColor];
+		// arrColors.push
+		setSelectedOptionColor({ ...selectedOptionColor });
 	};
 
 	const handleChangeTalla = selectedOptionTalla => {
-		setSelectedOptionTalla({ selectedOptionTalla });
+		setSelectedOptionTalla({ ...selectedOptionTalla });
 	};
 
 	return (
@@ -121,11 +110,11 @@ const ModalEditProduct = ({ register ,  product , errors}) => {
 			</div>
 			<div className="updprod-section">
 				<label htmlFor="color">Color</label>
-				<SelectMultipleColor defaultArray={colorNew} allCollors={arrayColoresGen} onChange={handleChangeColor} />
+				<SelectMultipleColor defaultArray={colorNew} allCollors={allowedColors} onChange={handleChangeColor} />
 			</div>
 			<div className="updprod-section">
 				<label htmlFor="talla">Talla</label>
-				<SelectMultiple defaultArray={tallaNew} allSizes={arrayTallasGen} onChange={handleChangeTalla} />
+				<SelectMultiple defaultArray={tallaNew} allSizes={allowedTallas} onChange={handleChangeTalla} />
 			</div>
 			<div className="updprod-section">
 				<label htmlFor="nombre">Precio del producto</label>

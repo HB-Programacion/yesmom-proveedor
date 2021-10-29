@@ -29,3 +29,12 @@
 .updprod-section-dimensiones > .updprod-section-item> label{
 	float: left;
 }
+
+.container-btns-modal{
+	display: flex;
+	flex-direction: column;
+	margin : 0 2rem;
+}
+.container-btns-modal > div{
+	margin : 1rem 0;
+}

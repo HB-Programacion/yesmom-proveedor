@@ -13,9 +13,9 @@ const SeeProducts = () => {
                             <div className="see-product--all-content">
                                 <div className="see-product--container-contenido">
                                     <div className="see-product--container-title">
-                                        <div className="see-product--container-advice">
+                                        {/* <div className="see-product--container-advice">
                                             <h5>Gracias por registrar tu producto, en las próximas horas será evaluado para mostrarlo en tienda</h5>
-                                        </div>
+                                        </div> */}
 
                                         <h4 className="see-product--title-product">Visualización de productos</h4>
                                     </div>

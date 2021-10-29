@@ -1,14 +1,14 @@
 import * as yup from 'yup';
 
 export const schemaUpdate = yup.object().shape({
-	nombre : yup.string(),
-	descripcion : yup.string(),
-	precio : yup.number('*Campo incorrecto').positive('*Campo incorrecto'),
-	peso : yup.number('*Campo incorrecto').positive('*Campo incorrecto'),
-	categoria : yup.string(),
-	largo: yup.number('*Campo incorrecto').positive('*Campo incorrecto'),
-	ancho: yup.number('*Campo incorrecto').positive('*Campo incorrecto'),
-	alto: yup.number('*Campo incorrecto').positive('*Campo incorrecto'),
+	nombre : yup.string().required('*Campo requerido'),
+	descripcion : yup.string().required('*Campo requerido'),
+	precio : yup.number('*Campo incorrecto').positive('*Campo incorrecto').required('*Campo requerido'),
+	peso : yup.number('*Campo incorrecto').positive('*Campo incorrecto').required('*Campo requerido'),
+	categoria : yup.string().required('*Campo requerido'),
+	largo: yup.number('*Campo incorrecto').positive('*Campo incorrecto').required('*Campo requerido'),
+	ancho: yup.number('*Campo incorrecto').positive('*Campo incorrecto').required('*Campo requerido'),
+	alto: yup.number('*Campo incorrecto').positive('*Campo incorrecto').required('*Campo requerido'),
 	fechaInicioPromocion: yup.date(),
 	fechaFinPromocion: yup.date(),
   })

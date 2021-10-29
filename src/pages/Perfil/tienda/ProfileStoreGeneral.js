@@ -18,6 +18,8 @@ import { startLoadingSupplierImages, updateStore } from '../../../redux/actions/
 import { getPrevieWImage } from '../../../utils/helpers/getPreviewImage';
 import { useHistory } from 'react-router';
 import { updateStoreSupplier } from '../../../utils/helpers/updateStoreSupplier';
+import { getUrlName } from '../../../utils/helpers/getUlrName';
+import { verifyStoreName } from '../../../utils/helpers/verifyStoreName';
 
 
 const MAX_MB = 2000000;
@@ -30,6 +32,7 @@ const ProfileStoreGeneral = () => {
     const refCover = useRef();
     const refLogo = useRef();
     const  { name="" , images : imagesInitial } = useSelector(state => state.supplierImages);
+    const [ availableName , setAvailableName ] = useState(true);
     // console.log(imagesInitial);
     const initialState = {
         imgLogo : "",
@@ -135,7 +138,8 @@ const ProfileStoreGeneral = () => {
             const flag = await updateStoreSupplier({
                 token,
                 images,
-                nameStore
+                nameStore,
+                imagesInitial
             });
 
             // setLoading(false);
@@ -144,6 +148,8 @@ const ProfileStoreGeneral = () => {
                 setPreview(initialPreviews);
                 
             }
+
+            // setLoading(false);
             window.location.reload();
         }
     }
@@ -159,13 +165,28 @@ const ProfileStoreGeneral = () => {
             setLoading(false);
         }
     }
+
+    const handleChangeNameUrl = async (e) => {
+        setNameStore(e.target.value);
+        const flag = await verifyStoreName(getUrlName(e.target.value) ,  token);
+        setAvailableName(flag);
+        // console.log(flag);
+    }
+
+
     useEffect(()=>{
         loadSupplierImages();
     },[])
 
     useEffect(() => {
         if(imagesInitial){
-            setPreview(imagesInitial.imgBanners);
+            const objPrevs = {
+                imgBanner_1 : imagesInitial.imgBanners.imgBanner_1.url,
+                imgBanner_2 : imagesInitial.imgBanners.imgBanner_2.url,
+                imgBanner_3 : imagesInitial.imgBanners.imgBanner_3.url,
+            }
+
+            setPreview(objPrevs)
             setNameStore(imagesInitial.name)
         }
 
@@ -212,8 +233,13 @@ const ProfileStoreGeneral = () => {
                                                         type="text" 
                                                         className="profile-store-input"
                                                         value = { nameStore }
-                                                        onChange = { (e) => setNameStore(e.target.value) }
+                                                        onChange = { handleChangeNameUrl }
                                                     />
+                                                {nameStore?.length > 0 &&
+                                                <p className="link-tienda">URL TIENDA : yesmom.com.pe/{getUrlName(nameStore)} - {
+                                                    availableName ? 'Disponible' : 'No disponible'
+                                                }</p> 
+                                                }
                                                 </div>
                                             </div>
                                             <div className="profile-store-wrapper-tienda">
@@ -317,7 +343,7 @@ const ProfileStoreGeneral = () => {
                                                             <img className="add--icon-close" src={close} />
                                                             <div className="add--preview-image profile-store-preview-image">
                                                                 <img 
-                                                                    src={preview.imgBanner_1.length >0 ? preview.imgBanner_1 : previewImage}  
+                                                                    src={preview?.imgBanner_1?.length >0 ? preview.imgBanner_1 : previewImage}  
                                                                     alt="preview-image" 
                                                                     className="mq-mt-3 img-preview-perfil-proveedor"
                                                                 />
@@ -340,7 +366,7 @@ const ProfileStoreGeneral = () => {
                                                             <img className="add--icon-close" src={close} />
                                                             <div className="add--preview-image profile-store-preview-image">
                                                                 <img 
-                                                                    src={preview.imgBanner_2.length >0 ? preview.imgBanner_2 : previewImage} 
+                                                                    src={preview?.imgBanner_2?.length >0 ? preview.imgBanner_2 : previewImage} 
                                                                     alt="preview-image" 
                                                                     className="mq-mt-3 img-preview-perfil-proveedor" 
                                                                 />
@@ -363,7 +389,7 @@ const ProfileStoreGeneral = () => {
                                                             <img className="add--icon-close" src={close} />
                                                             <div className="add--preview-image profile-store-preview-image">
                                                                 <img 
-                                                                    src={preview.imgBanner_3.length >0 ? preview.imgBanner_3 : previewImage} 
+                                                                    src={preview?.imgBanner_3?.length >0 ? preview.imgBanner_3 : previewImage} 
                                                                     alt="preview-image" 
                                                                     className="mq-mt-3 img-preview-perfil-proveedor"  
                                                                 />

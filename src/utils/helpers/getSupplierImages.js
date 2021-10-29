@@ -34,16 +34,28 @@ export const prepareDataProductImages = ( data ) => {
         imgLogo : "",
         imgCover :"",
         imgBanners : {
-            imgBanner_1:"",
-            imgBanner_2:"",
-            imgBanner_3:"",
+            imgBanner_1:{
+                id: '',
+                url:""
+            },
+            imgBanner_2:{
+                id : '',
+                url:""
+            },
+            imgBanner_3:{
+                id: '',
+                url:""
+            },
         }
     };
     images.imgLogo = data?.imagenLogo[0]?.url;
     images.imgCover = data?.imagenPortada[0]?.url;
     data?.imagenBanner.map( ( objImagen , i) => {
         const idx = i+1;
-        images.imgBanners[`imgBanner_${idx}`] = objImagen.url
+        images.imgBanners[`imgBanner_${idx}`] = {
+            url : objImagen.url,
+            id : objImagen._id,
+        }
     })
     //Añadir
     infoImagesSupplier.nameStore = data?.nombreTienda;

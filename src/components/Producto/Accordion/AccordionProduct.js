@@ -9,6 +9,8 @@ const AccordionProduct =  () => {
 
 	const { products } = useSelector(state => state.supplierProducts );
 
+	// console.log(products);
+
 	// const products = [
 	// 	{ sku: 34242342, nombre: "Producto1", descripcion: 'descripcion1', accesorios: 'accesorio1', color: ['morado', 'rosado', 'verde'], talla: ['0', '2', '4'], categoria: "Destacados", categoriaadicional: "Lo + vendido", dimensiones: { largo: 1, ancho: 2, alto: 1 }, creacion: "2020/07/03", visible: "yet", precio: 45, precioPromocional: 20, inventario: 10, aceptado: true, fechaInicioPromocion: "2020/07/03", fechaFinPromocion: "2020/07/07" },
 	// 	{ sku: 34242342, nombre: "Producto2", descripcion: 'descripcion2', accesorios: 'accesorio2', color: ['turqueza', 'amarillo', 'morado'], talla: ['0', '2', '4'], categoria: "Destacados", categoriaadicional: "Lo + vendido", dimensiones: { largo: 1, ancho: 2, alto: 1 }, creacion: "2020/07/03", visible: true, precio: 45, precioPromocional: 20, inventario: 10, aceptado: true, fechaInicioPromocion: "2020/07/03", fechaFinPromocion: "2020/07/03" },
