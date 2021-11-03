@@ -2,10 +2,12 @@ import axios from "axios";
 
 export const getSupplierProducts = async ( token ) => {
     try {
-        const userType = "admin";
-        const idSupplier = "614cdeb4686d50c2139605be";
 
-        const { data }  = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/get-product-pagination/${userType}?skip=0&limit=10&state=A&supplier=${idSupplier}`);
+        const { data }  = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/getproductspage?skip=0&limit=10&state=A` , {
+            headers : {
+                'access-token' : token
+            }
+        });
         
         if(data?.productosGeneral){
             const cleanData = prepareDataProductSupplier( data.productosGeneral );
@@ -30,7 +32,21 @@ export const prepareDataProductSupplier = ( data ) => {
         title : product.nombre,
         description: product.descripcion,
         price : product.precio,
-        discount : product.precio-product.precioPromocional
+        discount : product.precio-product.precioPromocional,
+        sku : product.sku,
+        precioPromocional : product.precioPromocional,
+        accesorios : product.accesorios,
+        color : product.color.map(col => col.name),
+        talla : product.talla,
+        dimensiones : product.dimensiones,
+        createdAt : product.createdAt,
+        visible : product.state==='A' ? true : false,
+        categoria : product.categoria,
+        categoriaAdicional : product.categoriaadicional,
+        fechaInicioPromocion : product.fechaInicioPromocion,
+        fechaFinPromocion : product.fechaFinPromocion,
+        cantDisponible : product.cantDisponible
+
     }))
 
     return products;

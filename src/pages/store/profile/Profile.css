@@ -2,9 +2,9 @@
   padding:10rem 1.6rem;
 }
 
-.profile-store--contenedor-centered {
+/* .profile-store--contenedor-centered {
   padding: 1  rem 2.5rem;
-}
+} */
 
 .profile-store--all-content {
   padding: 1rem 1.7rem 15rem 1.7rem;
@@ -52,14 +52,14 @@
 }
 
 .profile-store-content-card>p:first-child, .profile-store-recommendation, .obligatory-field{
-  font-family: "mont-thin" ;
-  font-size: 13px;
+  font-family: "mont-regular" ;
+  font-size: 1.1rem;
   font-weight: 300;
   color: #575650;
   line-height: 15px;
   letter-spacing: -0.5px;
   text-align: justify;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .obligatory-field{
@@ -74,13 +74,12 @@
 }
 
 .profile-store-filename{
-  width: 10.8rem;
   margin: auto 0;
-  height: 18px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  
+  font-size:1.2rem;
+  height:2rem;  
 }
 
 .profile-store-container-input{
@@ -88,15 +87,17 @@
   border: 1px solid #556EA1;
   padding: 0 10px;
   border-radius: 20px;
+  font-family: 'mont-regular';
+  font-size:1.2rem;
 }
 
 .profile-store-container-input-mobile {
   width: 100%;
-  height: 28px;
   display: flex;
   border-bottom: 1px solid #DADADA;
   padding: 0 10px;
   margin-bottom: 7px;
+  font-family: 'mont-regular';
 }
 
 .profile-store-content-input input[type="file"]{
@@ -159,6 +160,11 @@ padding: 17px auto;
   
 }
 
+.label-for-logo{
+  width:100%;
+}
+
+
 @media (min-width : 480px){
   .profile-store--all-content{
       width:100%;
@@ -171,8 +177,12 @@ padding: 17px auto;
       margin: 0 auto;
       padding : 0 auto;
   }
-  .profile-store-container-input, .profile-store-filename {
+  .profile-store-container-input {
     width: 10.8rem;
+  }
+
+  .profile-store-container-form{
+    width: 45rem;
   }
 }
 
@@ -199,6 +209,20 @@ padding: 17px auto;
     align-items: center;
     flex-wrap: wrap;
   }
+
+  .profile-store-container-form{
+    width: 70rem;
+    margin : 0 auto;
+  }
+  
+  .profile-step-container-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .label-for-logo{
+    width: 70%;
+  }
 }
 @media (min-width : 1024px){
   .profile-store--container-advice{
@@ -217,6 +241,18 @@ padding: 17px auto;
 }
 @media (min-width : 1280px){
   
+  .profile-step-container-button{
+    display:inline-block;
+  }
+  .label-for-logo{
+    width: 100%;
+  }
+  .profile-store-container-form{
+    width: 85rem;
+  }
+  .obligatory-field {
+    margin-bottom: 0;
+  }
   .profile-store--container-advice h5{
     font-size:2rem;
     
@@ -261,8 +297,8 @@ padding: 17px auto;
     border: 1px solid #556EA1;
     padding: 0 10px;
     border-radius: 20px;
-    width: 570px;
-    height: 60px !important;
+    width: 50rem;
+    height: 4.5rem !important;
   }
   
   .profile-store-container-input-mobile {
@@ -270,7 +306,7 @@ padding: 17px auto;
    
   }
   .profile-store-container-button{
-    max-width: 317px;
+    max-width: 20rem;
     float: right;
     margin-top: 40px;
     display: flex;
@@ -279,12 +315,13 @@ padding: 17px auto;
     border-radius: 40px;
   }
   .profile-store-container-button>.boton{
-    width: 260px;
+    width: 26rem;
     border-radius: 40px;
   }
   .profile-step-container-button{
     display: flex;
-    height: 60px ;
+
+    height: 4.5rem ;
   }
   .profile-step-container-button.boton{
     border-radius: 30px;

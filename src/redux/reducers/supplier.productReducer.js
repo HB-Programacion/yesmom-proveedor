@@ -24,15 +24,31 @@ export const supplierProductReducer = ( state = initialState , action) => {
                     action.payload,
                 ]
             }
+        case types.setActiveAllProducts:
+            return {
+                ...state,
+                active : state.products.map( product => product.id)
+            }
         case types.unsetActiveProduct :
             return {
                 ...state,
                 active : state.active.filter(id => id!==action.payload)
             }
+        case types.unsetActiveAllProducts:
+            return {
+                ...state,
+                active : []
+            }
         case types.deleteProduct :
             return {
                 ...state,
-                products : state.products.filter(product => product.id!==action.payload)
+                products : state.products.filter(product => !state.active.includes(product.id)),
+                active : [],
+            }
+        case types.cleanSupplierProducts:
+            return  {
+                products : [],
+                active : [],
             }
         default:
             return state;

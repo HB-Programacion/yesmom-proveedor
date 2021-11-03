@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getSupplierImages } from "../../utils/helpers/getSupplierImages";
 import { getSupplierProducts } from "../../utils/helpers/getSupplierProducts";
 import { types } from "../types/types";
 
@@ -29,42 +30,88 @@ export const startLoadingInfoSupplier = (token) => {
 
 //Productos
 export const startLoadingSupplierProducts = () => {
-    return  async (dispatch ) => {
-        const data = await getSupplierProducts();
+    return  async (dispatch  , getState ) => {
+        const { token } = getState().auth;
+        const data = await getSupplierProducts(token);
         dispatch(loadSupplierProducts(data) );
     }
 }
 
+export const startLoadingSupplierImages = () => {
+    return async (dispatch , getState) => {
+        const { token } = getState().auth;
+        const data = await getSupplierImages(token);
+        dispatch(loadSupplierImages(data) );
+    }
+}
+
+
+export const updateStore = ( data ) => ({
+    type : types.updateActiveStore,
+    payload : data
+})
 export const setActiveProduct = ( idProduct) => ({
     type : types.setActiveProduct, 
     payload : idProduct  
 })
+
+export const setActiveAllProducts = () => ({
+    type : types.setActiveAllProducts
+})
+
 export const unsetActiveProduct = ( idProduct) => ({
     type : types.unsetActiveProduct,   
     payload : idProduct  
 })
 
-export const startDeletingProduct = (idProduct ) => {
-    return async (dispatch ) => {
+export const unsetActiveAllProducts= ( ) => ({
+    type : types.unsetActiveAllProducts,   
+})
 
+export const startDeletingProduct = ( ) => {
+    return async (dispatch , getState) => {
+
+        const { active } = getState().supplierProducts;
+        const { token } =getState().auth;
+        console.log('Eliminando estos : ', active );
         //Enviar al endpoint
         //Enviar como arreglo : [ "id513123"];
 
-        dispatch(deleteProduct(idProduct));
-    }
-}
+        try{
+            const { data } = await axios.patch(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/productstate` ,{
+                "products" : active,
+                "state" : "D"
+            },{
+                headers : {
+                    'access-token' : token
+                }
+            })
 
-export const startDeletingAllProducts = () => {
-    return async () => {
+            if(data?.ok){
+                alert('Eliminado');
+                dispatch(deleteProduct());
+            }else{
+                alert('Hubo un error');
+            }
+        }catch(err){
+            console.log(err);
+            alert('Algo salió mal');
+        }
         
+
+    }
+}
+export const cleanDataSupplier = () => {
+
+    return (dispatch) => {
+        dispatch ( cleanSupplier());
+        dispatch ( cleanSupplierProducts());
     }
 }
 
 
-
-export const deleteProduct = (id ) => ({
-    type : types.deleteProduct,
-    payload : id
+export const deleteProduct = () => ({
+    type : types.deleteProduct
 })
 export const loadingDataSupplier = ( data ) => ({
     type : types.loadInfoSupplier,
@@ -73,6 +120,14 @@ export const loadingDataSupplier = ( data ) => ({
 export const loadSupplierProducts = ( data) => ({
     type : types.loadSupplierProducts,
     payload : data
+})
+export const loadSupplierImages = ( data) => ({
+    type : types.loadSupplierImages,
+    payload : data
+})
+
+export const cleanSupplierProducts = () => ({
+    type : types.cleanSupplierProducts
 })
 export const cleanSupplier = () => ({
     type : types.cleanSupplier

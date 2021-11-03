@@ -3,7 +3,7 @@ import { Link,useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 
 import { logout } from '../../../redux/actions/auth';
-import { cleanSupplier } from '../../../redux/actions/supplier';
+import { cleanDataSupplier } from '../../../redux/actions/supplier';
 import './Sidebar.css';
 
 const pushLinks=[
@@ -21,7 +21,7 @@ function Sidebar() {
 
     const handleLogout = () => {
         dispatch( logout()) ;
-        dispatch ( cleanSupplier() );
+        dispatch ( cleanDataSupplier() );
     }
     return (
         <div className="perfil-sidebar">

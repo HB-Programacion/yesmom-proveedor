@@ -39,6 +39,12 @@
 
 .icon-delete{
   margin: 4px 12px 4px 15px;
+  cursor: pointer;
+}
+
+.icon-delete-disabled{
+  opacity: 0.5;
+  cursor:unset;
 }
 .content-page{
   width: 100%;
@@ -69,6 +75,11 @@
 .active-filter-products {
   color : #556EA1!important;
   font-size:1.7rem!important;
+}
+
+.empty-products{
+  font-family: 'mont-light';
+  font-size : 1.3rem;
 }
 
 @media (min-width : 480px){

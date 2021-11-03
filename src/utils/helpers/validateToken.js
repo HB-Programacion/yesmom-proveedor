@@ -3,8 +3,7 @@ import axios from "axios"
 
 export const validateToken = async (token) => {
     try{
-
-        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL_SECURITY}/autenticar/tokensupplier?delivery=no`,{
+        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL_SECURITY}/autenticar/token/supplier?delivery=no`,{
             headers : {
                 'access-token' : token
             }

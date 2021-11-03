@@ -33,6 +33,16 @@
     opacity: 1!important;
     width:100%;
 }
+.img-preview-perfil-proveedor{
+    width : 7rem;
+    height: 6rem;
+}
+
+.link-tienda{
+    font-family:'mont-regular';
+    margin: 1rem 0;
+    font-size : 1.1rem;
+}
 @media (min-width : 768px){
     .profile-store-input{
         opacity: 0.8;

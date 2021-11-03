@@ -12,6 +12,15 @@ export const schemaValidator = yup.object().shape({
     telefono: yup.string().required('*Este campo es requerido').matches(phoneRegExp, '*Teléfono incorrecto'),
     nombreTienda : yup.string().required('*Este campo es requerido'),
     correoElectronico : yup.string().email('*Correo electrónico inválido').required('*Este campo es requerido'),
+    contrasenia : yup.string().min(5,'*Mínimo 5 caracteres').required('*Este campo es requerido')
+})
+export const schemaValidatorWithoutPassword = yup.object().shape({
+    //Registro 1
+    nombreCompletoEncargado : yup.string().required('*Este campo es requerido').matches(/^[a-z ,.'-]+$/i,'*Nombres incorrectos'),
+    telefono: yup.string().required('*Este campo es requerido').matches(phoneRegExp, '*Teléfono incorrecto'),
+    nombreTienda : yup.string().required('*Este campo es requerido'),
+    correoElectronico : yup.string().email('*Correo electrónico inválido').required('*Este campo es requerido'),
+
 })
 
 export const schemaValidatorStep2 = yup.object().shape({
@@ -55,6 +64,11 @@ export const schemaValidatorStep4 = yup.object().shape({
 
 
 export const mergedSchema = schemaValidator
+                .concat(schemaValidatorStep2)
+                .concat(schemaValidatorStep3)
+                .concat(schemaValidatorStep4);
+
+export const mergedSchemaWithoutPassword = schemaValidatorWithoutPassword
                 .concat(schemaValidatorStep2)
                 .concat(schemaValidatorStep3)
                 .concat(schemaValidatorStep4);
