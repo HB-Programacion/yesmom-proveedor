@@ -91,13 +91,13 @@ const Login = () => {
                           id="checkbox"
                           className="box-styled__checkbox"
                         />
-                        <label
+                        {/* <label
                           htmlFor="checkbox"
                           className="box-styled__text"
                         ></label>
                         <label htmlFor="checkbox">
                           <p>Recuerdame</p>
-                        </label>
+                        </label> */}
                     </div>
                     <Link to="/recuperar-password">
                       <p className="forgot-password">¿Olvidaste tu contraseña?</p>

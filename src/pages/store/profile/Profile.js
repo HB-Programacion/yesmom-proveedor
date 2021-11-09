@@ -103,31 +103,33 @@ const handleImageBanners = (e) => {
 
   return (
     <AppLayout>
-      <Menu />
-      <div className="profile-store--contenedor-centered animated fade-in">
-        <div className="profile-store--all-content">
-          <div className="profile-store--container-contenido">
-            <div className="profile-store--container-advice">
-              <h5>¡Hola! Recuerda que primero debes completar el perfil de tu tienda</h5>
-            </div>
-            <p className="title-rosa">Completar perfil de tienda</p>
-            <div className="profile-store-container-stepper">
-              <StepperTienda selected={selected} setSelected={setSelected} />
-            </div>
-            <div className="profile-store-container-form">
-              <form>
-                {selected === 0 && <ProfileStep1 setLogo={ handleLogo } imageLogo = { images.imgLogo } />}
-                {selected === 1 && <ProfileStep2 setCover={ handleCover } imageCover = { images.imgCover }/>}
-                {selected === 2 && <ProfileStep3 handleImageChange={handleImageBanners}/>}
-                <div className="profile-store-container-button">
-                  <ButtonFilled
-                    color="yellow"
-                    fxClick={handleSelection}
-                  >
-                    Continuar
-                  </ButtonFilled>
-                </div>
-              </form>
+      {/* <Menu /> */}
+      <div className="profile-store--container">
+        <div className="profile-store--contenedor-centered animated fade-in">
+          <div className="profile-store--all-content">
+            <div className="profile-store--container-contenido">
+              <div className="profile-store--container-advice">
+                <h5>¡Hola! Recuerda que primero debes completar el perfil de tu tienda</h5>
+              </div>
+              <p className="title-rosa">Completar perfil de tienda</p>
+              <div className="profile-store-container-stepper">
+                <StepperTienda selected={selected} setSelected={setSelected} />
+              </div>
+              <div className="profile-store-container-form">
+                <form>
+                  {selected === 0 && <ProfileStep1 setLogo={ handleLogo } imageLogo = { images.imgLogo } />}
+                  {selected === 1 && <ProfileStep2 setCover={ handleCover } imageCover = { images.imgCover }/>}
+                  {selected === 2 && <ProfileStep3 handleImageChange={handleImageBanners}/>}
+                  <div className="profile-store-container-button">
+                    <ButtonFilled
+                      color="yellow"
+                      fxClick={handleSelection}
+                    >
+                      Continuar
+                    </ButtonFilled>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

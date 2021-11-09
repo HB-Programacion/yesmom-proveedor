@@ -14,12 +14,6 @@ import ModalEditProduct from '../ModalProduct/ModalEditProduct';
 
 import { getDateParsed } from '../../../utils/helpers/getDateParsed';
 
-//Validacion
-import { yupResolver } from '@hookform/resolvers/yup';
-import { get, useForm } from 'react-hook-form';
-import { schemaUpdate } from '../../../utils/validateUpdate.js/ValidationSchema';
-import ButtonFilled from '../../Button/ButtonFilled';
-import { getModalProduct } from '../../../utils/helpers/getModalProduct';
 
 
 import './AccordionItem.css';
@@ -27,13 +21,6 @@ import './AccordionItem.css';
 const AccordionItem = ({ ek, product }) =>  {
 
 
-	const [ errorsUpdate , setErrorsUpdate ] = useState()
-	const { register , formState : { errors } , handleSubmit , watch} = useForm({
-		resolver : yupResolver(schemaUpdate),
-		defaultValues : getModalProduct(product)
-	});
-
-	
 	const handleUpdateProduct = async () => {
 		const MySwal = withReactContent(Swal);
 
@@ -42,33 +29,16 @@ const AccordionItem = ({ ek, product }) =>  {
 			html:
 				<>
 					<div className="content-modal-update">
-						<form onSubmit={ handleSubmit(submitForm )}>
 							<ModalEditProduct 
-								register={ register } 
 								product={ product } 
-								errors = { errorsUpdate }
 							/>
-						</form>	
 					</div>
 
-					<div className="container-btns-modal">
-						<div className="boton pink" onClick = { handleSubmit ( submitForm )}>
-							<p>Guardar</p>
-						</div>
-						<div className="boton outline-pink" >
-							<p>Cancelar</p>
-						</div>
-					</div>
 				</>,
 			customClass: { popup: "modal-update-product" },
 			showConfirmButton: false,
 			// showCancelButton: true,
-			allowOutsideClick: false,
-			// didOpen: () => {
-			// 	MySwal.
-			// }
-			// confirmButtonText: <p>Aceptar</p>,
-			// cancelButtonText: <p>Cancelar</p>,
+			allowOutsideClick: true,
 		})
 
 		// if(isConfirmed){
@@ -81,11 +51,6 @@ const AccordionItem = ({ ek, product }) =>  {
 
 	}
 
-	const verifyModal = () => {
-		// if(Object.keys(errors).length === 0 ){
-		// 	console.log('Error' , errors)
-		// }
-	}
 
 	// console.log(formState.errors);
 
@@ -93,19 +58,19 @@ const AccordionItem = ({ ek, product }) =>  {
 		alert('Correcto hermano')
 	}
 
-	useEffect(() => {
-		if(Object.keys(errors).length > 0 ){
-			Swal.fire(
-				'Campos incorrectos',
-				'Corrige los campos',
-				'info'
-			  )
-			setErrorsUpdate(errors)
-			alert('Hay un error hermano')
-		}else{
-			setErrorsUpdate({});
-		}
-	},[errors])
+	// useEffect(() => {
+	// 	if(Object.keys(errors).length > 0 ){
+	// 		Swal.fire(
+	// 			'Campos incorrectos',
+	// 			'Corrige los campos',
+	// 			'info'
+	// 		  )
+	// 		setErrorsUpdate(errors)
+	// 		alert('Hay un error hermano')
+	// 	}else{
+	// 		setErrorsUpdate({});
+	// 	}
+	// },[errors])
 	
 	return (
 		<>

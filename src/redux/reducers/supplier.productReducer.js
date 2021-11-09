@@ -5,6 +5,7 @@ import { types } from "../types/types";
 
 
 const initialState = {
+    total : 0,
     products : [],
     active : [],
 };
@@ -12,6 +13,12 @@ export const supplierProductReducer = ( state = initialState , action) => {
 
     switch (action.type) {
         case types.loadSupplierProducts:
+            return {
+                ...state,
+                total : action.payload.total,
+                products : action.payload.products,
+            }
+        case types.loadSupplierProductsPaginate:
             return {
                 ...state,
                 products : action.payload,

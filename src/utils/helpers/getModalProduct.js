@@ -3,6 +3,10 @@ import { getDateParsed } from "./getDateParsed"
 
 
 export const getModalProduct = ( product = {} ) => {
+
+    const fechaInicioPromocion = getDateParsed(product.fechaInicioPromocion);
+    const fechaFinPromocion = getDateParsed(product.fechaFinPromocion);
+
     
     return {
         ...product,
@@ -13,7 +17,7 @@ export const getModalProduct = ( product = {} ) => {
         largo : product.dimensiones.largo,
         ancho : product.dimensiones.ancho,
         alto : product.dimensiones.alto,
-        fechaInicioPromocion : getDateParsed(product.fechaInicioPromocion),
-        fechaInicioPromocion : getDateParsed(product.fechaFinPromocion),
+        fechaInicioPromocion,
+        fechaFinPromocion 
     }
 }
