@@ -9,10 +9,28 @@ import SelectMultiple from '../../SelectMultiple/SelectMultiple'
 
 import { allowedColors , allowedTallas } from '../../../utils/helpers/getAllowedColors';
 
-import './ModalEditProduct.css'
-const ModalEditProduct = ({ register ,  product , errors}) => {
 
-	console.log(errors);
+//Validacion
+import { yupResolver } from '@hookform/resolvers/yup';
+import { get, useForm } from 'react-hook-form';
+import { schemaUpdate } from '../../../utils/validateUpdate.js/ValidationSchema';
+import ButtonFilled from '../../Button/ButtonFilled';
+import { getModalProduct } from '../../../utils/helpers/getModalProduct';
+
+
+import './ModalEditProduct.css'
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+const ModalEditProduct = ( { product } ) => {
+
+
+
+	const { register , formState : { errors } , handleSubmit, reset } = useForm({
+		resolver : yupResolver(schemaUpdate),
+		defaultValues : getModalProduct(product)
+	});
+
 
 	// const [nombre, setNombre] = useState(product.title)
 	// const [descripcion, setDescripcion] = useState(product.description)
@@ -70,15 +88,54 @@ const ModalEditProduct = ({ register ,  product , errors}) => {
 	}, [])
 
 	const handleChangeColor = selectedOptionColor => {
-		console.log(selectedOptionColor)
+		// console.log(selectedOptionColor)
 		// let arrColors = [...selectedOptionColor];
 		// arrColors.push
-		setSelectedOptionColor({ ...selectedOptionColor });
+		setSelectedOptionColor(selectedOptionColor);
 	};
 
 	const handleChangeTalla = selectedOptionTalla => {
 		setSelectedOptionTalla({ ...selectedOptionTalla });
 	};
+
+
+	const submitForm = ( values ) => {
+		alert('Datos correctos');
+
+		console.log(selectedOptionColor);
+		console.log(selectedOptionTalla);
+		const newObj = {};
+		newObj.nombre = values.nombre;
+		newObj.descripcion = values.descripcion;
+		newObj.color = values.color;
+		newObj.talla = values.talla;
+		newObj.precio = values.precio;
+		newObj.categoria = values.categoria;
+		newObj.largo = values.largo;
+		newObj.ancho = values.ancho;
+		newObj.alto = values.alto;
+		newObj.precioPromocional = values.precioPromocional;
+		newObj.fechaInicioPromocion = values.fechaInicioPromocion;
+		newObj.fechaFinPromocion = values.fechaFinPromocion;
+
+		if(selectedOptionColor.length > 0 ){
+			const color = selectedOptionColor.map((el )=> el.value);
+			newObj.color = color;
+			//Hy varios colores
+		}
+		console.log(newObj);
+
+		const MySwal = withReactContent(Swal);
+
+		MySwal.close();
+	}
+
+	const handleCancel = () => {
+
+		reset(getModalProduct(product));
+		const MySwal = withReactContent(Swal);
+		MySwal.close();
+	}
 
 	return (
 		<div className="content-update-product">
@@ -182,6 +239,17 @@ const ModalEditProduct = ({ register ,  product , errors}) => {
 				</div>
 			</div>
 			<div className="updprod-section">
+				<label htmlFor="nombre">Precio promocional</label>
+				<input 
+					name="precioPromocional"
+					type="number"
+					className="style-input" 
+					{...register('precioPromocional')}
+				/>
+				<p className="error-input"> { errors?.precioPromocional?.message && '*Campo incorrecto' } </p>
+				{/* <Input onChange={(e) => setFechaInicioPromocion(e.target.value)} id='' type='date' value={fechaInicioPromocion} /> */}
+			</div>
+			<div className="updprod-section">
 				<label htmlFor="nombre">Fecha inicio de promoción</label>
 				<input 
 					name="fechaInicioPromocion"
@@ -202,6 +270,15 @@ const ModalEditProduct = ({ register ,  product , errors}) => {
 				/>
 				<p className="error-input"> { errors?.fechaFinPromocion?.message && '*Campo incorrecto' } </p>
 				{/* <Input onChange={(e) => setFechaFinPromocion(e.target.value)} id='' type='date' value={fechaFinPromocion} /> */}
+			</div>
+
+			<div className="container-btns-modal">
+				<div className="boton pink" onClick = { handleSubmit ( submitForm )}>
+					<p>Guardar</p>
+				</div>
+				<div className="boton outline-pink" onClick = { handleCancel}>
+					<p>Cancelar</p>
+				</div>
 			</div>
 		</div>
 	)

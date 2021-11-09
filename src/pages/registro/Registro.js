@@ -136,7 +136,7 @@ const Registro = () => {
                     </div>
                 </>,
             showConfirmButton:true ,
-            confirmButtonText:<p>Aceptar</p>,
+            confirmButtonText:<p>Enviar solicitud</p>,
           })
         return resp;
     }

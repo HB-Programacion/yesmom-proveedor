@@ -80,8 +80,8 @@ export const updateStoreSupplier = async ( { token ,images , nameStore , imagesI
            return true;
         //    window.location.reload();
        }else{
+           window.location.reload();
            return false;
-        //    window.location.reload();
        }
 
     }catch(error){

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types';
 import { Redirect, Route } from 'react-router-dom'
 
@@ -10,7 +10,11 @@ const PrivateRoute = ({
     
     // console.log('Autenticado ', isAuthenticated);
     // console.log("Ruta protegida");
-    
+    useEffect(() => {
+        window.scrollTo(0,0);
+    },[])
+
+
     return (
         <Route
             {...rest}
@@ -23,9 +27,9 @@ const PrivateRoute = ({
     )
 }
 
-PrivateRoute.propTypes={
-    isAuthenticated : PropTypes.bool.isRequired,
-    component  : PropTypes.func.isRequired,
-}
+// PrivateRoute.propTypes={
+//     isAuthenticated : PropTypes.bool.isRequired,
+//     component  : PropTypes.func.isRequired,
+// }
 
 export default PrivateRoute

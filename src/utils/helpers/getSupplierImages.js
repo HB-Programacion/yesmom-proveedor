@@ -16,6 +16,7 @@ export const getSupplierImages = async ( token ) => {
         
             return cleanData;
         }else{
+            window.location.reload();
             return {};
         }
 
