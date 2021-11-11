@@ -32,7 +32,7 @@ const ResetPassword = () => {
     }
 
     const submitForm = (data) => {
-        alert('oksss');
+        console.log(data);
     }
 
     return (

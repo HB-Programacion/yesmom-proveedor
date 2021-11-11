@@ -14,6 +14,7 @@ import ButtonFilled from "../../../components/Button/ButtonFilled";
 import StepperTienda from "../../../components/Perfil/Stepper/StepperTienda";
 
 import "./Profile.css";
+import Swal from "sweetalert2";
 
 
 const Profile = () => {
@@ -37,7 +38,8 @@ const Profile = () => {
         if(images.imgLogo!== ""){
           return selected +1;
         }else{
-          alert('Logo obligatorio');
+          Swal.fire('Campo incompleto', 'El logo es obligatorio' , 'info');
+          // alert('Logo obligatorio');
           return selected;
         }
       }
@@ -46,7 +48,8 @@ const Profile = () => {
         if(images.imgCover!== ""){
           return selected +1;
         }else{
-          alert('Cover obligatorio');
+          Swal.fire('Campo inco', 'El banner es obligatorio' , 'info');
+          // alert('Cover obligatorio');
           return selected;
         }
       }
@@ -97,7 +100,7 @@ const handleImageBanners = (e) => {
   }
 
   const handleSubmit = () => {
-    alert("Enviando...");
+    // alert("Enviando...");
     console.log(images);
   }
 

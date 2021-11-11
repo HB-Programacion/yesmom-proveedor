@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import Swal from 'sweetalert2';
 import ButtonFilled from '../Button/ButtonFilled'
 import CardShadow from '../CardShadow/CardShadow'
 
@@ -17,7 +18,8 @@ const ProfileStep1 = ( { setLogo, imageLogo  }) => {
       const file = e.target.files[0];
       // console.log('Hay archivo');
       if(file.size > MAX_MB){
-        alert('Imagen pesada , máximo 2MB')
+        Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 2MB' , 'info');
+        // alert('Imagen pesada , máximo 2MB')
         refLogo.current.value = '';
       }else{
         // setImageLogo(e.target.files[0]);

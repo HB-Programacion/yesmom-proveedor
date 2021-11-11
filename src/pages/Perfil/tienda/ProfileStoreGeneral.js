@@ -20,6 +20,7 @@ import { useHistory } from 'react-router';
 import { updateStoreSupplier } from '../../../utils/helpers/updateStoreSupplier';
 import { getUrlName } from '../../../utils/helpers/getUlrName';
 import { verifyStoreName } from '../../../utils/helpers/verifyStoreName';
+import Swal from 'sweetalert2';
 
 
 const MAX_MB = 2000000;
@@ -60,7 +61,8 @@ const ProfileStoreGeneral = () => {
         if(e.target.files.length > 0){
             const file = e.target.files[0];
             if(file.size > MAX_MB){
-                alert('Imagen pesada , máximo 2MB');
+                Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 2MB' , 'info');
+                // alert('Imagen pesada , máximo 2MB');
                 if(name === 'imgCover'){
                     refCover.current.value='';
                 }else if(name==='imgLogo'){
@@ -96,7 +98,7 @@ const ProfileStoreGeneral = () => {
             //Hay imagen de Banner
             const file = e.target.files[0];
             if(file.size > MAX_MB){
-                alert('Imagen pesada , máximo 2MB');
+                Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 2MB' , 'info');
                 document.getElementsByName(name).value="";
             }else{
                 setImages({

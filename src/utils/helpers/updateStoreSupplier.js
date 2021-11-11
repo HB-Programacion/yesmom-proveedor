@@ -85,7 +85,7 @@ export const updateStoreSupplier = async ( { token ,images , nameStore , imagesI
        }
 
     }catch(error){
-        alert('Algo salió mal');
+        // alert('Algo salió mal');
         console.log(error);
         return false;
     }

@@ -84,7 +84,8 @@ const Home = () => {
   };
 
   const submitForm = (values) => {
-    alert("Enviando datos" + JSON.stringify(values));
+    console.log(values);
+    // alert("Enviando datos" + JSON.stringify(values));
   };
   return (
     <div className="animated fade-in">

@@ -102,8 +102,8 @@ const ModalEditProduct = ( { product } ) => {
 	const submitForm = ( values ) => {
 		alert('Datos correctos');
 
-		console.log(selectedOptionColor);
-		console.log(selectedOptionTalla);
+		// console.log(selectedOptionColor);
+		// console.log(selectedOptionTalla);
 		const newObj = {};
 		newObj.nombre = values.nombre;
 		newObj.descripcion = values.descripcion;

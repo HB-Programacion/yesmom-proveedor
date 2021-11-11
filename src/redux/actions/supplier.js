@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 import { getSupplierImages } from "../../utils/helpers/getSupplierImages";
 import { getSupplierProducts, getSupplierProductsPaginate } from "../../utils/helpers/getSupplierProducts";
 import { types } from "../types/types";
@@ -22,7 +23,7 @@ export const startLoadingInfoSupplier = (token) => {
             }else{
                 dispatch(logout());
                 dispatch( cleanDataSupplier());
-                alert('Sesión terminada');
+                Swal.fire('Campo incompleto', 'El logo es obligatorio' , 'info');
             }
         }catch(e){
             console.log(e.message);
@@ -105,14 +106,16 @@ export const startDeletingProduct = ( ) => {
             })
 
             if(data?.response?.ok){
-                alert('Eliminado');
+                Swal.fire('Producto(s) desactivados', 'Productos seleccionados han sido desactivados' , 'success');
                 dispatch(deleteProduct());
             }else{
-                alert('Hubo un error');
+                Swal.fire('Hubo un error', 'No se pudo desactivar los productos' , 'info');
+                // alert('Hubo un error');
             }
         }catch(err){
             console.log(err);
-            alert('Algo salió mal');
+            Swal.fire('Error', 'Error inesperado' , 'error');
+            // alert('Algo salió mal');
         }
         
 
