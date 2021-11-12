@@ -31,7 +31,7 @@ export const schemaValidator = yup.object().shape({
     nombreCompletoEncargado : yup.string().required('*Este campo es requerido').matches(/^[a-z ,.'-]+$/i,'*Nombres incorrectos'),
     telefono: yup.string().required('*Este campo es requerido').matches(phoneRegExp, '*Teléfono incorrecto'),
     nombreTienda : yup.string()
-                    .verifyName('*No disponible')
+                    .verifyName('*Nombre ya se encuentra en uso')
                     .required('*Este campo es requerido'),
     correoElectronico : yup.string().email('*Correo electrónico inválido').required('*Este campo es requerido'),
     contrasenia : yup.string().min(5,'*Mínimo 5 caracteres').required('*Este campo es requerido')
@@ -42,7 +42,9 @@ export const schemaValidatorWithoutPassword = yup.object().shape({
     //Registro 1
     nombreCompletoEncargado : yup.string().required('*Este campo es requerido').matches(/^[a-z ,.'-]+$/i,'*Nombres incorrectos'),
     telefono: yup.string().required('*Este campo es requerido').matches(phoneRegExp, '*Teléfono incorrecto'),
-    nombreTienda : yup.string().required('*Este campo es requerido'),
+    nombreTienda : yup.string()
+                    .verifyName('*Nombre ya se encuentra en uso')
+                    .required('*Este campo es requerido'),
     correoElectronico : yup.string().email('*Correo electrónico inválido').required('*Este campo es requerido'),
 
 })

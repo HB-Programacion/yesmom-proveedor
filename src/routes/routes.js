@@ -99,7 +99,7 @@ export const protectedRoutes = [
   { path: "/p/product-excel", component: AddProductExcel },
   /* { path: "/p/add-new-product", component: AddProduct }, */
   { path: "/p/show-product", component: ShowProduct },
-  { path: "/p/visualizate-products", component: SeeProducts },
+  // { path: "/p/visualizate-products", component: SeeProducts },
   { path: "/p/resumen", component: Resumen },
  /*  { path: "/p/informacion-perfil", component: InfoPerfil }, */
   { path: "/p/informacion-perfil/registro", component: InfoPerfilRegistro },

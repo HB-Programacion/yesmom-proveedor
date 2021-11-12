@@ -8,4 +8,5 @@ const clienteAxiosAuth = axios.create({
   // }
 })
 
+console.log(process.env.REACT_APP_BACKEND_URL_SECURITY);
 export default clienteAxiosAuth;

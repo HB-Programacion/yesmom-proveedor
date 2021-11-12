@@ -54,9 +54,9 @@ const Footer = () => {
                   <Link to="/">
                   <p>Política de privacidad</p>
                 </Link>
-                  <Link to="/">
+                  {/* <Link to="/">
                   <p>Libro de reclamaciones</p>
-                </Link>
+                  </Link> */}
                 </div>
               </div>
             </Col>

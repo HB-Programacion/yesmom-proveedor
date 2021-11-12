@@ -43,7 +43,7 @@ const ActiveProducts = () => {
 
   const dispatch = useDispatch();
   const  { logged=false } = useSelector(state => state.auth);
-  const  { products=[] , active , total } = useSelector(state => state.supplierProducts);
+  const  { products=[] , productsDisabled= [] , active , total } = useSelector(state => state.supplierProducts);
   const [ loading , setLoading ] = useState(true);
 
   const [ activeFilter , setActiveFilter ] = useState(0);
@@ -70,7 +70,6 @@ const ActiveProducts = () => {
   }
 
   const handleActiveProduct = ( idProduct ) => {
-    
       dispatch( setActiveProduct (idProduct) )
   }
 
@@ -114,11 +113,21 @@ const ActiveProducts = () => {
   };
 
   useEffect(() => {
+    setPageCount(Math.ceil(total / itemsPerPage));
+  }, [ total ])
+
+
+  useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
     // console.log(`LLamando a endpoint desde ${itemOffset} a ${endOffset}`);
     dispatch( startLoadingSupplierProductsPaginate( { skip : itemOffset, limit : endOffset }));
+    console.log('USEEFFECT ' ,itemOffset, endOffset)
     // setCurrentItems(productsMock.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(total / itemsPerPage));
+
+    // console.log(Math.ceil(total / itemsPerPage))
+
+    // setLoading(false);
 
   }, [itemOffset, itemsPerPage]);
 
@@ -128,6 +137,7 @@ const ActiveProducts = () => {
     return <Loading />
   }
 
+  // console.log(products);
   return (
     <AppLayout>
       {/* <Menu /> */}

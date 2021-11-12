@@ -1,7 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 import { getSupplierImages } from "../../utils/helpers/getSupplierImages";
-import { getSupplierProducts, getSupplierProductsPaginate } from "../../utils/helpers/getSupplierProducts";
+import { getSupplierProducts, getSupplierProductsDisabled, getSupplierProductsPaginate } from "../../utils/helpers/getSupplierProducts";
 import { types } from "../types/types";
 import { logout } from "./auth";
 
@@ -39,18 +39,22 @@ export const startLoadingSupplierProducts = () => {
     return  async (dispatch  , getState ) => {
         const { token } = getState().auth;
         const data = await getSupplierProducts(token);
+        const data_disabled = await getSupplierProductsDisabled(token);
         //data es : 
         // {
                 // total : 10,
                 // products : []
         // }
         dispatch(loadSupplierProducts(data) );
+        dispatch(loadSupplierProductsDisabled(data_disabled) );
     }
 }
 export const startLoadingSupplierProductsPaginate = ( config ) => {
     return  async (dispatch  , getState ) => {
         const { token } = getState().auth;
         const data = await getSupplierProductsPaginate(token , config );
+
+        // console.log('DATA EN ESTE LLAMADO ' , data);
         dispatch(loadSupplierProducts(data) );
     }
 }
@@ -91,7 +95,7 @@ export const startDeletingProduct = ( ) => {
 
         const { active } = getState().supplierProducts;
         const { token } =getState().auth;
-        console.log('Eliminando estos : ', active );
+        // console.log('Eliminando estos : ', active );
         //Enviar al endpoint
         //Enviar como arreglo : [ "id513123"];
 
@@ -139,6 +143,10 @@ export const loadingDataSupplier = ( data ) => ({
 })
 export const loadSupplierProducts = ( data) => ({
     type : types.loadSupplierProducts,
+    payload : data
+})
+export const loadSupplierProductsDisabled = ( data) => ({
+    type : types.loadSupplierProductsDisabled,
     payload : data
 })
 // export const loadSupplierProductsPaginate = ( data) => ({

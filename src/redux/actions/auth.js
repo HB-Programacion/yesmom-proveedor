@@ -49,7 +49,7 @@ export const validateLoginSupplier = ( token ) => {
             }else{
                 dispatch(logout());
                 dispatch( cleanDataSupplier());
-                Swal.fire('Sesión terminada', 'Inicia sesión de nuevo' , 'info');
+                // Swal.fire('Sesión terminada', 'Inicia sesión de nuevo' , 'info');
                 // alert('Inicia sesión de nuevo')
             }
             

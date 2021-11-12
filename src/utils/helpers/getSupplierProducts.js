@@ -30,14 +30,47 @@ export const getSupplierProducts = async ( token ) => {
     }
 }
 
+export const getSupplierProductsDisabled = async ( token ) => {
+    try {
+
+        const { data }  = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/getproductspage?skip=0&limit=6&state=D` , {
+            headers : {
+                'access-token' : token
+            }
+        });
+        
+        if(data?.productosGeneral){
+            const cleanData = prepareDataProductSupplier( data.productosGeneral );
+        
+            return {
+                productsDisabled : cleanData,
+                total : data.totalDeProductos,
+            };
+        }else{
+            return {
+                total : 0,
+                productsDisabled : []
+            };
+        }
+
+    }catch(e){
+        console.log(e.message);
+        window.location.reload();
+        return [];
+    }
+}
+
+
+
 export const getSupplierProductsPaginate = async ( token , {
     skip,
     limit,
     state = 'A'
-}) => {
+} ) => {
     try {
 
-        const { data }  = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/getproductspage?skip=${skip}&limit=${limit}&state=${state}` , {
+        console.log(`DE ${skip} a ${limit}`)
+        const { data }  = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/getproductspage?skip=${skip}&limit=6&state=${state}` , {
             headers : {
                 'access-token' : token
             }
