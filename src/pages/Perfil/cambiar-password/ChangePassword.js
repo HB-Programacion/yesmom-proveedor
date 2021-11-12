@@ -17,6 +17,11 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import BackComponent from '../../../components/Return/BackComponent';
+import Swal from 'sweetalert2';
+
+import { useSelector } from 'react-redux';
+import clienteAxiosBusiness from '../../../config/axiosBusiness';
+import axios from 'axios';
 
 
 const schemaValidator = yup.object().shape({
@@ -27,12 +32,57 @@ const schemaValidator = yup.object().shape({
 
 const ChangePassword = () => {
 
-    const { register , handleSubmit , formState : { errors }  } = useForm({
+    const { token } = useSelector( state => state.auth);
+    const { register , handleSubmit , formState : { errors } , reset  } = useForm({
         resolver : yupResolver(schemaValidator),
     })
 
-    const submitForm = ( values ) => {
-        alert('Test change password');
+    const submitForm = async ( values ) => {
+        
+        try{
+
+            const { password , new_password } = values;
+            const payload = {
+                actual : password,
+                contrasenia : new_password
+            }
+
+
+            Swal.fire({
+                title : "Actualizando contraseña...",
+                text : "Espera un momento....",
+                allowOutsideClick : false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            })
+
+            const { data } = await axios.patch(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/updatePassword`, payload , {
+                headers : {
+                    'access-token' : token
+                }
+            })
+
+            Swal.close();
+
+            if(data?.CodigoRespuesta === '12'){
+                window.location.reload();
+            }
+            if(data?.CodigoRespuesta === '38'){
+                return Swal.fire('Contraseña incorrecta', 'Ingresa tu contraseña actual' , 'info');
+            }
+
+            if(data?.response?.ok){
+                return Swal.fire('Contraseña actualizada', 'La contraseña ha sido actualizada correctamente' , 'success');
+            }
+
+        }catch(err){
+            Swal.close();
+            console.log(err);
+            Swal.fire('Error', 'Error inesperado', 'error');
+        }finally{
+            reset();
+        }
     }
 
     const handleRef = (id) => {
