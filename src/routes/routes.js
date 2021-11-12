@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import Politicas from "../pages/politicasdeprivacidad/Politicas";
 //Views
 const Home = lazy(() => import("../pages/Home/Home"));
 const Registro = lazy(() => import("../pages/registro/Registro"));
@@ -81,7 +82,8 @@ const ComponentNotFound = lazy(() => import("../pages/404"));
 export const bothRoutes = [
   { path: "/", component: Home },
   { path: "/login", component: SignIn },//No va
-  { path : "/404" , component : ComponentNotFound}
+  { path : "/404" , component : ComponentNotFound},
+  { path: "/politicadeprivacidad", component: Politicas },
 ]
 
 //Rutas que se muestran sin estar autenticado , si estas autenticado no se deben mostrar
@@ -90,6 +92,7 @@ export const publicRoutes = [
   { path: "/registro", component: Registro },
   { path: "/recuperar-password", component: RecoverPassword },
   { path: "/restablecer-password", component: ResetPassword },
+ 
 ]
 
 //Rutas que se muestran si estas autenticado
