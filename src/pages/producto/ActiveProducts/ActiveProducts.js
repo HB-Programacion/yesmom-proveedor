@@ -10,7 +10,6 @@ import CardProduct from '../../../components/Producto/CardProduct/CardProduct'
 
 import iconDelete from '../../../images/producto/icon-delete.svg'
 import iconClose from '../../../images/producto/icon-close.svg'
-import './ActiveProducts.css'
 import Loading from '../../../components/Loading/Loading'
 import { useDispatch, useSelector } from 'react-redux'
 import BackComponent from '../../../components/Return/BackComponent'
@@ -18,6 +17,7 @@ import { deleteProduct, setActiveProduct, startDeletingProduct, startLoadingSupp
 
 import ReactPaginate from 'react-paginate';
 
+import './ActiveProducts.css'
 const productsMock = [
   { title: 'baby clothes', description: 'Numero 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac', image: 'https://i.pinimg.com/originals/86/7b/90/867b9004d298622723781c4fd7e25d50.jpg', price: 60.50, discount: 10.20 },
   { title: 'baby clothes', description: 'Numero 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac', image: 'https://i.pinimg.com/originals/86/7b/90/867b9004d298622723781c4fd7e25d50.jpg', price: 40.50, discount: 5.20 },
@@ -109,7 +109,7 @@ const ActiveProducts = () => {
 
     setTimeout(() => {
       window.scrollTo(0,0);
-    },200)
+    },300)
   };
 
   useEffect(() => {
@@ -121,7 +121,7 @@ const ActiveProducts = () => {
     const endOffset = itemOffset + itemsPerPage;
     // console.log(`LLamando a endpoint desde ${itemOffset} a ${endOffset}`);
     dispatch( startLoadingSupplierProductsPaginate( { skip : itemOffset, limit : endOffset }));
-    console.log('USEEFFECT ' ,itemOffset, endOffset)
+    // console.log('USEEFFECT ' ,itemOffset, endOffset)
     // setCurrentItems(productsMock.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(total / itemsPerPage));
 
@@ -131,6 +131,9 @@ const ActiveProducts = () => {
 
   }, [itemOffset, itemsPerPage]);
 
+  useEffect(() => {
+    
+  }, [ activeFilter ])
 
 
   if(loading){
@@ -181,7 +184,7 @@ const ActiveProducts = () => {
                                 <img 
                                   className={`icon-delete ${active.length==0 ? 'icon-delete-disabled' : ''}`}
                                   src={iconDelete} 
-                                  alt=""
+                                  alt="icon-delete"
                                   onClick = { handleDeleteActive }  
                                 />
                               </div>

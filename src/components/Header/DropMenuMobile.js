@@ -31,10 +31,10 @@ function DropMenuMobile({ active, setActive}) {
     },
     { name: "Perfil de tienda", to: "/p/informacion-perfil/perfil-tienda" },
     { name: "Términos y condiciones", to: "/p/informacion-perfil/terminos" },
-    {
-      name: "Desactivar cuenta",
-      to: "/p/informacion-perfil/desactivar-cuenta",
-    },
+    // {
+    //   name: "Desactivar cuenta",
+    //   to: "/p/informacion-perfil/desactivar-cuenta",
+    // },
   ];
 
   const sections = {

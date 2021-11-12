@@ -23,6 +23,7 @@ import {
     schemaValidatorStep3,
     schemaValidatorStep4,
 } from '../../utils/validateRegistro/ValidationSchemas';
+import { getUrlName } from '../../utils/helpers/getUlrName';
 
 const Registro = () => {
 
@@ -67,8 +68,17 @@ const Registro = () => {
                     // console.log("Los datos son : 26",infoPersona);
 
                     try{
-                        const response = await clienteAxiosBusiness.post('/supplier/save',infoPersona);
+                        // console.log('holaaaaa',infoPersona);
+                        const payload = {
+                            ...infoPersona,
+                            nombreTiendaUrl : getUrlName(infoPersona.nombreTienda)
+                        }
 
+                        // console.log('aaa',payload);
+                        // infoPersona.nombreTiendaUrl = getUrlName(infoPersona.nombreTienda)
+                        const response = await clienteAxiosBusiness.post('/supplier',payload);
+
+                        // console.log(infoPersona);
                         const { data } = response;
                         console.log(data);
 
