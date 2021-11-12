@@ -44,36 +44,36 @@ const SignIn = lazy(() => import("../pages/auth/SignIn"));
 
 const ComponentNotFound = lazy(() => import("../pages/404"));
 //without token
-export const routes = [
-  { path: "/", component: Home },
-  { path: "/registro", component: Registro },
-  // { path: "/add-new-product", component: AddProduct },
-  { path: "/product-excel", component: AddProductExcel },
-  { path: "/show-product", component: ShowProduct },
-  { path: "/visualizate-products", component: SeeProducts },
-  { path: "/resumen", component: Resumen },
-  { path: "/p/resumen-venta", component: ResumenVenta },
-  { path: "/perfil-tienda", component: Profile }, //////////////////////////////////////////////
-  //Auth
-  { path: "/iniciar-sesion", component: Login },
-  { path: "/recuperar-password", component: RecoverPassword },
-  { path: "/restablecer-password", component: ResetPassword },
-  //Perfil
-/*   { path: "/informacion-perfil", component: InfoPerfil }, */
-  { path: "/p/informacion-perfil/registro", component: InfoPerfilRegistro },
-  { path: "/p/informacion-perfil/productos-activos", component: ActiveProducts },
-  { path: "/p/informacion-perfil/cambiar-password", component: ChangePassword },
-  { path: "/p/informacion-perfil/perfil-tienda", component: ProfileStoreGeneral },
-  { path: "/p/informacion-perfil/previsualizacion", component: Previsualizacion },
-  { path: "/p/informacion-perfil/terminos", component: Terminos },
-  {
-    path: "/p/informacion-perfil/desactivar-cuenta",
-    component: DesactivarCuenta,
-  },
-  //
-  //Admin - todo : reemplazar
-  { path: "/login", component: SignIn },
-];
+// export const routes = [
+//   { path: "/", component: Home },
+//   { path: "/registro", component: Registro },
+//   // { path: "/add-new-product", component: AddProduct },
+//   { path: "/product-excel", component: AddProductExcel },
+//   { path: "/show-product", component: ShowProduct },
+//   { path: "/visualizate-products", component: SeeProducts },
+//   { path: "/resumen", component: Resumen },
+//   { path: "/p/resumen-venta", component: ResumenVenta },
+//   { path: "/perfil-tienda", component: Profile }, //////////////////////////////////////////////
+//   //Auth
+//   { path: "/iniciar-sesion", component: Login },
+//   { path: "/recuperar-password", component: RecoverPassword },
+//   { path: "/restablecer-password", component: ResetPassword },
+//   //Perfil
+// /*   { path: "/informacion-perfil", component: InfoPerfil }, */
+//   { path: "/p/informacion-perfil/registro", component: InfoPerfilRegistro },
+//   { path: "/p/informacion-perfil/productos-activos", component: ActiveProducts },
+//   { path: "/p/informacion-perfil/cambiar-password", component: ChangePassword },
+//   { path: "/p/informacion-perfil/perfil-tienda", component: ProfileStoreGeneral },
+//   { path: "/p/informacion-perfil/previsualizacion", component: Previsualizacion },
+//   { path: "/p/informacion-perfil/terminos", component: Terminos },
+//   {
+//     path: "/p/informacion-perfil/desactivar-cuenta",
+//     component: DesactivarCuenta,
+//   },
+//   //
+//   //Admin - todo : reemplazar
+//   { path: "/login", component: SignIn },
+// ];
 
 
 

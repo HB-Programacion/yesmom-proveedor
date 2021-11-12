@@ -19,14 +19,16 @@ import CircleImage from '../../../components/CircleImage/CircleImage';
 import './AddProductExcel.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useSelector } from 'react-redux';
 
 const AddProductExcel = () => {
 
     const initialState = {
-        filesProducts : "",
-        filesImages : ""
+        fileProducts : "",
+        fileImages : ""
     }
     const [ files, setFiles] = useState(initialState);
+    const { token } = useSelector( state => state.auth);
 
     const steps=[
         { id : 1 , img:excelFirst, description : "Descarga nuestro formato Excel para la carga de productos"},
@@ -40,11 +42,16 @@ const AddProductExcel = () => {
                 ...files,
                 [e.target.name] : e.target.files[0]
             });
+        }else{
+            setFiles({
+                ...files,
+                [e.target.name] : ""
+            });  
         }
     }
 
     const handleUploadProducts = async () => {
-        if(files?.fileImages && files?.fileProducts){
+        if(files?.fileImages!=''  && files?.fileProducts!='' ){
             //Existen datos
             const { fileImages , fileProducts } = files;
             const formData = new FormData();
@@ -66,31 +73,39 @@ const AddProductExcel = () => {
                 const { data } = await axios({
                     method : 'POST',
                     headers: {
-                        'access-token' : localStorage.getItem('TokenYesmonProveedor')
+                        'access-token' : token
                     }, 
-                    url : `${process.env.REACT_APP_BACKEND_URL_BUSINESS}/product/excel/1`,
-                    data : formData
+                    url : `${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/excelproducts`,
+                    data : formData,
+                    timeout : 1000 * 60 * 1//Minutos
                 })
+
+                
                 
                 Swal.close();
                 //Exitoso
                 console.log(data);
-                if(data?.response?.subida){
-                    alert('Productos subidos');
-                    console.log("ok");
-                    setFiles(initialState);
-                }
+
+                //Token invalido
                 if(data?.CodigoRespuesta==="12"){
-                    alert('Token invalido o expirado');
                     setFiles(initialState);
+                    window.location.reload();
                 }
+
+                if(data?.response?.subida){
+                    setFiles(initialState);
+                    return Swal.fire('Productos subidos exitosamente', 'Revisa tus productos en tu perfil', 'success');
+                }else{
+                    return Swal.fire('Revisa los archivos', 'Archivo(s) con mal formato', 'error');
+                }          
                 
             }catch(e){
                 Swal.close();
-                alert(e.message);
+                Swal.fire('Formato incorrecto', 'Revisa el formato de ambos archivos', 'info');
+                
             }
         }else{
-            alert('Llena todos los datos')
+            Swal.fire('Campos Obligatorios', 'Asegurate que los archivos esten correctamente cargados' , 'info');
         }
     }
 

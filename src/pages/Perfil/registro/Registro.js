@@ -39,7 +39,7 @@ const Registro = () => {
 
   const submitForm = (values) => {
     alert('Test edit')
-    alert(JSON.stringify(values))
+    console.log(values);
   }
 
 

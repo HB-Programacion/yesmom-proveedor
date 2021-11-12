@@ -1,7 +1,9 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 import { getSupplierImages } from "../../utils/helpers/getSupplierImages";
-import { getSupplierProducts } from "../../utils/helpers/getSupplierProducts";
+import { getSupplierProducts, getSupplierProductsPaginate } from "../../utils/helpers/getSupplierProducts";
 import { types } from "../types/types";
+import { logout } from "./auth";
 
 
 export const startLoadingInfoSupplier = (token) => {
@@ -18,6 +20,10 @@ export const startLoadingInfoSupplier = (token) => {
             if(data?.response?.ok){
                 const { response : { item } } = data;
                 dispatch( loadingDataSupplier(item));
+            }else{
+                dispatch(logout());
+                dispatch( cleanDataSupplier());
+                Swal.fire('Campo incompleto', 'El logo es obligatorio' , 'info');
             }
         }catch(e){
             console.log(e.message);
@@ -33,6 +39,18 @@ export const startLoadingSupplierProducts = () => {
     return  async (dispatch  , getState ) => {
         const { token } = getState().auth;
         const data = await getSupplierProducts(token);
+        //data es : 
+        // {
+                // total : 10,
+                // products : []
+        // }
+        dispatch(loadSupplierProducts(data) );
+    }
+}
+export const startLoadingSupplierProductsPaginate = ( config ) => {
+    return  async (dispatch  , getState ) => {
+        const { token } = getState().auth;
+        const data = await getSupplierProductsPaginate(token , config );
         dispatch(loadSupplierProducts(data) );
     }
 }
@@ -87,15 +105,17 @@ export const startDeletingProduct = ( ) => {
                 }
             })
 
-            if(data?.ok){
-                alert('Eliminado');
+            if(data?.response?.ok){
+                Swal.fire('Producto(s) desactivados', 'Productos seleccionados han sido desactivados' , 'success');
                 dispatch(deleteProduct());
             }else{
-                alert('Hubo un error');
+                Swal.fire('Hubo un error', 'No se pudo desactivar los productos' , 'info');
+                // alert('Hubo un error');
             }
         }catch(err){
             console.log(err);
-            alert('Algo salió mal');
+            Swal.fire('Error', 'Error inesperado' , 'error');
+            // alert('Algo salió mal');
         }
         
 
@@ -121,6 +141,10 @@ export const loadSupplierProducts = ( data) => ({
     type : types.loadSupplierProducts,
     payload : data
 })
+// export const loadSupplierProductsPaginate = ( data) => ({
+//     type : types.loadSupplierProductsPaginate,
+//     payload : data
+// })
 export const loadSupplierImages = ( data) => ({
     type : types.loadSupplierImages,
     payload : data

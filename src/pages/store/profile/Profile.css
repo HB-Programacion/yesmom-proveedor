@@ -5,7 +5,9 @@
 /* .profile-store--contenedor-centered {
   padding: 1  rem 2.5rem;
 } */
-
+.profile-store--container{
+  padding-top : 10rem;
+}
 .profile-store--all-content {
   padding: 1rem 1.7rem 15rem 1.7rem;
   min-height: calc(100% -382.5px);
