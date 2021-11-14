@@ -83,7 +83,7 @@ export const bothRoutes = [
   { path: "/", component: Home },
   { path: "/login", component: SignIn },//No va
   { path : "/404" , component : ComponentNotFound},
-  { path: "/politicadeprivacidad", component: Politicas },
+  { path: "/politica-de-privacidad", component: Politicas },
 ]
 
 //Rutas que se muestran sin estar autenticado , si estas autenticado no se deben mostrar
