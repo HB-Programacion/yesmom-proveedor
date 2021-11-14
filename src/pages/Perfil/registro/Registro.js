@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import axios from 'axios'
+
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
 import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
@@ -20,12 +22,17 @@ import { useForm } from 'react-hook-form';
 import { mergedSchemaWithoutPassword } from '../../../utils/validateRegistro/ValidationSchemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import BackComponent from '../../../components/Return/BackComponent';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
+import clienteAxiosBusiness from '../../../config/axiosBusiness';
+import { loadingDataSupplier } from '../../../redux/actions/supplier';
 
 
 const Registro = () => {
 
+  const dispatch = useDispatch();
   const supplier = useSelector(state => state.supplier);
+  const { token } = useSelector(state => state.auth);
 
   const { register , handleSubmit , formState:{errors} , reset} = useForm({
     resolver : yupResolver(mergedSchemaWithoutPassword),
@@ -37,9 +44,45 @@ const Registro = () => {
     type==='password' ?  document.getElementById('contrasenia').type = 'text':  document.getElementById('contrasenia').type='password';
   }
 
-  const submitForm = (values) => {
-    alert('Test edit')
-    alert(JSON.stringify(values))
+  const submitForm = async (values) => {
+    console.log(values);
+    try{
+
+      Swal.fire({
+        title : "Actualizando perfil...",
+        text : "Espera un momento....",
+        allowOutsideClick : false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+      })
+
+      const { data } = await clienteAxiosBusiness.post('/supplier/update' , values , {
+        headers : {
+          'access-token' : token
+        }
+      });
+      Swal.close();
+      //Token invalido
+      console.log(data);
+      if(data?.CodigoRespuesta === '12'){
+        Swal.fire('Inicia sesión de nuevo', 'Sesión terminada' , 'info');
+        window.location.reload();
+      }
+
+      if(data?.response?.ok){
+        Swal.fire('Actualizado', 'El perfil ha sido actualizado' , 'success');
+        dispatch(loadingDataSupplier(values));
+      }
+
+
+
+
+    }catch(err){
+      Swal.close();
+      console.log(err);
+      Swal.fire('Error', 'Hubo un error', 'error');
+    }
   }
 
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-console.log('Bearer ' + localStorage.getItem('TokenYesmonProveedor'))
+// console.log('Bearer ' + localStorage.getItem('TokenYesmonProveedor'))
 const clienteAxiosBusiness = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_URL_BUSINESS,
   headers: {

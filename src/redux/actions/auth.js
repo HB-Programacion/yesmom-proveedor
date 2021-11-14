@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 import clienteAxiosAuth from "../../config/axiosAuth";
 import { validateToken } from "../../utils/helpers/validateToken";
 import { types } from "../types/types"
@@ -21,7 +22,8 @@ export const startAuth = ( access ) => {
                 // dispatch( startLoadingInfoSupplier(data.token))
                 //TODO : Cuando se lee de localstorage tmb debe llamar los datos!!!
             }else{
-                alert('Revisa tus accesos');
+                Swal.fire('Inicio de sesión fallida', 'No existe usuario con esos accesos' , 'error');
+                // alert('Revisa tus accesos');
             }
             
 
@@ -47,7 +49,8 @@ export const validateLoginSupplier = ( token ) => {
             }else{
                 dispatch(logout());
                 dispatch( cleanDataSupplier());
-                alert('Inicia sesión de nuevo')
+                // Swal.fire('Sesión terminada', 'Inicia sesión de nuevo' , 'info');
+                // alert('Inicia sesión de nuevo')
             }
             
         }catch(e){

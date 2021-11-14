@@ -1,24 +1,50 @@
 import * as yup from "yup";
+import { getUrlName } from "../helpers/getUlrName";
+import { verifyStoreName } from "../helpers/verifyStoreName";
 
 //Some regex
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const dniRegExp = /^\d{8}(?:[-\s]\d{4})?$/;
 const urlRegExp = /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/
 
+//Custom validation
+
+const validateStore = async ( )=> {
+
+}
+
+yup.addMethod(yup.string, "verifyName", function (errorMessage) {
+    return this.test(`test-available-name`, errorMessage, async function (value) {
+      const { path, createError } = this;
+    
+      const flag = await verifyStoreName(getUrlName(value) ,  'asdas');
+      return (
+        flag ||
+        createError({ path, message: errorMessage })
+      );
+    });
+  });
+
 //Schema global
 export const schemaValidator = yup.object().shape({
     //Registro 1
     nombreCompletoEncargado : yup.string().required('*Este campo es requerido').matches(/^[a-z ,.'-]+$/i,'*Nombres incorrectos'),
     telefono: yup.string().required('*Este campo es requerido').matches(phoneRegExp, '*Teléfono incorrecto'),
-    nombreTienda : yup.string().required('*Este campo es requerido'),
+    nombreTienda : yup.string()
+                    .verifyName('*Nombre ya se encuentra en uso')
+                    .required('*Este campo es requerido'),
     correoElectronico : yup.string().email('*Correo electrónico inválido').required('*Este campo es requerido'),
     contrasenia : yup.string().min(5,'*Mínimo 5 caracteres').required('*Este campo es requerido')
 })
+
+
 export const schemaValidatorWithoutPassword = yup.object().shape({
     //Registro 1
     nombreCompletoEncargado : yup.string().required('*Este campo es requerido').matches(/^[a-z ,.'-]+$/i,'*Nombres incorrectos'),
     telefono: yup.string().required('*Este campo es requerido').matches(phoneRegExp, '*Teléfono incorrecto'),
-    nombreTienda : yup.string().required('*Este campo es requerido'),
+    nombreTienda : yup.string()
+                    .verifyName('*Nombre ya se encuentra en uso')
+                    .required('*Este campo es requerido'),
     correoElectronico : yup.string().email('*Correo electrónico inválido').required('*Este campo es requerido'),
 
 })

@@ -5,13 +5,27 @@ import { types } from "../types/types";
 
 
 const initialState = {
+    total : 0,
     products : [],
+    productsDisabled : [],
     active : [],
 };
 export const supplierProductReducer = ( state = initialState , action) => {
 
     switch (action.type) {
         case types.loadSupplierProducts:
+            return {
+                ...state,
+                total : action.payload.total,
+                products : action.payload.products,
+            }
+        case types.loadSupplierProductsDisabled:
+            return {
+                ...state,
+                totalDisabled : action.payload.totalDisabled,
+                productsDisabled : action.payload.productsDisabled,
+            }
+        case types.loadSupplierProductsPaginate:
             return {
                 ...state,
                 products : action.payload,

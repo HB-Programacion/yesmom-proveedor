@@ -12,6 +12,8 @@ export const types = {
     cleanSupplier : '[SUPPLIER] clean supplier',
     cleanSupplierProducts : '[SUPPLIER] clean supplier products',
     loadSupplierProducts : "[SUPPLIER] get products",
+    loadSupplierProductsDisabled : "[SUPPLIER] get products disabled",
+    loadSupplierProductsPaginate : "[SUPPLIER] get products paginate",
     loadSupplierImages : "[SUPPLIER] get images",
     updateActiveStore : "[SUPPLIER] update store",
     setActiveProduct : "[PRODUCT] set active",

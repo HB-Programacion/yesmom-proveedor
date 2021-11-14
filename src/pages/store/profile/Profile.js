@@ -14,6 +14,7 @@ import ButtonFilled from "../../../components/Button/ButtonFilled";
 import StepperTienda from "../../../components/Perfil/Stepper/StepperTienda";
 
 import "./Profile.css";
+import Swal from "sweetalert2";
 
 
 const Profile = () => {
@@ -37,7 +38,8 @@ const Profile = () => {
         if(images.imgLogo!== ""){
           return selected +1;
         }else{
-          alert('Logo obligatorio');
+          Swal.fire('Campo incompleto', 'El logo es obligatorio' , 'info');
+          // alert('Logo obligatorio');
           return selected;
         }
       }
@@ -46,7 +48,8 @@ const Profile = () => {
         if(images.imgCover!== ""){
           return selected +1;
         }else{
-          alert('Cover obligatorio');
+          Swal.fire('Campo inco', 'El banner es obligatorio' , 'info');
+          // alert('Cover obligatorio');
           return selected;
         }
       }
@@ -97,37 +100,39 @@ const handleImageBanners = (e) => {
   }
 
   const handleSubmit = () => {
-    alert("Enviando...");
+    // alert("Enviando...");
     console.log(images);
   }
 
   return (
     <AppLayout>
-      <Menu />
-      <div className="profile-store--contenedor-centered animated fade-in">
-        <div className="profile-store--all-content">
-          <div className="profile-store--container-contenido">
-            <div className="profile-store--container-advice">
-              <h5>¡Hola! Recuerda que primero debes completar el perfil de tu tienda</h5>
-            </div>
-            <p className="title-rosa">Completar perfil de tienda</p>
-            <div className="profile-store-container-stepper">
-              <StepperTienda selected={selected} setSelected={setSelected} />
-            </div>
-            <div className="profile-store-container-form">
-              <form>
-                {selected === 0 && <ProfileStep1 setLogo={ handleLogo } imageLogo = { images.imgLogo } />}
-                {selected === 1 && <ProfileStep2 setCover={ handleCover } imageCover = { images.imgCover }/>}
-                {selected === 2 && <ProfileStep3 handleImageChange={handleImageBanners}/>}
-                <div className="profile-store-container-button">
-                  <ButtonFilled
-                    color="yellow"
-                    fxClick={handleSelection}
-                  >
-                    Continuar
-                  </ButtonFilled>
-                </div>
-              </form>
+      {/* <Menu /> */}
+      <div className="profile-store--container">
+        <div className="profile-store--contenedor-centered animated fade-in">
+          <div className="profile-store--all-content">
+            <div className="profile-store--container-contenido">
+              <div className="profile-store--container-advice">
+                <h5>¡Hola! Recuerda que primero debes completar el perfil de tu tienda</h5>
+              </div>
+              <p className="title-rosa">Completar perfil de tienda</p>
+              <div className="profile-store-container-stepper">
+                <StepperTienda selected={selected} setSelected={setSelected} />
+              </div>
+              <div className="profile-store-container-form">
+                <form>
+                  {selected === 0 && <ProfileStep1 setLogo={ handleLogo } imageLogo = { images.imgLogo } />}
+                  {selected === 1 && <ProfileStep2 setCover={ handleCover } imageCover = { images.imgCover }/>}
+                  {selected === 2 && <ProfileStep3 handleImageChange={handleImageBanners}/>}
+                  <div className="profile-store-container-button">
+                    <ButtonFilled
+                      color="yellow"
+                      fxClick={handleSelection}
+                    >
+                      Continuar
+                    </ButtonFilled>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

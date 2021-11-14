@@ -1,12 +1,11 @@
 .card-product-container{
   box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
   border-radius: 30px;
-  padding: 54px 60px;
   min-height: 480px;
   padding: 10px;
-  width: 297px;
+  width: 27rem;
   margin-bottom: 37px;
-  margin: 0 auto;
+  margin : 2rem 1rem;
 }
 .card-product-content-image{
   height: 195px;
@@ -85,34 +84,23 @@
 
 @media (min-width : 480px){
   .card-product-container{
-    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
-    border-radius: 30px;
-    padding: 54px 60px;
     min-height: 480px;
+    width : 29rem;
     padding: 10px;
-    width: 22rem;
   }   
 }
 @media (min-width : 768px){
   .card-product-container{
-    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
-    border-radius: 30px;
-    padding: 54px 60px;
-    min-height: 480px;
-    padding: 10px;
     width: 24rem;
   }   
 }
 @media (min-width : 1024px){
   .card-product-container{
-    box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.13);
     border-radius: 30px;
-    padding: 54px 60px;
     min-height: 480px;
     padding: 10px;
-    width: 21rem;
-    width: 21rem;
     margin-bottom: 47px;
+    width :22rem;
   }
   /* TEXT CARD */
 .card-product-content-text>p:first-child{
@@ -141,7 +129,7 @@
     padding: 54px 60px;
     min-height: 480px;
     padding: 10px;
-    width: 268px;
+    width: 25rem;
     margin-bottom: 47px;
   }
   /* TEXT CARD */

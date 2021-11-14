@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import Politicas from "../pages/politicasdeprivacidad/Politicas";
 //Views
 const Home = lazy(() => import("../pages/Home/Home"));
 const Registro = lazy(() => import("../pages/registro/Registro"));
@@ -25,55 +26,55 @@ const RecoverPassword = lazy(() => import("../pages/login/RecoverPassword"));
 const ResetPassword = lazy(() => import("../pages/login/ResetPassword"));
 /* const InfoPerfil = lazy(() => import("../pages/perfil/InfoPerfil")); */
 const InfoPerfilRegistro = lazy(() =>
-  import("../pages/perfil/registro/Registro")
+  import("../pages/Perfil/registro/Registro")
 );
 const ChangePassword = lazy(() =>
-  import("../pages/perfil/cambiar-password/ChangePassword")
+  import("../pages/Perfil/cambiar-password/ChangePassword")
 );
 const ProfileStoreGeneral = lazy(() =>
-  import("../pages/perfil/tienda/ProfileStoreGeneral")
+  import("../pages/Perfil/tienda/ProfileStoreGeneral")
 );
 const Previsualizacion = lazy(() =>
-  import("../pages/perfil/previsualizacion/Previsualizacion")
+  import("../pages/Perfil/previsualizacion/Previsualizacion")
 );
-const Terminos = lazy(() => import("../pages/perfil/terminos/Terminos"));
+const Terminos = lazy(() => import("../pages/Perfil/terminos/Terminos"));
 const DesactivarCuenta = lazy(() =>
-  import("../pages/perfil/desactivar-cuenta/DesactivarCuenta")
+  import("../pages/Perfil/desactivar-cuenta/DesactivarCuenta")
 );
 const SignIn = lazy(() => import("../pages/auth/SignIn"));
 
 const ComponentNotFound = lazy(() => import("../pages/404"));
 //without token
-export const routes = [
-  { path: "/", component: Home },
-  { path: "/registro", component: Registro },
-  // { path: "/add-new-product", component: AddProduct },
-  { path: "/product-excel", component: AddProductExcel },
-  { path: "/show-product", component: ShowProduct },
-  { path: "/visualizate-products", component: SeeProducts },
-  { path: "/resumen", component: Resumen },
-  { path: "/p/resumen-venta", component: ResumenVenta },
-  { path: "/perfil-tienda", component: Profile }, //////////////////////////////////////////////
-  //Auth
-  { path: "/iniciar-sesion", component: Login },
-  { path: "/recuperar-password", component: RecoverPassword },
-  { path: "/restablecer-password", component: ResetPassword },
-  //Perfil
-/*   { path: "/informacion-perfil", component: InfoPerfil }, */
-  { path: "/p/informacion-perfil/registro", component: InfoPerfilRegistro },
-  { path: "/p/informacion-perfil/productos-activos", component: ActiveProducts },
-  { path: "/p/informacion-perfil/cambiar-password", component: ChangePassword },
-  { path: "/p/informacion-perfil/perfil-tienda", component: ProfileStoreGeneral },
-  { path: "/p/informacion-perfil/previsualizacion", component: Previsualizacion },
-  { path: "/p/informacion-perfil/terminos", component: Terminos },
-  {
-    path: "/p/informacion-perfil/desactivar-cuenta",
-    component: DesactivarCuenta,
-  },
-  //
-  //Admin - todo : reemplazar
-  { path: "/login", component: SignIn },
-];
+// export const routes = [
+//   { path: "/", component: Home },
+//   { path: "/registro", component: Registro },
+//   // { path: "/add-new-product", component: AddProduct },
+//   { path: "/product-excel", component: AddProductExcel },
+//   { path: "/show-product", component: ShowProduct },
+//   { path: "/visualizate-products", component: SeeProducts },
+//   { path: "/resumen", component: Resumen },
+//   { path: "/p/resumen-venta", component: ResumenVenta },
+//   { path: "/perfil-tienda", component: Profile }, //////////////////////////////////////////////
+//   //Auth
+//   { path: "/iniciar-sesion", component: Login },
+//   { path: "/recuperar-password", component: RecoverPassword },
+//   { path: "/restablecer-password", component: ResetPassword },
+//   //Perfil
+// /*   { path: "/informacion-perfil", component: InfoPerfil }, */
+//   { path: "/p/informacion-perfil/registro", component: InfoPerfilRegistro },
+//   { path: "/p/informacion-perfil/productos-activos", component: ActiveProducts },
+//   { path: "/p/informacion-perfil/cambiar-password", component: ChangePassword },
+//   { path: "/p/informacion-perfil/perfil-tienda", component: ProfileStoreGeneral },
+//   { path: "/p/informacion-perfil/previsualizacion", component: Previsualizacion },
+//   { path: "/p/informacion-perfil/terminos", component: Terminos },
+//   {
+//     path: "/p/informacion-perfil/desactivar-cuenta",
+//     component: DesactivarCuenta,
+//   },
+//   //
+//   //Admin - todo : reemplazar
+//   { path: "/login", component: SignIn },
+// ];
 
 
 
@@ -81,7 +82,8 @@ export const routes = [
 export const bothRoutes = [
   { path: "/", component: Home },
   { path: "/login", component: SignIn },//No va
-  { path : "/404" , component : ComponentNotFound}
+  { path : "/404" , component : ComponentNotFound},
+  { path: "/politicadeprivacidad", component: Politicas },
 ]
 
 //Rutas que se muestran sin estar autenticado , si estas autenticado no se deben mostrar
@@ -90,6 +92,7 @@ export const publicRoutes = [
   { path: "/registro", component: Registro },
   { path: "/recuperar-password", component: RecoverPassword },
   { path: "/restablecer-password", component: ResetPassword },
+ 
 ]
 
 //Rutas que se muestran si estas autenticado
@@ -99,7 +102,7 @@ export const protectedRoutes = [
   { path: "/p/product-excel", component: AddProductExcel },
   /* { path: "/p/add-new-product", component: AddProduct }, */
   { path: "/p/show-product", component: ShowProduct },
-  { path: "/p/visualizate-products", component: SeeProducts },
+  // { path: "/p/visualizate-products", component: SeeProducts },
   { path: "/p/resumen", component: Resumen },
  /*  { path: "/p/informacion-perfil", component: InfoPerfil }, */
   { path: "/p/informacion-perfil/registro", component: InfoPerfilRegistro },

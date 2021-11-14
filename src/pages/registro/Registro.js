@@ -27,7 +27,7 @@ import {
 const Registro = () => {
 
     //Primer form
-    const { register , handleSubmit , formState:{errors} , reset } = useForm({
+    const { register , handleSubmit , formState:{errors} , reset , watch } = useForm({
         resolver : yupResolver(schemaValidator)
     });
     //Segundo form
@@ -63,7 +63,7 @@ const Registro = () => {
             ){
                 const { isConfirmed } = await submitForm();
                 if(isConfirmed){
-                    alert("DATOS OK Y ACEPTÓ");
+                    // alert("DATOS OK Y ACEPTÓ");
                     // console.log("Los datos son : 26",infoPersona);
 
                     try{
@@ -77,13 +77,15 @@ const Registro = () => {
                             reset_2();
                             reset_3();
                             reset_4();
-                            alert("Proveedor guardado satisfactoriamente")
+                            Swal.fire('Solicitud enviada', 'La solicitud de proveedor ha sido enviada' , 'success');
+                            // alert("Proveedor guardado satisfactoriamente")
                         }
                     }catch(e){
-                        alert(e.message);
+                        Swal.fire('Error', 'Hubo un error' , 'error');
+                        // alert(e.message);
                     }
                 }else{
-                    alert("DATOS OK PERO NO ACEPTÓ")
+                    // alert("DATOS OK PERO NO ACEPTÓ")
                 }
             }
         }else{
@@ -131,12 +133,12 @@ const Registro = () => {
                             </Col>
                         </Row>
                     </form>
-                    <div className="registro-politics">
+                    {/* <div className="registro-politics">
                         <p className="to-politics">Ver comisiones y políticas de pago</p>
-                    </div>
+                    </div> */}
                 </>,
             showConfirmButton:true ,
-            confirmButtonText:<p>Aceptar</p>,
+            confirmButtonText:<p>Enviar solicitud</p>,
           })
         return resp;
     }

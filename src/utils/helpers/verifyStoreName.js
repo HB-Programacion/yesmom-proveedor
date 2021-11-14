@@ -12,6 +12,7 @@ export const verifyStoreName = async ( storeName='' , token) => {
         if( data?.ok) {
             return true;
         }else{
+            // window.location.reload();
             return false;
         }
 

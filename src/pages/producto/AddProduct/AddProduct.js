@@ -144,7 +144,7 @@ const AddProduct = () => {
       })
       .catch((e) => {
         console.log(e, "error");
-        alert(e);
+        // alert(e);
         // window.location.reload();
       });
   };

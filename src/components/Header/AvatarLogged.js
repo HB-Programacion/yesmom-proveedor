@@ -49,9 +49,9 @@ function AvatarLogged({ name }) {
                         {/* <Link to="/p/add-new-product">
                             <p>Carga manual</p>
                         </Link> */}
-                        <Link to="/p/visualizate-products">
+                        {/* <Link to="/p/visualizate-products">
                             <p>Visualización de productos</p>
-                        </Link>
+                        </Link> */}
                         {/* <Link to="/p/informacion-perfil/productos-activos">
                             <p>Eliminar producto</p>
                         </Link> */}
