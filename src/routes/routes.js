@@ -25,20 +25,20 @@ const RecoverPassword = lazy(() => import("../pages/login/RecoverPassword"));
 const ResetPassword = lazy(() => import("../pages/login/ResetPassword"));
 /* const InfoPerfil = lazy(() => import("../pages/perfil/InfoPerfil")); */
 const InfoPerfilRegistro = lazy(() =>
-  import("../pages/perfil/registro/Registro")
+  import("../pages/Perfil/registro/Registro")
 );
 const ChangePassword = lazy(() =>
-  import("../pages/perfil/cambiar-password/ChangePassword")
+  import("../pages/Perfil/cambiar-password/ChangePassword")
 );
 const ProfileStoreGeneral = lazy(() =>
-  import("../pages/perfil/tienda/ProfileStoreGeneral")
+  import("../pages/Perfil/tienda/ProfileStoreGeneral")
 );
 const Previsualizacion = lazy(() =>
-  import("../pages/perfil/previsualizacion/Previsualizacion")
+  import("../pages/Perfil/previsualizacion/Previsualizacion")
 );
-const Terminos = lazy(() => import("../pages/perfil/terminos/Terminos"));
+const Terminos = lazy(() => import("../pages/Perfil/terminos/Terminos"));
 const DesactivarCuenta = lazy(() =>
-  import("../pages/perfil/desactivar-cuenta/DesactivarCuenta")
+  import("../pages/Perfil/desactivar-cuenta/DesactivarCuenta")
 );
 const SignIn = lazy(() => import("../pages/auth/SignIn"));
 
