@@ -133,9 +133,9 @@ const Registro = () => {
                             </Col>
                         </Row>
                     </form>
-                    <div className="registro-politics">
+                    {/* <div className="registro-politics">
                         <p className="to-politics">Ver comisiones y políticas de pago</p>
-                    </div>
+                    </div> */}
                 </>,
             showConfirmButton:true ,
             confirmButtonText:<p>Enviar solicitud</p>,
