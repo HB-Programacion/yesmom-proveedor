@@ -1,0 +1,38 @@
+
+.terminos-text-area{
+    font-family: "mont-regular"!important;
+    font-size: 1.2rem;
+    letter-spacing: 0.222222px;
+    color: rgba(90, 90, 90, 0.5);
+    height: 25rem;
+    border: 2px solid #DADADA;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+}
+.terminos-text-area::placeholder{
+    color: rgba(90, 90, 90, 0.5);
+}
+
+.terminos-container-form{
+    margin:3rem 0;
+    padding-top:3rem;
+    padding-bottom:3rem;
+    position: relative;
+}
+
+@media (min-width : 768px){
+    .terminos-container-form{
+        padding:3rem;
+    }
+    .terminos-text-area{
+        border-color : #4B64A4;
+    }
+}
+@media (min-width : 1024px){
+    .terminos-container-form{
+        padding:4rem 3rem;
+    }
+    .flex-terminos{
+        display: flex;
+    }
+}
