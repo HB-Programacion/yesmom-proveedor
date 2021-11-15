@@ -49,10 +49,13 @@ const Registro = () => {
     
 
     const handleSelection = async (data) => {
-        setInfoPersona({
+        console.log(data);
+
+        const newObj = {
             ...infoPersona,
             ...data
-        })
+        }
+        setInfoPersona(newObj);
         //Si es el ultimo paso enviar el form
         if(selected === 3){
             //Asegurarse que no hay errores
@@ -70,10 +73,11 @@ const Registro = () => {
                     try{
                         // console.log('holaaaaa',infoPersona);
                         const payload = {
-                            ...infoPersona,
+                            ...newObj,
                             nombreTiendaUrl : getUrlName(infoPersona.nombreTienda)
                         }
                         
+                        console.log(payload);
                         
                         // console.log('aaa',payload);
                         // infoPersona.nombreTiendaUrl = getUrlName(infoPersona.nombreTienda)
@@ -130,7 +134,7 @@ const Registro = () => {
                 <>
                     <form>
                         <Row>
-                            <Col md={6} >
+                            {/* <Col md={6} >
                                 <div className="registro-box-checkbox">
                                     <input type="checkbox" />
                                     <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -141,19 +145,17 @@ const Registro = () => {
                                     <input type="checkbox" />
                                     <label>Lorem ipsum dolor sit amet,<br/> consectetur.</label>
                                 </div>
-                            </Col>
-                            <Col md={6}>
+                            </Col> */}
+                            <Col sm={12}>
                                 <div className="registro-box-checkbox">
                                     <input type="checkbox" />
-                                    <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                        A mattis nisi, vitae amet, eleifend etiam dolor. 
-                                        Quisque quam amet neque at maecenas ornare sagittis sed.</label>
+                                    <label>Autorizas a YES MOM para que utilice la información que proporciones en este formulario.</label>
                                 </div>
 
-                                <div className="registro-box-checkbox">
+                                {/* <div className="registro-box-checkbox">
                                     <input type="checkbox" />
                                     <label>Lorem ipsum dolor sit amet,<br/> consectetur.</label>
-                                </div>
+                                </div> */}
                             </Col>
                         </Row>
                     </form>

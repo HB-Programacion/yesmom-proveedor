@@ -110,6 +110,6 @@ export const protectedRoutes = [
   { path: "/p/informacion-perfil/cambiar-password", component: ChangePassword },
   { path: "/p/informacion-perfil/perfil-tienda", component: ProfileStoreGeneral },
   { path: "/p/informacion-perfil/previsualizacion", component: Previsualizacion },
-  { path: "/p/informacion-perfil/terminos", component: Terminos },
-  { path: "/p/informacion-perfil/desactivar-cuenta", component: DesactivarCuenta },
+  // { path: "/p/informacion-perfil/terminos", component: Terminos },
+  // { path: "/p/informacion-perfil/desactivar-cuenta", component: DesactivarCuenta },
 ]

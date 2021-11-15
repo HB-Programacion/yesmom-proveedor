@@ -70,12 +70,12 @@ function AvatarLogged({ name }) {
                         <Link to="/p/informacion-perfil/perfil-tienda">
                             <p>Perfil de tienda</p>
                         </Link>
-                        <Link to="/p/informacion-perfil/terminos">
+                        {/* <Link to="/p/informacion-perfil/terminos">
                             <p>Términos y condiciones</p>
                         </Link>
                         <Link to="/p/informacion-perfil/desactivar-cuenta">
                             <p>Desactivar cuenta</p>
-                        </Link>
+                        </Link> */}
 
                         <div class="dropdown-divider"></div>
 

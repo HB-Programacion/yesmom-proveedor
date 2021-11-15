@@ -30,7 +30,7 @@ function DropMenuMobile({ active, setActive}) {
       to: "/p/informacion-perfil/cambiar-password",
     },
     { name: "Perfil de tienda", to: "/p/informacion-perfil/perfil-tienda" },
-    { name: "Términos y condiciones", to: "/p/informacion-perfil/terminos" },
+    // { name: "Términos y condiciones", to: "/p/informacion-perfil/terminos" },
     // {
     //   name: "Desactivar cuenta",
     //   to: "/p/informacion-perfil/desactivar-cuenta",

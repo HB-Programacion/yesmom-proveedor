@@ -238,7 +238,7 @@ const ProfileStoreGeneral = () => {
                                                         onChange = { handleChangeNameUrl }
                                                     />
                                                 {nameStore?.length > 0 &&
-                                                <p className="link-tienda">URL TIENDA : yesmom.com.pe/{getUrlName(nameStore)} - {
+                                                <p className="link-tienda">URL TIENDA : www.yesmom.com.pe/tienda/{getUrlName(nameStore)} - {
                                                     availableName ? 'Disponible' : 'No disponible'
                                                 }</p> 
                                                 }
@@ -249,7 +249,7 @@ const ProfileStoreGeneral = () => {
                                                     <h4 className="profile-flex-left registro-title op-8 mb-4">Adjuntar logo</h4>
                                                     <div className="profile-flex-right">
                                                         <div className="wrapper-input profile-store-wrapper-input">
-                                                            <label htmlFor="nameTienda">Debe tener como medidas 446x168 px y una resolución de 300pxD</label>
+                                                            <label htmlFor="nameTienda">Debe tener como alto máximo 110 px, png o svg y peso máximo 1 MB.</label>
                                                             <div className="profile-flex-input-button">
                                                                 <div className="profile-flex-input">
                                                                     <input
@@ -292,7 +292,7 @@ const ProfileStoreGeneral = () => {
                                                     <h4 className="profile-flex-left registro-title op-8 mb-4">Cover de portada</h4>
                                                     <div className="profile-flex-right">
                                                         <div className="wrapper-input profile-store-wrapper-input">
-                                                            <label htmlFor="nameTienda">Debe tener como medidas 1111x352 px y una resolución de 300pxD</label>
+                                                            <label htmlFor="nameTienda">Debe tener como medidas 1204x381 px y peso máximo 1 MB.</label>
                                                            <div className="profile-flex-input-button">
                                                                 <div className="profile-flex-input">
                                                                     <input
@@ -337,7 +337,7 @@ const ProfileStoreGeneral = () => {
 
                                                 <div className="add--container-images w-100 profile-flex-right">
                                                     <div className="profile-store-wrapper-input">
-                                                        <h6>Debe tener como medidas 1920x613 px y una resolución de 300pxD</h6>
+                                                        <h6>Debe tener como medidas 1920x613 px y peso máximo 2 MB c/u.</h6>
                                                     </div>
                                                     <div className="flex-container-images">
 
