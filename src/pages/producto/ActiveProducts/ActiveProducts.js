@@ -5,11 +5,9 @@ import Input from '../../../components/Input/Input'
 import Sidebar from '../../../components/Perfil/Sidebar/Sidebar'
 import Description from '../../../components/Perfil/Description/Description'
 import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil'
-import CardProduct from '../../../components/Producto/CardProduct/CardProduct'
 
 
 import iconDelete from '../../../images/producto/icon-delete.svg'
-import iconClose from '../../../images/producto/icon-close.svg'
 import Loading from '../../../components/Loading/Loading'
 import { useDispatch, useSelector } from 'react-redux'
 import BackComponent from '../../../components/Return/BackComponent'
@@ -18,6 +16,11 @@ import { deleteProduct, setActiveProduct, startDeletingProduct, startLoadingSupp
 import ReactPaginate from 'react-paginate';
 
 import './ActiveProducts.css'
+import ComponentActive from '../../../components/ActiveProducts/ComponentActive'
+import ComponentDisabled from '../../../components/DisabledProducts/ComponentDisabled'
+import PaginateActive from '../../../components/Pagination/PaginateActive'
+import PaginateDisabled from '../../../components/Pagination/PaginateDisabled'
+import Swal from 'sweetalert2'
 const productsMock = [
   { title: 'baby clothes', description: 'Numero 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac', image: 'https://i.pinimg.com/originals/86/7b/90/867b9004d298622723781c4fd7e25d50.jpg', price: 60.50, discount: 10.20 },
   { title: 'baby clothes', description: 'Numero 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac', image: 'https://i.pinimg.com/originals/86/7b/90/867b9004d298622723781c4fd7e25d50.jpg', price: 40.50, discount: 5.20 },
@@ -49,12 +52,6 @@ const ActiveProducts = () => {
   const [ activeFilter , setActiveFilter ] = useState(0);
 
 
-
-  // const [currentItems, setCurrentItems] = useState(productsMock.slice(0,5));
-  const [pageCount, setPageCount] = useState(0);
-  const [itemOffset, setItemOffset] = useState(0);
-
-
   const loadSupplierProducts = async () => {
 
     if( logged ){
@@ -69,28 +66,12 @@ const ActiveProducts = () => {
     }
   }
 
-  const handleActiveProduct = ( idProduct ) => {
-      dispatch( setActiveProduct (idProduct) )
-  }
 
-  const getActive = ( idProduct ) => {
-    if(active.includes(idProduct)){
-      return true;
-    }else{
-      return false;
-    }
-    
-  }
-
-  const handleRemoveProduct = ( idProduct ) => {
-    dispatch( unsetActiveProduct (idProduct) )
-  }
-
-  const handleDeleteActive = () => {
+  const handleDeleteActive = async () => {
       if(active.length > 0){
-        const ok = window.confirm('Eliminar producto(s)');
-        if(ok){
-          console.log('Eliminando activos');
+        const { isConfirmed } = await Swal.fire('Deshabilitar producto(s)','Deshabilitar producto(s)','question')
+
+        if(isConfirmed){
           dispatch( startDeletingProduct());
         }
       }
@@ -102,38 +83,6 @@ const ActiveProducts = () => {
     return () => setLoading(false);
   },[])
 
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % total;
-    // console.log(`En pagina ${event.selected}`);
-    setItemOffset(newOffset);
-
-    setTimeout(() => {
-      window.scrollTo(0,0);
-    },300)
-  };
-
-  useEffect(() => {
-    setPageCount(Math.ceil(total / itemsPerPage));
-  }, [ total ])
-
-
-  useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage;
-    // console.log(`LLamando a endpoint desde ${itemOffset} a ${endOffset}`);
-    dispatch( startLoadingSupplierProductsPaginate( { skip : itemOffset, limit : endOffset }));
-    // console.log('USEEFFECT ' ,itemOffset, endOffset)
-    // setCurrentItems(productsMock.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(total / itemsPerPage));
-
-    // console.log(Math.ceil(total / itemsPerPage))
-
-    // setLoading(false);
-
-  }, [itemOffset, itemsPerPage]);
-
-  useEffect(() => {
-    
-  }, [ activeFilter ])
 
 
   if(loading){
@@ -162,7 +111,7 @@ const ActiveProducts = () => {
                 <div className="flex-right">
                   <div className="info-container-content">
                     <Description title="Productos" description="Aquí encontrarás todos tus productos activos" />
-                    
+
                       {
                         total > 0 &&
                         <>
@@ -193,8 +142,11 @@ const ActiveProducts = () => {
                           </div>
                         </>
                       }
+
+                      { activeFilter === 0 && <ComponentActive />   }
+                      { activeFilter === 1 && <ComponentDisabled />   }
                       
-                    {
+                    {/* {
                       products.length === 0 ? 
                       <p className="empty-products"> No hay productos </p>
                       :
@@ -224,42 +176,15 @@ const ActiveProducts = () => {
                             />
                           </div>
                         ))}
-                        {/* {
-                          currentItems.map((item) => (
-                            <CardProduct 
-                              image={item?.image} 
-                              title={item?.title} 
-                              description={item?.description} 
-                              price={item?.price} 
-                              discount={item?.discount} 
-                            />
-
-                          ))
-                        } */}
                       </div>
-                    }
+                    } */}
                   </div>
                 </div>
               </div>
-                <div className="content-page">
-                    <ReactPaginate
-                      breakLabel="..."
-                      onPageChange={handlePageClick}
-                      pageRangeDisplayed={5}
-                      pageCount={pageCount}
-                      previousLabel="<"
-                      nextLabel=">"
-                      pageClassName="page-item-page-custom"
-                      pageLinkClassName="page-link-custom-pagination"
-                      previousClassName="page-item-custom-pagination"
-                      previousLinkClassName="page-link-custom-pagination"
-                      nextClassName="page-item-custom-pagination"
-                      nextLinkClassName="page-link-custom-pagination"
-                      containerClassName="pagination"
-                      activeClassName="active-custom-pagination"
-                      renderOnZeroPageCount={null}
-                    />
-                </div>
+              <div className="content-page">
+                    { activeFilter === 0 && <PaginateActive />   }
+                    { activeFilter === 1 && <PaginateDisabled />   }
+              </div>
             </div>
         </div>
       </div>

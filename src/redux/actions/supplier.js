@@ -1,7 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 import { getSupplierImages } from "../../utils/helpers/getSupplierImages";
-import { getSupplierProducts, getSupplierProductsDisabled, getSupplierProductsPaginate } from "../../utils/helpers/getSupplierProducts";
+import { getSupplierProducts, getSupplierProductsDisabled, getSupplierProductsDisabledPaginate, getSupplierProductsPaginate } from "../../utils/helpers/getSupplierProducts";
 import { types } from "../types/types";
 import { logout } from "./auth";
 
@@ -38,13 +38,12 @@ export const startLoadingInfoSupplier = (token) => {
 export const startLoadingSupplierProducts = () => {
     return  async (dispatch  , getState ) => {
         const { token } = getState().auth;
-        const data = await getSupplierProducts(token);
-        const data_disabled = await getSupplierProductsDisabled(token);
-        //data es : 
-        // {
-                // total : 10,
-                // products : []
-        // }
+
+        const [ data , data_disabled] = await Promise.all([
+            getSupplierProducts(token),
+            getSupplierProductsDisabled(token)
+        ])
+
         dispatch(loadSupplierProducts(data) );
         dispatch(loadSupplierProductsDisabled(data_disabled) );
     }
@@ -56,6 +55,15 @@ export const startLoadingSupplierProductsPaginate = ( config ) => {
 
         // console.log('DATA EN ESTE LLAMADO ' , data);
         dispatch(loadSupplierProducts(data) );
+    }
+}
+export const startLoadingSupplierProductsDisabledPaginate = ( config ) => {
+    return  async (dispatch  , getState ) => {
+        const { token } = getState().auth;
+        const data = await getSupplierProductsDisabledPaginate(token , config );
+
+        // console.log('DATA EN ESTE LLAMADO ' , data);
+        dispatch(loadSupplierProductsDisabled(data) );
     }
 }
 

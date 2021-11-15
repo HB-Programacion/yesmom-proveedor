@@ -73,11 +73,21 @@ const Registro = () => {
                             ...infoPersona,
                             nombreTiendaUrl : getUrlName(infoPersona.nombreTienda)
                         }
-
+                        
+                        
                         // console.log('aaa',payload);
                         // infoPersona.nombreTiendaUrl = getUrlName(infoPersona.nombreTienda)
+                        
+                        Swal.fire({
+                            title : "Registrando datos...",
+                            text : "Espera un momento....",
+                            allowOutsideClick : false,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            }
+                        })
                         const response = await clienteAxiosBusiness.post('/supplier',payload);
-
+                        Swal.close();
                         // console.log(infoPersona);
                         const { data } = response;
                         console.log(data);
@@ -89,6 +99,8 @@ const Registro = () => {
                             reset_4();
                             Swal.fire('Solicitud enviada', 'La solicitud de proveedor ha sido enviada' , 'success');
                             // alert("Proveedor guardado satisfactoriamente")
+                        }else{
+                            Swal.fire('Campos incorrectos','Revisa que los campos esten correctamente completados','info')
                         }
                     }catch(e){
                         Swal.fire('Error', 'Hubo un error' , 'error');
@@ -105,6 +117,8 @@ const Registro = () => {
                 }
                 return selected;
             } );
+
+            window.scrollTo(0,0);
         }
     }
     

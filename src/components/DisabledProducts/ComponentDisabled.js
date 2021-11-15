@@ -1,31 +1,67 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { setActiveProduct, unsetActiveProduct } from '../../redux/actions/supplier';
 
-const ComponentDisabled = ( ) => {
+import CardProduct from '../Producto/CardProduct/CardProduct';
+
+import iconClose from '../../images/producto/icon-close.svg';
+
+const ComponentDisabled = () => {
+    
+
+    const dispatch = useDispatch();
+    const  { productsDisabled=[] , active  } = useSelector(state => state.supplierProducts);
+    const handleActiveProduct = ( idProduct ) => {
+        dispatch( setActiveProduct (idProduct) )
+    }
+  
+    // const getActive = ( idProduct ) => {
+    //   if(active.includes(idProduct)){
+    //     return true;
+    //   }else{
+    //     return false;
+    //   }
+      
+    // }
+  
+    // const handleRemoveProduct = ( idProduct ) => {
+    //   dispatch( unsetActiveProduct (idProduct) )
+    // }
+    
     return (
-        <div className="container-filter">
-            <div className="container-filter-activos">
-                <p
-                onClick= { () => setActiveFilter(0)}
-                className={`filter-product-active ${activeFilter === 0 ? 'active-filter-products' : ""}`}
-                >Activos</p> 
-                <p
-                onClick= { () => setActiveFilter(1)}
-                className={`filter-product-active ${activeFilter === 1 ? 'active-filter-products' : ""}`}
-                >No activos</p> 
-            </div>
-            <div className="active-products-filter">
-
-                <Checkbox content='Seleccionar todo' />
-                <div className="container-icon-delete">
-                <img 
-                    className={`icon-delete ${active.length==0 ? 'icon-delete-disabled' : ''}`}
-                    src={iconDelete} 
-                    alt=""
-                    onClick = { handleDeleteActive }  
-                />
+        <div>
+            {
+                productsDisabled.length === 0 ? 
+                <p className="empty-products"> No hay productos </p>
+                :
+                <div className="active-products-grid">
+                {productsDisabled.map((item, i) => (
+                    
+                    <div 
+                    className="active-products-item" 
+                    key={i} 
+                    // onClick= {!getActive(item.id) ? () => handleActiveProduct(item.id) : () =>{} }
+                    >
+                    {/* {
+                        getActive(item.id) && 
+                        <img 
+                        className="icon-close" 
+                        src={iconClose} 
+                        alt="icono eliminar" 
+                        onClick = { ()  => handleRemoveProduct(item.id) }
+                        />
+                    } */}
+                    <CardProduct 
+                        image={item?.image} 
+                        title={item?.title} 
+                        description={item?.description} 
+                        price={item?.price} 
+                        discount={item?.discount} 
+                    />
+                    </div>
+                ))}
                 </div>
-                <Input placeholder="Buscar..." />
-            </div>
+            }
         </div>
     )
 }

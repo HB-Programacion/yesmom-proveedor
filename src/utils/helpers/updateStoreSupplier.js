@@ -7,15 +7,14 @@ export const updateStoreSupplier = async ( { token ,images , nameStore , imagesI
 
     try{   
 
+        // console.log(nameStore);
+
         const { imgLogo , imgCover , imgBanners } = images;
         const formData = new FormData();
-
-        console.log(nameStore);
         //Name
         formData.append('nombreTienda', nameStore);
         formData.append('nombreTiendaUrl', getUrlName(nameStore));
 
-        
         if(imgLogo!==''){
             formData.append('logo',imgLogo);
         }
@@ -51,15 +50,10 @@ export const updateStoreSupplier = async ( { token ,images , nameStore , imagesI
             }
         }
 
+        console.log(JSON.stringify(arrayChanges));
         if(arrayChanges.length >0 ){
             formData.append('bannerJson',JSON.stringify(arrayChanges));
         }
-
-        // console.log(fileList.files);
-        
-        // // formData.append('banner',fileList.files);
-        // formData.append('banner[]', fileList.files);
-
 
         // for (var pair of formData.entries()) {
         //     console.log(pair[0]+ ', ' + pair[1]); 
@@ -80,7 +74,7 @@ export const updateStoreSupplier = async ( { token ,images , nameStore , imagesI
            return true;
         //    window.location.reload();
        }else{
-           window.location.reload();
+        //    window.location.reload();
            return false;
        }
 

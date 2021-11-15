@@ -69,7 +69,6 @@ export const getSupplierProductsPaginate = async ( token , {
 } ) => {
     try {
 
-        console.log(`DE ${skip} a ${limit}`)
         const { data }  = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/getproductspage?skip=${skip}&limit=6&state=${state}` , {
             headers : {
                 'access-token' : token
@@ -81,6 +80,39 @@ export const getSupplierProductsPaginate = async ( token , {
         
             return {
                 products : cleanData,
+                total : data.totalDeProductos,
+            };
+        }else{
+
+            return {
+                total : 0,
+                products : []
+            };
+        }
+
+    }catch(e){
+        console.log(e.message);
+        window.location.reload();
+        return [];
+    }
+}
+export const getSupplierProductsDisabledPaginate = async ( token , {
+    skip,
+    limit,
+    state = 'D'
+} ) => {
+    try {
+        const { data }  = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/getproductspage?skip=${skip}&limit=6&state=${state}` , {
+            headers : {
+                'access-token' : token
+            }
+        });
+        
+        if(data?.productosGeneral){
+            const cleanData = prepareDataProductSupplier( data.productosGeneral );
+        
+            return {
+                productsDisabled : cleanData,
                 total : data.totalDeProductos,
             };
         }else{

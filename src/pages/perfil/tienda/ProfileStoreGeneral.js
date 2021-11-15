@@ -133,8 +133,8 @@ const ProfileStoreGeneral = () => {
 
     const handleUpdateProfile = async () => {
 
-        const confirm = window.confirm('Guardar');
-        if(confirm){
+        const { isConfirmed } = await Swal.fire('Actualizar perfil','Actualizar perfil','info');
+        if(isConfirmed){
 
             setLoading(true);
             const flag = await updateStoreSupplier({
@@ -151,8 +151,8 @@ const ProfileStoreGeneral = () => {
                 
             }
 
-            // setLoading(false);
-            window.location.reload();
+            setLoading(false);
+            // window.location.reload();
         }
     }
 

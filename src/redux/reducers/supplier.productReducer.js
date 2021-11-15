@@ -6,6 +6,7 @@ import { types } from "../types/types";
 
 const initialState = {
     total : 0,
+    totalDisabled : 0,
     products : [],
     productsDisabled : [],
     active : [],
@@ -22,7 +23,7 @@ export const supplierProductReducer = ( state = initialState , action) => {
         case types.loadSupplierProductsDisabled:
             return {
                 ...state,
-                totalDisabled : action.payload.totalDisabled,
+                totalDisabled : action.payload.total,
                 productsDisabled : action.payload.productsDisabled,
             }
         case types.loadSupplierProductsPaginate:
