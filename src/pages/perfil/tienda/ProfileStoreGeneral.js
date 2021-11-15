@@ -152,7 +152,7 @@ const ProfileStoreGeneral = () => {
             }
 
             setLoading(false);
-            // window.location.reload();
+            window.location.reload();
         }
     }
 
