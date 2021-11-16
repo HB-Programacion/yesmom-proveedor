@@ -49,7 +49,7 @@ const Registro = () => {
     
 
     const handleSelection = async (data) => {
-        console.log(data);
+        // console.log(data);
 
         const newObj = {
             ...infoPersona,
