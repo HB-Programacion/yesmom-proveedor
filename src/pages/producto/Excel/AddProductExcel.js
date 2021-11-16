@@ -157,7 +157,7 @@ const AddProductExcel = () => {
                                 <div className="excel--container-boxes-option">
                                     <div className="excel--box-option">
                                         <div className="excel--flex-1">
-                                            <p>Archivo de productos</p>
+                                            <p>Subir productos</p>
                                         </div>
                                         
                                         <div>
@@ -181,7 +181,7 @@ const AddProductExcel = () => {
                                     </div>
                                     <div className="excel--box-option">
                                         <div className="excel--flex-1">
-                                            <p>Archivo de imágenes (.zip)</p>
+                                            <p>Subir imágenes (.zip)</p>
                                         </div>
                                         <div>
                                             <label htmlFor="input-zip-images">

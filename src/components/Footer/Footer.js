@@ -48,10 +48,10 @@ const Footer = () => {
                 </h6>
                 <div className="box-contenido-footer">
 
-                  <Link to="/">
+                  {/* <Link to="/">
                   <p>Términos y condiciones</p>
-                </Link>
-                  <Link to="/politicadeprivacidad">
+                </Link> */}
+                  <Link to="politica-de-privacidad">
                   <p>Política de privacidad</p>
                 </Link>
                   {/* <Link to="/">
@@ -66,9 +66,9 @@ const Footer = () => {
                   <b>CONTÁCTANOS</b>
                 </h6>
                 {/* <a href="info@yesmom.com.pe">info@yesmom.com.pe</a> */}
-                <p>mibebe@gmail.com</p>
+                <p>info@yesmom.com.pe</p>
                 <p>+51 947 234 452</p>
-                <p>123 Los Robles, Miraflores</p>
+                <p>123 Calle Roma 316, Miraflores</p>
               </div>
             </Col>
             <Col xs={12} sm={12} md={3} lg={3} xl={3}>

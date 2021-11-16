@@ -246,7 +246,7 @@ const ProfileStoreGeneral = () => {
                                             </div>
                                             <div className="profile-store-wrapper-tienda">
                                                 <div className="profile-flex-desktop">
-                                                    <h4 className="profile-flex-left registro-title op-8 mb-4">Adjuntar logo</h4>
+                                                    <h4 className="profile-flex-left registro-title op-8 mb-4">Adjuntar logo*</h4>
                                                     <div className="profile-flex-right">
                                                         <div className="wrapper-input profile-store-wrapper-input">
                                                             <label htmlFor="nameTienda">Debe tener como alto máximo 110 px, png o svg y peso máximo 1 MB.</label>
@@ -275,7 +275,7 @@ const ProfileStoreGeneral = () => {
                                                                     />
                                                                     <label htmlFor="imgLogo" className="label-image-profile-store">
                                                                         <ButtonFilled color="blue">
-                                                                            Cargar imagen
+                                                                            Cargar imagen*
                                                                         </ButtonFilled>
                                                                     </label>
                                                                 </div>
@@ -289,7 +289,7 @@ const ProfileStoreGeneral = () => {
 
                                             <div className="profile-store-wrapper-tienda mt-5">
                                                 <div className="profile-flex-desktop">
-                                                    <h4 className="profile-flex-left registro-title op-8 mb-4">Cover de portada</h4>
+                                                    <h4 className="profile-flex-left registro-title op-8 mb-4">Cover de portada*</h4>
                                                     <div className="profile-flex-right">
                                                         <div className="wrapper-input profile-store-wrapper-input">
                                                             <label htmlFor="nameTienda">Debe tener como medidas 1204x381 px y peso máximo 1 MB.</label>
@@ -318,7 +318,7 @@ const ProfileStoreGeneral = () => {
                                                                     />
                                                                     <label htmlFor="imgCover" className="label-image-profile-store">
                                                                         <ButtonFilled color="blue">
-                                                                            Cargar imagen
+                                                                            Cargar imagen*
                                                                         </ButtonFilled>
                                                                     </label>
                                                                 </div>
@@ -332,7 +332,7 @@ const ProfileStoreGeneral = () => {
 
                                             <div className="profile-flex-desktop">
                                                 <div className="profile-store-wrapper-tienda profile-flex-left mt-5">
-                                                    <h4 className="registro-title op-8 mb-4">Banners promocionales</h4>
+                                                    <h4 className="registro-title op-8 mb-4">Banners promocionales*</h4>
                                                 </div>
 
                                                 <div className="add--container-images w-100 profile-flex-right">

@@ -151,11 +151,17 @@ const Home = () => {
               >
                 <h4 className="home--star-text">
                   <div className="home--container-title-section">
-                    <img className="home--icon-start-1 heartbeat" src={blackStar} />
+                    <img
+                      className="home--icon-start-1 heartbeat"
+                      src={blackStar}
+                    />
                     <p className="home--title-section">
                       ¿Cómo vender en Yes mom?
                     </p>
-                    <img className="home--icon-start-2 heartbeat" src={blackStar} />
+                    <img
+                      className="home--icon-start-2 heartbeat"
+                      src={blackStar}
+                    />
                   </div>
                 </h4>
                 <div className="home--container-description">
@@ -300,9 +306,12 @@ const Home = () => {
                         <p className="home--end-text">
                           Tus datos serán tratados por Yes Mom para la gestión
                           de tu consulta.{" "}
-                          <span className="home--privacidad">
-                            Revisa nuestra política de privacidad.
-                          </span>
+                          <a href="/politica-de-privacidad">
+                            {" "}
+                            <span className="home--privacidad">
+                              Revisa nuestra política de privacidad.
+                            </span>
+                          </a>
                         </p>
                       </div>
                     </Col>
