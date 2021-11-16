@@ -9,9 +9,6 @@ const urlRegExp = /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA
 
 //Custom validation
 
-const validateStore = async ( )=> {
-
-}
 
 yup.addMethod(yup.string, "verifyName", function (errorMessage) {
     return this.test(`test-available-name`, errorMessage, async function (value) {

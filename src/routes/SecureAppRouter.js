@@ -1,4 +1,4 @@
-import React, { useState , useEffect, Suspense } from "react";
+import React, { useEffect, Suspense } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -7,14 +7,12 @@ import {
 } from "react-router-dom";
 
 import { useDispatch, useSelector } from 'react-redux';
-import { bothRoutes, protectedRoutes, publicRoutes } from "./routes";
-import { login, logout, startLogin, validateLoginSupplier } from '../redux/actions/auth'
+import { bothRoutes, publicRoutes } from "./routes";
+import { validateLoginSupplier } from '../redux/actions/auth'
 
 import PublicRoute from "./PublicRoutes/PublicRoute";
 import PrivateRoute from "./ProtectedRoutes/PrivateRoute";
 import ProtectedRoutes from "./ProtectedRoutes/ProtectedRoutes";
-import Home from "../pages/Home/Home";
-import { validateToken } from "../utils/helpers/validateToken";
 import Loading from "../components/Loading/Loading";
 
 export const SecureAppRouter = () => {

@@ -19,8 +19,8 @@ const ResumenVenta = () => {
                 <div className="resumen-venta-contenido">
                     <div className="resumen-venta-all-content">
                         <div className="resumen-venta-banner">
-                            <img className="img-banner resumen-venta-hide-desktop" src={bannerMobile} />
-                            <img className="img-banner resumen-venta-show-desktop" src={bannerDesktop} />
+                            <img className="img-banner resumen-venta-hide-desktop" src={bannerMobile} alt="banner-mobile" />
+                            <img className="img-banner resumen-venta-show-desktop" src={bannerDesktop} alt="banner-desktop"/>
                             <div className="resumen-venta-container-title">
                                 <img className="onda-blanca heartbeat" src={ondaBlanca} alt="ondas-blanca" />
                                 <p>Resumen de venta</p>

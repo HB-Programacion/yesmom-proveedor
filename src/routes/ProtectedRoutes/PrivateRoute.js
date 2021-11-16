@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types';
 import { Redirect, Route } from 'react-router-dom'
 
 const PrivateRoute = ({

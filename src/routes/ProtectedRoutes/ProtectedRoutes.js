@@ -1,6 +1,6 @@
 import React from 'react'
 import Switch from 'react-bootstrap/esm/Switch'
-import { Redirect, Route } from 'react-router'
+import { Route } from 'react-router'
 import { protectedRoutes } from '../routes'
 
 const ProtectedRoutes = (history) => {
