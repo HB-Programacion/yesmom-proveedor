@@ -1,38 +1,57 @@
 /* For pdf */
 .react-pdf__Page {
-    top: 8rem;
-  }
+  top: 8rem;
+}
+.react-pdf__Page__textContent {
+  border: 1px solid rgba(169, 169, 169, 0.219);
+  box-shadow: 5px 5px 5px 1px #ccc;
+  border-radius: 5px;
+}
+
+.react-pdf__Page__annotations.annotationLayer {
+  padding: 20px;
+}
+
+.react-pdf__Page__canvas {
+  margin: 0 auto;
+}
+
+/* For all pages */
+.all-page-container {
+  height: 100%;
+  max-height: 800px;
+  overflow: auto;
+}
+@media (max-width: 768px) {
   .react-pdf__Page__textContent {
-    border: 1px solid rgba(169, 169, 169, 0.219);
-    box-shadow: 5px 5px 5px 1px #ccc;
-    border-radius: 5px;
+    border: none;
+    box-shadow: none;
+    border-radius: 0px;
   }
-  
-  .react-pdf__Page__annotations.annotationLayer {
-    padding: 20px;
-  }
-  
   .react-pdf__Page__canvas {
     margin: 0 auto;
+    width: 100% !important;
+    height: auto !important;
   }
-  
-  /* For all pages */
-  .all-page-container {
-    height: 100%;
-    max-height: 800px;
-    overflow: auto;
-  }
-  @media (max-width : 768px){
-    .react-pdf__Page__textContent {
-      border: none;
-      box-shadow: none;
-      border-radius: 0px;
-    }
-    .react-pdf__Page__canvas {
-      margin: 0 auto;
-      width: 100%!important;
-      height: auto!important;
-    }
-    
-    
+}
+
+.container-politicas {
+  position: relative;
+  top: 15rem;
+  text-align: justify;
+  margin-bottom: 20rem;
+}
+.container-politicas h3 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.container-politicas span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.container-politicas p, .container-politicas li {
+  font-size: 1.2rem;
 }

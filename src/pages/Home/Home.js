@@ -236,7 +236,7 @@ const Home = () => {
                           <div className="home--container-sociales">
                             <div className="home--item-sociales">
                               <img src={arroba} />
-                              <p>mibebe@gmail.com</p>
+                              <p>info@yesmom.com.pe</p>
                             </div>
                             <div className="home--item-sociales">
                               <img src={telefono} />
@@ -244,7 +244,7 @@ const Home = () => {
                             </div>
                             <div className="home--item-sociales">
                               <img src={pin} />
-                              <p>123 Los Robles , Miraflores</p>
+                              <p>Calle Roma 316, Miraflores</p>
                             </div>
                           </div>
                         </div>
