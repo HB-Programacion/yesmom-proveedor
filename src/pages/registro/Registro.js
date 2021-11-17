@@ -49,7 +49,7 @@ const Registro = () => {
     
 
     const handleSelection = async (data) => {
-        console.log(data);
+        // console.log(data);
 
         const newObj = {
             ...infoPersona,
@@ -77,7 +77,7 @@ const Registro = () => {
                             nombreTiendaUrl : getUrlName(infoPersona.nombreTienda)
                         }
                         
-                        console.log(payload);
+                        // console.log(payload);
                         
                         // console.log('aaa',payload);
                         // infoPersona.nombreTiendaUrl = getUrlName(infoPersona.nombreTienda)
