@@ -15,9 +15,9 @@ const ShowProduct = lazy(() =>
 const ActiveProducts = lazy(() =>
   import("../pages/producto/ActiveProducts/ActiveProducts")
 );
-// const SeeProducts = lazy(() =>
-//   import("../pages/producto/VisualizateProducts/SeeProducts")
-// );
+const SeeProducts = lazy(() =>
+  import("../pages/producto/VisualizateProducts/SeeProducts")
+);
 const Resumen = lazy(() => import("../pages/ordenes/resumen/Resumen"));
 const ResumenVenta = lazy(() => import("../pages/ventas/ResumenVenta"));
 const Profile = lazy(() => import("../pages/store/profile/Profile"));
