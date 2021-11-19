@@ -4,7 +4,6 @@ import './CardProduct.css'
 
 const CardProduct = ({ image, title, description, price, discount }) => {
 
-  console.log(discount);
   return (
     <div className="card-product-container">
       <div className="card-product-content-image">

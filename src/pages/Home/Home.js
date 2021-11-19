@@ -121,7 +121,7 @@ const Home = () => {
                   <div className="home--container-buttons">
                     <div>
                       <Link
-                        to={logged ? "/p/resumen-venta" : "/iniciar-sesion"}
+                        to={logged ? "/p/informacion-perfil/registro" : "/iniciar-sesion"}
                       >
                         <ButtonFilled color="yellow">
                           Iniciar sesión
