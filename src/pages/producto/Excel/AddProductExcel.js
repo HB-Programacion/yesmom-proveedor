@@ -19,6 +19,8 @@ import "./AddProductExcel.css";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
+import { saveAs } from "file-saver";
+
 
 const AddProductExcel = () => {
   const initialState = {
@@ -132,6 +134,9 @@ const AddProductExcel = () => {
     }
   };
 
+  const saveFile = () => {
+    saveAs("https://d37eaoa53g7y5g.cloudfront.net/yesmom/formats/excelProductos_format.xlsx", "formato-excel.xlsx");
+  };
   return (
     <div className="animated fade-in">
       <AppLayout>
@@ -181,11 +186,11 @@ const AddProductExcel = () => {
                     <div className="excel--flex-1 download">
                       <img clas src={download} alt="formato" />
                     </div>
-                      <div className="excel--only-button">
-                        <ButtonFilled color="outline-blue">
-                          Descarga el formato
-                        </ButtonFilled>
-                      </div>{" "}
+                    <div className="excel--only-button" onClick={saveFile}>
+                      <ButtonFilled color="outline-blue">
+                        Descarga el formato
+                      </ButtonFilled>
+                    </div>{" "}
                   </div>
                 </div>
 
