@@ -52,7 +52,7 @@ const RegistroStep3 = ({register , errors}) => {
                     <div className="registro-box-input mt-0">
                         <label htmlFor="dniRucTitular">DNI o RUC del titular de la cuenta*:</label>
                         <input 
-                        maxLength="11"
+                            maxLength="11"
                             type="text" 
                             id="dniRucTitular" 
                             name="dniRucTitular"
