@@ -25,7 +25,7 @@ export const getSupplierProducts = async ( token ) => {
 
     }catch(e){
         console.log(e.message);
-        window.location.reload();
+        // window.location.reload();
         return [];
     }
 }
@@ -138,7 +138,7 @@ export const prepareDataProductSupplier = ( data ) => {
         title : product.nombre,
         description: product.descripcion,
         price : product.precio,
-        discount : product.precio-product.precioPromocional,
+        discount : !!product.precioPromocional ? product.precio-product.precioPromocional : 0 ,
         sku : product.sku,
         precioPromocional : product.precioPromocional,
         accesorios : product.accesorios,
