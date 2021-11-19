@@ -294,7 +294,6 @@ const Home = () => {
                             </div>
                           </form>
                         </div>
-
                         <div className="home--container-send">
                           <ButtonFilled
                             color="yellow"

@@ -57,7 +57,7 @@ const Registro = () => {
         }
       })
 
-      const { data } = await clienteAxiosBusiness.post('/supplier/update' , values , {
+      const { data } = await clienteAxiosBusiness.patch('/supplier' , values , {
         headers : {
           'access-token' : token
         }
