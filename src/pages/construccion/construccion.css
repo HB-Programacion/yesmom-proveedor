@@ -1,0 +1,20 @@
+.box-construccion{
+    background-color: #FEBF41;
+    width: auto;
+    height: 100vh;
+}
+
+.box-construccion img{
+   width: 100%;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+}
+
+
+@media(max-width:768px) {
+    .box-construccion img{
+        width: 160%;
+     }
+}

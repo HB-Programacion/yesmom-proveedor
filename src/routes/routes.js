@@ -1,7 +1,9 @@
 import { lazy } from "react";
+import Construccion from "../pages/construccion/Construccion";
 import Politicas from "../pages/politicasdeprivacidad/Politicas";
 //Views
-const Home = lazy(() => import("../pages/Home/Home"));
+// const Home = lazy(() => import("../pages/Home/Home"));
+const Home = lazy(() => import("../pages/construccion/Construccion"));
 const Registro = lazy(() => import("../pages/registro/Registro"));
 // const AddProduct = lazy(() =>
 //   import("../pages/producto/AddProduct/AddProduct")
@@ -49,7 +51,7 @@ const ComponentNotFound = lazy(() => import("../pages/404"));
 export const bothRoutes = [
   {
     path: "/",
-    component: Home,
+    component: Construccion,
   },
   {
     path: "/login",
