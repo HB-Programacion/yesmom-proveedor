@@ -17,4 +17,8 @@
     .box-construccion img{
         width: 160%;
      }
+     .box-construccion{
+        overflow: hidden;
+        position: relative;
+    }
 }
