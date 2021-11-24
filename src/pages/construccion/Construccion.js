@@ -1,14 +1,14 @@
-import React from 'react'
-import construccion from "../../images/construccion/construcion.svg"
+import React from "react";
+import construccion from "../../images/construccion/construcion.svg";
 
-import "./construccion.css"
+import "./construccion.css";
 
 const Construccion = () => {
-    return (
-        <div className="box-construccion">
-            <img src={construccion}/>
-        </div>
-    )
-}
+  return (
+    <div className=" animated fade-in box-construccion">
+      <img src={construccion} />
+    </div>
+  );
+};
 
-export default Construccion
+export default Construccion;
