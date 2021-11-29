@@ -206,12 +206,12 @@ const Registro = () => {
                                             errors = { formState_3.errors }
                                         />
                                     }
-                                    {selected === 3 && 
+                                    {/* {selected === 3 && 
                                         <RegistroStep4 
                                             register ={ register_4 }
                                             errors = { formState_4.errors }
                                         />
-                                    }
+                                    } */}
 
                                     <div className="registro-hide-desktop">
                                         <ButtonFilled 

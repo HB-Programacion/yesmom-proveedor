@@ -10,7 +10,7 @@ function TitlePerfil({name , email}) {
         <div className="info-perfil-title">
             ¡Hola! <br/>
             {nombreTienda}<br/>
-            <span>{correoElectronico}</span>
+            {/* <span>{correoElectronico}</span> */}
         </div>
     )
 }

@@ -149,7 +149,7 @@ const Registro = () => {
                       errors = { errors }
                     />
                   </div>
-                  <div className="registro-container-form info-container-form mt-5 mb-2">
+                  {/* <div className="registro-container-form info-container-form mt-5 mb-2">
                     <div className="info-icon-editar">
                       <img src={iconEditar} />
                     </div>
@@ -157,7 +157,7 @@ const Registro = () => {
                       register= { register}
                       errors = { errors }
                     />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

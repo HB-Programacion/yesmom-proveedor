@@ -42,12 +42,12 @@ function Stepper({selected,setSelected}) {
             >
                 3
             </div>
-            <div
+            {/* <div
                 className={`stepper-item ${selected===3 && "stepper-active-step"}`}
                 onClick={()=> handleSelected(3)}
             >
                 4
-            </div>
+            </div> */}
         </div>
     )
 }
