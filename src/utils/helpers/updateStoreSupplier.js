@@ -84,3 +84,63 @@ export const updateStoreSupplier = async ( { token ,images , nameStore , imagesI
         return false;
     }
 }
+
+
+export const saveNewStoreSupplier = async ( { images , infoAlmacen , nameStore} ) => {
+    try{
+        const formData = new FormData();
+
+        Object.keys(infoAlmacen).forEach(( val , i)=>{
+            formData.append(val,infoAlmacen[val])
+        })
+
+        const { imgLogo , imgCover , imgBanners } = images;
+        
+        //Name
+        formData.append('nombreTienda', nameStore);
+        formData.append('nombreTiendaUrl', getUrlName(nameStore));
+
+
+        if(imgLogo!==''){
+            formData.append('logo',imgLogo);
+        }
+        if(imgCover!==''){
+            formData.append('portada',imgCover);
+        }
+
+        if(imgBanners.imgBanner_1 !==''){
+            formData.append('banner',imgBanners.imgBanner_1);
+        }
+        if(imgBanners.imgBanner_2 !==''){
+            formData.append('banner',imgBanners.imgBanner_2);
+        }
+        if(imgBanners.imgBanner_3 !==''){
+            formData.append('banner',imgBanners.imgBanner_3);
+        }
+         for (var pair of formData.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]); 
+        }
+
+        const { data } = await axios.post(`http://localhost:3700/store`, formData ,{
+            headers : {
+                'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnRpdHlJZCI6IjYxOTY4N2M3NzlkYzk3NzY4YTYwYzIwMSIsImlhdCI6MTYzODQ2NTI4NSwiZXhwIjoxNjM4NDY2NzI1fQ.jtOAbh9ak2cIkB666i9xdho_r0ZgkdYZTRXJ9COoY9c',
+                'Content-Type':'multipart/form-data'
+            }
+        })
+        
+
+        console.log(data);
+
+       if(data?.response?.ok){
+           return true;
+        //    window.location.reload();
+       }else{
+        //    window.location.reload();
+           return false;
+       }
+
+    }catch( error ){
+        console.log(error);
+        return false; 
+    }
+}

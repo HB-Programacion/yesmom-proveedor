@@ -3,7 +3,11 @@ import axios from "axios";
 
 export const verifyStoreName = async ( storeName='' , token) => {
     try{
-        // console.log(storeName);
+        storeName = storeName.trim();
+
+        if(storeName.length === 0){
+            return false;
+        }
         const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/verifystorename?storeName=${storeName}`,{
             headers : {
                 'access-token' : token

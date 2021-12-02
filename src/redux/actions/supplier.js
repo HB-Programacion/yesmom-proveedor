@@ -18,8 +18,12 @@ export const startLoadingInfoSupplier = (token) => {
             })
 
             if(data?.response?.ok){
-                const { response : { item } } = data;
-                dispatch( loadingDataSupplier(item));
+                const { response : { item  , existeTienda} } = data;
+                const addData = { 
+                    ...item,
+                    existeTienda
+                }
+                dispatch( loadingDataSupplier(addData));
             }else{
                 dispatch(logout());
                 dispatch( cleanDataSupplier());

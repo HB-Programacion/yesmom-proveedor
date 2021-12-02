@@ -1,0 +1,86 @@
+import { Suspense, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { 
+    BrowserRouter , 
+    Routes , 
+    Route
+} from "react-router-dom"
+
+import Loading from "../components/Loading/Loading";
+import { validateLoginSupplier } from "../redux/actions/auth";
+
+import { 
+    ComponentNotFound,
+    Home, 
+    Login, 
+    RecoverPassword, 
+    Registro, 
+    ResetPassword 
+} from "./Components";
+
+
+import PublicRoute from "./PublicRoute";
+import PrivateRoute from "./PrivateRoute";
+import AuthRoutes from "./AuthRoutes";
+
+
+const AppRouter = () => {
+
+    const dispatch = useDispatch();
+
+    const { 
+        logged = (
+            localStorage.getItem('TokenYesmonProveedor') ? true : false
+        )
+    } = useSelector(state => state.auth);
+
+    useEffect(()=>{
+        const token = localStorage.getItem('TokenYesmonProveedor');
+        if(token){//Existe token autenticado
+            dispatch( validateLoginSupplier(token))
+        }
+    },[dispatch])
+
+
+    return (
+        <BrowserRouter>
+            <Suspense fallback={<Loading />}>
+                <Routes>
+                    {/* Rutas sin auth */}
+                    <Route path="/iniciar-sesion" element={
+                        <PublicRoute logged={ logged }>
+                            <Login />
+                        </PublicRoute>
+                    } />
+                    <Route path="/registro" element={
+                        <PublicRoute logged={ logged }>
+                            <Registro />
+                        </PublicRoute>
+                    } />
+                    <Route path="/recuperar-password" element={
+                        <PublicRoute logged={ logged }>
+                            <RecoverPassword />
+                        </PublicRoute>
+                    } />
+                    <Route path="/restablecer-password" element={
+                        <PublicRoute logged={ logged }>
+                            <ResetPassword />
+                        </PublicRoute>
+                    } />
+
+
+                    <Route path="/*" element = {
+                        <PrivateRoute logged={ logged }>
+                            <AuthRoutes />
+                        </PrivateRoute>
+                    } />
+
+                    <Route path="/" element={ <Home /> } />
+                    <Route path="/404" element={ <ComponentNotFound /> } />
+                </Routes>
+            </Suspense>
+        </BrowserRouter>
+    )
+}
+
+export default AppRouter

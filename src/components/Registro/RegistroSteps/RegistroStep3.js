@@ -63,11 +63,11 @@ const RegistroStep3 = ({register , errors}) => {
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col md={6}>
                     <div className="registro-box-input mt-0 mb-0 mq-mb-0">
                         <label htmlFor="cciCuenta">Código de cuenta interbancario (CCI)*:</label>
                         <input 
-                        maxLength="20"
+                            maxLength="20"
                             type="text" 
                             id="cciCuenta" 
                             name="cciCuenta"

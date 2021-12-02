@@ -1,11 +1,11 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import back from '../../images/perfil/back.svg';
 const BackComponent = () => {
 
-    const history = useHistory();
+    const navigate = useNavigate();
     const handleReturn = () => {
-        history.goBack();
+        navigate(-1);
     }
     return (
         <div onClick= { handleReturn }>

@@ -39,14 +39,14 @@ const RegistroStep1 = ({register , errors , showPassword , edited}) => {
                     </Col>
                     <Col md={6}>
                         <div className="registro-box-input mt-0">
-                            <label htmlFor="nombreTienda">Nombre de la tienda*:</label>
+                            <label htmlFor="nombreTienda">Nombre de la empresa*:</label>
                             <input 
                                 type="text" 
-                                id="nombreTienda" 
-                                name="nombreTienda" 
-                                {...register('nombreTienda')}
+                                id="nombreEmpresa" 
+                                name="nombreEmpresa" 
+                                {...register('nombreEmpresa')}
                             />
-                            <p className="error-input">{errors?.nombreTienda?.message}</p>
+                            <p className="error-input">{errors?.nombreEmpresa?.message}</p>
                         </div>
                     </Col>
                 </Row>

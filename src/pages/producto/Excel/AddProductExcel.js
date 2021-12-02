@@ -20,6 +20,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
 import { saveAs } from "file-saver";
+import StepperNewStore from "../../../components/PerfilTienda/StepperNewStore";
 
 
 const AddProductExcel = () => {
@@ -142,7 +143,7 @@ const AddProductExcel = () => {
       <AppLayout>
         <div className="excel--box-main-proveedor">
           <div className="excel--contenedor-centered">
-            <div className="excel--container-banner">
+            {/* <div className="excel--container-banner">
               <img className="img-banner excel--mobile" src={bannerMobile} />
               <img className="img-banner excel--desktop" src={bannerDesktop} />
               <div className="excel--venta-container-title">
@@ -157,6 +158,14 @@ const AddProductExcel = () => {
                   src={ondaBlanca}
                   alt="ondas-blanca"
                 />
+              </div>
+            </div> */}
+
+            <div className="container-stepper-excel">
+              <p className="title-rosa">Mi Tienda</p>
+
+              <div className="excel-container-stepper">
+                  <StepperNewStore selected={1}/>
               </div>
             </div>
             <div className="excel--all-content">
@@ -250,7 +259,7 @@ const AddProductExcel = () => {
                 </div>
                 <div className="excel--container-save">
                   <ButtonFilled color="pink" fxClick={handleUploadProducts}>
-                    Guardar
+                    Subir y guardar archivo
                   </ButtonFilled>
                 </div>
               </div>

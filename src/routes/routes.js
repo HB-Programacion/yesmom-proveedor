@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import Construccion from "../pages/construccion/Construccion";
 import Politicas from "../pages/politicasdeprivacidad/Politicas";
+
 //Views
 // const Home = lazy(() => import("../pages/Home/Home"));
 const Home = lazy(() => import("../pages/Home/Home"));
@@ -22,7 +23,7 @@ const SeeProducts = lazy(() =>
 );
 const Resumen = lazy(() => import("../pages/ordenes/resumen/Resumen"));
 const ResumenVenta = lazy(() => import("../pages/ventas/ResumenVenta"));
-const Profile = lazy(() => import("../pages/store/profile/Profile"));
+// const Profile = lazy(() => import("../pages/store/profile/Profile"));
 const Login = lazy(() => import("../pages/login/Login"));
 const RecoverPassword = lazy(() => import("../pages/login/RecoverPassword"));
 const ResetPassword = lazy(() => import("../pages/login/ResetPassword"));
@@ -47,6 +48,10 @@ const SignIn = lazy(() => import("../pages/auth/SignIn"));
 
 const ComponentNotFound = lazy(() => import("../pages/404"));
 
+
+const NewStore = lazy (() => import("../pages/store/profile/NewStore"))
+const LoadProducts = lazy(()=>import("../pages/store/profile/LoadProducts"));
+
 //Rutas que se muestran autenticado o no
 export const bothRoutes = [
   {
@@ -65,6 +70,15 @@ export const bothRoutes = [
   {
     path: "/politica-de-privacidad",
     component: Politicas,
+  },
+  //TODO:
+  {
+    path :"/new-store",
+    component : NewStore
+  },
+  {
+    path: "/load-products-store",
+    component: AddProductExcel,
   },
 ];
 
@@ -86,6 +100,7 @@ export const publicRoutes = [
     path: "/restablecer-password",
     component: ResetPassword,
   },
+
 ];
 
 //Rutas que se muestran si estas autenticado
@@ -94,14 +109,11 @@ export const protectedRoutes = [
     path: "/p/resumen-venta",
     component: ResumenVenta,
   },
-  {
-    path: "/p/perfil-tienda",
-    component: Profile,
-  },
-  {
-    path: "/p/product-excel",
-    component: AddProductExcel,
-  },
+  // {
+  //   path: "/p/perfil-tienda",
+  //   component: Profile,
+  // },
+  
   /* { path: "/p/add-new-product", component: AddProduct }, */
   {
     path: "/p/show-product",

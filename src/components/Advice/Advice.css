@@ -1,0 +1,28 @@
+/* 
+    TODO: agregar mas
+    POR AHORA :
+    - BLUE
+*/
+.bg-advice-blue{
+    color: #556EA1;
+}
+
+.text-advice-blue{
+    color: #556EA1;
+}
+
+.container_advice{
+    border : 2px solid #556EA1;
+    border-radius : 24px;
+    padding : 1rem;
+
+    margin : 0 auto;
+}
+
+.container_advice-text{
+    margin : 0;
+    text-align : center;
+    font-family : "mont-semibold";
+    color: #556EA1;
+    font-size : 1.8rem;
+}

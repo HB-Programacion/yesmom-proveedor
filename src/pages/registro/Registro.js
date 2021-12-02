@@ -11,7 +11,7 @@ import Stepper from '../../components/Registro/Stepper';
 import RegistroStep1 from '../../components/Registro/RegistroSteps/RegistroStep1';
 import RegistroStep2 from '../../components/Registro/RegistroSteps/RegistroStep2';
 import RegistroStep3 from '../../components/Registro/RegistroSteps/RegistroStep3';
-import RegistroStep4 from '../../components/Registro/RegistroSteps/RegistroStep4';
+
 import './Registro.css';
 
 import { useForm } from "react-hook-form";
@@ -21,9 +21,8 @@ import {
     schemaValidator, 
     schemaValidatorStep2,
     schemaValidatorStep3,
-    schemaValidatorStep4,
 } from '../../utils/validateRegistro/ValidationSchemas';
-import { getUrlName } from '../../utils/helpers/getUlrName';
+
 
 const Registro = () => {
 
@@ -39,10 +38,6 @@ const Registro = () => {
     const { register: register_3 , handleSubmit : handleSubmit_3 , formState: formState_3 , reset : reset_3} = useForm({
         resolver : yupResolver(schemaValidatorStep3)
     });
-    //Cuarto form
-    const { register: register_4 , handleSubmit : handleSubmit_4 , formState: formState_4 , reset : reset_4 } = useForm({
-        resolver : yupResolver(schemaValidatorStep4)
-    });
 
     const [ infoPersona , setInfoPersona] = useState({});
     const [selected,setSelected]= useState(0);
@@ -51,19 +46,18 @@ const Registro = () => {
     const handleSelection = async (data) => {
         // console.log(data);
 
-        const newObj = {
+        const payload = {
             ...infoPersona,
             ...data
         }
-        setInfoPersona(newObj);
+        setInfoPersona(payload);
         //Si es el ultimo paso enviar el form
-        if(selected === 3){
+        if(selected === 2){
             //Asegurarse que no hay errores
             if( 
                 Object.keys(errors).length === 0 &&
                 Object.keys(formState_2.errors).length === 0 &&
-                Object.keys(formState_3.errors).length === 0 &&
-                Object.keys(formState_4.errors).length === 0 
+                Object.keys(formState_3.errors).length === 0
             ){
                 const { isConfirmed } = await submitForm();
                 if(isConfirmed){
@@ -72,10 +66,6 @@ const Registro = () => {
 
                     try{
                         // console.log('holaaaaa',infoPersona);
-                        const payload = {
-                            ...newObj,
-                            nombreTiendaUrl : getUrlName(infoPersona.nombreTienda)
-                        }
                         
                         // console.log(payload);
                         
@@ -94,13 +84,14 @@ const Registro = () => {
                         Swal.close();
                         // console.log(infoPersona);
                         const { data } = response;
-                        console.log(data);
+                        // console.log(data);
 
                         if(data?.response?.ok){
                             reset();
                             reset_2();
                             reset_3();
-                            reset_4();
+
+                            setSelected(0);
                             Swal.fire('Solicitud enviada', 'La solicitud de proveedor ha sido enviada' , 'success');
                             // alert("Proveedor guardado satisfactoriamente")
                         }else{
@@ -116,7 +107,7 @@ const Registro = () => {
             }
         }else{
             setSelected( selected => {
-                if(selected!==3){
+                if(selected!==2){
                     return selected+1;
                 }
                 return selected;
@@ -219,8 +210,7 @@ const Registro = () => {
                                             fxClick={
                                                 selected === 0 && handleSubmit(handleSelection)   ||   
                                                 selected === 1 && handleSubmit_2(handleSelection)   ||
-                                                selected === 2 && handleSubmit_3(handleSelection)   ||
-                                                selected === 3 && handleSubmit_4(handleSelection)   
+                                                selected === 2 && handleSubmit_3(handleSelection) 
                                             }
                                         >
                                             Continuar
@@ -235,8 +225,7 @@ const Registro = () => {
                                     fxClick={
                                         (selected === 0 && handleSubmit(handleSelection) )  ||   
                                         (selected === 1 && handleSubmit_2(handleSelection))   ||
-                                        (selected === 2 && handleSubmit_3(handleSelection))   ||
-                                        (selected === 3 && handleSubmit_4(handleSelection))   
+                                        (selected === 2 && handleSubmit_3(handleSelection)) 
                                     }
                                 >
                                     Continuar
