@@ -28,6 +28,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useSelector } from "react-redux";
 
+
 const schemaValidator = yup.object().shape({
   fullname: yup
     .string()
@@ -88,6 +89,7 @@ const Home = () => {
     // alert("Enviando datos" + JSON.stringify(values));
   };
   return (
+
     <div className="animated fade-in">
       <AppLayout>
         <div className="home--box-main-proveedor ">

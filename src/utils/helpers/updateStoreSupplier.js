@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 import { getUrlName } from "./getUlrName";
 
 
@@ -88,6 +89,15 @@ export const updateStoreSupplier = async ( { token ,images , nameStore , imagesI
 
 export const saveNewStoreSupplier = async ( { images , infoAlmacen , nameStore} ) => {
     try{
+
+        Swal.fire({
+            title : "Registrando tienda...",
+            text : "Espera un momento....",
+            allowOutsideClick : false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        })
         const formData = new FormData();
 
         Object.keys(infoAlmacen).forEach(( val , i)=>{
@@ -117,30 +127,38 @@ export const saveNewStoreSupplier = async ( { images , infoAlmacen , nameStore} 
         if(imgBanners.imgBanner_3 !==''){
             formData.append('banner',imgBanners.imgBanner_3);
         }
-         for (var pair of formData.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]); 
-        }
+        //  for (var pair of formData.entries()) {
+        //     console.log(pair[0]+ ', ' + pair[1]); 
+        // }
 
-        const { data } = await axios.post(`http://localhost:3700/store`, formData ,{
+        const token = localStorage.getItem('TokenYesmonProveedor');
+        const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/store`, formData ,{
             headers : {
-                'access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnRpdHlJZCI6IjYxOTY4N2M3NzlkYzk3NzY4YTYwYzIwMSIsImlhdCI6MTYzODQ2NTI4NSwiZXhwIjoxNjM4NDY2NzI1fQ.jtOAbh9ak2cIkB666i9xdho_r0ZgkdYZTRXJ9COoY9c',
+                'access-token' : token,
                 'Content-Type':'multipart/form-data'
             }
         })
+
+        Swal.close();
         
 
         console.log(data);
+    
+       if(data?.CodigoRespuesta === '12'){
+           return window.location.reload();
+       }
 
        if(data?.response?.ok){
-           return true;
+           return { ok : true , response : data.response}
         //    window.location.reload();
        }else{
         //    window.location.reload();
-           return false;
+        return { ok : false }
        }
 
     }catch( error ){
+        Swal.close();
         console.log(error);
-        return false; 
+        return { ok : false }
     }
 }

@@ -18,9 +18,10 @@ import CircleImage from "../../../components/CircleImage/CircleImage";
 import "./AddProductExcel.css";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { saveAs } from "file-saver";
 import StepperNewStore from "../../../components/PerfilTienda/StepperNewStore";
+import { loadProducts } from "../../../redux/actions/store";
 
 
 const AddProductExcel = () => {
@@ -28,8 +29,10 @@ const AddProductExcel = () => {
     fileProducts: "",
     fileImages: "",
   };
+  const dispatch = useDispatch();
   const [files, setFiles] = useState(initialState);
   const { token } = useSelector((state) => state.auth);
+  const { idActiveStore } = useSelector( state => state.store);
 
   const steps = [
     {
@@ -73,71 +76,21 @@ const AddProductExcel = () => {
 
       formData.append("fileImages", fileImages);
       formData.append("fileProducts", fileProducts);
+      //TODO: antes de entrar a esta vista debe estar seteado el idActiveStore
+      formData.append('storeId', idActiveStore);
 
-      try {
-        Swal.fire({
-          title: "Subiendo productos...",
-          text: "Espera un momento....",
-          allowOutsideClick: false,
-          didOpen: () => {
-            Swal.showLoading();
-          },
-        });
+      dispatch(loadProducts(formData));
 
-        const { data } = await axios({
-          method: "POST",
-          headers: {
-            "access-token": token,
-          },
-          url: `${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/excelproducts`,
-          data: formData,
-          timeout: 1000 * 60 * 1, //Minutos
-        });
-
-        Swal.close();
-        //Exitoso
-        console.log(data);
-
-        //Token invalido
-        if (data?.CodigoRespuesta === "12") {
-          setFiles(initialState);
-          window.location.reload();
-        }
-
-        if (data?.response?.subida) {
-          setFiles(initialState);
-          return Swal.fire(
-            "Productos subidos exitosamente",
-            "Revisa tus productos en tu perfil",
-            "success"
-          );
-        } else {
-          return Swal.fire(
-            "Revisa los archivos",
-            "Archivo(s) con mal formato",
-            "error"
-          );
-        }
-      } catch (e) {
-        Swal.close();
-        Swal.fire(
-          "Formato incorrecto",
-          "Revisa el formato de ambos archivos",
-          "info"
-        );
-      }
     } else {
-      Swal.fire(
-        "Campos Obligatorios",
-        "Asegurate que los archivos esten correctamente cargados",
-        "info"
-      );
+      Swal.fire("Campos Obligatorios","Asegurate que los archivos esten correctamente cargados","info");
     }
   };
 
   const saveFile = () => {
     saveAs("https://d37eaoa53g7y5g.cloudfront.net/yesmom/formats/excelProductos_format.xlsx", "formato-excel.xlsx");
   };
+
+
   return (
     <div className="animated fade-in">
       <AppLayout>

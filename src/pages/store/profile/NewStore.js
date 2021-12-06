@@ -1,6 +1,7 @@
 import './NewStore.css'
 import Swal from 'sweetalert2';
 import React, { useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -22,12 +23,15 @@ import { saveNewStoreSupplier } from '../../../utils/helpers/updateStoreSupplier
 
 import { getPrevieWImage } from '../../../utils/helpers/getPreviewImage';
 import Advice from '../../../components/Advice/Advice';
+import { useDispatch } from 'react-redux';
+import { setActiveStore } from '../../../redux/actions/store';
 
 const MAX_MB = 2000000;
 
 const NewStore = () => {
 
-
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     //Cuarto form
     const { register, handleSubmit , formState , reset  } = useForm({
         resolver : yupResolver(schemaValidatorStep4)
@@ -142,18 +146,32 @@ const NewStore = () => {
     }
 
     const handleNewStore = async ( values ) => {
-        console.log('Values form');
-        console.log(values);
+        // console.log('Values form');
+        // console.log(values);
 
-        console.log(images);
+        const { imgLogo , imgCover } = images;
+        if(!imgLogo || !imgCover){
+            return Swal.fire('Campos incompletos' ,'Asegurate de llenar todos los campos obligatorios','info');
+        }
 
         
 
-        const flag = await saveNewStoreSupplier({
+        const { ok , response = {}} = await saveNewStoreSupplier({
             infoAlmacen : values , 
             images ,
             nameStore
         } );
+
+        if(ok){
+            Swal.fire('Registrado correctamente','Tu tienda ha sido registrada correctamente','success');
+
+            dispatch(setActiveStore(response.id));
+            setTimeout(()=>{
+                navigate('/p/store/load-products')
+            },1500)
+        }else{
+            Swal.fire('Error','Hubo un error', 'error');
+        }
     }
 
     return (
