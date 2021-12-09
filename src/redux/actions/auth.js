@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import clienteAxiosAuth from "../../config/axiosAuth";
 import { validateToken } from "../../utils/helpers/validateToken";
 import { types } from "../types/types"
+import { loadStores } from "./store";
 import { cleanDataSupplier, startLoadingInfoSupplier , startLoadingSupplierProducts } from "./supplier";
 
 
@@ -12,15 +13,12 @@ export const startAuth = ( access ) => {
     return async ( dispatch) => { //getState
 
         try{
-        
+            dispatch( startChecking());
             const { data }  = await clienteAxiosAuth.post('/autenticar/supplier?email=1',access);
-    
+            dispatch( finishChecking());
+            
             if(data?.token){
-                // alert('Logeado');
-                dispatch( validateLoginSupplier(data.token));
-                // dispatch ( login(data.token));
-                // dispatch( startLoadingInfoSupplier(data.token))
-                //TODO : Cuando se lee de localstorage tmb debe llamar los datos!!!
+                dispatch( startLogin(data.token));
             }else{
                 Swal.fire('Inicio de sesión fallida', 'No existe usuario con esos accesos' , 'error');
                 // alert('Revisa tus accesos');
@@ -28,6 +26,7 @@ export const startAuth = ( access ) => {
             
 
         }catch(e){
+            dispatch( finishChecking());
             console.log(e);
         }
 
@@ -40,8 +39,9 @@ export const validateLoginSupplier = ( token ) => {
     return async (dispatch) => {
         try {
 
+            dispatch( startChecking());
             const flagValidated = await validateToken(token);
-            
+            dispatch( finishChecking());
             if(flagValidated){
                 // alert('Bienvenido de nuevo')
                 dispatch( startLogin (token));
@@ -49,11 +49,10 @@ export const validateLoginSupplier = ( token ) => {
             }else{
                 dispatch(logout());
                 dispatch( cleanDataSupplier());
-                // Swal.fire('Sesión terminada', 'Inicia sesión de nuevo' , 'info');
-                // alert('Inicia sesión de nuevo')
             }
             
         }catch(e){
+            dispatch( finishChecking());
             console.log(e);
         }
     }
@@ -63,11 +62,19 @@ export const validateLoginSupplier = ( token ) => {
 export const startLogin = ( token) =>{
     return (dispatch) => {
         dispatch( login( token ));
-        dispatch( startLoadingInfoSupplier(token))
-        dispatch ( startLoadingSupplierProducts());
+        dispatch( loadStores())
+        // dispatch( startLoadingInfoSupplier(token))
+        // dispatch ( startLoadingSupplierProducts());
     }
 }
 
+export const startChecking = () => ({
+    type : types.authStartChecking
+})
+
+export const finishChecking = () => ({
+    type : types.authFinishChecking
+})
 
 export const logout = () => ({
     type : types.authLogout

@@ -2,8 +2,14 @@
 
 //Definir tipos de acctiones
 export const types = {
+    //ui 
+    uiStartLoading : "[UI] start loading",
+    uiFinishLoading : "[UI] finish loading",
+
     //Auth
     authLogin : "[AUTH] login",
+    authStartChecking : "[AUTH] start checking",
+    authFinishChecking : "[AUTH] finish checking",
     authLogout : "[AUTH] logout",
     
     //Supplier
@@ -23,5 +29,7 @@ export const types = {
     unsetActiveAllProducts : "[PRODUCT] remove active all products",
     deleteProduct : "[PRODUCT] delete product",
 
-    setActiveStore  : "[STORE] set active"
+    setActiveStore  : "[STORE] set active",
+    setInfoActiveStore : "[STORE] set info active store",
+    setStores : "[STORE] set stores",
 }

@@ -7,6 +7,7 @@ import {
 import thunk from 'redux-thunk';
 
 import { authReducer } from "../reducers/authReducer";
+import { uiReducer } from "../reducers/uiReducer";
 import { storeReducer } from "../reducers/storeReducer";
 import { supplierImageReducer } from "../reducers/supplier.imageReducer";
 import { supplierProductReducer } from "../reducers/supplier.productReducer";
@@ -21,6 +22,7 @@ const composeEnhancers = (process.env.NODE_ENV !== 'production' && typeof window
 
 const reducers = combineReducers({
     auth : authReducer,
+    ui : uiReducer,
     supplier : supplierReducer,
     supplierProducts : supplierProductReducer,
     supplierImages : supplierImageReducer,

@@ -7,7 +7,7 @@ import {
 } from "react-router-dom"
 
 import Loading from "../components/Loading/Loading";
-import { validateLoginSupplier } from "../redux/actions/auth";
+import { finishChecking, validateLoginSupplier } from "../redux/actions/auth";
 
 import { 
     ComponentNotFound,
@@ -27,7 +27,7 @@ import AuthRoutes from "./AuthRoutes";
 const AppRouter = () => {
 
     const dispatch = useDispatch();
-
+    const { checking } = useSelector( state => state.auth); 
     const { 
         logged = (
             localStorage.getItem('TokenYesmonProveedor') ? true : false
@@ -35,13 +35,15 @@ const AppRouter = () => {
     } = useSelector(state => state.auth);
 
     useEffect(()=>{
-        const token = localStorage.getItem('TokenYesmonProveedor');
+        const token = localStorage.getItem('TokenYesmonProveedor') || null;
         if(token){//Existe token autenticado
             dispatch( validateLoginSupplier(token))
+        }else{
+            dispatch(finishChecking())
         }
     },[dispatch])
 
-
+    if ( checking ) return <Loading />
     return (
         <BrowserRouter>
             <Suspense fallback={<Loading />}>

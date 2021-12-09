@@ -8,6 +8,9 @@ const AppLayout = ({ children }) => {
     return (
         <div>
             <Header logged={true}/>
+            <div>
+                Hola
+            </div>
             {children}
             <Footer />
         </div>

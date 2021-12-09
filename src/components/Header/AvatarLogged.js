@@ -1,15 +1,18 @@
-import { DropdownButton , Dropdown } from 'react-bootstrap';
 import React from 'react'
-
-import './AvatarLogged.css';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { DropdownButton , Dropdown } from 'react-bootstrap';
+
 import { logout } from '../../redux/actions/auth';
 import { cleanDataSupplier } from '../../redux/actions/supplier';
+import Loading from '../Loading/Loading';
 
-function AvatarLogged({ name }) {
+import './AvatarLogged.css';
+const AvatarLogged = () => {
     
     const dispatch = useDispatch();
+    const { nombreTienda="TiendaDefault" } = useSelector(state => state.supplier);
+
     const getShortName = ( name ) => {
         
         const namesSeparated = name.toUpperCase().trim().split(" ");
@@ -23,15 +26,18 @@ function AvatarLogged({ name }) {
         });
         return initials;
     }
-    const shortName = getShortName(name);
+    const shortName = getShortName(nombreTienda);
 
 
     const handleLogout = () => {
         dispatch ( logout());
         dispatch ( cleanDataSupplier());
     }
+
+
     return (
         <>
+            {/* <Loading /> */}
             <div className="avatar__logged">
                 <p className="avatar__logged-text">{ shortName }</p>
             </div> 
@@ -40,7 +46,7 @@ function AvatarLogged({ name }) {
                     /* as={ButtonGroup} */
                     id={`dropdown-variants-info`}
                     variant={"info"}
-                    title={`${name}`}
+                    title={`${nombreTienda}`}
                 >
                     <div className="items-dropdown-menu">
                         <Link to="/p/product-excel">

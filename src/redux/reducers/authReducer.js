@@ -3,7 +3,13 @@
 
 import { types } from "../types/types";
 
-export const authReducer = ( state = { } , action) => {
+const initialState = {
+    logged : false,
+    token : null,
+    checking : true
+}
+
+export const authReducer = ( state = initialState , action) => {
 
     switch (action.type) {
         case types.authLogin:
@@ -12,11 +18,23 @@ export const authReducer = ( state = { } , action) => {
             return {
                 ...state,
                 logged: true,
-                token : action.payload
+                token : action.payload,
+                checking : false
+            }
+        case types.authStartChecking : 
+            return {
+                ...state,
+                checking : true
+            }
+        case types.authFinishChecking : 
+            return {
+                ...state,
+                checking : false
             }
         case types.authLogout:
             localStorage.removeItem('TokenYesmonProveedor');
             return {
+                ...state,
                 logged:false
             }
     
