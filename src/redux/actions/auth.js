@@ -15,7 +15,6 @@ export const startAuth = ( access ) => {
         try{
             dispatch( startChecking());
             const { data }  = await clienteAxiosAuth.post('/autenticar/supplier?email=1',access);
-            dispatch( finishChecking());
             
             if(data?.token){
                 dispatch( startLogin(data.token));
@@ -23,6 +22,7 @@ export const startAuth = ( access ) => {
                 Swal.fire('Inicio de sesión fallida', 'No existe usuario con esos accesos' , 'error');
                 // alert('Revisa tus accesos');
             }
+            dispatch( finishChecking());
             
 
         }catch(e){
@@ -41,15 +41,15 @@ export const validateLoginSupplier = ( token ) => {
 
             dispatch( startChecking());
             const flagValidated = await validateToken(token);
-            dispatch( finishChecking());
             if(flagValidated){
                 // alert('Bienvenido de nuevo')
                 dispatch( startLogin (token));
-
+                
             }else{
                 dispatch(logout());
                 dispatch( cleanDataSupplier());
             }
+            dispatch( finishChecking());
             
         }catch(e){
             dispatch( finishChecking());

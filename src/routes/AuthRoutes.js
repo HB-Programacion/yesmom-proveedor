@@ -6,7 +6,8 @@ import {
     NewStore  , 
     ResumenVenta , 
     InfoPerfilRegistro,
-    AddProductExcel
+    AddProductExcel,
+    ProfileStoreGeneral
 } from './Components'
 
 import RestrictedRoute from './RestrictedRoute';
@@ -19,7 +20,8 @@ const AuthRoutes = () => {
             <div>
                 <Routes>
                     <Route path="/p/store/new" element={ <NewStore /> } />
-                    <Route path="/p/store/load-products" element={ <AddProductExcel /> } />
+                    <Route path="/p/store/load-products" element={ <AddProductExcel /> } /> 
+
                     <Route path="/p/info/registro" element={ 
                         <RestrictedRoute>
                             <InfoPerfilRegistro />

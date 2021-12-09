@@ -20,6 +20,11 @@ export const storeReducer = ( state = initialState , action ) => {
                 ...state,
                 idActiveStore : action.payload
             }
+        case types.setInfoActiveStore :
+            return {
+                ...state,
+                store : action.payload
+            }
     
         default: return state;
     }

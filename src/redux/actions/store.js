@@ -1,6 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 import { types } from "../types/types"
+import { finishLoading, startLoading } from "./ui";
 
 
 
@@ -56,9 +57,9 @@ export const loadStores = () => {
 
       if(data?.stores){
         dispatch( setStores(data.stores));
-        if(data.stores.length> 0){
-          dispatch(startInfoActiveStore(data.stores[0]._id))
-        }
+        // if(data.stores.length> 0){
+        //   dispatch(startInfoActiveStore(data.stores[0]._id))
+        // }
       }
     }catch(err){
       console.log(err);
@@ -69,6 +70,9 @@ export const loadStores = () => {
 export const startInfoActiveStore = (id) => {
   return async(dispatch, getState) => {
     try{
+      //Iniciar
+      dispatch(startLoading());
+
       const { token } = getState().auth;
       const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/store?id=${id}` , {
         headers : {
@@ -76,9 +80,14 @@ export const startInfoActiveStore = (id) => {
         }
       })
 
-      console.log(data);
+      if(data?.store){
+        dispatch(setInfoActiveStore(data.store))
+      }
+
+      dispatch(finishLoading());
       
     }catch(err){
+      dispatch(finishLoading());
       console.log(err);
     }
   }

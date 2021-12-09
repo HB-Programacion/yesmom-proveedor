@@ -1,7 +1,7 @@
 
 
 .contenedor-new_store{
-    padding-top: 10rem;
+    padding-top: 14rem;
     padding-bottom: 8rem;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
@@ -14,14 +14,6 @@
     justify-content: center;
 }
 
-
-.new_store-container-contenido{
-
-}
-
-.new_store-all-content{
-
-}
 
 .new_store-container-button {
     margin : 3rem 1rem;

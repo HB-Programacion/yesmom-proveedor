@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './NavMenu.css';
+import StoreSelect from './StoreSelect/StoreSelect';
 
 const NavMenu = () => {
 
@@ -12,13 +13,11 @@ const NavMenu = () => {
         <div className="container_nav-menu">
             <div className="nav_menu-actions">
                 <div>
-                    Tienda
+                    <StoreSelect />
                 </div>
-                <a className="nav_menu-actions-link">
-                    <Link to="/p/store/new">
-                        +Crear tienda
-                    </Link>
-                </a>
+                <Link to="/p/store/new" className="nav_menu-actions-link">
+                    +Crear tienda
+                </Link>
             </div>
         </div>
     )

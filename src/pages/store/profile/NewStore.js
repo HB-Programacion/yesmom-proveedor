@@ -1,6 +1,6 @@
 import './NewStore.css'
 import Swal from 'sweetalert2';
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,11 +10,8 @@ import AppLayout from '../../../components/AppLayout/AppLayout'
 import StepperNewStore from '../../../components/PerfilTienda/StepperNewStore';
 import RegistroStep4 from '../../../components/Registro/RegistroSteps/RegistroStep4';
 
-
-
 import { schemaValidatorStep4 } from '../../../utils/validateRegistro/ValidationSchemas';
 import PerfilTiendaData from '../../../components/PerfilTienda/PerfilTiendaData';
-import StoreInfo from '../../../components/Perfil/Store/StoreInfo';
 import ButtonFilled from '../../../components/Button/ButtonFilled';
 
 import { verifyStoreName } from '../../../utils/helpers/verifyStoreName';
@@ -23,8 +20,9 @@ import { saveNewStoreSupplier } from '../../../utils/helpers/updateStoreSupplier
 
 import { getPrevieWImage } from '../../../utils/helpers/getPreviewImage';
 import Advice from '../../../components/Advice/Advice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setActiveStore } from '../../../redux/actions/store';
+
 
 const MAX_MB = 2000000;
 
@@ -32,6 +30,7 @@ const NewStore = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     //Cuarto form
     const { register, handleSubmit , formState , reset  } = useForm({
         resolver : yupResolver(schemaValidatorStep4)
@@ -174,6 +173,7 @@ const NewStore = () => {
         }
     }
 
+    
     return (
         <AppLayout>
             <div className="contenedor-new_store animated fade-in">

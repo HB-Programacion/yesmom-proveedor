@@ -1,0 +1,46 @@
+.store_select-container{
+    position : relative;
+}
+
+.store_select-container-select{
+    display : flex;
+    align-items: center;
+    cursor : pointer;
+    padding : 0 1rem;
+
+}
+
+.store_options-container{
+    margin-top : 0.5rem;
+    position: absolute;
+    display: flex;
+    flex-direction:  column;
+
+    background-color: #FFFFFF;
+    border : 2px solid #556EA1;
+    border-radius : 10px;
+    padding : 1rem;
+}
+
+.store_option-container{
+    cursor: pointer;
+}
+.store_option , .store_select-text{
+    margin : 0.2rem 0;
+    color : #575756;
+    font-family: mont-regular;
+    font-size : 1.3rem;
+    transition : 0.3s ease-in-out;
+}
+.store_select-text{
+    min-width : 10rem;
+    margin-right : 1rem;
+}
+.store_select-image{
+    margin-top : -0.28rem;
+}
+.store_option-container:hover .store_option{
+    font-family: mont-semibold;
+    color : #333333;
+}
+

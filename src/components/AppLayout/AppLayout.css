@@ -369,6 +369,10 @@ input[type="file"] {
     font-size: 1.3rem;
     color: #575650;
 }
+.container-back-component{
+    display: flex;
+    justify-content : flex-start;
+}
 .return{
     height: 2rem;
     display: flex;
@@ -399,7 +403,7 @@ input[type="file"] {
 
 /**INFO PERFIL **/
 .contenedor-info-perfil-registro{
-    padding: 10.5rem 2.5rem;
+    padding: 13rem 2.5rem;
 }
 
 .info-container-content .registro-title{
@@ -547,6 +551,9 @@ input[type="file"] {
 
 }
 @media (min-width : 768px){
+    .contenedor-info-perfil-registro{
+        padding-top: 14rem;
+    }
     .hide-desktop{
         display: none;
     }
@@ -730,7 +737,7 @@ input[type="file"] {
         width:47.5rem;
     }
     .contenedor-info-perfil-registro{
-        padding-top:12rem;
+        padding-top:15rem;
     }
     .text-description-title{
         font-size:2.8rem!important;

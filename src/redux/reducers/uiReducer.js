@@ -1,7 +1,7 @@
 import { types } from "../types/types";
 
 const initialState = {
-    loading : false
+    loading : true
 }
 
 export const uiReducer = ( state = initialState , action ) => {
