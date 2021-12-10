@@ -19,6 +19,9 @@ const StoreInfo = ( {
     handleImageBanners,
     handleChangeNameUrl,
 }) => {
+
+
+    
     return (
         <>
            <div className="registro-container-form info-container-form pt-6 mt-5 mb-2">

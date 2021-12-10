@@ -6,9 +6,7 @@ import StoreSelect from './StoreSelect/StoreSelect';
 
 const NavMenu = () => {
 
-    useEffect(()=>{
-        console.log('se montó')
-    },[])
+
     return (
         <div className="container_nav-menu">
             <div className="nav_menu-actions">

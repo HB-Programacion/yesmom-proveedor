@@ -1,6 +1,3 @@
-.store_select-container{
-    position : relative;
-}
 
 .store_select-container-select{
     display : flex;
@@ -12,26 +9,29 @@
 
 .store_options-container{
     margin-top : 0.5rem;
-    position: absolute;
     display: flex;
     flex-direction:  column;
 
-    background-color: #FFFFFF;
-    border : 2px solid #556EA1;
-    border-radius : 10px;
+    background: #FEBF41;
+    border: 2px solid #FEBF41;
+    border-radius: 10px;
     padding : 1rem;
 }
 
 .store_option-container{
     cursor: pointer;
 }
-.store_option , .store_select-text{
-    margin : 0.2rem 0;
-    color : #575756;
-    font-family: mont-regular;
-    font-size : 1.3rem;
-    transition : 0.3s ease-in-out;
+.store_option{
+    cursor : pointer;
+    width: 100%;
+    display: inline-block;
+    color:#FFFFFF;
+    margin:0;
+    font-family: "mont-heavy";
+    font-size:1.3rem;
+    margin : 0.25rem 0;
 }
+
 .store_select-text{
     min-width : 10rem;
     margin-right : 1rem;
@@ -44,3 +44,11 @@
     color : #333333;
 }
 
+.store_select-container .dropdown-toggle.btn.btn-info{
+    font-size : 1.3rem!important;
+    color: #575756;
+    border : none;
+    background-color: transparent!important;
+    min-width : 10rem;
+    padding : 0 2rem;
+}

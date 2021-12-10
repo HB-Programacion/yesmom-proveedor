@@ -7,7 +7,6 @@ import {
     ResumenVenta , 
     InfoPerfilRegistro,
     AddProductExcel,
-    ProfileStoreGeneral
 } from './Components'
 
 import RestrictedRoute from './RestrictedRoute';

@@ -8,7 +8,7 @@ export const verifyStoreName = async ( storeName='' , token) => {
         if(storeName.length === 0){
             return false;
         }
-        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/verifystorename?storeName=${storeName}`,{
+        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/store/verifyname?storeName=${storeName}`,{
             headers : {
                 'access-token' : token
             }
