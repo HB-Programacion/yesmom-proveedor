@@ -21,6 +21,8 @@ import ComponentDisabled from '../../../components/DisabledProducts/ComponentDis
 import PaginateActive from '../../../components/Pagination/PaginateActive'
 import PaginateDisabled from '../../../components/Pagination/PaginateDisabled'
 import Swal from 'sweetalert2'
+import { startLoadingProductsStore } from '../../../redux/actions/store'
+import { Link } from 'react-router-dom'
 const productsMock = [
   { title: 'baby clothes', description: 'Numero 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac', image: 'https://i.pinimg.com/originals/86/7b/90/867b9004d298622723781c4fd7e25d50.jpg', price: 60.50, discount: 10.20 },
   { title: 'baby clothes', description: 'Numero 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac', image: 'https://i.pinimg.com/originals/86/7b/90/867b9004d298622723781c4fd7e25d50.jpg', price: 40.50, discount: 5.20 },
@@ -45,26 +47,14 @@ const itemsPerPage = 6;
 const ActiveProducts = () => {
 
   const dispatch = useDispatch();
-  const  { logged=false } = useSelector(state => state.auth);
-  const  { products=[] , productsDisabled= [] , active , total } = useSelector(state => state.supplierProducts);
-  const [ loading , setLoading ] = useState(true);
+  const { idActiveStore } = useSelector(state => state.store);
+  const { loading } = useSelector(state => state.ui);
+  const  { productsActiveStore } = useSelector(state => state.store);
+
+  const { total, products = [ ] , active } = productsActiveStore;
 
   const [ activeFilter , setActiveFilter ] = useState(0);
 
-
-  const loadSupplierProducts = async () => {
-
-    if( logged ){
-      // setLoading(true);
-
-      await dispatch ( startLoadingSupplierProducts());
-      // const data = await getSupplierProducts();
-
-      // dispatch( loadSupplierProducts()),
-      // setSupplierProducts(data);
-      setLoading(false);
-    }
-  }
 
 
   const handleDeleteActive = async () => {
@@ -77,22 +67,19 @@ const ActiveProducts = () => {
       }
   }
 
-  useEffect(() => {
-    loadSupplierProducts();
 
-    return () => setLoading(false);
-  },[])
+  useEffect(()=>{
 
-
-
-  if(loading){
-    return <Loading />
-  }
+    if(idActiveStore){
+      dispatch(startLoadingProductsStore({}));
+    }
+  },[idActiveStore])
 
   // console.log(products);
   return (
     <AppLayout>
-      {/* <Menu /> */}
+
+      {loading && <Loading />}
       <div className="contenedor-info-perfil-registro animated fade-in">
         <div className="info-perfil-contenido">
             <div className="info-all-content">
@@ -127,17 +114,23 @@ const ActiveProducts = () => {
                                 >No activos</p> 
                             </div>
                             <div className="active-products-filter">
-      
-                              <Checkbox content='Seleccionar todo' />
-                              <div className="container-icon-delete">
-                                <img 
-                                  className={`icon-delete ${active.length==0 ? 'icon-delete-disabled' : ''}`}
-                                  src={iconDelete} 
-                                  alt="icon-delete"
-                                  onClick = { handleDeleteActive }  
-                                />
+                              <div className='active-products-filter-contenedor'>
+                                <Link to="/p/store/load-products">
+                                  +Cargar productos
+                                </Link>
                               </div>
-                              <Input placeholder="Buscar..." />
+                              <div className='container-delete-products'>
+                                <Checkbox content='Seleccionar todo' />
+                                <div className="container-icon-delete">
+                                  <img 
+                                    className={`icon-delete ${active.length==0 ? 'icon-delete-disabled' : ''}`}
+                                    src={iconDelete} 
+                                    alt="icon-delete"
+                                    onClick = { handleDeleteActive }  
+                                  />
+                                </div>
+                                <Input placeholder="Buscar..." />
+                              </div>
                             </div>
                           </div>
                         </>
@@ -146,38 +139,7 @@ const ActiveProducts = () => {
                       { activeFilter === 0 && <ComponentActive />   }
                       { activeFilter === 1 && <ComponentDisabled />   }
                       
-                    {/* {
-                      products.length === 0 ? 
-                      <p className="empty-products"> No hay productos </p>
-                      :
-                      <div className="active-products-grid">
-                        {products.map((item, i) => (
-                          
-                          <div 
-                            className="active-products-item" 
-                            key={i} 
-                            onClick= {!getActive(item.id) ? () => handleActiveProduct(item.id) : () =>{} }
-                          >
-                            {
-                              getActive(item.id) && 
-                              <img 
-                                className="icon-close" 
-                                src={iconClose} 
-                                alt="icono eliminar" 
-                                onClick = { ()  => handleRemoveProduct(item.id) }
-                              />
-                            }
-                            <CardProduct 
-                              image={item?.image} 
-                              title={item?.title} 
-                              description={item?.description} 
-                              price={item?.price} 
-                              discount={item?.discount} 
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    } */}
+                    
                   </div>
                 </div>
               </div>

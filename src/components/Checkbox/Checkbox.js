@@ -8,7 +8,7 @@ const Checkbox = ({ content }) => {
 
   const dispatch = useDispatch();
 
-  const  { products=[] , active  } = useSelector (state => state.supplierProducts);
+  // const  { products=[] , active  } = useSelector (state => state.supplierProducts);
   const [ checked , setChecked ] = useState(false);
 
   const handleCheck = () => {

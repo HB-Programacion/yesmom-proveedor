@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setActiveProduct, unsetActiveProduct } from '../../redux/actions/supplier';
 
@@ -10,7 +11,8 @@ const ComponentDisabled = () => {
     
 
     const dispatch = useDispatch();
-    const  { productsDisabled=[] , active  } = useSelector(state => state.supplierProducts);
+    const  { productsActiveStore } = useSelector(state => state.store);
+    const  { productsDisabled=[] , disabled  } = productsActiveStore;
     const handleActiveProduct = ( idProduct ) => {
         dispatch( setActiveProduct (idProduct) )
     }
@@ -32,7 +34,14 @@ const ComponentDisabled = () => {
         <div>
             {
                 productsDisabled.length === 0 ? 
-                <p className="empty-products"> No hay productos </p>
+                <>
+                    <p className="empty-products"> No hay productos </p>
+                    <div className='active-products-filter-contenedor'>
+                        <Link to="/p/store/load-products">
+                            +Cargar productos
+                        </Link>
+                    </div>
+                </>
                 :
                 <div className="active-products-grid">
                 {productsDisabled.map((item, i) => (

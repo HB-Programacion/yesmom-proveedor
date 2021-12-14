@@ -164,6 +164,7 @@ const NewStore = () => {
         if(ok){
             Swal.fire('Registrado correctamente','Tu tienda ha sido registrada correctamente','success');
 
+            console.log(response.id);
             dispatch(setActiveStore(response.id));
             setTimeout(()=>{
                 navigate('/p/store/load-products')

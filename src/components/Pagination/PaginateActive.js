@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { useDispatch, useSelector } from 'react-redux';
-import { startLoadingSupplierProductsPaginate } from '../../redux/actions/supplier';
+
+
+import { startLoadingProductsStore } from '../../redux/actions/store';
+
 
 const itemsPerPage = 6;
 const PaginateActive = () => {
 
 
     const dispatch = useDispatch();
-    const  { total } = useSelector(state => state.supplierProducts);
+    const  { productsActiveStore } = useSelector(state => state.store);
+    const { total } = productsActiveStore;
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
 
@@ -27,9 +31,9 @@ const PaginateActive = () => {
     }, [ total ])
 
     useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage;
-    dispatch( startLoadingSupplierProductsPaginate( { skip : itemOffset, limit : endOffset }));
-    setPageCount(Math.ceil(total / itemsPerPage));
+        const endOffset = itemOffset + itemsPerPage;
+        dispatch( startLoadingProductsStore( { skip : itemOffset, limit : endOffset, state : 'A' }));
+        setPageCount(Math.ceil(total / itemsPerPage));
     }, [itemOffset, itemsPerPage]);
 
     

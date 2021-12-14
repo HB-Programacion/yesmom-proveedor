@@ -133,7 +133,7 @@ const Header = () => {
               </div>
             </div>
           </nav>
-          <NavMenu />
+          { logged && <NavMenu />}
         </div>
         <DropMenuMobile
           active={active}

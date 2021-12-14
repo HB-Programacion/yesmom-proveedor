@@ -7,14 +7,15 @@ import { cleanDataSupplier } from '../../../redux/actions/supplier';
 import './Sidebar.css';
 
 const pushLinks=[
-    { name : "Registro" , to : "/p/informacion-perfil/registro" },
-    { name : "Productos" , to : "/p/informacion-perfil/productos-activos"},
+    { name : "Registro" , to : "/p/info/registro" },
+    { name : "Productos" , to : "/p/info/productos"},
     // { name : "Cambiar contraseña" , to : "/p/informacion-perfil/cambiar-password" },
-    { name : "Perfil de tienda" , to : "/p/informacion-perfil/perfil-tienda" },
+    // { name : "Perfil de tienda" , to : "/p/informacion-perfil/perfil-tienda" },
     // { name : "Términos y condiciones" , to : "/p/informacion-perfil/terminos" },
-    { name : "Desactivar cuenta" , to : "/p/informacion-perfil/desactivar-cuenta" },
+    { name : "Eliminar tienda" , to :"/p/info/eliminar-tienda"},
+    // { name : "Desactivar cuenta" , to : "/p/info/desactivar-cuenta" },
 ]
-function Sidebar() {
+const Sidebar = () => {
 
     const {pathname} = useLocation();
     const dispatch = useDispatch();

@@ -7,7 +7,6 @@ export const Home = lazy(() => import("../pages/Home/Home"));
 export const Registro = lazy(() => import("../pages/registro/Registro"));
 export const AddProductExcel = lazy(() => import("../pages/producto/Excel/AddProductExcel"));
 export const ShowProduct = lazy(() =>import("../pages/producto/ShowProducts/ShowProduct"));
-export const ActiveProducts = lazy(() => import("../pages/producto/ActiveProducts/ActiveProducts"));
 export const SeeProducts = lazy(() => import("../pages/producto/VisualizateProducts/SeeProducts"));
 export const Resumen = lazy(() => import("../pages/ordenes/resumen/Resumen"));
 export const ResumenVenta = lazy(() => import("../pages/ventas/ResumenVenta"));
@@ -22,3 +21,5 @@ export const Previsualizacion = lazy(() => import("../pages/perfil/previsualizac
 export const ComponentNotFound = lazy(() => import("../pages/404"));
 export const NewStore = lazy (() => import("../pages/store/profile/NewStore"))
 export const LoadProducts = lazy(()=>import("../pages/store/profile/LoadProducts"));
+export const ActiveProducts = lazy(() => import("../pages/producto/ActiveProducts/ActiveProducts"));
+export const EliminarTienda = lazy(() => import("../pages/perfil/eliminar-tienda/EliminarTienda"));

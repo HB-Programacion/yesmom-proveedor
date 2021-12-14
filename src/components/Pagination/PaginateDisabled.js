@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { useDispatch, useSelector } from 'react-redux';
+import { startLoadingProductsStore } from '../../redux/actions/store';
 import { startLoadingSupplierProductsDisabledPaginate } from '../../redux/actions/supplier';
 
 const itemsPerPage = 6;
@@ -9,7 +10,8 @@ const PaginateDisabled = () => {
 
 
   const dispatch = useDispatch();
-  const  { totalDisabled } = useSelector(state => state.supplierProducts);
+  const  { productsActiveStore } = useSelector(state => state.store);
+  const { totalDisabled } = productsActiveStore;
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
 
@@ -29,7 +31,7 @@ const PaginateDisabled = () => {
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
-    dispatch( startLoadingSupplierProductsDisabledPaginate( { skip : itemOffset, limit : endOffset }));
+    dispatch( startLoadingProductsStore( { skip : itemOffset, limit : endOffset , state : 'D' }));
     setPageCount(Math.ceil(totalDisabled / itemsPerPage));
   }, [itemOffset, itemsPerPage]);
 

@@ -24,13 +24,20 @@
   position: absolute;
   width: 28px;
 }
+.active-products-filter-contenedor a{
+    font-family: 'mont-regular';
+    color: #556EA1!important;
+    text-decoration: underline!important;
+    font-size: 1.4rem;
+}
 
 .active-products-filter{
   display: flex;
-  align-items: center;
-  max-width: 346px;
-  margin-left: auto;
-  margin-bottom: 16px;
+  flex-direction: column;
+}
+
+.container-delete-products{
+  display: flex;
 }
 
 .container-icon-delete{
@@ -184,9 +191,9 @@
 
   .active-products-filter{
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    width: 480px;
-    margin-left: auto;
     margin-bottom: 40px;
     margin-top: 42px;
   }
@@ -226,14 +233,14 @@
     cursor:pointer;
   }
 
-  .active-products-filter{
+  /* .active-products-filter{
     display: flex;
     align-items: center;
     width: 550px;
     margin-left: auto;
     margin-bottom: 40px;
     margin-top: 42px;
-  }
+  } */
   .icon-delete{
     margin: 7px 25px 7px 19px;
   }

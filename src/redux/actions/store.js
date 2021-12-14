@@ -1,5 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import { prepareDataProductSupplier } from "../../utils/helpers/getSupplierProducts";
 import { types } from "../types/types"
 import { finishLoading, startLoading } from "./ui";
 
@@ -93,6 +94,48 @@ export const startInfoActiveStore = (id) => {
   }
 }
 
+//products
+
+export const startLoadingProductsStore = ( { skip = 0 , limit = 6 , state='A'}) => {
+  return async (dispatch , getState) =>{
+    try{
+
+      dispatch(startLoading());
+      const { idActiveStore } = getState().store;
+      const { token } = getState().auth;
+      const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/store/products`,{
+        params : {
+          id : idActiveStore,
+          state,
+          skip,
+          limit : 6,
+        },
+        headers :{
+          'access-token' : token
+        }
+      })
+
+      if(data?.productosGeneral){
+        const cleanData = prepareDataProductSupplier(data.productosGeneral);
+        dispatch(setProductsByStore({
+          total : data.totalDeProductos,
+          products : cleanData
+        }))
+      }else{
+        dispatch(setProductsByStore({
+          total : 0,
+          products : []
+        }))
+      }
+      
+      dispatch(finishLoading());
+
+    }catch(err){
+      console.log(err);
+    }
+  }
+}
+
 export const setStores = (payload) => ({
   type : types.setStores,
   payload
@@ -104,4 +147,24 @@ export const setInfoActiveStore = (payload) => ({
 export const setActiveStore = (payload) => ({
     type : types.setActiveStore,
     payload
+})
+
+//products
+export const setProductsByStore = ( payload ) => ({
+  type : types.setProductsByStore,
+  payload
+})
+
+export const setActiveProduct = (payload) => ({
+  type : types.setActiveProduct,
+  payload
+})
+
+export const unsetActiveProduct = (payload) => ({
+  type : types.unsetActiveProduct,
+  payload
+})
+
+export const unsetActiveAllProducts = () => ({
+  type : types.unsetActiveAllProducts,
 })

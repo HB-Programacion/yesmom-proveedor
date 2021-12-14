@@ -142,7 +142,7 @@ export const prepareDataProductSupplier = ( data ) => {
         sku : product.sku,
         precioPromocional : product.precioPromocional,
         accesorios : product.accesorios,
-        color : product.color.map(col => col.name),
+        color : product.color.map(col => col.label),
         talla : product.talla,
         dimensiones : product.dimensiones,
         createdAt : product.createdAt,

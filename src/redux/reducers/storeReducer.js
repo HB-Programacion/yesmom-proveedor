@@ -4,7 +4,14 @@ import { types } from "../types/types";
 const initialState = {
     idActiveStore : null,
     // stores : null,
-    store : null
+    store : null,
+    productsActiveStore : {
+        total : 0,
+        products : [],
+        active : [],
+        disabled : [],
+        totalDisabled : 0,
+    },
 }
 
 export const storeReducer = ( state = initialState , action ) => {
@@ -24,6 +31,32 @@ export const storeReducer = ( state = initialState , action ) => {
             return {
                 ...state,
                 store : action.payload
+            }
+        case types.setProductsByStore :
+            return {
+                ...state,
+                productsActiveStore : {
+                    ...state.productsActiveStore,
+                    total : action.payload.total,
+                    products : action.payload.products
+                }
+            }
+        case types.setActiveProduct:
+            return {
+                ...state,
+                productsActiveStore :{
+                    ...state.productsActiveStore,
+                    active : [...state.productsActiveStore.active,action.payload]
+                }
+            }
+        case types.unsetActiveProduct:
+
+            return {
+                ...state,
+                productsActiveStore :{
+                    ...state.productsActiveStore,
+                    active : state.productsActiveStore.active.filter( el => el !== action.payload)
+                }
             }
     
         default: return state;

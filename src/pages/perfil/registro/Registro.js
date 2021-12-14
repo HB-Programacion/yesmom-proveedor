@@ -27,6 +27,7 @@ import { verifyStoreName } from '../../../utils/helpers/verifyStoreName';
 import { getUrlName } from '../../../utils/helpers/getUlrName';
 
 import './Registro.css';
+import { updateStoreSupplier } from '../../../utils/helpers/updateStoreSupplier';
 const MAX_MB = 2000000;
 
 
@@ -67,8 +68,12 @@ const Registro = () => {
 
   const handleChangeNameUrl = async (e) => {
     setNameStore(e.target.value);
-    const flag = await verifyStoreName(getUrlName(e.target.value) , '');
-    setAvailableName(flag);
+    if(e.target.value!==store.nombreTienda){
+      const flag = await verifyStoreName(getUrlName(e.target.value) , '');
+      setAvailableName(flag);
+    }else{
+      setAvailableName(true);
+    }
     // console.log(flag);
   }
   //Control
@@ -148,8 +153,28 @@ const Registro = () => {
   }
 
   const submitForm = async (values) => {
-    console.log(values);
+
+    if(!availableName) return;
+    const { imgLogo , imgCover } = images;
+    if(!imgLogo || !imgCover){
+        return Swal.fire('Campos incompletos' ,'Asegurate de llenar todos los campos obligatorios','info');
+    }
+
     try{
+
+      const { ok } = await updateStoreSupplier({
+        infoAlmacen : values , 
+        images ,
+        nameStore,
+        id : idActiveStore
+      } );
+
+      if(ok){
+        Swal.fire('Actualizado correctamente','Tu tienda ha sido actualizada correctamente','success');
+
+      }else{
+          Swal.fire('Error','Hubo un error', 'error');
+      }
 
     }catch(err){
       Swal.close();
@@ -163,8 +188,16 @@ const Registro = () => {
     dispatch(startInfoActiveStore(idActiveStore));
   },[idActiveStore])
 
+  //Setear info de store que cambia
   useEffect(()=>{
 
+    const objPrevs = {
+      imgBanner_1 : store?.imagenBanner[0]?.url,
+      imgBanner_2 : store?.imagenBanner[1]?.url,
+      imgBanner_3 : store?.imagenBanner[2]?.url,
+    }
+    setPreview(objPrevs)
+    
     setNameStore( store?.nombreTienda)
     reset({
       nombreEncargadoAlmacen : store?.nombreEncargadoAlmacen,

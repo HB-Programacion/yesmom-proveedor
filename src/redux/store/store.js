@@ -24,8 +24,8 @@ const reducers = combineReducers({
     auth : authReducer,
     ui : uiReducer,
     supplier : supplierReducer,
-    supplierProducts : supplierProductReducer,
-    supplierImages : supplierImageReducer,
+    // supplierProducts : supplierProductReducer,
+    // supplierImages : supplierImageReducer,
     store : storeReducer
     //More reducers 
 })
