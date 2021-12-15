@@ -11,7 +11,7 @@ import iconDelete from '../../../images/producto/icon-delete.svg'
 import Loading from '../../../components/Loading/Loading'
 import { useDispatch, useSelector } from 'react-redux'
 import BackComponent from '../../../components/Return/BackComponent'
-import { deleteProduct, setActiveProduct, startDeletingProduct, startLoadingSupplierProducts, startLoadingSupplierProductsPaginate, unsetActiveProduct} from '../../../redux/actions/supplier'
+import {  startDeletingProduct } from '../../../redux/actions/store'
 
 import ReactPaginate from 'react-paginate';
 
@@ -51,7 +51,7 @@ const ActiveProducts = () => {
   const { loading } = useSelector(state => state.ui);
   const  { productsActiveStore } = useSelector(state => state.store);
 
-  const { total, products = [ ] , active } = productsActiveStore;
+  const { total , active } = productsActiveStore;
 
   const [ activeFilter , setActiveFilter ] = useState(0);
 

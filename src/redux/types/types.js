@@ -33,4 +33,5 @@ export const types = {
     setInfoActiveStore : "[STORE] set info active store",
     setStores : "[STORE] set stores",
     setProductsByStore : "[STORE] set products by store",
+    setProductsDisabledByStore : "[STORE] set products disabled by store",
 }

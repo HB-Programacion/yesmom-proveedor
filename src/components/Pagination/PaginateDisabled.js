@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { useDispatch, useSelector } from 'react-redux';
 import { startLoadingProductsStore } from '../../redux/actions/store';
-import { startLoadingSupplierProductsDisabledPaginate } from '../../redux/actions/supplier';
+
 
 const itemsPerPage = 6;
 

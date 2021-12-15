@@ -12,7 +12,7 @@ const ComponentDisabled = () => {
 
     const dispatch = useDispatch();
     const  { productsActiveStore } = useSelector(state => state.store);
-    const  { productsDisabled=[] , disabled  } = productsActiveStore;
+    const  { products=[]  } = productsActiveStore;
     const handleActiveProduct = ( idProduct ) => {
         dispatch( setActiveProduct (idProduct) )
     }
@@ -33,18 +33,18 @@ const ComponentDisabled = () => {
     return (
         <div>
             {
-                productsDisabled.length === 0 ? 
+                products.length === 0 ? 
                 <>
                     <p className="empty-products"> No hay productos </p>
-                    <div className='active-products-filter-contenedor'>
+                    {/* <div className='active-products-filter-contenedor'>
                         <Link to="/p/store/load-products">
                             +Cargar productos
                         </Link>
-                    </div>
+                    </div> */}
                 </>
                 :
                 <div className="active-products-grid">
-                {productsDisabled.map((item, i) => (
+                {products.map((item, i) => (
                     
                     <div 
                     className="active-products-item" 

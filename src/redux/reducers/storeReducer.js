@@ -41,6 +41,15 @@ export const storeReducer = ( state = initialState , action ) => {
                     products : action.payload.products
                 }
             }
+        case types.setProductsDisabledByStore :
+            return {
+                ...state,
+                productsActiveStore : {
+                    ...state.productsActiveStore,
+                    totalDisabled : action.payload.totalDisabled,
+                    products : action.payload.productsDisabled
+                }
+            }
         case types.setActiveProduct:
             return {
                 ...state,
@@ -58,7 +67,34 @@ export const storeReducer = ( state = initialState , action ) => {
                     active : state.productsActiveStore.active.filter( el => el !== action.payload)
                 }
             }
-    
+        case types.setActiveAllProducts : 
+            return {
+                ...state,
+                productsActiveStore :{
+                    ...state.productsActiveStore,
+                    active : state.productsActiveStore.products.map(el => el.id )
+                }
+            }
+        case types.unsetActiveAllProducts : 
+            return {
+                ...state,
+                productsActiveStore :{
+                    ...state.productsActiveStore,
+                    active : []
+                }
+            }
+        case types.deleteProduct:
+            
+            return {
+                ...state,
+                productsActiveStore :{
+                    ...state.productsActiveStore,
+                    // total : state.productsActiveStore.total - active.length,
+                    // products : newProducts,
+                    active : [],
+                }
+            }
+        
         default: return state;
     }
 }

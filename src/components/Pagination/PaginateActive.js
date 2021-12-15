@@ -39,6 +39,8 @@ const PaginateActive = () => {
     
     return (
         <div>
+            {
+                total>0 &&
             <ReactPaginate
                 breakLabel="..."
                 onPageChange={handlePageClick}
@@ -56,6 +58,7 @@ const PaginateActive = () => {
                 activeClassName="active-custom-pagination"
                 renderOnZeroPageCount={null}
             />
+            }
         </div>
     )
 }

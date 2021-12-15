@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from 'react'
 import { useDispatch , useSelector} from 'react-redux';
-import { setActiveAllProducts, unsetActiveAllProducts } from '../../redux/actions/supplier';
+import { setActiveAllProducts, unsetActiveAllProducts } from '../../redux/actions/store';
 
 import './Checkbox.css'
 

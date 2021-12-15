@@ -117,10 +117,20 @@ export const startLoadingProductsStore = ( { skip = 0 , limit = 6 , state='A'}) 
 
       if(data?.productosGeneral){
         const cleanData = prepareDataProductSupplier(data.productosGeneral);
-        dispatch(setProductsByStore({
-          total : data.totalDeProductos,
-          products : cleanData
-        }))
+        
+        if(state === 'A'){
+          dispatch(setProductsByStore({
+            total : data.totalDeProductos,
+            products : cleanData
+          }))
+          
+          
+        }else{
+          dispatch(setProductsDisabledByStore({
+            totalDisabled : data.totalDeProductos,
+            productsDisabled : cleanData
+          }))
+        }
       }else{
         dispatch(setProductsByStore({
           total : 0,
@@ -130,6 +140,38 @@ export const startLoadingProductsStore = ( { skip = 0 , limit = 6 , state='A'}) 
       
       dispatch(finishLoading());
 
+    }catch(err){
+      console.log(err);
+    }
+  }
+}
+
+export const startDeletingProduct = () => {
+  return async ( dispatch , getState) => {
+    try{
+
+      const { productsActiveStore :  { active } } = getState().store;
+      const { token } =getState().auth;
+
+      const { data } = await axios.patch(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/store/productstate` ,{
+          "products" : active,
+          "state" : "D"
+      },{
+          headers : {
+              'access-token' : token
+          }
+      })
+
+      if(data?.response?.ok){
+          Swal.fire('Producto(s) desactivados', 'Productos seleccionados han sido desactivados' , 'success');
+          dispatch(deleteProduct());
+          dispatch( startLoadingProductsStore({}))
+      }else{
+          Swal.fire('Hubo un error', 'No se pudo desactivar los productos' , 'info');
+          // alert('Hubo un error');
+      }
+
+      console.log(active);
     }catch(err){
       console.log(err);
     }
@@ -154,6 +196,10 @@ export const setProductsByStore = ( payload ) => ({
   type : types.setProductsByStore,
   payload
 })
+export const setProductsDisabledByStore = ( payload ) => ({
+  type : types.setProductsDisabledByStore,
+  payload
+})
 
 export const setActiveProduct = (payload) => ({
   type : types.setActiveProduct,
@@ -165,6 +211,13 @@ export const unsetActiveProduct = (payload) => ({
   payload
 })
 
+export const setActiveAllProducts = () => ({
+  type : types.setActiveAllProducts
+})
 export const unsetActiveAllProducts = () => ({
   type : types.unsetActiveAllProducts,
+})
+
+export const deleteProduct = () => ({
+  type : types.deleteProduct
 })
