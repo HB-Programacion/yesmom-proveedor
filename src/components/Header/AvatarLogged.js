@@ -50,7 +50,7 @@ const AvatarLogged = () => {
                 >
                     <div className="items-dropdown-menu">
                         <Link to="/p/product-excel">
-                            <p>Importar productos</p>
+                            <p>Mis datos</p>
                         </Link>
                         {/* <Link to="/p/add-new-product">
                             <p>Carga manual</p>
@@ -64,24 +64,15 @@ const AvatarLogged = () => {
 
                         <div class="dropdown-divider"></div>
 
-                        <Link to="/p/informacion-perfil/registro">
-                            <p>Mi perfil</p>
+                        <Link to="/p/info/registro">
+                            <p>Mis ordenes</p>
                         </Link>
-                        <Link to="/p/informacion-perfil/productos-activos">
-                            <p>Productos</p>
-                        </Link>
-                        <Link to="/p/informacion-perfil/cambiar-password">
+                        <Link to="/p/info/productos-activos">
                             <p>Cambiar contraseña</p>
                         </Link>
-                        <Link to="/p/informacion-perfil/perfil-tienda">
-                            <p>Perfil de tienda</p>
-                        </Link>
-                        {/* <Link to="/p/informacion-perfil/terminos">
-                            <p>Términos y condiciones</p>
-                        </Link>
-                        <Link to="/p/informacion-perfil/desactivar-cuenta">
+                        <Link to="/p/info/perfil-tienda">
                             <p>Desactivar cuenta</p>
-                        </Link> */}
+                        </Link>
 
                         <div class="dropdown-divider"></div>
 
