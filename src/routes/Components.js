@@ -23,3 +23,4 @@ export const NewStore = lazy (() => import("../pages/store/profile/NewStore"))
 export const LoadProducts = lazy(()=>import("../pages/store/profile/LoadProducts"));
 export const ActiveProducts = lazy(() => import("../pages/producto/ActiveProducts/ActiveProducts"));
 export const EliminarTienda = lazy(() => import("../pages/perfil/eliminar-tienda/EliminarTienda"));
+export const MisDatos = lazy(() => import("../pages/perfil/mis-datos/MisDatos"));

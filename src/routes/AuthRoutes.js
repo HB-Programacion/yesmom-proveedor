@@ -8,7 +8,9 @@ import {
     InfoPerfilRegistro,
     AddProductExcel,
     ActiveProducts,
-    EliminarTienda
+    EliminarTienda,
+    ChangePassword,
+    MisDatos
 } from './Components'
 
 import RestrictedRoute from './RestrictedRoute';
@@ -36,6 +38,18 @@ const AuthRoutes = () => {
                     <Route path="/p/info/eliminar-tienda" element={ 
                         <RestrictedRoute>
                             <EliminarTienda />
+                        </RestrictedRoute>
+                     } />
+                    
+                    {/* Supplier */}
+                    <Route path="/p/info/cambiar-password" element={ 
+                        <RestrictedRoute>
+                            <ChangePassword />
+                        </RestrictedRoute>
+                     } />
+                    <Route path="/p/info/mis-datos" element={ 
+                        <RestrictedRoute>
+                            <MisDatos />
                         </RestrictedRoute>
                      } />
                     <Route path="/p/resumen-venta" element={ 

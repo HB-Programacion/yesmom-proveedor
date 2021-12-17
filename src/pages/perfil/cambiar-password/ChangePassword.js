@@ -97,18 +97,7 @@ const ChangePassword = () => {
                 <div className="info-perfil-contenido">
                     <div className="info-all-content">
                         <div className="info-contenedor-flex">
-                                <div className="hide-desktop info-container-back">
-                                    <div> 
-                                        <BackComponent />
-                                    </div>
-                                </div>
-                            <div className="flex-left">
-                                <div className="info-container-title">
-                                    <TitlePerfil />
-                                </div>
-                                <Sidebar />
-                            </div>
-                            <div className="flex-right flex-right-ml">
+                            <div className="flex-container-center">
                                 <Description title="Cambiar contraseña" description="Aquí encontrarás tu contraseña. Si la quieres modificar asegúrate de que sea segura" />
                                 <div className="info-container-content change-container-content">
                                     <div className="registro-container-form info-container-form mt-5 mb-2">

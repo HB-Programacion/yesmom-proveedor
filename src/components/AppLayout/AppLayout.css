@@ -552,7 +552,7 @@ input[type="file"] {
 }
 @media (min-width : 768px){
     .contenedor-info-perfil-registro{
-        padding-top: 14rem;
+        padding-top: 15rem;
     }
     .hide-desktop{
         display: none;
@@ -737,7 +737,7 @@ input[type="file"] {
         width:47.5rem;
     }
     .contenedor-info-perfil-registro{
-        padding-top:15rem;
+        padding-top:16rem;
     }
     .text-description-title{
         font-size:2.8rem!important;

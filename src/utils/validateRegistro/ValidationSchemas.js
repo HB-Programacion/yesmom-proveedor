@@ -38,9 +38,7 @@ export const schemaValidatorWithoutPassword = yup.object().shape({
     //Registro 1
     nombreCompletoEncargado : yup.string().required('*Este campo es requerido').matches(/^[a-z ,.'-]+$/i,'*Nombres incorrectos'),
     telefono: yup.string().required('*Este campo es requerido').matches(phoneRegExp, '*Teléfono incorrecto'),
-    nombreTienda : yup.string()
-                    .verifyName('*Nombre ya se encuentra en uso')
-                    .required('*Este campo es requerido'),
+    nombreEmpresa :   yup.string().required('*Este campo es requerido'),
     correoElectronico : yup.string().email('*Correo electrónico inválido').required('*Este campo es requerido'),
 
 })
@@ -93,5 +91,4 @@ export const mergedSchema = schemaValidator
 export const mergedSchemaWithoutPassword = schemaValidatorWithoutPassword
                 .concat(schemaValidatorStep2)
                 .concat(schemaValidatorStep3)
-                .concat(schemaValidatorStep4);
-                    
+                 

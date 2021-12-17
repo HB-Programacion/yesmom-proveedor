@@ -49,7 +49,7 @@ const AvatarLogged = () => {
                     title={`${nombreTienda}`}
                 >
                     <div className="items-dropdown-menu">
-                        <Link to="/p/product-excel">
+                        <Link to="/p/info/mis-datos">
                             <p>Mis datos</p>
                         </Link>
                         {/* <Link to="/p/add-new-product">
@@ -67,7 +67,7 @@ const AvatarLogged = () => {
                         <Link to="/p/info/registro">
                             <p>Mis ordenes</p>
                         </Link>
-                        <Link to="/p/info/productos-activos">
+                        <Link to="/p/info/cambiar-password">
                             <p>Cambiar contraseña</p>
                         </Link>
                         <Link to="/p/info/perfil-tienda">
