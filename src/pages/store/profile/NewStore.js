@@ -148,6 +148,7 @@ const NewStore = () => {
         // console.log('Values form');
         // console.log(values);
 
+        if(!availableName) return;
         const { imgLogo , imgCover } = images;
         if(!imgLogo || !imgCover){
             return Swal.fire('Campos incompletos' ,'Asegurate de llenar todos los campos obligatorios','info');
@@ -163,8 +164,6 @@ const NewStore = () => {
 
         if(ok){
             Swal.fire('Registrado correctamente','Tu tienda ha sido registrada correctamente','success');
-
-            console.log(response.id);
             dispatch(setActiveStore(response.id));
             setTimeout(()=>{
                 navigate('/p/store/load-products')

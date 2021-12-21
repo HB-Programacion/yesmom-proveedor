@@ -8,3 +8,7 @@ export const startLoading = () => ({
 export const finishLoading = () => ({
     type : types.uiFinishLoading
 })
+
+export const cleanUi = () => ({
+    type : types.uiClean
+})

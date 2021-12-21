@@ -51,16 +51,11 @@ const StoreInfo = ( {
                                     <label htmlFor="nameTienda">Debe tener como alto máximo 110 px, png o svg y peso máximo 1 MB.</label>
                                     <div className="profile-flex-input-button">
                                         <div className="profile-flex-input">
-                                            <input
+                                            <div
                                                 className="w-100 box-cargar-imagen"
-                                                type="text"
-                                                disabled
-                                                name="nameTienda"
-                                                id="nameTienda"
-                                                value={ 
-                                                    images.imgLogo?.name ? images.imgLogo.name : ""
-                                                }
-                                            />
+                                            >
+                                                {images.imgLogo?.name ? images.imgLogo.name : ""}
+                                            </div>
                                             <h6>*Campo obligatorio</h6>
                                         </div>
                                         <div className="profile-container-button">
@@ -94,16 +89,11 @@ const StoreInfo = ( {
                                     <label htmlFor="nameTienda">Debe tener como medidas 1204x381 px y peso máximo 1 MB.</label>
                                     <div className="profile-flex-input-button">
                                         <div className="profile-flex-input">
-                                            <input
+                                        <div
                                                 className="w-100 box-cargar-imagen"
-                                                type="text"
-                                                disabled
-                                                value={ 
-                                                    images?.imgCover?.name ? images.imgCover.name : ""
-                                                }
-                                                name="nameTienda"
-                                                id="nameTienda"
-                                            />
+                                            >
+                                                {images?.imgCover?.name ? images.imgCover.name : ""}
+                                            </div>
                                             <h6>*Campo obligatorio</h6>
                                         </div>
                                         <div className="profile-container-button">

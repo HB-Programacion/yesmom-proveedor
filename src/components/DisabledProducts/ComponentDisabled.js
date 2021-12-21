@@ -1,11 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setActiveProduct, unsetActiveProduct } from '../../redux/actions/supplier';
+import { setActiveProduct, unsetActiveProduct } from '../../redux/actions/store';
 
 import CardProduct from '../Producto/CardProduct/CardProduct';
 
-import iconClose from '../../images/producto/icon-close.svg';
 
 const ComponentDisabled = () => {
     

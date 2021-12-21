@@ -16,11 +16,6 @@ export const types = {
 
     loadInfoSupplier  : "[SUPPLIER] load info",
     cleanSupplier : '[SUPPLIER] clean supplier',
-    cleanSupplierProducts : '[SUPPLIER] clean supplier products',
-    loadSupplierProducts : "[SUPPLIER] get products",
-    loadSupplierProductsDisabled : "[SUPPLIER] get products disabled",
-    loadSupplierProductsPaginate : "[SUPPLIER] get products paginate",
-    loadSupplierImages : "[SUPPLIER] get images",
     updateActiveStore : "[SUPPLIER] update store",
 
     setActiveProduct : "[PRODUCT] set active",
@@ -34,4 +29,8 @@ export const types = {
     setStores : "[STORE] set stores",
     setProductsByStore : "[STORE] set products by store",
     setProductsDisabledByStore : "[STORE] set products disabled by store",
+    cleanStore : "[STORE] clean store",
+
+
+    uiClean : "[UI] clean",
 }

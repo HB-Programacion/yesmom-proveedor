@@ -10,7 +10,9 @@ import {
     ActiveProducts,
     EliminarTienda,
     ChangePassword,
-    MisDatos
+    MisDatos,
+    Resumen,
+    DesactivarCuenta
 } from './Components'
 
 import RestrictedRoute from './RestrictedRoute';
@@ -52,10 +54,21 @@ const AuthRoutes = () => {
                             <MisDatos />
                         </RestrictedRoute>
                      } />
+                     
+                    <Route path="/p/info/mis-ordenes" element={ 
+                        <RestrictedRoute>
+                            <Resumen />
+                        </RestrictedRoute>
+                     } />
                     <Route path="/p/resumen-venta" element={ 
                         <RestrictedRoute>
                             <ResumenVenta />
                         </RestrictedRoute>
+                     } />
+                    <Route path="/p/info/desactivar-cuenta" element={ 
+                        // <RestrictedRoute>
+                            <DesactivarCuenta />
+                        // </RestrictedRoute>
                      } />
                     
                     <Route path="/*" element={ <Navigate to="/404" />} />

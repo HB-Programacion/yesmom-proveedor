@@ -64,7 +64,7 @@ const Registro = () => {
   }
   const [ preview , setPreview ] = useState(initialPreviews);
   const [ availableName , setAvailableName] = useState(true);
-  const [ nameStore , setNameStore] = useState("");
+  const [ nameStore , setNameStore] = useState('');
 
   const handleChangeNameUrl = async (e) => {
     setNameStore(e.target.value);

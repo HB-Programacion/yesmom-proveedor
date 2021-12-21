@@ -9,8 +9,6 @@ import thunk from 'redux-thunk';
 import { authReducer } from "../reducers/authReducer";
 import { uiReducer } from "../reducers/uiReducer";
 import { storeReducer } from "../reducers/storeReducer";
-import { supplierImageReducer } from "../reducers/supplier.imageReducer";
-import { supplierProductReducer } from "../reducers/supplier.productReducer";
 import { supplierReducer } from "../reducers/supplierReducer";
 
 

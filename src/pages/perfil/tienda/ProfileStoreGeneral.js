@@ -14,7 +14,6 @@ import close from '../../../images/producto/close.svg';
 import './ProfileStoreGeneral.css';
 import BackComponent from '../../../components/Return/BackComponent';
 import Loading from '../../../components/Loading/Loading';
-import { startLoadingSupplierImages, updateStore } from '../../../redux/actions/supplier';
 import { getPrevieWImage } from '../../../utils/helpers/getPreviewImage';
 import { useNavigate } from 'react-router-dom';
 import { updateStoreSupplier } from '../../../utils/helpers/updateStoreSupplier';
@@ -161,14 +160,6 @@ const ProfileStoreGeneral = () => {
         navigate(-1);
     }
 
-    const loadSupplierImages = async () => {
-        if(logged){
-            await dispatch( startLoadingSupplierImages());
-
-            setLoading(false);
-        }
-    }
-
     const handleChangeNameUrl = async (e) => {
         setNameStore(e.target.value);
         const flag = await verifyStoreName(getUrlName(e.target.value) ,  token);
@@ -176,10 +167,6 @@ const ProfileStoreGeneral = () => {
         // console.log(flag);
     }
 
-
-    useEffect(()=>{
-        loadSupplierImages();
-    },[])
 
     useEffect(() => {
         if(imagesInitial){

@@ -11,7 +11,7 @@ import './AvatarLogged.css';
 const AvatarLogged = () => {
     
     const dispatch = useDispatch();
-    const { nombreTienda="TiendaDefault" } = useSelector(state => state.supplier);
+    const { nombreCompletoEncargado="" } = useSelector(state => state.supplier);
 
     const getShortName = ( name ) => {
         
@@ -26,7 +26,10 @@ const AvatarLogged = () => {
         });
         return initials;
     }
-    const shortName = getShortName(nombreTienda);
+    const getFirstName = ( name) => {
+        return name.split(" ")[0];
+    }
+    const shortName = getShortName(nombreCompletoEncargado);
 
 
     const handleLogout = () => {
@@ -46,31 +49,23 @@ const AvatarLogged = () => {
                     /* as={ButtonGroup} */
                     id={`dropdown-variants-info`}
                     variant={"info"}
-                    title={`${nombreTienda}`}
+                    title={`${getFirstName(nombreCompletoEncargado)}`}
                 >
                     <div className="items-dropdown-menu">
                         <Link to="/p/info/mis-datos">
                             <p>Mis datos</p>
                         </Link>
-                        {/* <Link to="/p/add-new-product">
-                            <p>Carga manual</p>
-                        </Link> */}
-                        {/* <Link to="/p/visualizate-products">
-                            <p>Visualización de productos</p>
-                        </Link> */}
-                        {/* <Link to="/p/informacion-perfil/productos-activos">
-                            <p>Eliminar producto</p>
-                        </Link> */}
-
                         <div class="dropdown-divider"></div>
-
                         <Link to="/p/info/registro">
+                            <p>Mi tienda</p>
+                        </Link>
+                        <Link to="/p/info/mis-ordenes">
                             <p>Mis ordenes</p>
                         </Link>
                         <Link to="/p/info/cambiar-password">
                             <p>Cambiar contraseña</p>
                         </Link>
-                        <Link to="/p/info/perfil-tienda">
+                        <Link to="/p/info/desactivar-cuenta">
                             <p>Desactivar cuenta</p>
                         </Link>
 

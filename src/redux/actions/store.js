@@ -1,8 +1,10 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import clienteAxiosBusiness from "../../config/axiosBusiness";
 import { prepareDataProductSupplier } from "../../utils/helpers/getSupplierProducts";
 import { types } from "../types/types"
 import { finishLoading, startLoading } from "./ui";
+
 
 
 
@@ -19,7 +21,7 @@ export const loadProducts = ( formData) => {
                 },
               });
             
-            const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/store/importproducts`, formData ,{
+            const { data } = await clienteAxiosBusiness.post('/store/importproducts', formData ,{
                 headers : {
                     "access-token": token,
                 },
@@ -50,7 +52,7 @@ export const loadStores = () => {
 
     const { token } = getState().auth;
     try{
-      const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/store/list` , {
+      const { data } = await clienteAxiosBusiness.get('/store/list' , {
         headers : {
           'access-token' : token
         }
@@ -75,9 +77,12 @@ export const startInfoActiveStore = (id) => {
       dispatch(startLoading());
 
       const { token } = getState().auth;
-      const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/store?id=${id}` , {
+      const { data } = await clienteAxiosBusiness.get('/store' , {
         headers : {
           'access-token' : token
+        },
+        params : {
+          id
         }
       })
 
@@ -103,7 +108,7 @@ export const startLoadingProductsStore = ( { skip = 0 , limit = 6 , state='A'}) 
       dispatch(startLoading());
       const { idActiveStore } = getState().store;
       const { token } = getState().auth;
-      const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/store/products`,{
+      const { data } = await clienteAxiosBusiness.get('/store/products',{
         params : {
           id : idActiveStore,
           state,
@@ -153,9 +158,9 @@ export const startDeletingProduct = () => {
       const { productsActiveStore :  { active } } = getState().store;
       const { token } =getState().auth;
 
-      const { data } = await axios.patch(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/store/productstate` ,{
-          "products" : active,
-          "state" : "D"
+      const { data } = await clienteAxiosBusiness.patch('/store/productstate' ,{
+          products : active,
+          state : "D"
       },{
           headers : {
               'access-token' : token
@@ -220,4 +225,8 @@ export const unsetActiveAllProducts = () => ({
 
 export const deleteProduct = () => ({
   type : types.deleteProduct
+})
+
+export const cleanStore = () => ({
+  type : types.cleanStore
 })

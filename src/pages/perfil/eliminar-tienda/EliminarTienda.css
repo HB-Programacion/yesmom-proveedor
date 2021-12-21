@@ -6,6 +6,11 @@
     font-size : 1.3rem;
 }
 
+.desactivar-title-swal{
+    font-family:"mont-semibold";
+    font-size:1.8rem;
+    opacity: 0.8;
+}
 
 @media (min-width : 768px){
     .eliminar_store-container-content{

@@ -95,6 +95,9 @@ export const storeReducer = ( state = initialState , action ) => {
                 }
             }
         
+        case types.cleanStore :
+            return initialState;
+        
         default: return state;
     }
 }

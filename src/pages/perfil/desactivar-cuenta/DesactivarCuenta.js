@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
 import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
 
@@ -19,31 +20,35 @@ import { useForm } from 'react-hook-form';
 
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import clienteAxiosBusiness from '../../../config/axiosBusiness';
+import { startDisablingSupplier } from '../../../redux/actions/supplier';
 
 const schemaValidator = yup.object().shape({
     password : yup.string().required('*Este campo es requerido'),
 })
 const DesactivarCuenta = () => {
 
+
+    const dispatch = useDispatch();
     const { register , handleSubmit , formState : { errors } } = useForm({
         resolver : yupResolver(schemaValidator)
     });
 
 
-    const handleDesactivar = async () => {
+    const handleDesactivar = async ( values ) => {
         const MySwal = withReactContent(Swal);
         const { isConfirmed } = await MySwal.fire({
             title: <p className="desactivar-title-swal">¿Seguro que quieres desactivar tu cuenta?<br/>
                     Una vez desactivada no podrás activarla de nuevo</p>,
-            html:
-                <>
-                    <form>
-                            <div className="desactivar-box-checkbox">
-                                <input type="checkbox" />
-                                <label>Sí, acepto</label>
-                            </div>
-                    </form>
-                </>,
+            // html:
+            //     <>
+            //         <form>
+            //                 <div className="desactivar-box-checkbox">
+            //                     <input type="checkbox" />
+            //                     <label>Sí, acepto</label>
+            //                 </div>
+            //         </form>
+            //     </>,
             showConfirmButton:true ,
             showCancelButton:true ,
             confirmButtonText:<p>Aceptar</p>,
@@ -51,9 +56,8 @@ const DesactivarCuenta = () => {
         })    
 
         if(isConfirmed){
-            console.log('Aceptó')
-        }else{
-            console.log('Canceló')
+
+           dispatch( startDisablingSupplier(values))
         }
 
     }
@@ -69,23 +73,7 @@ const DesactivarCuenta = () => {
                 <div className="info-perfil-contenido">
                     <div className="info-all-content">
                         <div className="info-contenedor-flex">
-                            <div className="hide-desktop info-container-back">
-                                <div> 
-                                    <Link to="/informacion-perfil">
-                                        <div className="show return">
-                                            <img src={back} alt="volver" />
-                                            <p className="info-perfil-back">Volver</p>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className="flex-left">
-                                <div className="info-container-title">
-                                    <TitlePerfil />
-                                </div>
-                                <Sidebar />
-                            </div>
-                            <div className="flex-right flex-right-ml">
+                            <div className='flex-container-center center-text-description'>
                                 <Description title="Desactivar cuenta" description="Aquí podrás desactivar tu cuenta si así lo deseas" />
                                 <div className="info-container-content desactivar-container-content">
                                     <div className="registro-container-form desactivar-container-form mt-5">
@@ -103,11 +91,6 @@ const DesactivarCuenta = () => {
                                                 <img className="show-only-desktop eye-icon" src={iconEyeBlue} onClick={ handleRef } />
                                             </div>
                                             <p className="error-input">{errors?.password?.message}</p>
-                                        </div>
-                                        <div className="container-forgot-password">
-                                                <Link to ="/">
-                                                    ¿Olvidaste tu contraseña?
-                                                </Link>
                                         </div>
                                     </div>
                                 </div>

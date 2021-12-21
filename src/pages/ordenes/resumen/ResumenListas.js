@@ -1,7 +1,7 @@
 import React from 'react'
 import AccordionResumen from '../../../components/Producto/Accordion/AccordionResumen'
 
-function ResumenListas() {
+const ResumenListas = () => {
 
     const products = [
         { 

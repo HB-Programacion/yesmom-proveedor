@@ -1,7 +1,11 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
+import withReactContent from 'sweetalert2-react-content';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Swal from 'sweetalert2';
+
 
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import ButtonFilled from '../../../components/Button/ButtonFilled';
@@ -14,6 +18,9 @@ import iconEye from '../../../images/perfil/icon-eye.svg';
 
 import './EliminarTienda.css';
 
+import { startDisablingStore } from '../../../redux/actions/supplier';
+
+
 const schemaValidator = yup.object().shape({
     password : yup.string().required('*Este campo es requerido').min('5','*Contraseña muy corta'),
 })
@@ -21,6 +28,9 @@ const schemaValidator = yup.object().shape({
 
 const EliminarTienda = () => {
 
+
+    const dispatch = useDispatch();
+    const { loading } = useSelector(state => state.ui);
     const { register , handleSubmit , formState : { errors } , reset  } = useForm({
         resolver : yupResolver(schemaValidator),
     })
@@ -31,8 +41,20 @@ const EliminarTienda = () => {
         type === "password" ? document.getElementById(id).type="text" : document.getElementById(id).type="password"
     }
 
-    const submitForm = (values) => {
-        console.log(values);
+    const submitForm = async (values) => {
+        const MySwal = withReactContent(Swal);
+        const { isConfirmed } = await MySwal.fire({
+            title: <p className="desactivar-title-swal">¿Seguro que quieres desactivar tu tienda?<br/>
+                    Una vez desactivada no podrás activarla de nuevo</p>,
+            showConfirmButton:true ,
+            showCancelButton:true ,
+            confirmButtonText:<p>Aceptar</p>,
+            cancelButtonText:<p>Cancelar</p>,
+        }) 
+
+        if(isConfirmed){  
+            dispatch(startDisablingStore( values.password ));
+        }
     }
     return (
         <AppLayout>

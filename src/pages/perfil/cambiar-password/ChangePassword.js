@@ -97,7 +97,7 @@ const ChangePassword = () => {
                 <div className="info-perfil-contenido">
                     <div className="info-all-content">
                         <div className="info-contenedor-flex">
-                            <div className="flex-container-center">
+                            <div className="flex-container-center center-text-description">
                                 <Description title="Cambiar contraseña" description="Aquí encontrarás tu contraseña. Si la quieres modificar asegúrate de que sea segura" />
                                 <div className="info-container-content change-container-content">
                                     <div className="registro-container-form info-container-form mt-5 mb-2">

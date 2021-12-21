@@ -16,7 +16,9 @@ export const uiReducer = ( state = initialState , action ) => {
                 ...state,
                 loading : false,
             }
-    
+        case types.cleanUi : 
+            return initialState;
+        
         default: return state;
     }
 }

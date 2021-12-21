@@ -35,7 +35,8 @@ export const authReducer = ( state = initialState , action) => {
             localStorage.removeItem('TokenYesmonProveedor');
             return {
                 ...state,
-                logged:false
+                logged:false,
+                token : null
             }
     
         default:

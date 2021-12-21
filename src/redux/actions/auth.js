@@ -60,10 +60,12 @@ export const validateLoginSupplier = ( token ) => {
 
 //Para setear data
 export const startLogin = ( token) =>{
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch( login( token ));
+        // await Promise.all([dispatch( loadStores()),dispatch( startLoadingInfoSupplier(token))])
         dispatch( loadStores())
-        // dispatch( startLoadingInfoSupplier(token))
+
+        dispatch( startLoadingInfoSupplier(token))
         // dispatch ( startLoadingSupplierProducts());
     }
 }
