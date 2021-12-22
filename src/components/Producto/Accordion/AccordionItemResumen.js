@@ -1,11 +1,11 @@
 import React from 'react'
 import { Accordion, Card } from 'react-bootstrap'
 import Expand from './Expand'
-import Switch from './Switch'
+
 import iconEditar from '../../../images/header/icon-edit.svg';
 import './AccordionItem.css';
 
-function AccordionItem({ 
+const AccordionItem = ({ 
     ek, 
     nombre, 
     sku, 
@@ -18,14 +18,14 @@ function AccordionItem({
     acciones,
     destinatario,
     direccionEnvio
-}) {
+}) => {
     return (
         <>
             <Card>
                 <Card.Header>
                     <div className="container-products">
                         <div className="icon-editar">
-                            <img src={iconEditar} />
+                            <img src={iconEditar} alt="editar"/>
                         </div>
                         <div className="header-title">
                             <div className="item-details">

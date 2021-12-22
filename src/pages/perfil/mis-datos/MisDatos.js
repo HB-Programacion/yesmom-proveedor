@@ -20,20 +20,20 @@ const MisDatos = () => {
     const supplier = useSelector( state => state.supplier);
     const dispatch = useDispatch();
     //Primer form
-    const { register , handleSubmit , formState:{errors} , reset , watch } = useForm({
+    const { register , handleSubmit , formState:{errors} , reset  } = useForm({
         resolver : yupResolver(mergedSchemaWithoutPassword)
     });
 
     
     useEffect(()=>{
         dispatch( startLoadingInfoSupplier());
-    },[])
+    },[dispatch])
 
     useEffect(()=>{
         if(Object.keys(supplier).length > 0 ){
            reset(supplier);
         }
-    },[supplier])
+    },[supplier , reset])
 
     const submitForm = ( values ) => {
         

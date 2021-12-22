@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { DropdownButton , Dropdown } from 'react-bootstrap';
+import { DropdownButton } from 'react-bootstrap';
 
 import { logout } from '../../redux/actions/auth';
 import { cleanDataSupplier } from '../../redux/actions/supplier';
-import Loading from '../Loading/Loading';
 
 import './AvatarLogged.css';
 const AvatarLogged = () => {
@@ -55,7 +54,7 @@ const AvatarLogged = () => {
                         <Link to="/p/info/mis-datos">
                             <p>Mis datos</p>
                         </Link>
-                        <div class="dropdown-divider"></div>
+                        <div className="dropdown-divider"></div>
                         <Link to="/p/info/registro">
                             <p>Mi tienda</p>
                         </Link>

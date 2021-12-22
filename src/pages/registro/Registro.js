@@ -27,7 +27,7 @@ import {
 const Registro = () => {
 
     //Primer form
-    const { register , handleSubmit , formState:{errors} , reset , watch } = useForm({
+    const { register , handleSubmit , formState:{errors} , reset  } = useForm({
         resolver : yupResolver(schemaValidator)
     });
     //Segundo form
@@ -55,9 +55,9 @@ const Registro = () => {
         if(selected === 2){
             //Asegurarse que no hay errores
             if( 
-                Object.keys(errors).length === 0 &&
-                Object.keys(formState_2.errors).length === 0 &&
-                Object.keys(formState_3.errors).length === 0
+                (Object.keys(errors).length === 0) &&
+                (Object.keys(formState_2.errors).length === 0) &&
+                (Object.keys(formState_3.errors).length === 0)
             ){
                 const { isConfirmed } = await submitForm();
                 if(isConfirmed){
@@ -208,9 +208,9 @@ const Registro = () => {
                                         <ButtonFilled 
                                             color="yellow" 
                                             fxClick={
-                                                selected === 0 && handleSubmit(handleSelection)   ||   
-                                                selected === 1 && handleSubmit_2(handleSelection)   ||
-                                                selected === 2 && handleSubmit_3(handleSelection) 
+                                                (selected === 0 && handleSubmit(handleSelection) )   ||   
+                                                (selected === 1 && handleSubmit_2(handleSelection) )   ||
+                                                (selected === 2 && handleSubmit_3(handleSelection)  )
                                             }
                                         >
                                             Continuar

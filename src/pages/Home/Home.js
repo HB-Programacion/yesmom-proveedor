@@ -156,6 +156,7 @@ const Home = () => {
                     <img
                       className="home--icon-start-1 heartbeat"
                       src={blackStar}
+                      alt="black_star"
                     />
                     <p className="home--title-section">
                       ¿Cómo vender en Yes mom?
@@ -163,6 +164,7 @@ const Home = () => {
                     <img
                       className="home--icon-start-2 heartbeat"
                       src={blackStar}
+                      alt="black_star"
                     />
                   </div>
                 </h4>
@@ -198,10 +200,10 @@ const Home = () => {
                 className="home--container-section home--como-ayudarte"
                 id={sections.contacto}
               >
-                <img className="home--abs-2" src={nubeBlanca} />
-                <img className="home--abs-1" src={nubeBlanca} />
-                <img className="home--abs-3" src={nubeBlanca} />
-                <img className="home--abs-4" src={nubeBlanca} />
+                <img className="home--abs-2" src={nubeBlanca} alt="nube_blanca"/>
+                <img className="home--abs-1" src={nubeBlanca} alt="nube_blanca"/>
+                <img className="home--abs-3" src={nubeBlanca} alt="nube_blanca"/>
+                <img className="home--abs-4" src={nubeBlanca} alt="nube_blanca"/>
                 <p className="home--title-section">¿Cómo podemos ayudarte?</p>
                 <div className="home--container-description-second">
                   <h5>
@@ -223,6 +225,7 @@ const Home = () => {
                           <img
                             className="home--border-image-1 heartbeat"
                             src={borderProveedor}
+                            alt="border-proveedor"
                           />
                           <img
                             className="home--img-proveedor"
@@ -232,20 +235,21 @@ const Home = () => {
                           <img
                             className="home--border-image-2 "
                             src={borderProveedor}
+                            alt="border-proveedor"
                           />
                         </div>
                         <div className="home--center-sociales">
                           <div className="home--container-sociales">
                             <div className="home--item-sociales">
-                              <img src={arroba} />
+                              <img src={arroba} alt="arroba"/>
                               <p>info@yesmom.com.pe</p>
                             </div>
                             <div className="home--item-sociales">
-                              <img src={telefono} />
+                              <img src={telefono} alt="telefono" />
                               <p>+51 947 234 452</p>
                             </div>
                             <div className="home--item-sociales">
-                              <img src={pin} />
+                              <img src={pin} alt="pin"/>
                               <p>Calle Roma 316, Miraflores</p>
                             </div>
                           </div>

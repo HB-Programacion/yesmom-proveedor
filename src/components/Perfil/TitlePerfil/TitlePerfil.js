@@ -5,11 +5,15 @@ import './TitlePerfil.css';
 
 const TitlePerfil = () => {
 
-    const { store  } = useSelector( state => state.store);
+    const { idActiveStore , stores } = useSelector( state => state.store);
+
+    const getActiveName = () => {
+        return stores?.find( s => s._id === idActiveStore).nombreTienda || ""
+    }
     return (
         <div className="info-perfil-title">
             ¡Hola! <br/>
-            {store?.nombreTienda}<br/>
+            {getActiveName()}<br/>
             {/* <span>{correoElectronico}</span> */}
         </div>
     )

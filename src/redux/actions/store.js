@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import Swal from "sweetalert2";
 import clienteAxiosBusiness from "../../config/axiosBusiness";
 import { prepareDataProductSupplier } from "../../utils/helpers/getSupplierProducts";
@@ -34,7 +34,12 @@ export const loadProducts = ( formData) => {
 
             //Token invalido
             if (data?.response?.subida) {
-                return Swal.fire("Productos subidos exitosamente","Revisa tus productos en tu perfil","success");
+
+               
+                Swal.fire("Productos subidos exitosamente","Revisa tus productos en tu perfil","success");
+                return setTimeout(() => {
+                  window.location.href="/p/info/registro"
+                },1000)
             } else {
                 return Swal.fire("Revisa los archivos","Archivo(s) con mal formato","error");
             }

@@ -128,11 +128,11 @@ const StoreInfo = ( {
                             <div className="flex-container-images">
 
                                 <div className="add--container-preview profile-store-container-preview">
-                                    <img className="add--icon-close" src={close} />
+                                    <img className="add--icon-close" src={close} alt="close" />
                                     <div className="add--preview-image profile-store-preview-image">
                                         <img 
                                             src={preview?.imgBanner_1?.length >0 ? preview.imgBanner_1 : previewImage}  
-                                            alt="preview-image" 
+                                            alt="preview" 
                                             className="mq-mt-3 img-preview-perfil-proveedor"
                                         />
                                         <div className="add--question-box">
@@ -151,11 +151,11 @@ const StoreInfo = ( {
                                     </div>
                                 </div>
                                 <div className="add--container-preview profile-store-container-preview">
-                                    <img className="add--icon-close" src={close} />
+                                    <img className="add--icon-close" src={close} alt="close"/>
                                     <div className="add--preview-image profile-store-preview-image">
                                         <img 
                                             src={preview?.imgBanner_2?.length >0 ? preview.imgBanner_2 : previewImage} 
-                                            alt="preview-image" 
+                                            alt="preview" 
                                             className="mq-mt-3 img-preview-perfil-proveedor" 
                                         />
                                         <div className="add--question-box">
@@ -174,11 +174,11 @@ const StoreInfo = ( {
                                     </div>
                                 </div>
                                 <div className="add--container-preview profile-store-container-preview">
-                                    <img className="add--icon-close" src={close} />
+                                    <img className="add--icon-close" src={close} alt="close" />
                                     <div className="add--preview-image profile-store-preview-image">
                                         <img 
                                             src={preview?.imgBanner_3?.length >0 ? preview.imgBanner_3 : previewImage} 
-                                            alt="preview-image" 
+                                            alt="preview" 
                                             className="mq-mt-3 img-preview-perfil-proveedor"  
                                         />
                                         <div className="add--question-box">

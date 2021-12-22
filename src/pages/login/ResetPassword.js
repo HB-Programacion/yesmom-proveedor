@@ -58,7 +58,7 @@ const ResetPassword = () => {
                                                 placeholder="Ingresar contraseña" 
                                                 {...register('password')}
                                             />
-                                            <img className="eye-icon" src={iconEye} onClick= {() => handleRef('password') }/>
+                                            <img className="eye-icon" alt="icon-eye" src={iconEye} onClick= {() => handleRef('password') }/>
                                         </div>
                                         { errors?.password?.message && <p className="error-input-login">{errors?.password?.message}</p>}
                                         
@@ -72,7 +72,7 @@ const ResetPassword = () => {
                                                 placeholder="Repetir contraseña"
                                                 {...register('confirmPassword')} 
                                             />
-                                            <img className="eye-icon" src={iconEye} onClick= {() => handleRef('confirmPassword') }/>
+                                            <img className="eye-icon" alt="icon-eye" src={iconEye} onClick= {() => handleRef('confirmPassword') }/>
                                         </div>
                                         <p className="error-input-login">{errors?.confirmPassword?.message}</p>
                                     </div>

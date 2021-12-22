@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React  from 'react'
 
 
 import './Stepper.css';
 
-function StepperNewStore({selected}) {
+const StepperNewStore = ({selected}) => {
 
     return (
         <div className="stepper-container">

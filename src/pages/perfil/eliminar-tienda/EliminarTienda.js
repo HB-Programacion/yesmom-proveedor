@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import withReactContent from 'sweetalert2-react-content';
 import { useForm } from 'react-hook-form';
@@ -30,8 +30,7 @@ const EliminarTienda = () => {
 
 
     const dispatch = useDispatch();
-    const { loading } = useSelector(state => state.ui);
-    const { register , handleSubmit , formState : { errors } , reset  } = useForm({
+    const { register , handleSubmit , formState : { errors }  } = useForm({
         resolver : yupResolver(schemaValidator),
     })
 
@@ -87,7 +86,7 @@ const EliminarTienda = () => {
                                                     name="password"
                                                     {...register('password')}
                                                 />
-                                                <img className="eye-icon" src={iconEye} onClick={ () => handleRef('password')}/>
+                                                <img className="eye-icon" src={iconEye} alt="icon-eye" onClick={ () => handleRef('password')}/>
                                             </div>
                                             <p className="error-input">{errors?.password?.message}</p>
                                         </div>

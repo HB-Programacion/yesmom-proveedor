@@ -27,7 +27,7 @@ const index = () => {
             <p>Página no encontrada</p>
             <div className="btn-error">
               <Link to="/">
-                <a>PÁGINA DE INICIO</a>
+                <a href="/">PÁGINA DE INICIO</a>
               </Link>
             </div>
           </div>

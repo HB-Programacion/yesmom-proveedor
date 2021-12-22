@@ -8,7 +8,7 @@ const StoreOptions = ( { off }) => {
     const { stores } = useSelector( state => state.store);
 
     const handleActiveStore = (id) => {
-        off();
+        // off();
         dispatch(setActiveStore(id))
     }
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { setActiveProduct, unsetActiveProduct } from '../../redux/actions/store';
+import { useSelector } from 'react-redux';
+
 
 import CardProduct from '../Producto/CardProduct/CardProduct';
 
@@ -8,12 +8,11 @@ import CardProduct from '../Producto/CardProduct/CardProduct';
 const ComponentDisabled = () => {
     
 
-    const dispatch = useDispatch();
     const  { productsActiveStore } = useSelector(state => state.store);
     const  { products=[]  } = productsActiveStore;
-    const handleActiveProduct = ( idProduct ) => {
-        dispatch( setActiveProduct (idProduct) )
-    }
+    // const handleActiveProduct = ( idProduct ) => {
+    //     dispatch( setActiveProduct (idProduct) )
+    // }
   
     // const getActive = ( idProduct ) => {
     //   if(active.includes(idProduct)){

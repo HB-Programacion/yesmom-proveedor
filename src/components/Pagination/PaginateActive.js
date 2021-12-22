@@ -23,18 +23,24 @@ const PaginateActive = () => {
     
         setTimeout(() => {
           window.scrollTo(0,0);
-        },300)
+        },500)
     };
 
     useEffect(() => {
         setPageCount(Math.ceil(total / itemsPerPage));
+
+        //eslint-disable-next-line
     }, [ total ])
 
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
         dispatch( startLoadingProductsStore( { skip : itemOffset, limit : endOffset, state : 'A' }));
+
+        // eslint-disable-next-line
         setPageCount(Math.ceil(total / itemsPerPage));
-    }, [itemOffset, itemsPerPage]);
+
+        //eslint-disable-next-line
+    }, [itemOffset, itemsPerPage , dispatch]);
 
     
     return (

@@ -70,8 +70,8 @@ const RegistroStep1 = ({register , errors , showPassword , edited}) => {
                             <div className="registro-box-input mt-0 mb-0 mq-mb-0">
                                 <label htmlFor="contrasenia">Contraseña*:</label>
                                 <div className="registro-input-password">
-                                    <img className="registro-hide-desktop" src={eyeIcon} onClick ={ showPassword }/>
-                                    <img className="show-only-desktop" src={eyeIconBlue} onClick ={ showPassword }/>
+                                    <img alt="mostrar-password" className="registro-hide-desktop" src={eyeIcon} onClick ={ showPassword }/>
+                                    <img alt="mostrar-password" className="show-only-desktop" src={eyeIconBlue} onClick ={ showPassword }/>
                                     <input 
                                         type="password" 
                                         id="contrasenia" 

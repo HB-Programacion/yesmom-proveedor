@@ -10,7 +10,7 @@ export const updateStoreSupplier = async ( { images , infoAlmacen , nameStore , 
         console.log(infoAlmacen);
 
         Swal.fire({
-            title : "Registrando tienda...",
+            title : "Actualizando datos...",
             text : "Espera un momento....",
             allowOutsideClick : false,
             didOpen: () => {

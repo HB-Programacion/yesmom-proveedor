@@ -3,12 +3,6 @@ import Swal from "sweetalert2";
 
 import clienteAxiosBusiness from "../../config/axiosBusiness";
 
-import { 
-    getSupplierProducts, 
-    getSupplierProductsDisabled, 
-    getSupplierProductsDisabledPaginate, 
-    getSupplierProductsPaginate 
-} from "../../utils/helpers/getSupplierProducts";
 
 import { logout } from "./auth";
 import { cleanUi, finishLoading, startLoading } from "./ui";
@@ -32,7 +26,7 @@ export const startLoadingInfoSupplier = () => {
             })
 
             if(data?.response?.ok){
-                const { response : { item  , existeTienda} } = data;
+                const { response : { item } } = data;
                 dispatch( loadingDataSupplier(item));
             }else{
                 dispatch(logout());
@@ -77,13 +71,13 @@ export const startUpdatingInfoSupplier = ( values ) => {
     }
 }
 
-export const startDisablingSupplier = (password) => {
+export const startDisablingSupplier = ( { password }) => {
     return async( dispatch , getState) => {
 
         try {
 
             Swal.fire({
-                title : "Desactivando tienda...",
+                title : "Desactivando proveedor...",
                 text : "Espera un momento....",
                 allowOutsideClick : false,
                 didOpen: () => {
@@ -92,19 +86,21 @@ export const startDisablingSupplier = (password) => {
             })
             dispatch( startLoading());
             const { auth : { token } } = getState();
-            
+
             const { data } = await clienteAxiosBusiness.patch('/supplier/disabled',{
                 password
             }, {
                 headers : { 'access-token' : token }
             })
 
-            console.log(data);
+
             Swal.close();
             if(data?.response?.ok){
                 Swal.fire('Proveedor desactivado', 'Proveedor desactivado correctamente','success');
                 setTimeout(()=>{
-                    window.location.reload();
+                    
+                    dispatch(logout());
+                    window.location.href='/';
                 },500)
             }else{
                 Swal.fire('Contraseña incorrecta', 'Ingresaste una contraseña incorrecta','error');

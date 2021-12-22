@@ -3,9 +3,8 @@ import AppLayout from "../../../components/AppLayout/AppLayout";
 import ButtonFilled from "../../../components/Button/ButtonFilled";
 import { Col, Row } from "react-bootstrap";
 
-import bannerMobile from "../../../images/banner.png";
-import bannerDesktop from "../../../images/banner-desktop.png";
-import ondaBlanca from "../../../images/onda-blanca.svg";
+
+
 import excelFirst from "../../../images/producto/excel/ExcelFirst.png";
 import excelSecond from "../../../images/producto/excel/ExcelSecond.png";
 import excelThird from "../../../images/producto/excel/ExcelThird.png";
@@ -16,7 +15,7 @@ import download from "../../../images/producto/excel/download.svg";
 
 import CircleImage from "../../../components/CircleImage/CircleImage";
 import "./AddProductExcel.css";
-import axios from "axios";
+
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 import { saveAs } from "file-saver";
@@ -31,7 +30,6 @@ const AddProductExcel = () => {
   };
   const dispatch = useDispatch();
   const [files, setFiles] = useState(initialState);
-  const { token } = useSelector((state) => state.auth);
   const { idActiveStore } = useSelector( state => state.store);
 
   const steps = [
@@ -69,7 +67,7 @@ const AddProductExcel = () => {
   };
 
   const handleUploadProducts = async () => {
-    if (files?.fileImages != "" && files?.fileProducts != "") {
+    if (files?.fileImages !== "" && files?.fileProducts !== "") {
       //Existen datos
       const { fileImages, fileProducts } = files;
       const formData = new FormData();
@@ -142,7 +140,7 @@ const AddProductExcel = () => {
                 </div>
 
                 <div className="excel--container-import">
-                  <img src={arrow} />
+                  <img src={arrow} alt="arrow"/>
                   <h4 className="excel--title-product">Importar productos</h4>
                   <div className="excel-container-download">
                     <div className="excel--flex-1 download">

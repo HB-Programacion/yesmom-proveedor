@@ -1,6 +1,6 @@
 import { lazy } from "react";
-import Construccion from "../pages/construccion/Construccion";
-import Politicas from "../pages/politicasdeprivacidad/Politicas";
+// import Construccion from "../pages/construccion/Construccion";
+// import Politicas from "../pages/politicasdeprivacidad/Politicas";
 
 //Views
 export const Home = lazy(() => import("../pages/Home/Home"));

@@ -80,6 +80,7 @@ const Footer = () => {
                   className="icon-redes"
                   href="https://www.facebook.com/Yes-Mom-Per%C3%BA-104308198182894"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <FontAwesomeIcon icon={faFacebookF}></FontAwesomeIcon>
                 </a>
@@ -87,6 +88,7 @@ const Footer = () => {
                   className="icon-redes"
                   href="https://www.instagram.com/yesmomperu/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
                 </a>

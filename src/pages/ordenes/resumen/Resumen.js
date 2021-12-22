@@ -27,13 +27,13 @@ const Resumen = () => {
                             </div>
                             <div className="resumen--container-select">
                                 <select className="select-ordenar">
-                                    <option>Ordenar por </option>
-                                    <option>Precio de mayor a menor</option>
+                                    <option>Filtrar por tienda </option>
+                                    {/* <option>Precio de mayor a menor</option>
                                     <option>Precio de menor a mayor</option>
                                     <option>A-Z (alfabéticamente)</option>
                                     <option>Z-A (alfabéticamente)</option>
                                     <option>Últimos 30 días)</option>
-                                    <option>Últimos 6 meses</option>
+                                    <option>Últimos 6 meses</option> */}
                                 </select> 
                             </div>
                             <div className="resumen--container-cards">

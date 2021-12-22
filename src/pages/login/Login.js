@@ -78,7 +78,7 @@ const Login = () => {
                           name="password" 
                           {...register('password')}
                         />
-                        <img className="eye-icon" src={iconEye} onClick= { handleRef } />
+                        <img className="eye-icon" alt="icon-eye" src={iconEye} onClick= { handleRef } />
                       </div>
                       <p className="error-input-login">{errors?.password?.message}</p>
                     </div>

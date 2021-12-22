@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
 import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
 
-import iconEditar from '../../../images/header/icon-edit.svg';
+
 
 import ButtonFilled from '../../../components/Button/ButtonFilled';
 import Sidebar from '../../../components/Perfil/Sidebar/Sidebar';
-import previewImage from '../../../images/producto/preview.svg';
-import close from '../../../images/producto/close.svg';
+
+
 
 import './ProfileStoreGeneral.css';
 import BackComponent from '../../../components/Return/BackComponent';
@@ -27,8 +27,8 @@ const MAX_MB = 2000000;
 const ProfileStoreGeneral = () => {
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const  { logged=false , token } = useSelector(state => state.auth);
+
+    const  {  token } = useSelector(state => state.auth);
     //Limpiar los input file
     const refCover = useRef();
     const refLogo = useRef();
@@ -221,7 +221,6 @@ const ProfileStoreGeneral = () => {
                                         availableName={ availableName }
                                         handleImageChange = { handleImageChange }
                                         handleChangeNameUrl = { handleChangeNameUrl }
-                                        availableName = { availableName }
                                     />
                                 </div>
                             </div>

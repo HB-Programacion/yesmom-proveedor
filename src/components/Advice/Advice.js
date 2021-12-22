@@ -17,7 +17,7 @@ const Advice = ( { color , text}) => {
         if(stores){
             dispatch(finishLoading())
         }
-    },[stores])
+    },[stores, dispatch])
 
     return (
         <>

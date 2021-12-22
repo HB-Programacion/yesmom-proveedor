@@ -1,17 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+
 import { useDispatch } from 'react-redux'
 import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
 
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
-import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
-
-import back from '../../../images/perfil/back.svg';
 
 import ButtonFilled from '../../../components/Button/ButtonFilled';
-import Sidebar from '../../../components/Perfil/Sidebar/Sidebar';
 import iconEye from '../../../images/perfil/icon-eye.svg';
 import iconEyeBlue from '../../../images/registro/eye-blue.svg';
 
@@ -20,7 +16,7 @@ import { useForm } from 'react-hook-form';
 
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import clienteAxiosBusiness from '../../../config/axiosBusiness';
+
 import { startDisablingSupplier } from '../../../redux/actions/supplier';
 
 const schemaValidator = yup.object().shape({
@@ -87,8 +83,8 @@ const DesactivarCuenta = () => {
                                                     name="password"
                                                     {...register('password')}
                                                 />
-                                                <img className="registro-hide-desktop eye-icon" src={iconEye} onClick={ handleRef } />
-                                                <img className="show-only-desktop eye-icon" src={iconEyeBlue} onClick={ handleRef } />
+                                                <img className="registro-hide-desktop eye-icon" src={iconEye} onClick={ handleRef } alt="icon-eye"/>
+                                                <img className="show-only-desktop eye-icon" src={iconEyeBlue} onClick={ handleRef } alt="icon-eye"/>
                                             </div>
                                             <p className="error-input">{errors?.password?.message}</p>
                                         </div>

@@ -4,7 +4,7 @@ import clienteAxiosAuth from "../../config/axiosAuth";
 import { validateToken } from "../../utils/helpers/validateToken";
 import { types } from "../types/types"
 import { loadStores } from "./store";
-import { cleanDataSupplier, startLoadingInfoSupplier , startLoadingSupplierProducts } from "./supplier";
+import { cleanDataSupplier, startLoadingInfoSupplier} from "./supplier";
 
 
 

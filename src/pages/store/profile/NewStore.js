@@ -1,6 +1,6 @@
 import './NewStore.css'
 import Swal from 'sweetalert2';
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -20,7 +20,7 @@ import { saveNewStoreSupplier } from '../../../utils/helpers/updateStoreSupplier
 
 import { getPrevieWImage } from '../../../utils/helpers/getPreviewImage';
 import Advice from '../../../components/Advice/Advice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setActiveStore } from '../../../redux/actions/store';
 
 
@@ -163,6 +163,7 @@ const NewStore = () => {
         } );
 
         if(ok){
+            reset();
             Swal.fire('Registrado correctamente','Tu tienda ha sido registrada correctamente','success');
             dispatch(setActiveStore(response.id));
             setTimeout(()=>{

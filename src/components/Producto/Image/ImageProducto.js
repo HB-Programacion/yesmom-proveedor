@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ImageProducto({ type , src , i}) {
+const ImageProducto = ({ type , src , i}) => {
 
     return (
         <>

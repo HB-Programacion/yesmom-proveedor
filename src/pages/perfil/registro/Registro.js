@@ -18,7 +18,7 @@ import iconEditar from '../../../images/header/icon-edit.svg';
 
 
 import { schemaValidatorStep4 } from '../../../utils/validateRegistro/ValidationSchemas';
-import { loadingDataSupplier } from '../../../redux/actions/supplier';
+
 
 import StoreInfo from '../../../components/PerfilTienda/PerfilTiendaData';
 import { startInfoActiveStore } from '../../../redux/actions/store';
@@ -186,7 +186,7 @@ const Registro = () => {
 
   useEffect(()=>{
     dispatch(startInfoActiveStore(idActiveStore));
-  },[idActiveStore])
+  },[idActiveStore , dispatch])
 
   //Setear info de store que cambia
   useEffect(()=>{
@@ -207,7 +207,7 @@ const Registro = () => {
       referenciaAlmacen : store?.referenciaAlmacen,
       ciudadAlmacen : store?.ciudadAlmacen,
     })
-  },[store])
+  },[store , reset])
 
   //IMAGENES
   
@@ -235,7 +235,7 @@ const Registro = () => {
                 <div className="info-container-content">
                   <div className="registro-container-form info-container-form mt-5 mb-2">
                     <div className="info-icon-editar">
-                      <img src={iconEditar} />
+                      <img src={iconEditar} alt="editar"/>
                     </div>
                     <RegistroStep4 
                       register= { register}

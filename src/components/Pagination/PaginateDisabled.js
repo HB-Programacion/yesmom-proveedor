@@ -11,7 +11,7 @@ const PaginateDisabled = () => {
 
   const dispatch = useDispatch();
   const  { productsActiveStore } = useSelector(state => state.store);
-  const { totalDisabled } = productsActiveStore;
+  const { totalDisabled=0  } = productsActiveStore;
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
 
@@ -22,39 +22,39 @@ const PaginateDisabled = () => {
 
     setTimeout(() => {
       window.scrollTo(0,0);
-    },300)
+    },500)
   };
 
-  useEffect(() => {
-    setPageCount(Math.ceil(totalDisabled / itemsPerPage));
-  }, [ totalDisabled ])
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
     dispatch( startLoadingProductsStore( { skip : itemOffset, limit : endOffset , state : 'D' }));
+    // eslint-disable-next-line
     setPageCount(Math.ceil(totalDisabled / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
+    //eslint-disable-next-line
+  }, [itemOffset, itemsPerPage, dispatch]);
 
   return (
-      <div>
-        <ReactPaginate
-          breakLabel="..."
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
-          pageCount={pageCount}
-          previousLabel="<"
-          nextLabel=">"
-          pageClassName="page-item-page-custom"
-          pageLinkClassName="page-link-custom-pagination"
-          previousClassName="page-item-custom-pagination"
-          previousLinkClassName="page-link-custom-pagination"
-          nextClassName="page-item-custom-pagination"
-          nextLinkClassName="page-link-custom-pagination"
-          containerClassName="pagination"
-          activeClassName="active-custom-pagination"
-          renderOnZeroPageCount={null}
-        />
-      </div>
+
+          totalDisabled>0 &&
+          <ReactPaginate
+            breakLabel="..."
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            previousLabel="<"
+            nextLabel=">"
+            pageClassName="page-item-page-custom"
+            pageLinkClassName="page-link-custom-pagination"
+            previousClassName="page-item-custom-pagination"
+            previousLinkClassName="page-link-custom-pagination"
+            nextClassName="page-item-custom-pagination"
+            nextLinkClassName="page-link-custom-pagination"
+            containerClassName="pagination"
+            activeClassName="active-custom-pagination"
+            renderOnZeroPageCount={null}
+          /> 
+
     )
 }
 
