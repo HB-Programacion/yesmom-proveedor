@@ -11,7 +11,7 @@ const PaginateDisabled = () => {
 
   const dispatch = useDispatch();
   const  { productsActiveStore } = useSelector(state => state.store);
-  const { totalDisabled=0  } = productsActiveStore;
+  const { totalDisabled , products } = productsActiveStore;
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
 
@@ -22,9 +22,14 @@ const PaginateDisabled = () => {
 
     setTimeout(() => {
       window.scrollTo(0,0);
-    },500)
+    },700)
   };
 
+  useEffect(() => {
+    setPageCount(Math.ceil(totalDisabled / itemsPerPage));
+
+    //eslint-disable-next-line
+  }, [ totalDisabled ])
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -34,9 +39,9 @@ const PaginateDisabled = () => {
     //eslint-disable-next-line
   }, [itemOffset, itemsPerPage, dispatch]);
 
+
   return (
 
-          totalDisabled>0 &&
           <ReactPaginate
             breakLabel="..."
             onPageChange={handlePageClick}

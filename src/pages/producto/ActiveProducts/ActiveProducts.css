@@ -34,6 +34,7 @@
 .active-products-filter{
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 .container-delete-products{
@@ -194,8 +195,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
-    margin-top: 42px;
   }
 }
 @media (min-width : 1280px){
@@ -233,14 +232,6 @@
     cursor:pointer;
   }
 
-  /* .active-products-filter{
-    display: flex;
-    align-items: center;
-    width: 550px;
-    margin-left: auto;
-    margin-bottom: 40px;
-    margin-top: 42px;
-  } */
   .icon-delete{
     margin: 7px 25px 7px 19px;
   }

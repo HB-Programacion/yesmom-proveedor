@@ -10,6 +10,7 @@ import './Login.css';
 import * as yup from 'yup'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useParams } from 'react-router-dom';
 
 
 const schemaValidator = yup.object().shape({
@@ -21,6 +22,8 @@ const schemaValidator = yup.object().shape({
 
 const ResetPassword = () => {
 
+    const { token } = useParams();
+    console.log(token);
     const { register , handleSubmit , formState : { errors } } = useForm({
         resolver : yupResolver(schemaValidator)
     })

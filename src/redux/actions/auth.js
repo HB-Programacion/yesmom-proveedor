@@ -5,6 +5,7 @@ import { validateToken } from "../../utils/helpers/validateToken";
 import { types } from "../types/types"
 import { loadStores } from "./store";
 import { cleanDataSupplier, startLoadingInfoSupplier} from "./supplier";
+import { startLoading } from "./ui";
 
 
 
@@ -58,9 +59,12 @@ export const validateLoginSupplier = ( token ) => {
     }
 }
 
+
+
 //Para setear data
 export const startLogin = ( token) =>{
     return async (dispatch) => {
+        dispatch(startLoading())
         dispatch( login( token ));
         // await Promise.all([dispatch( loadStores()),dispatch( startLoadingInfoSupplier(token))])
         dispatch( loadStores())

@@ -40,8 +40,6 @@ export const startLoadingInfoSupplier = () => {
             console.log(e.message);
         }
 
-
-
     }
 }
 
@@ -155,74 +153,15 @@ export const startDisablingStore = ( password ) => {
     }
 }
 
-//Productos
-// export const startLoadingSupplierProducts = () => {
-//     return  async (dispatch  , getState ) => {
-//         const { token } = getState().auth;
-
-//         const [ data , data_disabled] = await Promise.all([
-//             getSupplierProducts(token),
-//             getSupplierProductsDisabled(token)
-//         ])
-
-//         dispatch(loadSupplierProducts(data) );
-//         dispatch(loadSupplierProductsDisabled(data_disabled) );
-//     }
-// }
-// export const startLoadingSupplierProductsPaginate = ( config ) => {
-//     return  async (dispatch  , getState ) => {
-//         const { token } = getState().auth;
-//         const data = await getSupplierProductsPaginate(token , config );
-
-//         // console.log('DATA EN ESTE LLAMADO ' , data);
-//         dispatch(loadSupplierProducts(data) );
-//     }
-// }
-// export const startLoadingSupplierProductsDisabledPaginate = ( config ) => {
-//     return  async (dispatch  , getState ) => {
-//         const { token } = getState().auth;
-//         const data = await getSupplierProductsDisabledPaginate(token , config );
-
-//         // console.log('DATA EN ESTE LLAMADO ' , data);
-//         dispatch(loadSupplierProductsDisabled(data) );
-//     }
-// }
-// export const startDeletingProduct = ( ) => {
-//     return async (dispatch , getState) => {
-
-//         const { active } = getState().supplierProducts;
-//         const { token } =getState().auth;
-//         // console.log('Eliminando estos : ', active );
-//         //Enviar al endpoint
-//         //Enviar como arreglo : [ "id513123"];
-
+// export const startLoadingNeccesaryData = () => {
+//     return async () => {
 //         try{
-//             const { data } = await axios.patch(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/productstate` ,{
-//                 "products" : active,
-//                 "state" : "D"
-//             },{
-//                 headers : {
-//                     'access-token' : token
-//                 }
-//             })
 
-//             if(data?.response?.ok){
-//                 Swal.fire('Producto(s) desactivados', 'Productos seleccionados han sido desactivados' , 'success');
-//                 dispatch(deleteProduct());
-//             }else{
-//                 Swal.fire('Hubo un error', 'No se pudo desactivar los productos' , 'info');
-//                 // alert('Hubo un error');
-//             }
 //         }catch(err){
 //             console.log(err);
-//             Swal.fire('Error', 'Error inesperado' , 'error');
-//             // alert('Algo salió mal');
 //         }
-        
-
 //     }
 // }
-
 
 export const cleanDataSupplier = () => {
 

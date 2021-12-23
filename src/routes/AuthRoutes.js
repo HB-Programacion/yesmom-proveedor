@@ -70,6 +70,9 @@ const AuthRoutes = () => {
                             <DesactivarCuenta />
                         // </RestrictedRoute>
                      } />
+
+
+                     
                     
                     <Route path="/*" element={ <Navigate to="/404" />} />
                 </Routes>

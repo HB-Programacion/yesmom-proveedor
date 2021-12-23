@@ -23,7 +23,7 @@ const PaginateActive = () => {
     
         setTimeout(() => {
           window.scrollTo(0,0);
-        },500)
+        },700)
     };
 
     useEffect(() => {

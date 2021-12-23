@@ -48,7 +48,7 @@ const ActiveProducts = () => {
   const { loading } = useSelector(state => state.ui);
   const  { productsActiveStore } = useSelector(state => state.store);
 
-  const { active } = productsActiveStore;
+  const { total , active } = productsActiveStore;
 
   const [ activeFilter , setActiveFilter ] = useState(0);
 
@@ -114,18 +114,21 @@ const ActiveProducts = () => {
                             </Link>
                           </div>
 
-                          <div className='container-delete-products'>
-                            <Checkbox content='Seleccionar todo' />
-                            <div className="container-icon-delete">
-                              <img 
-                                className={`icon-delete ${active.length===0 ? 'icon-delete-disabled' : ''}`}
-                                src={iconDelete} 
-                                alt="icon-delete"
-                                onClick = { handleDeleteActive }  
-                              />
-                            </div>
-                            <Input placeholder="Buscar..." />
+                          {
+                            total > 0 && 
+                            <div className='container-delete-products'>
+                              <Checkbox content='Seleccionar todo' />
+                              <div className="container-icon-delete">
+                                <img 
+                                  className={`icon-delete ${active.length===0 ? 'icon-delete-disabled' : ''}`}
+                                  src={iconDelete} 
+                                  alt="icon-delete"
+                                  onClick = { handleDeleteActive }  
+                                />
+                              </div>
+                              <Input placeholder="Buscar..." />
                           </div>
+                          }
                         </div>
                       </div>
                       { activeFilter === 0 && <ComponentActive />   }

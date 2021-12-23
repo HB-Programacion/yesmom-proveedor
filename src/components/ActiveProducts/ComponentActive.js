@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { setActiveProduct, unsetActiveProduct } from '../../redux/actions/store';
 
@@ -39,11 +39,6 @@ const ComponentActive = () => {
                 products.length === 0 ? 
                 <>
                 <p className="empty-products"> No hay productos </p>
-                <div className='active-products-filter-contenedor'>
-                  <Link to="/p/store/load-products">
-                    +Cargar productos
-                  </Link>
-                </div>
                 </>
                 
                 :

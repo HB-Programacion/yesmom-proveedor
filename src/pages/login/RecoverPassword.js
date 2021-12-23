@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import * as yup from 'yup'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Swal from 'sweetalert2';
+import clienteAxiosAuth from '../../config/axiosAuth';
 
 const schemaValidator = yup.object().shape({
     email : yup.string().email('*Correo electrónico inválido').required('*Este campo es requerido'),
@@ -21,8 +23,30 @@ const Recover = () => {
     })
 
     
-    const submitForm = () => {
-        alert('Recuperar contraseña')
+    const submitForm = async ( values ) => {
+        
+        try{
+
+            const { email } = values;
+            const { data } = await clienteAxiosAuth.post('/users/reset', { principalEmail : email });
+
+            console.log(data);
+            
+            if(data?.CodigoRespuesta === '34'){
+                return Swal.fire('Correo no encontrado', 'El correo no se encuentra registrado' , 'info');
+            }
+
+            if(data?.status === 'success'){
+                Swal.fire('Email enviado', 'Se ha enviado un email con instrucciones para restablecer la contraseña' , 'success');
+            }else{
+                Swal.fire('Error','Hubo un error' ,'error');
+            }
+
+
+        }catch(err){
+            console.log(err);
+            Swal.fire('Error','Hubo un error' ,'error');
+        }
     }
 
     return (

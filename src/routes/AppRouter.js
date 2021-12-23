@@ -59,12 +59,8 @@ const AppRouter = () => {
                             <Registro />
                         </PublicRoute>
                     } />
-                    <Route path="/recuperar-password" element={
-                        <PublicRoute logged={ logged }>
-                            <RecoverPassword />
-                        </PublicRoute>
-                    } />
-                    <Route path="/restablecer-password" element={
+                    
+                    <Route path="/restablecer-password/:token/:id" element={
                         <PublicRoute logged={ logged }>
                             <ResetPassword />
                         </PublicRoute>
@@ -78,6 +74,8 @@ const AppRouter = () => {
                     } />
 
                     <Route path="/" element={ <Home /> } />
+                    <Route path="/recuperar-password" element={ <RecoverPassword /> } />
+                    <Route path="/restablecer-password/:token" element={ <ResetPassword /> } />
                     <Route path="/404" element={ <ComponentNotFound /> } />
                 </Routes>
             </Suspense>
