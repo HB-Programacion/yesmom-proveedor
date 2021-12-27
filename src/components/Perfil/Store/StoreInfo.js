@@ -7,7 +7,7 @@ import previewImage from '../../../images/producto/preview.svg';
 
 import '../../../pages/perfil/tienda/ProfileStoreGeneral';
 const StoreInfo = ( {
-    nameStore,
+    nameStore = "",
     availableName,
     preview , 
     refCover,
@@ -17,6 +17,8 @@ const StoreInfo = ( {
     handleImageBanners,
     handleChangeNameUrl,
 }) => {
+
+    console.log(nameStore)
     return (
         <>
            <div className="registro-container-form info-container-form pt-6 mt-5 mb-2">
@@ -61,6 +63,7 @@ const StoreInfo = ( {
                                                 onChange = { handleImageChange }
                                                 name = "imgLogo"
                                                 id = "imgLogo"
+                                                value=""
                                                 accept="image/png, image/jpeg"
                                                 ref = { refLogo}
                                             />
@@ -101,6 +104,7 @@ const StoreInfo = ( {
                                                 name = "imgCover"
                                                 accept="image/png, image/jpeg"
                                                 ref = { refCover}
+                                                value=""
                                             />
                                             <label htmlFor="imgCover" className="label-image-profile-store">
                                                 <ButtonFilled color="blue">
@@ -146,6 +150,7 @@ const StoreInfo = ( {
                                             id="imgBanner_1"
                                             className="add--input-form"
                                             accept="image/png, image/jpeg"
+                                            value=""
                                         />
                                         </div>
                                     </div>
@@ -169,6 +174,7 @@ const StoreInfo = ( {
                                             id="imgBanner_2"
                                             className="add--input-form"
                                             accept="image/png, image/jpeg"
+                                            value=""
                                         />
                                         </div>
                                     </div>
@@ -192,6 +198,7 @@ const StoreInfo = ( {
                                             id="imgBanner_3"
                                             className="add--input-form"
                                             accept="image/png, image/jpeg"
+                                            value=""
                                         />
                                         </div>
                                     </div>

@@ -20,7 +20,7 @@ import iconEditar from '../../../images/header/icon-edit.svg';
 import { schemaValidatorStep4 } from '../../../utils/validateRegistro/ValidationSchemas';
 
 
-import StoreInfo from '../../../components/PerfilTienda/PerfilTiendaData';
+import PerfilTiendaData from '../../../components/PerfilTienda/PerfilTiendaData';
 import { startInfoActiveStore } from '../../../redux/actions/store';
 import { getPrevieWImage } from '../../../utils/helpers/getPreviewImage';
 import { verifyStoreName } from '../../../utils/helpers/verifyStoreName';
@@ -244,7 +244,7 @@ const Registro = () => {
                   </div>
                 </div>
                 <div className="info-container-content">
-                  <StoreInfo
+                  <PerfilTiendaData
                     nameStore = { nameStore }
                     handleChangeNameUrl={ handleChangeNameUrl}
                     availableName={ availableName }
