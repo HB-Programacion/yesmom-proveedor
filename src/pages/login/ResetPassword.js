@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AppLayout from '../../components/AppLayout/AppLayout'
 
 import imgUser from '../../images/login/img-user.svg';
@@ -11,7 +11,10 @@ import * as yup from 'yup'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useParams } from 'react-router-dom';
+import clienteAxiosAuth from '../../config/axiosAuth';
+import Swal from 'sweetalert2';
 
+import Loading from '../../components/Loading/Loading';
 
 const schemaValidator = yup.object().shape({
     password : yup.string().required('*Este campo es requerido').min(5,'*La contraseña debe tener como mínimo 5 caracteres'),
@@ -22,9 +25,10 @@ const schemaValidator = yup.object().shape({
 
 const ResetPassword = () => {
 
-    const { token } = useParams();
-    console.log(token);
-    const { register , handleSubmit , formState : { errors } } = useForm({
+    const { token , id } = useParams();
+    const [ loading , setLoading ] = useState(false);
+
+    const { register , handleSubmit , formState : { errors } , reset} = useForm({
         resolver : yupResolver(schemaValidator)
     })
 
@@ -34,12 +38,38 @@ const ResetPassword = () => {
         type === "password" ? document.getElementById(id).type="text" : document.getElementById(id).type="password"
     }
 
-    const submitForm = (data) => {
-        console.log(data);
+    const submitForm = async (data) => {
+        
+        const { password } = data;
+        try{
+            setLoading(true);
+            const { data } = await clienteAxiosAuth.post('/user-update', { password } ,{
+                headers : {
+                    'access-token' : token
+                },
+                params:{
+                    idUser : id,
+                    shared : '0',
+                    type : 'S'
+                }
+            } )
+            setLoading(false);
+            if(data?.transaction?.ok){
+                reset();
+                Swal.fire('Contraseña restablecida','La contraseña se ha restablecido correctamente' , 'success');
+            }
+
+        }catch(err){
+            setLoading(false);
+            console.log(err);
+            Swal.fire('Error','Hubo un error' , 'error');
+
+        }
     }
 
     return (
         <AppLayout>
+            {loading && <Loading />}
             <div className="contenedor-login animated fade-in">
                 <div className="reset--container-contenido">
                     <div className="all-content all-content-reset">

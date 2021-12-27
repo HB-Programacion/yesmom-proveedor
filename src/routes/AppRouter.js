@@ -24,9 +24,11 @@ import PrivateRoute from "./PrivateRoute";
 import AuthRoutes from "./AuthRoutes";
 
 
+
 const AppRouter = () => {
 
     const dispatch = useDispatch();
+
     const { checking } = useSelector( state => state.auth); 
     const { 
         logged = (
@@ -75,7 +77,7 @@ const AppRouter = () => {
 
                     <Route path="/" element={ <Home /> } />
                     <Route path="/recuperar-password" element={ <RecoverPassword /> } />
-                    <Route path="/restablecer-password/:token" element={ <ResetPassword /> } />
+                    <Route path="/restablecer-password/:token/:id" element={ <ResetPassword /> } />
                     <Route path="/404" element={ <ComponentNotFound /> } />
                 </Routes>
             </Suspense>

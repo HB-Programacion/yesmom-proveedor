@@ -11,6 +11,7 @@ const PaginateDisabled = () => {
 
   const dispatch = useDispatch();
   const  { productsActiveStore } = useSelector(state => state.store);
+  //eslint-disable-next-line
   const { totalDisabled , products } = productsActiveStore;
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
