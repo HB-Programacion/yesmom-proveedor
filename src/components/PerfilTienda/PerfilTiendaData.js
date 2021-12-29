@@ -8,8 +8,8 @@ import '../../pages/perfil/tienda/ProfileStoreGeneral';
 import ButtonFilled from '../Button/ButtonFilled';
 
 import previewImage from '../../images/producto/preview.svg';
-const StoreInfo = ( {
-    nameStore,
+const PerfilTiendaData = ( {
+    nameStore = '',
     availableName,
     preview , 
     refCover,
@@ -209,4 +209,4 @@ const StoreInfo = ( {
     )
 }
 
-export default StoreInfo
+export default PerfilTiendaData
