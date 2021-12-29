@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Accordion, Card } from 'react-bootstrap'
 
 import Swal from 'sweetalert2';
@@ -41,13 +41,13 @@ const AccordionItem = ({ ek, product }) =>  {
 			allowOutsideClick: true,
 		})
 
-		// if(isConfirmed){
-		// 	console.log('Aceptó')
-		// 	handleSubmit();
-		// 	console.log(errors);
-		// }else{
-		// 	console.log('Canceló')
-		// }
+		if(isConfirmed){
+			console.log('Aceptó')
+			submitForm();
+
+		}else{
+			console.log('Canceló')
+		}
 
 	}
 
@@ -78,7 +78,7 @@ const AccordionItem = ({ ek, product }) =>  {
 				<Card.Header>
 					<div className="container-products">
 						<div className="icon-editar" onClick={handleUpdateProduct}>
-							<img src={iconEditar} />
+							<img src={iconEditar} alt="editar"/>
 						</div>
 						<div className="header-title">
 							<div className="item-details">
@@ -113,10 +113,10 @@ const AccordionItem = ({ ek, product }) =>  {
 								<p>Inventario <span>{product.cantDisponible}</span></p>
 							</div>
 							<div className="item-details">
-								<p>Aceptado <span>{product.aceptado ? <img src={iconCheckAvailable} alt="" /> : <img src={iconCheckDisable} alt="" />}</span></p>
+								<p>Aceptado <span>{product.aceptado ? <img src={iconCheckAvailable} alt="check-available" /> : <img src={iconCheckDisable} alt="" />}</span></p>
 							</div>
 							<div className="item-details">
-								<p>Categoria <span>{product.categoria ? <><img src={iconCheckAvailable} alt="" /> <span> {product.categoria}</span> </> : <img src={iconCheckDisable} alt="" />}</span></p>
+								<p>Categoria <span>{product.categoria ? <><img src={iconCheckAvailable} alt="check-available" /> <span> {product.categoria}</span> </> : <img src={iconCheckDisable} alt="" />}</span></p>
 							</div>
 						</div>
 					</Card.Body>

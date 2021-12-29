@@ -52,7 +52,8 @@ const RegistroStep3 = ({register , errors}) => {
                     <div className="registro-box-input mt-0">
                         <label htmlFor="dniRucTitular">DNI o RUC del titular de la cuenta*:</label>
                         <input 
-                            type="number" 
+                            maxLength="11"
+                            type="text" 
                             id="dniRucTitular" 
                             name="dniRucTitular"
                             {...register('dniRucTitular')}
@@ -62,11 +63,12 @@ const RegistroStep3 = ({register , errors}) => {
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col md={6}>
                     <div className="registro-box-input mt-0 mb-0 mq-mb-0">
                         <label htmlFor="cciCuenta">Código de cuenta interbancario (CCI)*:</label>
                         <input 
-                            type="number" 
+                            maxLength="20"
+                            type="text" 
                             id="cciCuenta" 
                             name="cciCuenta"
                             {...register('cciCuenta')}

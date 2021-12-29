@@ -28,6 +28,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useSelector } from "react-redux";
 
+
 const schemaValidator = yup.object().shape({
   fullname: yup
     .string()
@@ -84,9 +85,11 @@ const Home = () => {
   };
 
   const submitForm = (values) => {
-    alert("Enviando datos" + JSON.stringify(values));
+    console.log(values);
+    // alert("Enviando datos" + JSON.stringify(values));
   };
   return (
+
     <div className="animated fade-in">
       <AppLayout>
         <div className="home--box-main-proveedor ">
@@ -120,7 +123,7 @@ const Home = () => {
                   <div className="home--container-buttons">
                     <div>
                       <Link
-                        to={logged ? "/p/resumen-venta" : "/iniciar-sesion"}
+                        to={logged ? "/p/informacion-perfil/registro" : "/iniciar-sesion"}
                       >
                         <ButtonFilled color="yellow">
                           Iniciar sesión
@@ -150,11 +153,19 @@ const Home = () => {
               >
                 <h4 className="home--star-text">
                   <div className="home--container-title-section">
-                    <img className="home--icon-start-1 heartbeat" src={blackStar} />
+                    <img
+                      className="home--icon-start-1 heartbeat"
+                      src={blackStar}
+                      alt="black_star"
+                    />
                     <p className="home--title-section">
                       ¿Cómo vender en Yes mom?
                     </p>
-                    <img className="home--icon-start-2 heartbeat" src={blackStar} />
+                    <img
+                      className="home--icon-start-2 heartbeat"
+                      src={blackStar}
+                      alt="black_star"
+                    />
                   </div>
                 </h4>
                 <div className="home--container-description">
@@ -189,10 +200,10 @@ const Home = () => {
                 className="home--container-section home--como-ayudarte"
                 id={sections.contacto}
               >
-                <img className="home--abs-2" src={nubeBlanca} />
-                <img className="home--abs-1" src={nubeBlanca} />
-                <img className="home--abs-3" src={nubeBlanca} />
-                <img className="home--abs-4" src={nubeBlanca} />
+                <img className="home--abs-2" src={nubeBlanca} alt="nube_blanca"/>
+                <img className="home--abs-1" src={nubeBlanca} alt="nube_blanca"/>
+                <img className="home--abs-3" src={nubeBlanca} alt="nube_blanca"/>
+                <img className="home--abs-4" src={nubeBlanca} alt="nube_blanca"/>
                 <p className="home--title-section">¿Cómo podemos ayudarte?</p>
                 <div className="home--container-description-second">
                   <h5>
@@ -214,6 +225,7 @@ const Home = () => {
                           <img
                             className="home--border-image-1 heartbeat"
                             src={borderProveedor}
+                            alt="border-proveedor"
                           />
                           <img
                             className="home--img-proveedor"
@@ -223,21 +235,22 @@ const Home = () => {
                           <img
                             className="home--border-image-2 "
                             src={borderProveedor}
+                            alt="border-proveedor"
                           />
                         </div>
                         <div className="home--center-sociales">
                           <div className="home--container-sociales">
                             <div className="home--item-sociales">
-                              <img src={arroba} />
-                              <p>mibebe@gmail.com</p>
+                              <img src={arroba} alt="arroba"/>
+                              <p>info@yesmom.com.pe</p>
                             </div>
                             <div className="home--item-sociales">
-                              <img src={telefono} />
+                              <img src={telefono} alt="telefono" />
                               <p>+51 947 234 452</p>
                             </div>
                             <div className="home--item-sociales">
-                              <img src={pin} />
-                              <p>123 Los Robles , Miraflores</p>
+                              <img src={pin} alt="pin"/>
+                              <p>Calle Roma 316, Miraflores</p>
                             </div>
                           </div>
                         </div>
@@ -287,7 +300,6 @@ const Home = () => {
                             </div>
                           </form>
                         </div>
-
                         <div className="home--container-send">
                           <ButtonFilled
                             color="yellow"
@@ -299,9 +311,12 @@ const Home = () => {
                         <p className="home--end-text">
                           Tus datos serán tratados por Yes Mom para la gestión
                           de tu consulta.{" "}
-                          <span className="home--privacidad">
-                            Revisa nuestra política de privacidad.
-                          </span>
+                          <a href="/politica-de-privacidad">
+                            {" "}
+                            <span className="home--privacidad">
+                              Revisa nuestra política de privacidad.
+                            </span>
+                          </a>
                         </p>
                       </div>
                     </Col>

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AccordionContext, useAccordionToggle } from 'react-bootstrap';
 
-function Expand({eventKey, callback }) {
+const Expand = ({eventKey, callback }) => {
     const currentEventKey = useContext(AccordionContext);
 
     const decoratedOnClick = useAccordionToggle(

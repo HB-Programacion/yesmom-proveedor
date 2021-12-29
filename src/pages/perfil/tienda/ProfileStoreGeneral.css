@@ -1,0 +1,142 @@
+.profile-store-container-form{
+    position: relative;
+}
+
+.profile-store-wrapper-input h6{
+    margin:0.8rem 0;
+    font-family: "mont-light";
+    font-size:1.3rem;
+    color: #575650;
+    opacity: 0.8;
+}
+.profile-store-input {
+    border: none;
+    width:100%;
+    border-bottom: 1px solid #DADADA;
+    padding: 0.3rem;
+    padding-bottom: 0.1rem;
+    font-family: "mont-regular" !important;
+    font-weight: 600;
+    color: #575756;
+    font-size: 1.3rem;
+    text-align: left;
+}
+.profile-store-wrapper-tienda{
+    margin-bottom:2rem;
+}
+
+.profile-container-button{
+    margin:1.5rem 0;
+}
+
+.label-image-profile-store{
+    opacity: 1!important;
+    width:100%;
+}
+.img-preview-perfil-proveedor{
+    width : 7rem;
+    height: 6rem;
+}
+
+.link-tienda{
+    font-family:'mont-regular';
+    margin: 1rem 0;
+    font-size : 1.1rem;
+}
+
+.box-cargar-imagen{
+    border-bottom: 1px solid #DADADA;
+    font-family: "mont-regular" !important;
+    height : 3rem;
+    font-size : 1.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    color: #575756;
+    opacity : 0.8;
+}
+@media (min-width : 768px){
+    .profile-store-input{
+        opacity: 0.8;
+        border: 1px solid #556EA1;
+        box-sizing: border-box;
+        border-radius: 10px;
+        padding: 0.8rem 1rem;
+    }
+
+    .box-cargar-imagen{
+        border: 1px solid #556EA1;
+        
+        padding: 0.8rem 1rem;
+        height : 4rem;
+        border-radius : 10px;
+    }
+    
+}
+@media (min-width : 1024px){
+    .profile-store-container-content{
+        width:100%;
+    }
+    .pt-6{
+        padding-top:4rem!important;
+        padding-bottom:4rem!important;
+    }
+    .profile-store-wrapper-tienda,
+    .profile-flex-desktop{
+        display: flex;
+    }
+    .profile-flex-desktop{
+        width:100%;
+    }
+    .profile-flex-left{
+        width:50%;
+    }
+    .profile-flex-right{
+        width: 100%;
+        justify-content: space-between;
+    }
+    .flex-container-images{
+        display: flex;
+    }
+    .profile-store-container-preview{
+        margin:1rem;
+    }
+    .profile-store-preview-image{
+        width:15rem;
+        height:15rem;
+    }
+    
+}
+
+@media (min-width : 1280px){
+    .box-cargar-imagen{
+        margin-top : 1.25rem;
+    }
+    .profile-store-wrapper-input{
+        display: flex;
+        flex-direction: column;
+    }
+    .profile-flex-input-button{
+        display: flex;
+        justify-content: space-between;
+    }
+    .profile-flex-input{
+        flex-grow: 1;
+        margin-right:2rem;
+    }
+    .profile-container-button{
+        margin-top:1rem;
+        height:4.5rem!important;
+    }
+    .profile-store-preview-image{
+        width:13rem;
+        height:13rem;
+    }
+    .profile-store-container-preview{
+        margin:0.5rem;
+    }
+    .mq-mt-3{
+        margin-top:3rem;
+    }
+}

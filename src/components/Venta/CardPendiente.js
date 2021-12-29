@@ -3,7 +3,7 @@ import React from 'react'
 import arrow from '../../images/ventas/arrow.svg';
 import './CardPendiente.css';
 
-function CardPendiente() {
+const CardPendiente = () => {
     return (
         <div className="card-pendiente">
             <div className="card-pendiente-text">

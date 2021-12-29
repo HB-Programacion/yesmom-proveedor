@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from 'react'
-import { useDispatch , useSelector} from 'react-redux';
-import { setActiveAllProducts, unsetActiveAllProducts } from '../../redux/actions/supplier';
+import { useDispatch } from 'react-redux';
+import { setActiveAllProducts, unsetActiveAllProducts } from '../../redux/actions/store';
 
 import './Checkbox.css'
 
@@ -8,7 +8,7 @@ const Checkbox = ({ content }) => {
 
   const dispatch = useDispatch();
 
-  const  { products=[] , active  } = useSelector (state => state.supplierProducts);
+  // const  { products=[] , active  } = useSelector (state => state.supplierProducts);
   const [ checked , setChecked ] = useState(false);
 
   const handleCheck = () => {
@@ -33,7 +33,7 @@ const Checkbox = ({ content }) => {
     }else{
       dispatch( unsetActiveAllProducts());
     }
-  }, [checked])
+  }, [checked , dispatch])
 
 
 

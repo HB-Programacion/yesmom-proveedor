@@ -1,10 +1,14 @@
 import { lazy } from "react";
+import Construccion from "../pages/construccion/Construccion";
+import Politicas from "../pages/politicasdeprivacidad/Politicas";
+
 //Views
+// const Home = lazy(() => import("../pages/Home/Home"));
 const Home = lazy(() => import("../pages/Home/Home"));
 const Registro = lazy(() => import("../pages/registro/Registro"));
-const AddProduct = lazy(() =>
-  import("../pages/producto/AddProduct/AddProduct")
-);
+// const AddProduct = lazy(() =>
+//   import("../pages/producto/AddProduct/AddProduct")
+// );
 const AddProductExcel = lazy(() =>
   import("../pages/producto/Excel/AddProductExcel")
 );
@@ -19,7 +23,7 @@ const SeeProducts = lazy(() =>
 );
 const Resumen = lazy(() => import("../pages/ordenes/resumen/Resumen"));
 const ResumenVenta = lazy(() => import("../pages/ventas/ResumenVenta"));
-const Profile = lazy(() => import("../pages/store/profile/Profile"));
+// const Profile = lazy(() => import("../pages/store/profile/Profile"));
 const Login = lazy(() => import("../pages/login/Login"));
 const RecoverPassword = lazy(() => import("../pages/login/RecoverPassword"));
 const ResetPassword = lazy(() => import("../pages/login/ResetPassword"));
@@ -36,77 +40,111 @@ const ProfileStoreGeneral = lazy(() =>
 const Previsualizacion = lazy(() =>
   import("../pages/Perfil/previsualizacion/Previsualizacion")
 );
-const Terminos = lazy(() => import("../pages/Perfil/terminos/Terminos"));
-const DesactivarCuenta = lazy(() =>
-  import("../pages/Perfil/desactivar-cuenta/DesactivarCuenta")
-);
+// const Terminos = lazy(() => import("../pages/perfil/terminos/Terminos"));
+// const DesactivarCuenta = lazy(() =>
+//   import("../pages/perfil/desactivar-cuenta/DesactivarCuenta")
+// );
 const SignIn = lazy(() => import("../pages/auth/SignIn"));
 
 const ComponentNotFound = lazy(() => import("../pages/404"));
-//without token
-// export const routes = [
-//   { path: "/", component: Home },
-//   { path: "/registro", component: Registro },
-//   // { path: "/add-new-product", component: AddProduct },
-//   { path: "/product-excel", component: AddProductExcel },
-//   { path: "/show-product", component: ShowProduct },
-//   { path: "/visualizate-products", component: SeeProducts },
-//   { path: "/resumen", component: Resumen },
-//   { path: "/p/resumen-venta", component: ResumenVenta },
-//   { path: "/perfil-tienda", component: Profile }, //////////////////////////////////////////////
-//   //Auth
-//   { path: "/iniciar-sesion", component: Login },
-//   { path: "/recuperar-password", component: RecoverPassword },
-//   { path: "/restablecer-password", component: ResetPassword },
-//   //Perfil
-// /*   { path: "/informacion-perfil", component: InfoPerfil }, */
-//   { path: "/p/informacion-perfil/registro", component: InfoPerfilRegistro },
-//   { path: "/p/informacion-perfil/productos-activos", component: ActiveProducts },
-//   { path: "/p/informacion-perfil/cambiar-password", component: ChangePassword },
-//   { path: "/p/informacion-perfil/perfil-tienda", component: ProfileStoreGeneral },
-//   { path: "/p/informacion-perfil/previsualizacion", component: Previsualizacion },
-//   { path: "/p/informacion-perfil/terminos", component: Terminos },
-//   {
-//     path: "/p/informacion-perfil/desactivar-cuenta",
-//     component: DesactivarCuenta,
-//   },
-//   //
-//   //Admin - todo : reemplazar
-//   { path: "/login", component: SignIn },
-// ];
 
 
+const NewStore = lazy (() => import("../pages/store/profile/NewStore"))
+const LoadProducts = lazy(()=>import("../pages/store/profile/LoadProducts"));
 
-//Rutas que se muestran autenticado o no 
+//Rutas que se muestran autenticado o no
 export const bothRoutes = [
-  { path: "/", component: Home },
-  { path: "/login", component: SignIn },//No va
-  { path : "/404" , component : ComponentNotFound}
-]
+  {
+    path: "/",
+    // component: Construccion,
+    component: Home,
+  },
+  {
+    path: "/login",
+    component: SignIn,
+  }, //No va
+  {
+    path: "/404",
+    component: ComponentNotFound,
+  },
+  {
+    path: "/politica-de-privacidad",
+    component: Politicas,
+  },
+  //TODO:
+  {
+    path :"/new-store",
+    component : NewStore
+  },
+  {
+    path: "/load-products-store",
+    component: AddProductExcel,
+  },
+];
 
 //Rutas que se muestran sin estar autenticado , si estas autenticado no se deben mostrar
 export const publicRoutes = [
-  { path: "/iniciar-sesion", component: Login },
-  { path: "/registro", component: Registro },
-  { path: "/recuperar-password", component: RecoverPassword },
-  { path: "/restablecer-password", component: ResetPassword },
-]
+  {
+    path: "/iniciar-sesion",
+    component: Login,
+  },
+  {
+    path: "/registro",
+    component: Registro,
+  },
+  {
+    path: "/recuperar-password",
+    component: RecoverPassword,
+  },
+  {
+    path: "/restablecer-password",
+    component: ResetPassword,
+  },
+
+];
 
 //Rutas que se muestran si estas autenticado
 export const protectedRoutes = [
-  { path: "/p/resumen-venta", component: ResumenVenta },
-  { path: "/p/perfil-tienda", component: Profile },
-  { path: "/p/product-excel", component: AddProductExcel },
+  {
+    path: "/p/resumen-venta",
+    component: ResumenVenta,
+  },
+  // {
+  //   path: "/p/perfil-tienda",
+  //   component: Profile,
+  // },
+  
   /* { path: "/p/add-new-product", component: AddProduct }, */
-  { path: "/p/show-product", component: ShowProduct },
-  { path: "/p/visualizate-products", component: SeeProducts },
-  { path: "/p/resumen", component: Resumen },
- /*  { path: "/p/informacion-perfil", component: InfoPerfil }, */
-  { path: "/p/informacion-perfil/registro", component: InfoPerfilRegistro },
-  { path: "/p/informacion-perfil/productos-activos", component: ActiveProducts },
-  { path: "/p/informacion-perfil/cambiar-password", component: ChangePassword },
-  { path: "/p/informacion-perfil/perfil-tienda", component: ProfileStoreGeneral },
-  { path: "/p/informacion-perfil/previsualizacion", component: Previsualizacion },
-  { path: "/p/informacion-perfil/terminos", component: Terminos },
-  { path: "/p/informacion-perfil/desactivar-cuenta", component: DesactivarCuenta },
-]
+  {
+    path: "/p/show-product",
+    component: ShowProduct,
+  },
+  // { path: "/p/visualizate-products", component: SeeProducts },
+  // {
+  //   path: "/p/resumen",
+  //   component: Resumen,
+  // },
+  /*  { path: "/p/informacion-perfil", component: InfoPerfil }, */
+  {
+    path: "/p/informacion-perfil/registro",
+    component: InfoPerfilRegistro,
+  },
+  {
+    path: "/p/informacion-perfil/productos-activos",
+    component: ActiveProducts,
+  },
+  {
+    path: "/p/informacion-perfil/cambiar-password",
+    component: ChangePassword,
+  },
+  {
+    path: "/p/informacion-perfil/perfil-tienda",
+    component: ProfileStoreGeneral,
+  },
+  // {
+  //   path: "/p/informacion-perfil/previsualizacion",
+  //   component: Previsualizacion,
+  // },
+  // { path: "/p/informacion-perfil/terminos", component: Terminos },
+  // { path: "/p/informacion-perfil/desactivar-cuenta", component: DesactivarCuenta },
+];

@@ -1,0 +1,24 @@
+
+.text_eliminar-store{
+    margin : 0;
+    font-family : "mont-light";
+    color: #5A5A5A;
+    font-size : 1.3rem;
+}
+
+.desactivar-title-swal{
+    font-family:"mont-semibold";
+    font-size:1.8rem;
+    opacity: 0.8;
+}
+
+@media (min-width : 768px){
+    .eliminar_store-container-content{
+        width:50rem;
+    }
+}
+@media (min-width : 1280px){
+    .eliminar_store-container-content{
+        width:55rem;
+    }  
+}

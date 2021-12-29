@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import './StepperTienda.css';
 
-function StepperTienda({selected,setSelected}) {
+const StepperTienda = ({selected,setSelected}) => {
 
     const [ maxStep , setMaxStep] = useState(0);
 

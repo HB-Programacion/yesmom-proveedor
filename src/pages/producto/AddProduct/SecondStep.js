@@ -1,6 +1,6 @@
 import React from "react";
 
-function AddSecondStep({ formTextAddProduct , handleInputChange }) {
+const AddSecondStep = ({ formTextAddProduct , handleInputChange }) => {
     return (
         <div className="animated fade-in">
             <div className="add--question-box">

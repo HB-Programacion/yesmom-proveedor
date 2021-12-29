@@ -1,11 +1,8 @@
 import React from "react";
+import Swal from "sweetalert2";
 import { useState } from 'react';
 
 import AppLayout from "../../../components/AppLayout/AppLayout";
-import CardShadow from "../../../components/CardShadow/CardShadow";
-import Menu from "../../../components/menu/Menu";
-
-import Stepper from "../../../components/Registro/Stepper";
 import ProfileStep1 from "../../../components/PerfilTienda/ProfileStep1";
 import ProfileStep2 from "../../../components/PerfilTienda/ProfileStep2";
 import ProfileStep3 from "../../../components/PerfilTienda/ProfileStep3";
@@ -37,7 +34,8 @@ const Profile = () => {
         if(images.imgLogo!== ""){
           return selected +1;
         }else{
-          alert('Logo obligatorio');
+          Swal.fire('Campo incompleto', 'El logo es obligatorio' , 'info');
+          // alert('Logo obligatorio');
           return selected;
         }
       }
@@ -46,7 +44,8 @@ const Profile = () => {
         if(images.imgCover!== ""){
           return selected +1;
         }else{
-          alert('Cover obligatorio');
+          Swal.fire('Campo inco', 'El banner es obligatorio' , 'info');
+          // alert('Cover obligatorio');
           return selected;
         }
       }
@@ -97,7 +96,7 @@ const handleImageBanners = (e) => {
   }
 
   const handleSubmit = () => {
-    alert("Enviando...");
+    // alert("Enviando...");
     console.log(images);
   }
 

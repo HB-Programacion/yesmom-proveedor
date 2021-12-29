@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Accordion, Col } from 'react-bootstrap'
 import AccordionItemResumen from './AccordionItemResumen'
 
-function AccordionProduct({data}) {
+const AccordionProduct =({data}) => {
     
     return (
         <Accordion>

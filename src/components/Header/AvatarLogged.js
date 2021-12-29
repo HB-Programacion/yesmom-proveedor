@@ -1,15 +1,17 @@
-import { DropdownButton , Dropdown } from 'react-bootstrap';
 import React from 'react'
-
-import './AvatarLogged.css';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { DropdownButton } from 'react-bootstrap';
+
 import { logout } from '../../redux/actions/auth';
 import { cleanDataSupplier } from '../../redux/actions/supplier';
 
-function AvatarLogged({ name }) {
+import './AvatarLogged.css';
+const AvatarLogged = () => {
     
     const dispatch = useDispatch();
+    const { nombreCompletoEncargado="" } = useSelector(state => state.supplier);
+
     const getShortName = ( name ) => {
         
         const namesSeparated = name.toUpperCase().trim().split(" ");
@@ -23,15 +25,21 @@ function AvatarLogged({ name }) {
         });
         return initials;
     }
-    const shortName = getShortName(name);
+    const getFirstName = ( name) => {
+        return name.split(" ")[0];
+    }
+    const shortName = getShortName(nombreCompletoEncargado);
 
 
     const handleLogout = () => {
         dispatch ( logout());
         dispatch ( cleanDataSupplier());
     }
+
+
     return (
         <>
+            {/* <Loading /> */}
             <div className="avatar__logged">
                 <p className="avatar__logged-text">{ shortName }</p>
             </div> 
@@ -40,40 +48,23 @@ function AvatarLogged({ name }) {
                     /* as={ButtonGroup} */
                     id={`dropdown-variants-info`}
                     variant={"info"}
-                    title={`${name}`}
+                    title={`${getFirstName(nombreCompletoEncargado)}`}
                 >
                     <div className="items-dropdown-menu">
-                        <Link to="/p/product-excel">
-                            <p>Importar productos</p>
+                        <Link to="/p/info/mis-datos">
+                            <p>Mis datos</p>
                         </Link>
-                        {/* <Link to="/p/add-new-product">
-                            <p>Carga manual</p>
-                        </Link> */}
-                        <Link to="/p/visualizate-products">
-                            <p>Visualización de productos</p>
+                        <div className="dropdown-divider"></div>
+                        <Link to="/p/info/registro">
+                            <p>Mi tienda</p>
                         </Link>
-                        {/* <Link to="/p/informacion-perfil/productos-activos">
-                            <p>Eliminar producto</p>
-                        </Link> */}
-
-                        <div class="dropdown-divider"></div>
-
-                        <Link to="/p/informacion-perfil/registro">
-                            <p>Mi perfil</p>
+                        <Link to="/p/info/mis-ordenes">
+                            <p>Mis ordenes</p>
                         </Link>
-                        <Link to="/p/informacion-perfil/productos-activos">
-                            <p>Productos</p>
-                        </Link>
-                        <Link to="/p/informacion-perfil/cambiar-password">
+                        <Link to="/p/info/cambiar-password">
                             <p>Cambiar contraseña</p>
                         </Link>
-                        <Link to="/p/informacion-perfil/perfil-tienda">
-                            <p>Perfil de tienda</p>
-                        </Link>
-                        <Link to="/p/informacion-perfil/terminos">
-                            <p>Términos y condiciones</p>
-                        </Link>
-                        <Link to="/p/informacion-perfil/desactivar-cuenta">
+                        <Link to="/p/info/desactivar-cuenta">
                             <p>Desactivar cuenta</p>
                         </Link>
 

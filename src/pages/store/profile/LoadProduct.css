@@ -1,0 +1,13 @@
+.contenedor-load_product-store{
+    padding-top: 13.5rem;
+    padding-bottom: 8rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    margin-top: 0;
+}
+
+.load_product-container-stepper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

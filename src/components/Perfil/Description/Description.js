@@ -2,7 +2,7 @@ import React from 'react'
 
 import './Description.css';
 
-function Description({ title , description}) {
+const Description = ({ title , description}) => {
     return (
         <div className="description-container">
            <h5 className="text-description-title">{title}</h5>

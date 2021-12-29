@@ -1,0 +1,82 @@
+
+.desactivar-cuenta{
+    font-family: "mont-light";
+    font-size:1.19rem;
+    color:#5A5A5A;
+}
+.desactivar-cuenta span{
+    font-family: "mont-semibold";
+    color:#DC6A8D;
+}
+.desactivar-container-form{
+
+    padding:3rem 0;
+}
+
+.desactivar-title-swal{
+    font-family:"mont-semibold";
+    font-size:1.8rem;
+    opacity: 0.8;
+}
+
+
+.desactivar-box-checkbox{
+    margin:2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.desactivar-box-checkbox label{
+    font-family: "mont-semibold";
+    font-size:1.4rem;
+    color: #575650;
+    margin-left:1rem;
+}
+
+.flex-container-center{
+    display: flex;
+    flex-direction: column;
+
+}
+
+/****/
+
+@media (min-width : 480px){
+    .flex-container-center , .info-container-buttons{
+        width : 70%;
+        margin : 0 auto;
+    }
+}
+@media (min-width : 768px){
+    .desactivar-cuenta{
+        font-size:1.3rem;
+    }
+    .desactivar-container-form{
+        padding: 3rem 2rem;
+    }
+    .desactivar-container-content{
+        width:48rem;
+        margin : 0 auto;
+    }
+    .desactivar .swal2-popup{
+        width:45rem!important;
+    }
+    .swal2-actions{
+        flex-direction: row-reverse;
+    }
+    .center-text-description .text-description-title, 
+    .center-text-description .text-description-subtitle {
+        text-align:  center;
+    }
+    
+}
+@media (min-width : 1024px){
+    .desactivar-container-content{
+        width:50rem;
+    }
+    .swal2-cancel p{
+        font-size:1.8rem;
+    }
+
+    
+}

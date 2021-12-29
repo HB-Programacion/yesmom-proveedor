@@ -1,0 +1,32 @@
+
+
+.flex-container-center{
+    display : flex;
+    flex-direction: column;
+}
+
+@media (min-width : 480px){
+    .flex-container-center .info-container-buttons{
+
+        margin : 0 auto;
+    }
+}
+
+@media (min-width : 768px){
+    .center-text-description .text-description-title ,
+    .center-text-description .text-description-subtitle{
+        text-align: center;
+    }
+
+    .flex-container-center , .info-container-buttons {
+        width: 80%;
+        margin : 0 auto;
+    }
+}
+
+@media (min-width : 1280px){
+    .flex-container-center {
+        width: 80rem;
+        margin : 0 auto;
+    }
+}

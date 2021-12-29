@@ -48,15 +48,15 @@ const Footer = () => {
                 </h6>
                 <div className="box-contenido-footer">
 
-                  <Link to="/">
+                  {/* <Link to="/">
                   <p>Términos y condiciones</p>
-                </Link>
-                  <Link to="/">
+                </Link> */}
+                  <Link to="politica-de-privacidad">
                   <p>Política de privacidad</p>
                 </Link>
-                  <Link to="/">
+                  {/* <Link to="/">
                   <p>Libro de reclamaciones</p>
-                </Link>
+                </Link> */}
                 </div>
               </div>
             </Col>
@@ -66,9 +66,9 @@ const Footer = () => {
                   <b>CONTÁCTANOS</b>
                 </h6>
                 {/* <a href="info@yesmom.com.pe">info@yesmom.com.pe</a> */}
-                <p>mibebe@gmail.com</p>
+                <p>info@yesmom.com.pe</p>
                 <p>+51 947 234 452</p>
-                <p>123 Los Robles, Miraflores</p>
+                <p>Calle Roma 316, Miraflores</p>
               </div>
             </Col>
             <Col xs={12} sm={12} md={3} lg={3} xl={3}>
@@ -80,6 +80,7 @@ const Footer = () => {
                   className="icon-redes"
                   href="https://www.facebook.com/Yes-Mom-Per%C3%BA-104308198182894"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <FontAwesomeIcon icon={faFacebookF}></FontAwesomeIcon>
                 </a>
@@ -87,6 +88,7 @@ const Footer = () => {
                   className="icon-redes"
                   href="https://www.instagram.com/yesmomperu/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
                 </a>

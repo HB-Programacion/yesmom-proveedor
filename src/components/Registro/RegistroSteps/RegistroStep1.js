@@ -39,14 +39,14 @@ const RegistroStep1 = ({register , errors , showPassword , edited}) => {
                     </Col>
                     <Col md={6}>
                         <div className="registro-box-input mt-0">
-                            <label htmlFor="nombreTienda">Nombre de la tienda*:</label>
+                            <label htmlFor="nombreTienda">Nombre de la empresa*:</label>
                             <input 
                                 type="text" 
-                                id="nombreTienda" 
-                                name="nombreTienda" 
-                                {...register('nombreTienda')}
+                                id="nombreEmpresa" 
+                                name="nombreEmpresa" 
+                                {...register('nombreEmpresa')}
                             />
-                            <p className="error-input">{errors?.nombreTienda?.message}</p>
+                            <p className="error-input">{errors?.nombreEmpresa?.message}</p>
                         </div>
                     </Col>
                 </Row>
@@ -70,8 +70,8 @@ const RegistroStep1 = ({register , errors , showPassword , edited}) => {
                             <div className="registro-box-input mt-0 mb-0 mq-mb-0">
                                 <label htmlFor="contrasenia">Contraseña*:</label>
                                 <div className="registro-input-password">
-                                    <img className="registro-hide-desktop" src={eyeIcon} onClick ={ showPassword }/>
-                                    <img className="show-only-desktop" src={eyeIconBlue} onClick ={ showPassword }/>
+                                    <img alt="mostrar-password" className="registro-hide-desktop" src={eyeIcon} onClick ={ showPassword }/>
+                                    <img alt="mostrar-password" className="show-only-desktop" src={eyeIconBlue} onClick ={ showPassword }/>
                                     <input 
                                         type="password" 
                                         id="contrasenia" 

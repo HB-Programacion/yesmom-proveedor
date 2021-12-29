@@ -1,7 +1,7 @@
 import React from "react";
 import iconAddProduct from "../../../images/producto/add.svg";
 
-function FirstStep({ formTextAddProduct, handleInputChange }) {
+const FirstStep = ({ formTextAddProduct, handleInputChange }) => {
     return (
         <div className="animated fade-in">
             <div className="add--question-box">
