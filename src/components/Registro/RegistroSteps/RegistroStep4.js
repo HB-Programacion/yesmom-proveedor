@@ -42,6 +42,7 @@ const RegistroStep4 = ({register , errors , customNumber = 1}) => {
                                 type="tel" 
                                 id="telefonoAlmacen" 
                                 name="telefonoAlmacen" 
+																min="1"
                                 {...register('telefonoAlmacen')}
                             />
                             <p className="error-input">{errors?.telefonoAlmacen?.message}</p>
