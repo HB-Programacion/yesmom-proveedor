@@ -28,17 +28,19 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useSelector } from "react-redux";
 
+import { registerFormContacto } from '../../redux/actions/supplier';
+
 
 const schemaValidator = yup.object().shape({
-  fullname: yup
+  nombres: yup
     .string()
     .required("*Este campo es requerido")
     .matches(/^[a-z ,.'-]+$/i, "*Nombres incorrectos"),
-  email: yup
+  mail: yup
     .string()
     .email("*Correo electrónico incorrecto")
     .required("*Este campo es requerido"),
-  question: yup
+  detalle: yup
     .string()
     .required("*Este campo es requerido")
     .max(200, "*Máximo 200 caracteres permitidos"),
@@ -85,9 +87,15 @@ const Home = () => {
   };
 
   const submitForm = (values) => {
-    console.log(values);
-    // alert("Enviando datos" + JSON.stringify(values));
+    console.log('tes homer', values);
+    let formValues = {
+      ...values
+    };
+
+    registerFormContacto(formValues);
   };
+
+
   return (
 
     <div className="animated fade-in">
@@ -266,11 +274,11 @@ const Home = () => {
                               </label>
                               <input
                                 type="text"
-                                id="fullname"
-                                {...register("fullname")}
+                                id="nombres"
+                                {...register("nombres")}
                               />
                               <p className="error-input-login">
-                                {errors?.fullname?.message}
+                                {errors?.nombres?.message}
                               </p>
                             </div>
                             <div className="home--box-input">
@@ -279,11 +287,11 @@ const Home = () => {
                               </label>
                               <input
                                 type="email"
-                                id="email"
-                                {...register("email")}
+                                id="mail"
+                                {...register("mail")}
                               />
                               <p className="error-input-login">
-                                {errors?.email?.message}
+                                {errors?.mail?.message}
                               </p>
                             </div>
                             <div className="home--box-input">
@@ -291,11 +299,11 @@ const Home = () => {
                                 Escribe aquí tu pregunta....
                               </label>
                               <textarea
-                                id="question"
-                                {...register("question", { max: 200 })}
+                                id="detalle"
+                                {...register("detalle", { max: 200 })}
                               />
                               <p className="error-input-login">
-                                {errors?.question?.message}
+                                {errors?.detalle?.message}
                               </p>
                             </div>
                           </form>
