@@ -31,6 +31,9 @@ export const types = {
     setProductsDisabledByStore : "[STORE] set products disabled by store",
     cleanStore : "[STORE] clean store",
 
+		//Orders
+		setOrdersByStore  : "[ORDERS] set orders by store",
+    setOrdersBySupplier : '[ORDERS] set orders by supplier',
 
     uiClean : "[UI] clean",
 }

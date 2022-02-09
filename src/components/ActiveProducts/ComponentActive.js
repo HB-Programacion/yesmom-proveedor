@@ -32,7 +32,7 @@ const ComponentActive = () => {
     const handleRemoveProduct = ( idProduct ) => {
       dispatch( unsetActiveProduct (idProduct) )
     }
-    
+    console.log('products',products)
     return (
         <div>
             {
@@ -43,8 +43,7 @@ const ComponentActive = () => {
                 
                 :
                 <div className="active-products-grid">
-                {products.map((item, i) => (
-                    
+                {products.filter((product) => product.title === "TESTPRD_12").map((item, i) => (
                     <div 
                     className="active-products-item" 
                     key={i} 

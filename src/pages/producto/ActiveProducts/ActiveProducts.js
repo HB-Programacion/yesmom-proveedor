@@ -51,7 +51,7 @@ const ActiveProducts = () => {
   const { total , active } = productsActiveStore;
 
   const [ activeFilter , setActiveFilter ] = useState(0);
-
+	const [filterText, setFilterText] = useState(null)
 
 
   const handleDeleteActive = async () => {
@@ -62,6 +62,11 @@ const ActiveProducts = () => {
           dispatch( startDeletingProduct());
         }
       }
+  }
+
+  const handleFilterText = (e) => {
+		console.log('object',e)
+		/* setFilterText() */
   }
 
 
@@ -126,7 +131,7 @@ const ActiveProducts = () => {
                                   onClick = { handleDeleteActive }  
                                 />
                               </div>
-                              <Input placeholder="Buscar..." />
+                              <Input placeholder="Buscar..." onChange={(e) => handleFilterText(e)} />
                           </div>
                           }
                         </div>
