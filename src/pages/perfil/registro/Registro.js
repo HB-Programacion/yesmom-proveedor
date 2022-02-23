@@ -28,7 +28,7 @@ import { getUrlName } from '../../../utils/helpers/getUlrName';
 
 import './Registro.css';
 import { updateStoreSupplier } from '../../../utils/helpers/updateStoreSupplier';
-const MAX_MB = 2000000;
+const MAX_MB = 500000;
 
 
 
@@ -82,7 +82,7 @@ const Registro = () => {
     if(e.target.files.length > 0){
         const file = e.target.files[0];
         if(file.size > MAX_MB){
-            Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 2MB' , 'info');
+            Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 500kb' , 'info');
             // alert('Imagen pesada , máximo 2MB');
             if(name === 'imgCover'){
                 refCover.current.value='';
@@ -119,7 +119,7 @@ const Registro = () => {
         //Hay imagen de Banner
         const file = e.target.files[0];
         if(file.size > MAX_MB){
-            Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 2MB' , 'info');
+            Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 500kb' , 'info');
             document.getElementsByName(name).value="";
         }else{
             setImages({

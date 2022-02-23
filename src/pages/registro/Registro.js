@@ -84,7 +84,6 @@ const Registro = () => {
                         Swal.close();
                         // console.log(infoPersona);
                         const { data } = response;
-                        // console.log(data);
 
                         if(data?.response?.ok){
                             reset();
@@ -94,7 +93,10 @@ const Registro = () => {
                             setSelected(0);
                             Swal.fire('Solicitud enviada', 'La solicitud de proveedor ha sido enviada' , 'success');
                             // alert("Proveedor guardado satisfactoriamente")
-                        }else{
+                        }else if(data.CodigoRespuesta === "31"){
+                            Swal.fire('El usuario ya existe', 'Ingrese otro correo electrónico','info')
+                        }
+                        else{
                             Swal.fire('Campos incorrectos','Revisa que los campos esten correctamente completados','info')
                         }
                     }catch(e){
