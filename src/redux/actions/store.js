@@ -160,12 +160,13 @@ export const startDeletingProduct = () => {
   return async ( dispatch , getState) => {
     try{
 
-      const { productsActiveStore :  { active } } = getState().store;
+      const { productsActiveStore :  { active }, idActiveStore} = getState().store;
       const { token } =getState().auth;
 
       const { data } = await clienteAxiosBusiness.patch('/store/productstate' ,{
           products : active,
-          state : "D"
+          state : "D",
+          store: idActiveStore
       },{
           headers : {
               'access-token' : token
