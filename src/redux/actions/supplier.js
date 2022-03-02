@@ -185,3 +185,45 @@ export const loadingDataSupplier = ( data ) => ({
 export const cleanSupplier = () => ({
     type : types.cleanSupplier
 })
+
+export const registerFormContacto = async ( values ) => {
+    console.log('datos de form de contacto', values);   
+
+    try{
+        const { mail, detalle, nombres } = values;
+        const body = {
+            principalEmail: mail,
+            subject : nombres,
+            bodyHtml: {
+                detalle,
+                nombres
+            }
+        }
+        const { data } = axios.post(`http://localhost:3700/notificarContacto`, body);
+        console.log(data)
+
+        if(data.result){
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Envió correctamente',
+                showConfirmButton: false,
+                timer: 3000
+            })
+        }else{
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Vuelva a intentarlo',
+                showConfirmButton: false,
+                timer: 3000
+            })
+        }
+
+    }catch(error){
+        console.log(error);
+        alert('Error');
+        return {}
+    }
+
+}
