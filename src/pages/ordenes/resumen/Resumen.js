@@ -12,7 +12,6 @@ import "./Resumen.css";
 const Resumen = () => {
   const [value, setValue] = useState("0");
   const [selection, setSelection] = useState(0);
-  const { listStores, loading, error } = useStores();
   const { stores } = useSelector((state) => state.store);
   const { listOrders, loadingOrders, errorOrders } = useOrders(
     selection === 0 ? "P" : selection === 1 ? "L" : "E"

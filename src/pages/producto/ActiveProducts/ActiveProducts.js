@@ -128,7 +128,7 @@ const ActiveProducts = () => {
                                   className={`icon-delete ${active.length===0 ? 'icon-delete-disabled' : ''}`}
                                   src={iconDelete} 
                                   alt="icon-delete"
-                                  onClick = { handleDeleteActive }  
+                                  onClick = {handleDeleteActive }  
                                 />
                               </div>
                               <Input placeholder="Buscar..." onChange={(e) => handleFilterText(e)} />
