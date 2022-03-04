@@ -1,93 +1,22 @@
-import React from 'react'
-import AccordionResumen from '../../../components/Producto/Accordion/AccordionResumen'
+import React, { useState } from "react";
+import AccordionResumen from "../../../components/Producto/Accordion/AccordionResumen";
 
-function ResumenListas() {
+const ResumenListas = ({ products = [], loading, beforeState, afterState, selection }) => {
+  const [stateSwitch, setStateSwitch] = useState(false);
 
-    const products = [
-        { 
-            nombre:"Set de biberones Avent",
-            numOrden: 101010, 
-            fechaOrden: "2020/07/03", 
-            precio:50,
-            tipoDocumento: "Factura", 
-            metodoPago: "Tarjeta Online", 
-            cant: 20, 
-            acciones: "Pendiente",
-            destinatario:"Adriana Brenis Castro",
-            direccionEnvio:"Cll. José Larco 123",
-            sku: 34242342,
-        },
-        { 
-            nombre:"Set de biberones Avent",
-            numOrden: 101010, 
-            fechaOrden: "2020/07/03", 
-            precio:50,
-            tipoDocumento: "Factura", 
-            metodoPago: "Tarjeta Online", 
-            cant: 20, 
-            acciones: "Pendiente",
-            destinatario:"Adriana Brenis Castro",
-            direccionEnvio:"Cll. José Larco 123",
-            sku: 34242342,
-        },
-        { 
-            nombre:"Set de biberones Avent",
-            numOrden: 101010, 
-            fechaOrden: "2020/07/03", 
-            precio:50,
-            tipoDocumento: "Factura", 
-            metodoPago: "Tarjeta Online", 
-            cant: 20, 
-            acciones: "Pendiente",
-            destinatario:"Adriana Brenis Castro",
-            direccionEnvio:"Cll. José Larco 123",
-            sku: 34242342,
-        },
-        { 
-            nombre:"Set de biberones Avent",
-            numOrden: 101010, 
-            fechaOrden: "2020/07/03", 
-            precio:50,
-            tipoDocumento: "Factura", 
-            metodoPago: "Tarjeta Online", 
-            cant: 20, 
-            acciones: "Pendiente",
-            destinatario:"Adriana Brenis Castro",
-            direccionEnvio:"Cll. José Larco 123",
-            sku: 34242342,
-        },
-        { 
-            nombre:"Set de biberones Avent",
-            numOrden: 101010, 
-            fechaOrden: "2020/07/03", 
-            precio:50,
-            tipoDocumento: "Factura", 
-            metodoPago: "Tarjeta Online", 
-            cant: 20, 
-            acciones: "Pendiente",
-            destinatario:"Adriana Brenis Castro",
-            direccionEnvio:"Cll. José Larco 123",
-            sku: 34242342,
-        },
-        { 
-            nombre:"Set de biberones Avent",
-            numOrden: 101010, 
-            fechaOrden: "2020/07/03", 
-            precio:50,
-            tipoDocumento: "Factura", 
-            metodoPago: "Tarjeta Online", 
-            cant: 20, 
-            acciones: "Pendiente",
-            destinatario:"Adriana Brenis Castro",
-            direccionEnvio:"Cll. José Larco 123",
-            sku: 34242342,
-        },
 
-    ]
 
-    return (
-        <AccordionResumen data={products} />
-    )
-}
+  return (
+    <AccordionResumen
+      data={products}
+      loading={loading}
+      beforeState={beforeState}
+      afterState={afterState}
+      valueSwitch={stateSwitch}
+			selection={selection}
+      onChangeSwitch={() => setStateSwitch(!stateSwitch)}
+    />
+  );
+};
 
-export default ResumenListas
+export default ResumenListas;

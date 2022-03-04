@@ -1,6 +1,5 @@
 import React from 'react'
 import AppLayout from '../../../components/AppLayout/AppLayout'
-import Menu from '../../../components/menu/Menu';
 import CardProduct from '../../../components/Producto/CardProduct/CardProduct';
 
 import proveedorMobImg from '../../../images/perfil/proveedor.png';
@@ -33,7 +32,6 @@ const productsMostSold = [
 const Previsualizacion = () => {
   return (
     <AppLayout>
-      <Menu />
       <div className="preview-products-container animated fade-in">
         <div className="title-rosa preview-products-title">
           <p>Previsualización</p>

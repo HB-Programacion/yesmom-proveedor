@@ -32,7 +32,21 @@
     color: #575650;
     margin-left:1rem;
 }
+
+.flex-container-center{
+    display: flex;
+    flex-direction: column;
+
+}
+
 /****/
+
+@media (min-width : 480px){
+    .flex-container-center , .info-container-buttons{
+        width : 70%;
+        margin : 0 auto;
+    }
+}
 @media (min-width : 768px){
     .desactivar-cuenta{
         font-size:1.3rem;
@@ -42,12 +56,17 @@
     }
     .desactivar-container-content{
         width:48rem;
+        margin : 0 auto;
     }
     .desactivar .swal2-popup{
         width:45rem!important;
     }
     .swal2-actions{
         flex-direction: row-reverse;
+    }
+    .center-text-description .text-description-title, 
+    .center-text-description .text-description-subtitle {
+        text-align:  center;
     }
     
 }

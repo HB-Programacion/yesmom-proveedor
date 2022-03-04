@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import AppLayout from '../../components/AppLayout/AppLayout'
 
-
 import imgUser from '../../images/login/img-user.svg';
 import iconEye from '../../images/login/icon-eye.svg';
 
@@ -78,7 +77,7 @@ const Login = () => {
                           name="password" 
                           {...register('password')}
                         />
-                        <img className="eye-icon" src={iconEye} onClick= { handleRef } />
+                        <img className="eye-icon" alt="icon-eye" src={iconEye} onClick= { handleRef } />
                       </div>
                       <p className="error-input-login">{errors?.password?.message}</p>
                     </div>

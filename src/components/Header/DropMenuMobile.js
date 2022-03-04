@@ -14,7 +14,7 @@ import loggedOptions from '../../images/header/logged-options.svg';
 
 import './DropMenuMobile.css';
 import { cleanDataSupplier } from "../../redux/actions/supplier";
-function DropMenuMobile({ active, setActive}) {
+const DropMenuMobile = ({ active, setActive}) => {
 
   const { logged=false } = useSelector(state => state.auth);  
   const { nombreTienda=""} = useSelector(state => state.supplier);
@@ -134,7 +134,7 @@ function DropMenuMobile({ active, setActive}) {
                             className="expand-options"
                             onClick={() => setExpand((expand) => !expand)}
                           >
-                            <img src={loggedOptions} />
+                            <img src={loggedOptions} alt="logged-options"/>
                           </div>
                         </div>
                       </div>

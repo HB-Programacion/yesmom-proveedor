@@ -2,13 +2,20 @@
     font-family :'mont-regular';
 }
 
+
+.excel-container-stepper{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .excel--desktop {
     display: none;
     z-index: -1;
 }
 
 .excel--box-main-proveedor {
-    padding: 6.5rem 0;
+    padding: 13.5rem 0;
 }
 
 /**BANNER */

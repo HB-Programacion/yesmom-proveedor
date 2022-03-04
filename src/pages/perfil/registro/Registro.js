@@ -1,82 +1,180 @@
-import React, { useEffect } from 'react'
-import axios from 'axios'
+import React, { useEffect, useRef, useState } from 'react'
+import Swal from 'sweetalert2';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
 import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
-
-import RegistroStep1 from '../../../components/Registro/RegistroSteps/RegistroStep1';
-import RegistroStep2 from '../../../components/Registro/RegistroSteps/RegistroStep2';
-import RegistroStep3 from '../../../components/Registro/RegistroSteps/RegistroStep3';
 import RegistroStep4 from '../../../components/Registro/RegistroSteps/RegistroStep4';
+import BackComponent from '../../../components/Return/BackComponent';
+import ButtonFilled from '../../../components/Button/ButtonFilled';
+import Sidebar from '../../../components/Perfil/Sidebar/Sidebar';
+import Loading from '../../../components/Loading/Loading';
 
 import iconEditar from '../../../images/header/icon-edit.svg';
 
 
-import ButtonFilled from '../../../components/Button/ButtonFilled';
-import Sidebar from '../../../components/Perfil/Sidebar/Sidebar';
+import { schemaValidatorStep4 } from '../../../utils/validateRegistro/ValidationSchemas';
 
+
+import PerfilTiendaData from '../../../components/PerfilTienda/PerfilTiendaData';
+import { startInfoActiveStore } from '../../../redux/actions/store';
+import { getPrevieWImage } from '../../../utils/helpers/getPreviewImage';
+import { verifyStoreName } from '../../../utils/helpers/verifyStoreName';
+import { getUrlName } from '../../../utils/helpers/getUlrName';
 
 import './Registro.css';
-import { useForm } from 'react-hook-form';
-import { mergedSchemaWithoutPassword } from '../../../utils/validateRegistro/ValidationSchemas';
-import { yupResolver } from '@hookform/resolvers/yup';
-import BackComponent from '../../../components/Return/BackComponent';
-import { useDispatch, useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
-import clienteAxiosBusiness from '../../../config/axiosBusiness';
-import { loadingDataSupplier } from '../../../redux/actions/supplier';
+import { updateStoreSupplier } from '../../../utils/helpers/updateStoreSupplier';
+const MAX_MB = 500000;
+
 
 
 const Registro = () => {
 
   const dispatch = useDispatch();
-  const supplier = useSelector(state => state.supplier);
-  const { token } = useSelector(state => state.auth);
+  const { idActiveStore , store } = useSelector(state => state.store);
+  const { loading } = useSelector(state => state.ui);
 
   const { register , handleSubmit , formState:{errors} , reset} = useForm({
-    resolver : yupResolver(mergedSchemaWithoutPassword),
+    resolver : yupResolver(schemaValidatorStep4)
   });
 
-  const handleRef = () => {
-    const type = document.getElementById('contrasenia').type;
+  //Imagenes
+  const refCover = useRef();
+  const refLogo = useRef();
+  //Control de imagenes
+  const initialState = {
+      imgLogo : "",
+      imgCover :"",
+      imgBanners : {
+          imgBanner_1:"",
+          imgBanner_2:"",
+          imgBanner_3:"",
+      },
+  }
+  const  [ images , setImages ] = useState(initialState);
 
-    type==='password' ?  document.getElementById('contrasenia').type = 'text':  document.getElementById('contrasenia').type='password';
+  const initialPreviews = {
+      imgBanner_1:"",
+      imgBanner_2:"",
+      imgBanner_3:"",
+  }
+  const [ preview , setPreview ] = useState(initialPreviews);
+  const [ availableName , setAvailableName] = useState(true);
+  const [ nameStore , setNameStore] = useState('');
+
+  const handleChangeNameUrl = async (e) => {
+    setNameStore(e.target.value);
+    if(e.target.value!==store.nombreTienda){
+      const flag = await verifyStoreName(getUrlName(e.target.value) , '');
+      setAvailableName(flag);
+    }else{
+      setAvailableName(true);
+    }
+    // console.log(flag);
+  }
+  //Control
+  const handleImageChange = (e) => {
+    const name = e.target.name;
+    if(e.target.files.length > 0){
+        const file = e.target.files[0];
+        if(file.size > MAX_MB){
+            Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 500kb' , 'info');
+            // alert('Imagen pesada , máximo 2MB');
+            if(name === 'imgCover'){
+                refCover.current.value='';
+            }else if(name==='imgLogo'){
+                refLogo.current.value='';
+            }
+        }else{
+
+            setImages({
+                ...images,
+                [name] : e.target.files[0]
+            })
+        }
+
+    }else{
+
+        if(name === 'imgCover'){
+            refCover.current.value='';
+        }else if(name==='imgLogo'){
+            refLogo.current.value='';
+        }
+
+        setImages({
+            ...images,
+            [name] : ""
+        })
+    }
+  }
+
+  const handleImageBanners = (e) => {
+    const name = e.target.name;
+    const currentBanners = images.imgBanners;
+    if(e.target.files.length > 0){
+        //Hay imagen de Banner
+        const file = e.target.files[0];
+        if(file.size > MAX_MB){
+            Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 500kb' , 'info');
+            document.getElementsByName(name).value="";
+        }else{
+            setImages({
+                ...images,
+                imgBanners : {
+                    ...currentBanners,
+                    [name] : e.target.files[0]
+                }
+            })
+            
+            setPreview({
+                ...preview,
+                [name] : getPrevieWImage(e.target.files[0])
+            })
+        }
+    }else{
+
+        setImages({
+            ...images,
+            imgBanners : {
+                ...currentBanners,
+                [name] : ""
+            }
+        })
+
+        setPreview({
+            ...preview,
+            [name] : ""
+        })
+    }
   }
 
   const submitForm = async (values) => {
-    console.log(values);
+
+    if(!availableName) return;
+    const { imgLogo , imgCover } = images;
+    if(!imgLogo || !imgCover){
+        return Swal.fire('Campos incompletos' ,'Asegurate de llenar todos los campos obligatorios','info');
+    }
+
     try{
 
-      Swal.fire({
-        title : "Actualizando perfil...",
-        text : "Espera un momento....",
-        allowOutsideClick : false,
-        didOpen: () => {
-            Swal.showLoading();
-        }
-      })
+      const { ok } = await updateStoreSupplier({
+        infoAlmacen : values , 
+        images ,
+        nameStore,
+        id : idActiveStore
+      } );
 
-      const { data } = await clienteAxiosBusiness.patch('/supplier' , values , {
-        headers : {
-          'access-token' : token
-        }
-      });
-      Swal.close();
-      //Token invalido
-      console.log(data);
-      if(data?.CodigoRespuesta === '12'){
-        Swal.fire('Inicia sesión de nuevo', 'Sesión terminada' , 'info');
-        window.location.reload();
+      if(ok){
+        Swal.fire('Actualizado correctamente','Tu tienda ha sido actualizada correctamente','success');
+
+      }else{
+          Swal.fire('Error','Hubo un error', 'error');
       }
-
-      if(data?.response?.ok){
-        Swal.fire('Actualizado', 'El perfil ha sido actualizado' , 'success');
-        dispatch(loadingDataSupplier(values));
-      }
-
-
-
 
     }catch(err){
       Swal.close();
@@ -86,28 +184,43 @@ const Registro = () => {
   }
 
 
-  useEffect(() => {
-    if( Object.keys(supplier).length > 0 ){
-      const defaultValues = supplier;
+  useEffect(()=>{
+    dispatch(startInfoActiveStore(idActiveStore));
+  },[idActiveStore , dispatch])
 
-      //Solo datos necesarios 
-      delete defaultValues.autorizado;
-      delete defaultValues.createdAt;
+  //Setear info de store que cambia
+  useEffect(()=>{
 
-      reset(defaultValues);
-      // console.log(defaultValues);
+    const objPrevs = {
+      imgBanner_1 : store?.imagenBanner[0]?.url,
+      imgBanner_2 : store?.imagenBanner[1]?.url,
+      imgBanner_3 : store?.imagenBanner[2]?.url,
     }
-  },[supplier])
+    setPreview(objPrevs)
+    
+    setNameStore( store?.nombreTienda)
+    reset({
+      nombreEncargadoAlmacen : store?.nombreEncargadoAlmacen,
+      correoEncargadoAlmacen : store?.correoEncargadoAlmacen,
+      telefonoAlmacen : store?.telefonoAlmacen,
+      direccionAlmacen : store?.direccionAlmacen,
+      referenciaAlmacen : store?.referenciaAlmacen,
+      ciudadAlmacen : store?.ciudadAlmacen,
+    })
+  },[store , reset])
 
+  //IMAGENES
+  
 
   return (
     <AppLayout>
+      {loading && <Loading />}
       <div className="contenedor-info-perfil-registro animated fade-in">
         <div className="info-perfil-contenido">
           <div className="info-all-content">
             <div className="info-contenedor-flex">
               <div className="hide-desktop info-container-back">
-                <div>
+                <div className="back-component-container">
                   <BackComponent />
                 </div>
               </div>
@@ -122,42 +235,26 @@ const Registro = () => {
                 <div className="info-container-content">
                   <div className="registro-container-form info-container-form mt-5 mb-2">
                     <div className="info-icon-editar">
-                      <img src={iconEditar} />
-                    </div>
-                    <RegistroStep1 
-                      register= { register}
-                      errors = { errors }
-                      showPassword = { handleRef }
-                      edited = { true }
-                    />
-                  </div>
-                  <div className="registro-container-form info-container-form mt-5 mb-2">
-                    <div className="info-icon-editar">
-                      <img src={iconEditar} />
-                    </div>
-                    <RegistroStep2 
-                      register= { register}
-                      errors = { errors }
-                    />
-                  </div>
-                  <div className="registro-container-form info-container-form mt-5 mb-2">
-                    <div className="info-icon-editar">
-                      <img src={iconEditar} />
-                    </div>
-                    <RegistroStep3 
-                      register= { register}
-                      errors = { errors }
-                    />
-                  </div>
-                  {/* <div className="registro-container-form info-container-form mt-5 mb-2">
-                    <div className="info-icon-editar">
-                      <img src={iconEditar} />
+                      <img src={iconEditar} alt="editar"/>
                     </div>
                     <RegistroStep4 
                       register= { register}
                       errors = { errors }
                     />
-                  </div> */}
+                  </div>
+                </div>
+                <div className="info-container-content">
+                  <PerfilTiendaData
+                    nameStore = { nameStore }
+                    handleChangeNameUrl={ handleChangeNameUrl}
+                    availableName={ availableName }
+                    images={images}
+                    refCover = { refCover }
+                    refLogo = { refLogo }
+                    handleImageBanners={ handleImageBanners }
+                    handleImageChange = { handleImageChange }
+                    preview = { preview }
+                  />
                 </div>
               </div>
             </div>

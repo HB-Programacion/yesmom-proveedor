@@ -1,20 +1,25 @@
 import React, { useState } from "react";
+import { HashLink } from "react-router-hash-link";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import DropMenuMobile from "./DropMenuMobile";
+
 import burger from "../../images/header/burger.svg";
 import cesta from "../../images/header/cesta.svg";
 import tienda from "../../images/header/tienda.svg";
 import contacto from "../../images/header/contacto.svg";
 import iniciarSesion from "../../images/header/iniciar-sesion.svg";
 import logoYesmom from "../../images/header/logo-yesmom.svg";
-import "./Header.css";
+
 import AvatarLogged from "./AvatarLogged";
-import { HashLink } from "react-router-hash-link";
-import { useSelector } from "react-redux";
-function Header() {
+import DropMenuMobile from "./DropMenuMobile";
+import NavMenu from "./NavMenu";
+
+import "./Header.css";
+
+
+const Header = () => {
 
   const { logged = false } = useSelector(state => state.auth);
-  const { nombreTienda="" } = useSelector(state => state.supplier);
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive(!active);
@@ -44,7 +49,7 @@ function Header() {
             <div className="container-icon hide">
               {logged ? (
                 <Link to="/p/informacion-perfil/registro">
-                  <AvatarLogged logged={logged} name={nombreTienda} />
+                  <AvatarLogged />
                 </Link>
               ) : (
                 <Link to="/iniciar-sesion" className="item-menu-yesmom">
@@ -111,7 +116,7 @@ function Header() {
                 </div>
                 <div>
                   {logged ? (
-                    <AvatarLogged logged={logged} name={nombreTienda} />
+                    <AvatarLogged/>
                   ) : (
                     <Link to="/iniciar-sesion" className="item-menu-yesmom">
                       <div className="container-icon">
@@ -128,6 +133,7 @@ function Header() {
               </div>
             </div>
           </nav>
+          { logged && <NavMenu />}
         </div>
         <DropMenuMobile
           active={active}
