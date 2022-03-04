@@ -51,8 +51,6 @@ const ActiveProducts = () => {
   const { total , active } = productsActiveStore;
 
   const [ activeFilter , setActiveFilter ] = useState(0);
-	const [filterText, setFilterText] = useState(null)
-
 
   const handleDeleteActive = async () => {
       if(active.length > 0){

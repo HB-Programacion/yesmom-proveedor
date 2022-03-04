@@ -134,7 +134,6 @@ export const startLoadingProductsStore = ( { skip = 0 , limit = 6 , state='A'}) 
             products : cleanData
           }))
           
-          
         }else{
           dispatch(setProductsDisabledByStore({
             totalDisabled : data.totalDeProductos,
