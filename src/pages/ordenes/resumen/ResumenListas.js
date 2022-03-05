@@ -5,8 +5,6 @@ import { useUpdateOrders } from "../../../utils/helpers/useRequest";
 const ResumenListas = ({ products = [], beforeState, afterState, selection }) => {
   const [stateSwitch, setStateSwitch] = useState(false);
 
-	
-
 
   return (
     <AccordionResumen
@@ -16,7 +14,6 @@ const ResumenListas = ({ products = [], beforeState, afterState, selection }) =>
       valueSwitch={stateSwitch}
 			selection={selection}
       /* onChangeSwitch={() => setStateSwitch(!stateSwitch)} */
-			
     />
   );
 };

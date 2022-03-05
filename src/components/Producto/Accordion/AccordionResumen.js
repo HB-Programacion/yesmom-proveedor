@@ -16,16 +16,6 @@ const AccordionProduct = ({
 
   return (
     <Accordion>
-      {/* {loading ? (
-        <Row
-          className="justify-content-md-center"
-          style={{ transition: "all 0.6 ease" }}
-        >
-          <Col md="auto">
-            <h5>Loading...</h5>
-          </Col>
-        </Row>
-      ) : ( */}
         <Row>
           {data.map((el, i) => (
             <Col key={i} xs={12} md={6} xl={4}>

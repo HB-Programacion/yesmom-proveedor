@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import AccordionResumen from "../../../components/Producto/Accordion/AccordionResumen";
 
-const ResumenListas = ({ products = [], loading, beforeState, afterState, selection }) => {
+const ResumenPendientes = ({ products = [], loading, beforeState, afterState, selection }) => {
   const [stateSwitch, setStateSwitch] = useState(false);
-
-
 
   return (
     <AccordionResumen
@@ -19,4 +17,4 @@ const ResumenListas = ({ products = [], loading, beforeState, afterState, select
   );
 };
 
-export default ResumenListas;
+export default ResumenPendientes;

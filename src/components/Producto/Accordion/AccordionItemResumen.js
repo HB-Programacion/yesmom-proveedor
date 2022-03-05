@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import { Accordion, Card } from "react-bootstrap";
 import Expand from "./Expand";
 import SwitchStandard from "./SwitchStandard";
-import { useOrders, useUpdateOrders } from "../../../utils/helpers/useRequest";
 import { getDateParsed } from "../../../utils/helpers/getDateParsed";
 
 import iconEditar from "../../../images/header/icon-edit.svg";
 import "./AccordionItem.css";
-import axios from "axios";
 import { updateStateOrders } from "../../../utils/helpers/request";
 
 const AccordionItem = ({
@@ -34,7 +32,7 @@ const AccordionItem = ({
 	selection,
   /* onChangeSwitch, */
 }) => {
-	const token = localStorage.getItem("TokenYesmonProveedor");
+
 	const [stateSwitch, setStateSwitch] = useState(true);
 
 	/* const [loadingOrders, setLoadingOrders] = useState(false); */
@@ -44,9 +42,6 @@ const AccordionItem = ({
 	/* const { listOrders, loadingOrders, errorOrders } = useOrders(
     selection === 0 ? "P" : selection === 1 ? "L" : "E"
   ); */
-	const { listOrders, loadingOrders, errorOrders } = useOrders(
-    "P"
-  );
 
 	/* const UpdateState = () => {
 
@@ -54,7 +49,6 @@ const AccordionItem = ({
 			useUpdateOrders( _id,  beforeState );
 			
 		} */
-		console.log('nada',estado);
 
 	const UpdateOrders = async (_id, beforeState) => {
 			
@@ -112,7 +106,6 @@ const AccordionItem = ({
     }
   }; */
 
-	console.log('estado',estado, ' | ', afterState);
 
   return (
     <>

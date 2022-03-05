@@ -94,7 +94,11 @@ export const storeReducer = ( state = initialState , action ) => {
                     active : [],
                 }
             }
-        
+        case types.setOrdersByStore :
+            return {
+                ...state,
+                ordersByStore : action.payload
+            }
         case types.cleanStore :
             return initialState;
         

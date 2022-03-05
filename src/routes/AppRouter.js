@@ -22,6 +22,7 @@ import {
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 import AuthRoutes from "./AuthRoutes";
+import { loadOrdersByStore } from "../redux/actions/store";
 
 
 
@@ -30,6 +31,7 @@ const AppRouter = () => {
     const dispatch = useDispatch();
 
     const { checking } = useSelector( state => state.auth); 
+    const { idActiveStore } = useSelector(state => state.store);
     const { 
         logged = (
             localStorage.getItem('TokenYesmonProveedor') ? true : false
@@ -44,6 +46,12 @@ const AppRouter = () => {
             dispatch(finishChecking())
         }
     },[dispatch])
+
+    useEffect(()=>{
+        if(idActiveStore){
+            dispatch(loadOrdersByStore({id : idActiveStore, state: "P", limit: 9}))
+        }
+    },[idActiveStore, dispatch])
 
     if ( checking ) return <Loading />
     return (

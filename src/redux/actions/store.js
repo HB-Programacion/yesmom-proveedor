@@ -206,41 +206,44 @@ export const loadOrdersByStore = ({ id, skip = 0 , limit = 'all' , state='P'}) =
           'access-token' : token
         }
       })
-			console.log('loadOrdersByStore',data);
-      if(data?.ordersGeneral){
-        dispatch( setOrdersByStore(data.ordersGeneral));
+      dispatch(finishLoading());
+      if(data && data.ordersGeneral){
+        dispatch( setOrdersByStore(data));
+      }else{
+        dispatch( setOrdersByStore({ordersGeneral: [], total : 0 , page :0}));
       }
     }catch(err){
+      dispatch(finishLoading());
       console.log(err);
     }
   }
 }
 
-export const loadOrdersBySupplier = ({ skip = 0 , limit = 'all' , state='P'}) => {
-  return async (dispatch , getState)=>{
+// export const loadOrdersBySupplier = ({ skip = 0 , limit = 'all' , state='P'}) => {
+//   return async (dispatch , getState)=>{
 
-		dispatch(startLoading());
-    const { token } = getState().auth;
-    try{
-      const { data } = await clienteAxiosBusiness.get(`/supplier/listorders` , {
-				params : {
-          state,
-          skip,
-          limit,
-        },
-        headers : {
-          'access-token' : token
-        }
-      })
-			console.log('loadOrdersBySupplier',data);
-      if(data?.ordersGeneral){
-        dispatch(setOrdersBySupplier(data.ordersGeneral));
-      }
-    }catch(err){
-      console.log(err);
-    }
-  }
-}
+// 		dispatch(startLoading());
+//     const { token } = getState().auth;
+//     try{
+//       const { data } = await clienteAxiosBusiness.get(`/supplier/listorders` , {
+// 				params : {
+//           state,
+//           skip,
+//           limit,
+//         },
+//         headers : {
+//           'access-token' : token
+//         }
+//       })
+// 			console.log('loadOrdersBySupplier',data);
+//       if(data?.ordersGeneral){
+//         dispatch(setOrdersBySupplier(data.ordersGeneral));
+//       }
+//     }catch(err){
+//       console.log(err);
+//     }
+//   }
+// }
 
 export const setStores = (payload) => ({
   type : types.setStores,
