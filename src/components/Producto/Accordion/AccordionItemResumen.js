@@ -36,9 +36,7 @@ const AccordionItem = ({
 
   const dispatch = useDispatch();
   const { idActiveStore } = useSelector(state => state.store);
-	const [stateSwitch, setStateSwitch] = useState(true);
-
-	const [messageUpdate, setMessageUpdate] = useState(null);
+	const [stateSwitch, setStateSwitch] = useState(false);
 
 	const updateOrders = async (_id) => {
 
@@ -54,14 +52,12 @@ const AccordionItem = ({
 			const res = await updateStateOrders(_id, afterState);
       Swal.close();
 
-      console.log(res);
 			if(res && res.response && res.response.ok) {
+				setStateSwitch(!stateSwitch)
         Swal.fire('Orden actualizada', 'La orden ha sido actualizada correctamente' , 'success');
         updateLocalProducts();
-				setStateSwitch(!stateSwitch)
-				setMessageUpdate(res?.response?.ok);
 			} else {
-				setMessageUpdate(res?.MensajeRespuesta);
+        Swal.fire('Error al actualizar orden', 'No se pudo actualizar la orden', 'error');
 			}
     } catch (error) {
       Swal.close();
@@ -94,7 +90,6 @@ const AccordionItem = ({
               beforeState={beforeState}
               afterState={afterState}
               valueSwitch={valueSwitch}
-              /* onChangeSwitch={onChangeSwitch} */
 							onChangeSwitch={handleUpdateOrder}
             />}
             <div className="icon-editar">
