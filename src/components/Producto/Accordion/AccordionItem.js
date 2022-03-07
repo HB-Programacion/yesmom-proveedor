@@ -42,13 +42,8 @@ const AccordionItem = ({ ek, product }) =>  {
 		})
 
 		if(isConfirmed){
-			console.log('Aceptó')
 			submitForm();
-
-		}else{
-			console.log('Canceló')
 		}
-
 	}
 
 
