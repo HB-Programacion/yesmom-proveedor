@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AccordionResumen from "../../../components/Producto/Accordion/AccordionResumen";
-import { useUpdateOrders } from "../../../utils/helpers/useRequest";
+
 
 const ResumenListas = ({ products = [], beforeState, afterState, selection }) => {
   const [stateSwitch, setStateSwitch] = useState(false);
@@ -13,7 +13,7 @@ const ResumenListas = ({ products = [], beforeState, afterState, selection }) =>
       afterState={afterState}
       valueSwitch={stateSwitch}
 			selection={selection}
-      /* onChangeSwitch={() => setStateSwitch(!stateSwitch)} */
+      onChangeSwitch={() => setStateSwitch(!stateSwitch)}
     />
   );
 };

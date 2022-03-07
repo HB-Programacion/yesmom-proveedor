@@ -25,7 +25,7 @@ export const getOrders = async ( state ) => {
 };
 
 export const updateStateOrders = async (idOrder, stateOrder) => {
-  const response = await axios.patch(
+  const { data } = await axios.patch(
     `${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/orderstate`,
     { 
 			id: idOrder, 
@@ -37,5 +37,5 @@ export const updateStateOrders = async (idOrder, stateOrder) => {
       } /* headers: { "access-token": `Bearer ${token}` }, */,
     }
   );
-  return response;
+  return data;
 };

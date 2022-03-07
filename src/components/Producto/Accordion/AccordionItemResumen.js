@@ -7,117 +7,95 @@ import { getDateParsed } from "../../../utils/helpers/getDateParsed";
 import iconEditar from "../../../images/header/icon-edit.svg";
 import "./AccordionItem.css";
 import { updateStateOrders } from "../../../utils/helpers/request";
+import Swal from "sweetalert2";
+import { useDispatch, useSelector } from "react-redux";
+import { loadOrdersByStore } from "../../../redux/actions/store";
 
 const AccordionItem = ({
 	_id,
   ek,
-  nombre,
+  // nombre,
   sku,
   total,
   contactoCliente,
   saleId,
   fechaPedido,
-  tipoDocumento,
-  metodoPago,
+  // tipoDocumento,
+  // metodoPago,
   cant,
   acciones,
   cliente,
   direccionCliente,
   products,
-	estado,
-
+	// estado,
   beforeState,
   afterState,
   valueSwitch,
 	selection,
-  /* onChangeSwitch, */
 }) => {
 
+  const dispatch = useDispatch();
+  const { idActiveStore } = useSelector(state => state.store);
 	const [stateSwitch, setStateSwitch] = useState(true);
 
-	/* const [loadingOrders, setLoadingOrders] = useState(false); */
-	/* const [errorOrders, setErrorOrders] = useState(false); */
 	const [messageUpdate, setMessageUpdate] = useState(null);
-	/* const { messageUpdate, loadingOrders, errorOrders } = useUpdateOrders( _id, afterState ); */
-	/* const { listOrders, loadingOrders, errorOrders } = useOrders(
-    selection === 0 ? "P" : selection === 1 ? "L" : "E"
-  ); */
 
-	/* const UpdateState = () => {
-
-			setStateSwitch(!stateSwitch)
-			useUpdateOrders( _id,  beforeState );
-			
-		} */
-
-	const UpdateOrders = async (_id, beforeState) => {
-			
-		/* setLoadingOrders(true); */
-    /* setErrorOrders(false); */
+	const updateOrders = async (_id) => {
 
     try {
-      /* const res = await axios.patch(
-				`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/orderstate`,
-				{ 
-					id: _id, 
-					estado: afterState 
-				},
-				{
-					headers: {
-						"access-token": token,
-					} ,
-				}
-			); */
-			let res = await updateStateOrders(_id, beforeState);
-			if(res?.response) {
+      Swal.fire({
+        title : "Actualizando orden...",
+        text : "Espera un momento....",
+        allowOutsideClick : false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+      })
+			const res = await updateStateOrders(_id, afterState);
+      Swal.close();
+
+      console.log(res);
+			if(res && res.response && res.response.ok) {
+        Swal.fire('Orden actualizada', 'La orden ha sido actualizada correctamente' , 'success');
+        updateLocalProducts();
 				setStateSwitch(!stateSwitch)
-				/* setLoadingOrders(false); */
 				setMessageUpdate(res?.response?.ok);
-				
 			} else {
 				setMessageUpdate(res?.MensajeRespuesta);
 			}
     } catch (error) {
-      /* setErrorOrders(true); */
+      Swal.close();
+      Swal.fire('Error', 'Error inesperado', 'error');
     }
 	};
 
-	/* const getPeriodos = async () => {
-    try {
-      let result = await getAvailablePeriods(
-        moment(Date.now()).format("YYYY-MM-DD")
-      );
-      if (result.length > 0) {
-        let filter = [];
-        for (let i = 0; i < months.length; i++) {
-          for (let e = 0; e < result.length; e++) {
-            if (months[i].month === result[e]) {
-              filter.push(months[i]);
-            }
-          }
-        }
-        setPeriods(filter);
-      }
-    } catch (error) {
-      notification["error"]({
-        message: `${error}`,
-        description: "No se pudo obtener los periodos",
-      });
-    }
-  }; */
 
+  const handleUpdateOrder = async () => {
+    const { isConfirmed } = await Swal.fire('¿Desea cambiar el estado de su orden?', 'Está seguro de cambiar el estado de su orden','info');
+
+    if(isConfirmed){
+      await updateOrders(_id);
+    }
+  }
+
+  const updateLocalProducts = () => {
+      if(idActiveStore){
+          const state = selection === 0 ? "P" : selection === 1 ? "L" : "E";
+          dispatch(loadOrdersByStore({id : idActiveStore, state, limit :9}))
+      }
+  }
 
   return (
     <>
       <Card>
         <Card.Header>
           <div className="container-products">
-            {selection > 0 && <SwitchStandard
+            {selection!==2 && <SwitchStandard
               beforeState={beforeState}
               afterState={afterState}
               valueSwitch={valueSwitch}
               /* onChangeSwitch={onChangeSwitch} */
-							onChangeSwitch={UpdateOrders}
+							onChangeSwitch={handleUpdateOrder}
             />}
             <div className="icon-editar">
               <img src={iconEditar} alt="editar" />

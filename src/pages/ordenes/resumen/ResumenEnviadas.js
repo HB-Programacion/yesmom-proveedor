@@ -4,10 +4,6 @@ import AccordionResumen from "../../../components/Producto/Accordion/AccordionRe
 const ResumenListas = ({ products = [], loading, beforeState, afterState, selection }) => {
 	const [stateSwitch, setStateSwitch] = useState(false);
 
-	console.log('//---',products);
-
-	/* console.log('stateOrder',stateOrder); */
-
   return (
     <AccordionResumen
       data={products}

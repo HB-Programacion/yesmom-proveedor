@@ -8,20 +8,29 @@ import ResumenPendientes from "./ResumenPendientes";
 import ResumenEnviadas from "./ResumenEnviadas";
 
 import "./Resumen.css";
-import { loadOrdersByStore } from "../../../redux/actions/store";
+import { loadOrdersByStore, setActiveStore } from "../../../redux/actions/store";
 import PaginationOrders from "../../../components/Pagination/Orders/PaginatinationOrders";
 import Loading from "../../../components/Loading/Loading";
 const Resumen = () => {
 
   const dispatch = useDispatch();
   const { loading } = useSelector( state => state.ui);
-  const { idActiveStore, ordersByStore } = useSelector(state => state.store);
+  const { idActiveStore, ordersByStore , stores } = useSelector(state => state.store);
   const [value, setValue] = useState("0");
   const [selection, setSelection] = useState(0);
-  const { stores } = useSelector((state) => state.store);
 
-  const handleChange = (e) => setValue(e.target.value);
 
+  const handleChange = (e) => {
+    setValue(e.target.value)
+    dispatch(setActiveStore(e.target.value));
+  };
+
+  useEffect(()=>{
+    if(stores){
+      setValue(stores[0]._id);
+      dispatch(setActiveStore(stores[0]._id));
+    }
+  },[stores,dispatch])
 
   useEffect(()=>{
     if(idActiveStore){
@@ -63,36 +72,27 @@ const Resumen = () => {
                 </div>
               </div>
               <div className="resumen--container-select">
+                {
+                  stores && 
                 <select
                   className="select-ordenar"
                   value={value}
                   onChange={handleChange}
                 >
-                  {/* {loading ? ( */}
-                    <>
-                      <option value="0" disabled>
-                        Filtrar por tienda
-                      </option>
-                      {stores?.length > 0
-                        ? stores.map((item, i) => (
-                            <option value={item._id}>
-                              {item?.nombreTienda}
-                            </option>
-                          ))
-                        : null}
-                    </>
-                  {/* ) : (
-                    <option value="0" disabled>
-                      Filtrar por tienda
-                    </option>
-                  )} */}
-                  {/* <option>Precio de mayor a menor</option>
-                                    <option>Precio de menor a mayor</option>
-                                    <option>A-Z (alfabéticamente)</option>
-                                    <option>Z-A (alfabéticamente)</option>
-                                    <option>Últimos 30 días)</option>
-                                    <option>Últimos 6 meses</option> */}
+
+                  <option value="0" disabled>
+                    Filtrar por tienda
+                  </option>
+                  {stores.length > 0
+                    ? stores.map((item, i) => (
+                        <option key={`option-store-${i}`} value={item._id}>
+                          {item?.nombreTienda}
+                        </option>
+                      ))
+                    : null}
+
                 </select>
+                }
               </div>
               <div className="resumen--container-cards">
                 {
@@ -105,21 +105,12 @@ const Resumen = () => {
 										selection={selection}
                   />
                 }
-                {selection === 0 && (
-                  <ResumenPendientes
-                    products={ordersByStore ? ordersByStore.ordersGeneral : []}
-                    loading={false}
-                    beforeState="P"
-                    afterState="L"
-										selection={selection}
-                  />
-                )}
                 {selection === 1 && (
                   <ResumenListas
                     products={ordersByStore ? ordersByStore.ordersGeneral : []}
                     loading={false}
-                    beforeState="P"
-                    afterState="L"
+                    beforeState="L"
+                    afterState="E"
 										selection={selection}
                   />
                 )}
@@ -127,8 +118,6 @@ const Resumen = () => {
                   <ResumenEnviadas
                     products={ordersByStore ? ordersByStore.ordersGeneral : []}
                     loading={false}
-                    beforeState="L"
-                    afterState="E"
 										selection={selection}
                   />
                 )}
