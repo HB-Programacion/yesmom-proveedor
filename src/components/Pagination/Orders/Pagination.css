@@ -1,0 +1,33 @@
+/* PAGINATION */
+.page-item-page-custom {
+    width: 3rem;
+    height: 3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active-custom-pagination {
+    background-color: #DC6A8D;
+    border-radius: 50%
+}
+
+.page-item-custom-pagination {
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5rem;
+    color: #556EA1;
+}
+
+.page-link-custom-pagination {
+    font-family: 'mont-regular';
+    color: #556EA1;
+    font-size: 1.7rem;
+}
+
+.active-custom-pagination>.page-link-custom-pagination {
+    color: #FFFFFF;
+}
