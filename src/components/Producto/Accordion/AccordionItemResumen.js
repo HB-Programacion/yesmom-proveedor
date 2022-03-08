@@ -120,7 +120,7 @@ const AccordionItem = ({
         <Accordion.Collapse eventKey={`${ek}`}>
           <Card.Body>
             <div className="container-products">
-              <div className="item-details">
+              {/* <div className="item-details">
                 <p>
                   Tipo de documento <span>DNI</span>
                 </p>
@@ -140,7 +140,7 @@ const AccordionItem = ({
                   Acciones <span>{acciones}</span>
                 </p>
               </div>
-            </div>
+            </div> */}
             <div className="container-products">
               <div className="item-details">
                 <p>
