@@ -119,8 +119,8 @@ const AccordionItem = ({
         </Card.Header>
         <Accordion.Collapse eventKey={`${ek}`}>
           <Card.Body>
-            <div className="container-products">
-              {/* <div className="item-details">
+            {/* <div className="container-products">
+              <div className="item-details">
                 <p>
                   Tipo de documento <span>DNI</span>
                 </p>
