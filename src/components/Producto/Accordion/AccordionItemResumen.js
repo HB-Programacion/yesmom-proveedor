@@ -92,9 +92,6 @@ const AccordionItem = ({
               valueSwitch={valueSwitch}
 							onChangeSwitch={handleUpdateOrder}
             />}
-            {/* <div className="icon-editar">
-              <img src={iconEditar} alt="editar" />
-            </div> */}
             <div className="header-title">
               <div className="item-details">
                 <p>
