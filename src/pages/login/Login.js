@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import AppLayout from '../../components/AppLayout/AppLayout'
@@ -26,9 +26,18 @@ const schemaValidator = yup.object().shape({
 const Login = () => {
   const dispatch = useDispatch();
 
-  const { register,  handleSubmit , formState : { errors } } = useForm({
+  const { register,  handleSubmit , formState : { errors }, watch, setValue } = useForm({
     resolver : yupResolver(schemaValidator),
+    mode :'onChange'
   })
+
+  const email = watch('email');
+
+  useEffect(()=>{
+    if(email){
+      setValue('email',email.toLowerCase())
+    }
+  },[email, setValue])
 
   const submitForm = async (values ) => {
     // console.log(values);
