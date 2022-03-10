@@ -15,7 +15,7 @@ const AccordionItem = ({
 	_id,
   ek,
   // nombre,
-  sku,
+  dni,
   total,
   contactoCliente,
   saleId,
@@ -33,11 +33,9 @@ const AccordionItem = ({
   valueSwitch,
 	selection,
 }) => {
-
   const dispatch = useDispatch();
   const { idActiveStore } = useSelector(state => state.store);
 	const [stateSwitch, setStateSwitch] = useState(false);
-
 	const updateOrders = async (_id) => {
 
     try {
@@ -86,15 +84,14 @@ const AccordionItem = ({
       <Card>
         <Card.Header>
           <div className="container-products">
-            {selection!==2 && <SwitchStandard
-              beforeState={beforeState}
-              afterState={afterState}
-              valueSwitch={valueSwitch}
-							onChangeSwitch={handleUpdateOrder}
-            />}
-            {/* <div className="icon-editar">
-              <img src={iconEditar} alt="editar" />
-            </div> */}
+            {selection!==2 && 
+              <SwitchStandard
+                beforeState={beforeState}
+                afterState={afterState}
+                valueSwitch={valueSwitch}
+                onChangeSwitch={handleUpdateOrder}
+              />
+            }
             <div className="header-title">
               <div className="item-details">
                 <p>
@@ -109,7 +106,7 @@ const AccordionItem = ({
               <div className="item-details container-expand">
                 <div className="item-details">
                   <p>
-                    Precio <span>s/. {total}</span>
+                    TOTAL <span>s/. {total}</span>
                   </p>
                 </div>
                 <Expand eventKey={`${ek}`} />
@@ -144,30 +141,86 @@ const AccordionItem = ({
             <div className="container-products">
               <div className="item-details">
                 <p>
-                  Enviar a <span>{cliente}</span>
+                  Enviar a: <span>{cliente}</span>
                 </p>
               </div>
               <div className="item-details">
                 <p>
-                  Teléfono <span>{contactoCliente}</span>
+                  Dirección de envio: <span>{direccionCliente}</span>
                 </p>
               </div>
               <div className="item-details">
                 <p>
-                  Dirección de envio <span>{direccionCliente}</span>
+                  Teléfono: <span>{contactoCliente}</span>
                 </p>
               </div>
               <div className="item-details">
                 <p>
-                  SKU de producto <span>{sku}</span>
-                </p>
-              </div>
-              <div className="item-details">
-                <p>
-                  Nombre del producto <span>{products[0]?.nombre}</span>
+                  DNI: <span>{dni}</span>
                 </p>
               </div>
             </div>
+            {
+              products && products.length >0 &&
+              <div className="container-products">
+                <p className="text-products-by-order">PRODUCTOS</p>
+                {
+                  products.map(( p , i)=>(
+                    <div key={`product-${i}`} className={`container-products ${i===0 ? 'without-border' : ''}`}>
+                      <div className="item-details">
+                        <p>
+                          PRODUCTO {i+1}
+                        </p>
+                      </div>
+                      <div className="item-details">
+                        <p>
+                          SKU: <span>{p.sku || ''}</span>
+                        </p>
+                      </div>
+                      <div className="item-details">
+                        <p>
+                          Nombre: <span>{p.nombre || ''}</span>
+                        </p>
+                      </div>
+                      {
+                        p && p.talla && p.talla.length && 
+                        <div className="item-details">
+                          <p>
+                            Talla: <span>{p.talla || ''}</span>
+                          </p>
+                        </div>
+                      }
+                      {
+                        p && p.color && p.color.length && 
+                        <div className="item-details">
+                          <p>
+                            Color: <span>{p.color || ''}</span>
+                          </p>
+                        </div>
+                      }
+                      <div className="item-details">
+                        <p>
+                          Cantidad: <span>{p.cantidad || ''}</span>
+                        </p>
+                      </div>
+                      <div className="wrapper-subtotal-product">
+                        <div className="item-details">
+                          <p>
+                            Precio unitario: <span>{p.precioUnitario || ''}</span>
+                          </p>
+                        </div>
+                        <div className="item-details">
+                          <p>
+                            Subtotal: <span>{p.subTotal || ''}</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            }
+            
           </Card.Body>
         </Accordion.Collapse>
       </Card>

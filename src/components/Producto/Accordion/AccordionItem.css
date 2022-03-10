@@ -4,9 +4,14 @@
 }
 
 .item-details {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
 }
-
+.text-products-by-order{
+    font-family: "mont-semibold";
+    font-size: 1.3rem;
+    color: #000000;
+    letter-spacing: 0.1px;
+}
 .card {
     margin: 3rem 0 0 0;
     border: 1px solid #FFFFFF!important;
@@ -48,6 +53,10 @@
     padding: 1.5rem 0;
     border-top: 1px solid rgba(87, 86, 80, 0.5);
     line-height:2.3rem;
+}
+
+.without-border{
+    border-top: none!important;
 }
 
 .icon-editar {
@@ -134,7 +143,11 @@
 	.modal-update-product{
 		width: 85vw;
 		height: 85vh;
-	}  
+	}
+    .wrapper-subtotal-product{
+        display: flex;
+        justify-content: space-between;
+    }
 }
 @media (min-width : 1024px){
 	.modal-update-product{
