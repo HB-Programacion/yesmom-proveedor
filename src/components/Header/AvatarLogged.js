@@ -64,9 +64,9 @@ const AvatarLogged = () => {
                         <Link to="/p/info/cambiar-password">
                             <p>Cambiar contraseña</p>
                         </Link>
-                        <Link to="/p/info/desactivar-cuenta">
+                        {/* <Link to="/p/info/desactivar-cuenta">
                             <p>Desactivar cuenta</p>
-                        </Link>
+                        </Link> */}
 
                         <div className="dropdown-divider"></div>
 
