@@ -28,7 +28,6 @@ const Login = () => {
 
   const { register,  handleSubmit , formState : { errors }, watch, setValue } = useForm({
     resolver : yupResolver(schemaValidator),
-    mode :'onChange'
   })
 
   const email = watch('email');
