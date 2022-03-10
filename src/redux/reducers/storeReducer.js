@@ -12,6 +12,9 @@ const initialState = {
         disabled : [],
         totalDisabled : 0,
     },
+    ordersByStore : {
+        isFetchingOrders : false,
+    }
 }
 
 export const storeReducer = ( state = initialState , action ) => {
@@ -94,7 +97,12 @@ export const storeReducer = ( state = initialState , action ) => {
                     active : [],
                 }
             }
-        
+        case types.setOrdersByStore :
+            return {
+                ...state,
+                ordersByStore : action.payload,
+                isFetchingOrders : false,
+            }
         case types.cleanStore :
             return initialState;
         

@@ -42,13 +42,8 @@ const AccordionItem = ({ ek, product }) =>  {
 		})
 
 		if(isConfirmed){
-			console.log('Aceptó')
 			submitForm();
-
-		}else{
-			console.log('Canceló')
 		}
-
 	}
 
 
@@ -77,9 +72,9 @@ const AccordionItem = ({ ek, product }) =>  {
 			<Card>
 				<Card.Header>
 					<div className="container-products">
-						<div className="icon-editar" onClick={handleUpdateProduct}>
+						{/* <div className="icon-editar" onClick={handleUpdateProduct}>
 							<img src={iconEditar} alt="editar"/>
-						</div>
+						</div> */}
 						<div className="header-title">
 							<div className="item-details">
 								<p>Nombre del producto <span>{product.title}</span></p>

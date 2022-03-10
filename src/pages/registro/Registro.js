@@ -15,6 +15,7 @@ import RegistroStep3 from '../../components/Registro/RegistroSteps/RegistroStep3
 import './Registro.css';
 
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import clienteAxiosBusiness from '../../config/axiosBusiness';
 import { 
@@ -26,6 +27,7 @@ import {
 
 const Registro = () => {
 
+    const navigate = useNavigate();
     //Primer form
     const { register , handleSubmit , formState:{errors} , reset  } = useForm({
         resolver : yupResolver(schemaValidator)
@@ -84,6 +86,11 @@ const Registro = () => {
 
                             setSelected(0);
                             Swal.fire('Solicitud enviada', 'La solicitud de proveedor ha sido enviada' , 'success');
+                            if(window){
+                                setTimeout(()=>{
+                                    navigate('/login');
+                                },[1000])
+                            }
                             // alert("Proveedor guardado satisfactoriamente")
                         }else if(data.CodigoRespuesta === "31"){
                             Swal.fire('El usuario ya existe', 'Ingrese otro correo electrónico','info')

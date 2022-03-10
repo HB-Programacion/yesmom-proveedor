@@ -134,7 +134,6 @@ export const startLoadingProductsStore = ( { skip = 0 , limit = 6 , state='A'}) 
             products : cleanData
           }))
           
-          
         }else{
           dispatch(setProductsDisabledByStore({
             totalDisabled : data.totalDeProductos,
@@ -189,6 +188,63 @@ export const startDeletingProduct = () => {
   }
 }
 
+export const loadOrdersByStore = ({ id, skip = 0 , limit = 'all' , state='P'}) => {
+  return async (dispatch , getState)=>{
+
+		dispatch(startLoading());
+    const { idActiveStore } = getState().store;
+    const { token } = getState().auth;
+    try{
+      const { data } = await clienteAxiosBusiness.get(`/supplier/listorders` , {
+				params : {
+          id: id || idActiveStore,
+          state,
+          skip,
+          limit,
+        },
+        headers : {
+          'access-token' : token
+        }
+      })
+      dispatch(finishLoading());
+      if(data && data.ordersGeneral){
+        dispatch( setOrdersByStore(data));
+      }else{
+        dispatch( setOrdersByStore({ordersGeneral: [], total : 0 , page :0}));
+      }
+    }catch(err){
+      dispatch(finishLoading());
+      console.log(err);
+    }
+  }
+}
+
+// export const loadOrdersBySupplier = ({ skip = 0 , limit = 'all' , state='P'}) => {
+//   return async (dispatch , getState)=>{
+
+// 		dispatch(startLoading());
+//     const { token } = getState().auth;
+//     try{
+//       const { data } = await clienteAxiosBusiness.get(`/supplier/listorders` , {
+// 				params : {
+//           state,
+//           skip,
+//           limit,
+//         },
+//         headers : {
+//           'access-token' : token
+//         }
+//       })
+// 			console.log('loadOrdersBySupplier',data);
+//       if(data?.ordersGeneral){
+//         dispatch(setOrdersBySupplier(data.ordersGeneral));
+//       }
+//     }catch(err){
+//       console.log(err);
+//     }
+//   }
+// }
+
 export const setStores = (payload) => ({
   type : types.setStores,
   payload
@@ -235,4 +291,14 @@ export const deleteProduct = () => ({
 
 export const cleanStore = () => ({
   type : types.cleanStore
+})
+
+//? Orders
+export const setOrdersByStore = (payload) => ({
+  type : types.setOrdersByStore,
+  payload
+})
+export const setOrdersBySupplier = (payload) => ({
+  type : types.setOrdersByStore,
+  payload
 })

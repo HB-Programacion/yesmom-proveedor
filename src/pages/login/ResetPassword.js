@@ -35,7 +35,9 @@ const ResetPassword = () => {
     const handleRef = (id) => {
         const type = document.getElementById(id).type;
     
-        type === "password" ? document.getElementById(id).type="text" : document.getElementById(id).type="password"
+        type === "password" 
+					? document.getElementById(id).type="text" 
+					: document.getElementById(id).type="password"
     }
 
     const submitForm = async (data) => {

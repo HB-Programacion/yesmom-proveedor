@@ -56,8 +56,6 @@ const ActiveProducts = () => {
   const [ activeFilter , setActiveFilter ] = useState(0);
   const [ wordBusqueda, setWordBusqueda ] = useState('');
 
-
-
   const handleDeleteActive = async () => {
       if(active.length > 0){
         const { isConfirmed } = await Swal.fire('Deshabilitar producto(s)','Deshabilitar producto(s)','question')
@@ -66,6 +64,11 @@ const ActiveProducts = () => {
           dispatch( startDeletingProduct());
         }
       }
+  }
+
+  const handleFilterText = (e) => {
+		console.log('object',e)
+		/* setFilterText() */
   }
 
 
@@ -145,12 +148,13 @@ const ActiveProducts = () => {
                                   className={`icon-delete ${active.length===0 ? 'icon-delete-disabled' : ''}`}
                                   src={iconDelete} 
                                   alt="icon-delete"
-                                  onClick = { handleDeleteActive }  
+                                  onClick = {handleDeleteActive }  
                                 />
                               </div>
                               <form onSubmit={onSubmitBuscar} >
                                 <Input value={wordBusqueda} onChange={handleInputChange} placeholder="Buscar..." />
                               </form>
+                              {/* <Input placeholder="Buscar..." onChange={(e) => handleFilterText(e)} /> */}
                           </div>
                           }
                         </div>

@@ -68,7 +68,7 @@ const AvatarLogged = () => {
                             <p>Desactivar cuenta</p>
                         </Link>
 
-                        <div class="dropdown-divider"></div>
+                        <div className="dropdown-divider"></div>
 
                         <div onClick={ handleLogout }>
                                 <p className="logout-dropdown">Cerrar sesión</p>
