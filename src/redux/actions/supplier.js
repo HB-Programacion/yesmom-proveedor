@@ -187,8 +187,6 @@ export const cleanSupplier = () => ({
 })
 
 export const registerFormContacto = async ( values ) => {
-    console.log('datos de form de contacto', values);   
-
     try{
         const { mail, detalle, nombres } = values;
         const body = {
@@ -199,8 +197,8 @@ export const registerFormContacto = async ( values ) => {
                 nombres
             }
         }
-        const { data } = axios.post(`http://localhost:3700/notificarContacto`, body);
-        console.log(data)
+        const { data } = axios.post(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/notificarContacto`, body);
+        console.log('respuesta notificar correo', data)
 
         if(data.result){
             Swal.fire({
