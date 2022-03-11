@@ -96,7 +96,6 @@ export const startDisablingSupplier = ( { password }) => {
             if(data?.response?.ok){
                 Swal.fire('Proveedor desactivado', 'Proveedor desactivado correctamente','success');
                 setTimeout(()=>{
-                    
                     dispatch(logout());
                     window.location.href='/';
                 },500)
@@ -198,9 +197,9 @@ export const registerFormContacto = async ( values ) => {
             }
         }
         const { data } = axios.post(`${process.env.REACT_APP_BACKEND_URL_BUSINESS}/notificarContacto`, body);
-        console.log('respuesta notificar correo', data)
+        // console.log('respuesta notificar correo', data)
 
-        if(data.result){
+        if(data === undefined){
             Swal.fire({
                 position: 'center',
                 icon: 'success',

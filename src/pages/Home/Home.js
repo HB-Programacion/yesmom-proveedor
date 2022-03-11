@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import AppLayout from "../../components/AppLayout/AppLayout";
 
@@ -52,6 +52,7 @@ const Home = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm({
     resolver: yupResolver(schemaValidator),
   });
@@ -93,6 +94,7 @@ const Home = () => {
     };
 
     registerFormContacto(formValues);
+    reset()
   };
 
 
@@ -273,6 +275,7 @@ const Home = () => {
                                 Nombre y Apellido
                               </label>
                               <input
+                                name="nombres"
                                 type="text"
                                 id="nombres"
                                 {...register("nombres")}
@@ -286,6 +289,7 @@ const Home = () => {
                                 Dirección de correo electrónico
                               </label>
                               <input
+                                name="email"
                                 type="email"
                                 id="mail"
                                 {...register("mail")}
@@ -295,11 +299,12 @@ const Home = () => {
                               </p>
                             </div>
                             <div className="home--box-input">
-                              <label htmlFor="question">
+                              <label htmlFor="detalle">
                                 Escribe aquí tu pregunta....
                               </label>
                               <textarea
                                 id="detalle"
+                                name="detalle"
                                 {...register("detalle", { max: 200 })}
                               />
                               <p className="error-input-login">
