@@ -65,15 +65,7 @@ const Registro = () => {
                 if(isConfirmed){
                     // alert("DATOS OK Y ACEPTÓ");
                     // console.log("Los datos son : 26",infoPersona);
-
                     try{
-                        // console.log('holaaaaa',infoPersona);
-                        
-                        // console.log(payload);
-                        
-                        // console.log('aaa',payload);
-                        // infoPersona.nombreTiendaUrl = getUrlName(infoPersona.nombreTienda)
-                        
                         Swal.fire({
                             title : "Registrando datos...",
                             text : "Espera un momento....",

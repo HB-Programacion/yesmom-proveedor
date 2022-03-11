@@ -21,7 +21,7 @@ import PaginateActive from '../../../components/Pagination/PaginateActive'
 import PaginateDisabled from '../../../components/Pagination/PaginateDisabled'
 import Swal from 'sweetalert2'
 import { startLoadingProductsStore } from '../../../redux/actions/store'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 // const productsMock = [
 //   { title: 'baby clothes', description: 'Numero 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac', image: 'https://i.pinimg.com/originals/86/7b/90/867b9004d298622723781c4fd7e25d50.jpg', price: 60.50, discount: 10.20 },
 //   { title: 'baby clothes', description: 'Numero 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac', image: 'https://i.pinimg.com/originals/86/7b/90/867b9004d298622723781c4fd7e25d50.jpg', price: 40.50, discount: 5.20 },
@@ -43,6 +43,9 @@ import { Link } from 'react-router-dom'
 
 const ActiveProducts = () => {
 
+  const router = useNavigate();
+  const [params] = useSearchParams();
+  const query = params.get('q')
   const dispatch = useDispatch();
   const { idActiveStore } = useSelector(state => state.store);
   const { loading } = useSelector(state => state.ui);
@@ -51,6 +54,7 @@ const ActiveProducts = () => {
   const { total , active } = productsActiveStore;
 
   const [ activeFilter , setActiveFilter ] = useState(0);
+  const [ wordBusqueda, setWordBusqueda ] = useState('');
 
   const handleDeleteActive = async () => {
       if(active.length > 0){
@@ -74,6 +78,24 @@ const ActiveProducts = () => {
       dispatch(startLoadingProductsStore({}));
     }
   },[idActiveStore , dispatch])
+
+  const onSubmitBuscar = (e) =>{
+    e.preventDefault();
+    if(wordBusqueda.trim().lenght > 0){
+      router(`?q=${wordBusqueda}`);
+    }
+  }
+
+  useEffect(()=>{
+    if(query){
+      // console.log('EXISTE QUERY');
+      setWordBusqueda(query);
+    }
+  }, [query])
+
+  const handleInputChange = (e) =>{
+    setWordBusqueda(e.target.value);
+  }
 
   // console.log(products);
   return (
@@ -129,15 +151,16 @@ const ActiveProducts = () => {
                                   onClick = {handleDeleteActive }  
                                 />
                               </div>
-                              <Input placeholder="Buscar..." onChange={(e) => handleFilterText(e)} />
+                              <form onSubmit={onSubmitBuscar} >
+                                <Input value={wordBusqueda} onChange={handleInputChange} placeholder="Buscar..." />
+                              </form>
+                              {/* <Input placeholder="Buscar..." onChange={(e) => handleFilterText(e)} /> */}
                           </div>
                           }
                         </div>
                       </div>
                       { activeFilter === 0 && <ComponentActive />   }
                       { activeFilter === 1 && <ComponentDisabled />   }
-                      
-                    
                   </div>
                 </div>
               </div>

@@ -8,7 +8,7 @@ import StoreSelect from './StoreSelect/StoreSelect';
 const allowed = [ 
     '/p/info/registro',
     '/p/info/productos',
-    '/p/info/eliminar-tienda'
+    // '/p/info/eliminar-tienda'
  ]
 const NavMenu = () => {
 
