@@ -13,6 +13,7 @@ import {
     ComponentNotFound,
     Home, 
     Login, 
+    Politicas, 
     RecoverPassword, 
     Registro, 
     ResetPassword 
@@ -85,7 +86,8 @@ const AppRouter = () => {
 
                     <Route path="/" element={ <Home /> } />
                     <Route path="/recuperar-password" element={ <RecoverPassword /> } />
-                    <Route path="/restablecer-password/:token/:id" element={ <ResetPassword /> } />
+                    <Route path="/politicas" element={ <Politicas /> } />
+                    {/* <Route path="/restablecer-password/:token/:id" element={ <ResetPassword /> } /> */}
                     <Route path="/404" element={ <ComponentNotFound /> } />
                 </Routes>
             </Suspense>

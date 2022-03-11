@@ -128,30 +128,25 @@ const Home = () => {
                       artículos y servicios para bebés en el mercado peruano!
                     </p>
                   </div>
-                  <div className="home--container-buttons">
-                    <div>
-                      <Link
-                        to={logged ? "/p/informacion-perfil/registro" : "/iniciar-sesion"}
-                      >
-                        <ButtonFilled color="yellow">
-                          Iniciar sesión
-                        </ButtonFilled>
-                      </Link>
+                  {
+                    !logged && 
+                    <div className="home--container-buttons">
+                      <div>
+                        <Link to="/iniciar-sesion">
+                          <ButtonFilled color="yellow">
+                            Iniciar sesión
+                          </ButtonFilled>
+                        </Link>
+                      </div>
+                      <div>
+                        <Link to="/registro">
+                          <ButtonFilled color="pink">
+                            Registrate aquí
+                          </ButtonFilled>
+                        </Link>
+                      </div>
                     </div>
-                    <div>
-                      <Link
-                        to={
-                          logged
-                            ? "/p/informacion-perfil/registro"
-                            : "/registro"
-                        }
-                      >
-                        <ButtonFilled color="pink">
-                          Registrate aquí
-                        </ButtonFilled>
-                      </Link>
-                    </div>
-                  </div>
+                  }
                 </div>
               </section>
 
@@ -319,12 +314,14 @@ const Home = () => {
                         <p className="home--end-text">
                           Tus datos serán tratados por Yes Mom para la gestión
                           de tu consulta.{" "}
-                          <a href="/politica-de-privacidad">
-                            {" "}
-                            <span className="home--privacidad">
-                              Revisa nuestra política de privacidad.
-                            </span>
-                          </a>
+                          <Link to="/politicas">
+                            <a className="/politicas" href="/politicas">
+                              {" "}
+                              <span className="home--privacidad">
+                                Revisa nuestra política de privacidad.
+                              </span>
+                            </a>
+                          </Link>
                         </p>
                       </div>
                     </Col>
