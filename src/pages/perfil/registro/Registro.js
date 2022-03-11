@@ -14,7 +14,7 @@ import ButtonFilled from '../../../components/Button/ButtonFilled';
 import Sidebar from '../../../components/Perfil/Sidebar/Sidebar';
 import Loading from '../../../components/Loading/Loading';
 
-import iconEditar from '../../../images/header/icon-edit.svg';
+// import iconEditar from '../../../images/header/icon-edit.svg';
 
 
 import { schemaValidatorStep4 } from '../../../utils/validateRegistro/ValidationSchemas';
@@ -234,9 +234,9 @@ const Registro = () => {
                 <Description title="Información de Registro" description="Aquí encontrarás los datos de la empresa" />
                 <div className="info-container-content">
                   <div className="registro-container-form info-container-form mt-5 mb-2">
-                    <div className="info-icon-editar">
+                    {/* <div className="info-icon-editar">
                       <img src={iconEditar} alt="editar"/>
-                    </div>
+                    </div> */}
                     <RegistroStep4 
                       register= { register}
                       errors = { errors }

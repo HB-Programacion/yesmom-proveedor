@@ -12,7 +12,7 @@ const pushLinks=[
     // { name : "Cambiar contraseña" , to : "/p/informacion-perfil/cambiar-password" },
     // { name : "Perfil de tienda" , to : "/p/informacion-perfil/perfil-tienda" },
     // { name : "Términos y condiciones" , to : "/p/informacion-perfil/terminos" },
-    { name : "Eliminar tienda" , to :"/p/info/eliminar-tienda"},
+    // { name : "Eliminar tienda" , to :"/p/info/eliminar-tienda"},
     // { name : "Desactivar cuenta" , to : "/p/info/desactivar-cuenta" },
 ]
 const Sidebar = () => {

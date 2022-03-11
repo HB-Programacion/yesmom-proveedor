@@ -1,6 +1,5 @@
 import { lazy } from "react";
 // import Construccion from "../pages/construccion/Construccion";
-// import Politicas from "../pages/politicasdeprivacidad/Politicas";
 
 //Views
 // export const ShowProduct = lazy(() =>import("../pages/producto/ShowProducts/ShowProduct"));
@@ -10,6 +9,7 @@ import { lazy } from "react";
 
 
 
+export const Politicas = lazy ( () => import("../pages/politicasdeprivacidad/Politicas"));
 export const Home = lazy(() => import("../pages/Home/Home"));
 export const Registro = lazy(() => import("../pages/registro/Registro"));
 export const ComponentNotFound = lazy(() => import("../pages/404"));
