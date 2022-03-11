@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Routes , Navigate} from 'react-router-dom';
 
 
@@ -19,6 +19,14 @@ import RestrictedRoute from './RestrictedRoute';
 
 const AuthRoutes = () => {
 
+    useEffect(()=>{
+        if(window){
+            const timer = window.scrollTo(0,0);
+            const timeout = setTimeout(timer,1000);
+
+            return () => clearTimeout(timeout);
+        }   
+    },[])
 
     return (
         <>
