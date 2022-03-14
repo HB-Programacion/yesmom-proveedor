@@ -38,6 +38,7 @@ const AccordionItem = ({
   const dispatch = useDispatch();
   const { idActiveStore } = useSelector(state => state.store);
 	const [stateSwitch, setStateSwitch] = useState(false);
+  
 	const updateOrders = async (_id) => {
 
     try {
