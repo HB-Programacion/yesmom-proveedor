@@ -48,7 +48,7 @@ const Header = () => {
             </div>
             <div className="container-icon hide">
               {logged ? (
-                <Link to="/p/informacion-perfil/registro">
+                <Link to="/p/info/registro">
                   <AvatarLogged />
                 </Link>
               ) : (
