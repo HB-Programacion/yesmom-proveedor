@@ -62,8 +62,6 @@ const AccordionItem = ({
       Swal.fire('Error', 'Error inesperado', 'error');
     }
 	};
-
-
   const handleUpdateOrder = async () => {
     const { isConfirmed } = await Swal.fire('¿Desea cambiar el estado de su orden?', 'Está seguro de cambiar el estado de su orden','info');
 
@@ -78,6 +76,7 @@ const AccordionItem = ({
           dispatch(loadOrdersByStore({id : idActiveStore, state, limit :9}))
       }
   }
+  
 
   return (
     <>
