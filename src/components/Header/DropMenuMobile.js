@@ -14,38 +14,59 @@ import loggedOptions from '../../images/header/logged-options.svg';
 
 import './DropMenuMobile.css';
 import { cleanDataSupplier } from "../../redux/actions/supplier";
-const DropMenuMobile = ({ active, setActive}) => {
+const pushLinks = [
+  // { name: "Registro", to: "/p/info/registro" },
+  { name: "Mis datos", to: "/p/info/mis-datos" },
+  { name: "Mi tienda", to: "/p/info/registro" },
+  {
+    name: "Mis ordenes",
+    to: "/p/info/mis-ordenes",
+  },
+  { name: "Cambiar contraseña", to: "/p/info/cambiar-password" },
+  // { name: "Cerrar sesión", to: "/p/info/cambiar-password" },
+  // { name: "Términos y condiciones", to: "/p/informacion-perfil/terminos" },
+  // {
+  //   name: "Desactivar cuenta",
+  //   to: "/p/informacion-perfil/desactivar-cuenta",
+  // },
+];
 
-  const { logged=false } = useSelector(state => state.auth);  
-  const { nombreTienda=""} = useSelector(state => state.supplier);
+const sections = {
+  porqueVender: "porque-vender-yesmom",
+  comoVender: "como-vender",
+  contacto: "contacto",
+};
+
+const DropMenuMobile = ({ active, setActive }) => {
+
+  const { logged = false } = useSelector(state => state.auth);
+  const { nombreCompletoEncargado = "" } = useSelector(state => state.supplier);
   const { pathname } = useLocation();
   const [expand, setExpand] = useState(false);
   const dispatch = useDispatch();
 
-  const pushLinks = [
-    { name: "Registro", to: "/p/informacion-perfil/registro" },
-    { name: "Productos", to: "/p/informacion-perfil/productos-activos" },
-    {
-      name: "Cambiar contraseña",
-      to: "/p/informacion-perfil/cambiar-password",
-    },
-    { name: "Perfil de tienda", to: "/p/informacion-perfil/perfil-tienda" },
-    // { name: "Términos y condiciones", to: "/p/informacion-perfil/terminos" },
-    // {
-    //   name: "Desactivar cuenta",
-    //   to: "/p/informacion-perfil/desactivar-cuenta",
-    // },
-  ];
 
-  const sections = {
-    porqueVender: "porque-vender-yesmom",
-    comoVender: "como-vender",
-    contacto: "contacto",
-  };
+  // const getShortName = (name) => {
+
+  //   const namesSeparated = name.toUpperCase().trim().split(" ");
+  //   let initials = "";
+  //   namesSeparated.forEach((string, i) => {
+  //     if (i < 2) {
+  //       initials = initials + string.charAt(0);
+  //     } else {
+  //       return;
+  //     }
+  //   });
+  //   return initials;
+  // }
+  // const getFirstName = (name) => {
+  //   return name.split(" ")[0];
+  // }
+  // const shortName = getShortName(nombreCompletoEncargado);
 
   const handleLogout = () => {
     dispatch(logout());
-    dispatch ( cleanDataSupplier());
+    dispatch(cleanDataSupplier());
   }
 
   return (
@@ -129,12 +150,12 @@ const DropMenuMobile = ({ active, setActive}) => {
                       </div>
                       <div className="box-expand">
                         <div className="options-proveedor">
-                          <h6 className="text-navbar">{nombreTienda}</h6>
+                          <h6 className="text-navbar">{nombreCompletoEncargado}</h6>
                           <div
                             className="expand-options"
                             onClick={() => setExpand((expand) => !expand)}
                           >
-                            <img src={loggedOptions} alt="logged-options"/>
+                            <img src={loggedOptions} alt="logged-options" />
                           </div>
                         </div>
                       </div>
@@ -158,9 +179,8 @@ const DropMenuMobile = ({ active, setActive}) => {
                         <Link
                           key={i}
                           to={link.to}
-                          className={`dropmenu__link ${
-                            pathname === link.to ? "active-item-drop-menu" : ""
-                          }`}
+                          className={`dropmenu__link ${pathname === link.to ? "active-item-drop-menu" : ""
+                            }`}
                         >
                           {link.name}
                         </Link>

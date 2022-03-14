@@ -4,7 +4,7 @@ import Expand from "./Expand";
 import SwitchStandard from "./SwitchStandard";
 import { getDateParsed } from "../../../utils/helpers/getDateParsed";
 
-import iconEditar from "../../../images/header/icon-edit.svg";
+// import iconEditar from "../../../images/header/icon-edit.svg";
 import "./AccordionItem.css";
 import { updateStateOrders } from "../../../utils/helpers/request";
 import Swal from "sweetalert2";
@@ -20,6 +20,8 @@ const AccordionItem = ({
   contactoCliente,
   saleId,
   fechaPedido,
+  numero,
+  numeroDocumento,
   // tipoDocumento,
   // metodoPago,
   cant,
@@ -36,6 +38,7 @@ const AccordionItem = ({
   const dispatch = useDispatch();
   const { idActiveStore } = useSelector(state => state.store);
 	const [stateSwitch, setStateSwitch] = useState(false);
+  
 	const updateOrders = async (_id) => {
 
     try {
@@ -94,7 +97,7 @@ const AccordionItem = ({
             <div className="header-title">
               <div className="item-details">
                 <p>
-                  Numero de órden <span>{saleId}</span>
+                  Numero de órden <span>{numero}</span>
                 </p>
               </div>
               <div className="item-details">
@@ -155,7 +158,7 @@ const AccordionItem = ({
               </div>
               <div className="item-details">
                 <p>
-                  DNI: <span>{dni}</span>
+                  DNI: <span>{numeroDocumento}</span>
                 </p>
               </div>
             </div>
