@@ -4,7 +4,7 @@ import Expand from "./Expand";
 import SwitchStandard from "./SwitchStandard";
 import { getDateParsed } from "../../../utils/helpers/getDateParsed";
 
-import iconEditar from "../../../images/header/icon-edit.svg";
+// import iconEditar from "../../../images/header/icon-edit.svg";
 import "./AccordionItem.css";
 import { updateStateOrders } from "../../../utils/helpers/request";
 import Swal from "sweetalert2";
@@ -20,6 +20,7 @@ const AccordionItem = ({
   contactoCliente,
   saleId,
   fechaPedido,
+  numero,
   numeroDocumento,
   // tipoDocumento,
   // metodoPago,
@@ -96,7 +97,7 @@ const AccordionItem = ({
             <div className="header-title">
               <div className="item-details">
                 <p>
-                  Numero de órden <span>{saleId}</span>
+                  Numero de órden <span>{numero}</span>
                 </p>
               </div>
               <div className="item-details">
