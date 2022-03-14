@@ -20,6 +20,7 @@ const AccordionItem = ({
   contactoCliente,
   saleId,
   fechaPedido,
+  numeroDocumento,
   // tipoDocumento,
   // metodoPago,
   cant,
@@ -156,7 +157,7 @@ const AccordionItem = ({
               </div>
               <div className="item-details">
                 <p>
-                  DNI: <span>{dni}</span>
+                  DNI: <span>{numeroDocumento}</span>
                 </p>
               </div>
             </div>
