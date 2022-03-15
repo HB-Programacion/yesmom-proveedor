@@ -7,14 +7,20 @@ const ResumenListas = ({ products = [], beforeState, afterState, selection }) =>
 
 
   return (
-    <AccordionResumen
-      data={products}
-      beforeState={beforeState}
-      afterState={afterState}
-      valueSwitch={stateSwitch}
-			selection={selection}
-      onChangeSwitch={() => setStateSwitch(!stateSwitch)}
-    />
+    <>
+    {
+      products.length > 0 ? 
+      <AccordionResumen
+        data={products}
+        beforeState={beforeState}
+        afterState={afterState}
+        valueSwitch={stateSwitch}
+        selection={selection}
+        onChangeSwitch={() => setStateSwitch(!stateSwitch)}
+      /> : <p className="zero-orders">No existen ordenes</p> 
+    }
+    </>
+    
   );
 };
 

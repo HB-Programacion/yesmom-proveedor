@@ -4,7 +4,7 @@ import Expand from "./Expand";
 import SwitchStandard from "./SwitchStandard";
 import { getDateParsed } from "../../../utils/helpers/getDateParsed";
 
-import iconEditar from "../../../images/header/icon-edit.svg";
+// import iconEditar from "../../../images/header/icon-edit.svg";
 import "./AccordionItem.css";
 import { updateStateOrders } from "../../../utils/helpers/request";
 import Swal from "sweetalert2";
@@ -20,6 +20,8 @@ const AccordionItem = ({
   contactoCliente,
   saleId,
   fechaPedido,
+  numero,
+  numeroDocumento,
   // tipoDocumento,
   // metodoPago,
   cant,
@@ -36,8 +38,9 @@ const AccordionItem = ({
   const dispatch = useDispatch();
   const { idActiveStore } = useSelector(state => state.store);
 	const [stateSwitch, setStateSwitch] = useState(false);
+  
 	const updateOrders = async (_id) => {
-
+    
     try {
       Swal.fire({
         title : "Actualizando orden...",
@@ -62,8 +65,6 @@ const AccordionItem = ({
       Swal.fire('Error', 'Error inesperado', 'error');
     }
 	};
-
-
   const handleUpdateOrder = async () => {
     const { isConfirmed } = await Swal.fire('¿Desea cambiar el estado de su orden?', 'Está seguro de cambiar el estado de su orden','info');
 
@@ -78,6 +79,7 @@ const AccordionItem = ({
           dispatch(loadOrdersByStore({id : idActiveStore, state, limit :9}))
       }
   }
+  
 
   return (
     <>
@@ -95,7 +97,7 @@ const AccordionItem = ({
             <div className="header-title">
               <div className="item-details">
                 <p>
-                  Numero de órden <span>{saleId}</span>
+                  Numero de órden <span>{numero}</span>
                 </p>
               </div>
               <div className="item-details">
@@ -156,20 +158,23 @@ const AccordionItem = ({
               </div>
               <div className="item-details">
                 <p>
-                  DNI: <span>{dni}</span>
+                  DNI: <span>{numeroDocumento}</span>
                 </p>
               </div>
             </div>
             {
               products && products.length >0 &&
               <div className="container-products">
-                <p className="text-products-by-order">PRODUCTOS</p>
+                
+                <p className="text-products-by-order">PRODUCTOS </p>
                 {
                   products.map(( p , i)=>(
+                    
                     <div key={`product-${i}`} className={`container-products ${i===0 ? 'without-border' : ''}`}>
+  
                       <div className="item-details">
                         <p>
-                          PRODUCTO {i+1}
+                          PRODUCTO {i+1} - {p.nombreTienda}
                         </p>
                       </div>
                       <div className="item-details">

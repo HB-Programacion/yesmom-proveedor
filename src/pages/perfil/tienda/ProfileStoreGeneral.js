@@ -61,7 +61,7 @@ const ProfileStoreGeneral = () => {
         if(e.target.files.length > 0){
             const file = e.target.files[0];
             if(file.size > MAX_MB){
-                Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 2MB' , 'info');
+                Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 500KB' , 'info');
                 // alert('Imagen pesada , máximo 2MB');
                 if(name === 'imgCover'){
                     refCover.current.value='';
@@ -98,7 +98,7 @@ const ProfileStoreGeneral = () => {
             //Hay imagen de Banner
             const file = e.target.files[0];
             if(file.size > MAX_MB){
-                Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 2MB' , 'info');
+                Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 500KB' , 'info');
                 document.getElementsByName(name).value="";
             }else{
                 setImages({
