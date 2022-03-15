@@ -40,7 +40,7 @@ const AccordionItem = ({
 	const [stateSwitch, setStateSwitch] = useState(false);
   
 	const updateOrders = async (_id) => {
-
+    
     try {
       Swal.fire({
         title : "Actualizando orden...",
@@ -165,13 +165,16 @@ const AccordionItem = ({
             {
               products && products.length >0 &&
               <div className="container-products">
-                <p className="text-products-by-order">PRODUCTOS</p>
+                
+                <p className="text-products-by-order">PRODUCTOS </p>
                 {
                   products.map(( p , i)=>(
+                    
                     <div key={`product-${i}`} className={`container-products ${i===0 ? 'without-border' : ''}`}>
+  
                       <div className="item-details">
                         <p>
-                          PRODUCTO {i+1}
+                          PRODUCTO {i+1} - {p.nombreTienda}
                         </p>
                       </div>
                       <div className="item-details">
