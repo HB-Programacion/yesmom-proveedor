@@ -81,7 +81,7 @@ const ActiveProducts = () => {
 
   const onSubmitBuscar = (e) =>{
     e.preventDefault();
-    if(wordBusqueda.trim().lenght > 0){
+    if(wordBusqueda.trim().length > 0){
       router(`?q=${wordBusqueda}`);
     }
   }

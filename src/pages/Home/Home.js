@@ -88,7 +88,6 @@ const Home = () => {
   };
 
   const submitForm = (values) => {
-    console.log('tes homer', values);
     let formValues = {
       ...values
     };
