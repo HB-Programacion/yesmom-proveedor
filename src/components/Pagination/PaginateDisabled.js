@@ -6,7 +6,7 @@ import { startLoadingProductsStore } from '../../redux/actions/store';
 
 const itemsPerPage = 6;
 
-const PaginateDisabled = () => {
+const PaginateDisabled = ({query}) => {
 
 
   const dispatch = useDispatch();
@@ -40,7 +40,12 @@ const PaginateDisabled = () => {
     //eslint-disable-next-line
   }, [itemOffset, itemsPerPage, dispatch]);
 
-
+  useEffect(()=>{
+    if(query && query.trim().length){
+        dispatch( startLoadingProductsStore( { skip : 0, limit : 6, state : 'D', name : query}));
+    }
+  },[query, dispatch])
+  
   return (
 
           <ReactPaginate

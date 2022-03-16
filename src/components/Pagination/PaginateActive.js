@@ -7,7 +7,7 @@ import { startLoadingProductsStore } from '../../redux/actions/store';
 
 
 const itemsPerPage = 6;
-const PaginateActive = () => {
+const PaginateActive = ({ query }) => {
 
 
     const dispatch = useDispatch();
@@ -43,6 +43,11 @@ const PaginateActive = () => {
     }, [itemOffset, itemsPerPage , dispatch]);
 
     
+    useEffect(()=>{
+        if(query && query.trim().length){
+            dispatch( startLoadingProductsStore( { skip : 0, limit : 6, state : 'A', name : query}));
+        }
+    },[query, dispatch])
     return (
         <div>
             {

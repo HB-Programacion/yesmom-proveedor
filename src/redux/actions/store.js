@@ -106,7 +106,7 @@ export const startInfoActiveStore = (id) => {
 
 //products
 
-export const startLoadingProductsStore = ( { skip = 0 , limit = 6 , state='A'}) => {
+export const startLoadingProductsStore = ( { skip = 0 , limit = 6 , state='A' , name}) => {
   return async (dispatch , getState) =>{
     try{
 
@@ -119,6 +119,7 @@ export const startLoadingProductsStore = ( { skip = 0 , limit = 6 , state='A'}) 
           state,
           skip,
           limit : 6,
+          name: name ? name : null,
         },
         headers :{
           'access-token' : token

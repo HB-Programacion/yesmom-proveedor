@@ -55,6 +55,7 @@ const ActiveProducts = () => {
 
   const [ activeFilter , setActiveFilter ] = useState(0);
   const [ wordBusqueda, setWordBusqueda ] = useState('');
+  const [ querySearch, setQuerySearch ] = useState('');
 
   const handleDeleteActive = async () => {
       if(active.length > 0){
@@ -66,36 +67,48 @@ const ActiveProducts = () => {
       }
   }
 
-  const handleFilterText = (e) => {
-		console.log('object',e)
-		/* setFilterText() */
-  }
+  // const handleFilterText = (e) => {
+	// 	console.log('object',e)
+	// 	/* setFilterText() */
+  // }
 
 
   useEffect(()=>{
 
-    if(idActiveStore){
-      dispatch(startLoadingProductsStore({}));
+    if(idActiveStore && !query){
+      dispatch(startLoadingProductsStore({state : activeFilter === 0 ? 'A' : 'D'}));
     }
-  },[idActiveStore , dispatch])
+  },[idActiveStore , dispatch, query, activeFilter])
 
   const onSubmitBuscar = (e) =>{
     e.preventDefault();
+    setQuerySearch(wordBusqueda);
+    if(wordBusqueda.trim().length === 0) {
+      router('/p/info/productos');
+    }
     if(wordBusqueda.trim().length > 0){
       router(`?q=${wordBusqueda}`);
     }
   }
 
   useEffect(()=>{
-    if(query){
-      // console.log('EXISTE QUERY');
-      setWordBusqueda(query);
+    if(query && idActiveStore){
+      setWordBusqueda(query.toLowerCase());
+      setQuerySearch(query.toLowerCase());
     }
-  }, [query])
+  }, [query,idActiveStore])
 
   const handleInputChange = (e) =>{
-    setWordBusqueda(e.target.value);
+    setWordBusqueda(e.target.value.toLowerCase());
   }
+
+  useEffect(()=>{
+    if(activeFilter!==0){
+      setWordBusqueda('');
+      setQuerySearch('');
+      router('/p/info/productos');
+    }
+  },[activeFilter,router])
 
   // console.log(products);
   return (
@@ -139,24 +152,21 @@ const ActiveProducts = () => {
                             </Link>
                           </div>
 
-                          {
-                            total > 0 && 
-                            <div className='container-delete-products'>
-                              <Checkbox content='Seleccionar todo' />
-                              <div className="container-icon-delete">
-                                <img 
-                                  className={`icon-delete ${active.length===0 ? 'icon-delete-disabled' : ''}`}
-                                  src={iconDelete} 
-                                  alt="icon-delete"
-                                  onClick = {handleDeleteActive }  
-                                />
-                              </div>
-                              <form onSubmit={onSubmitBuscar} >
-                                <Input value={wordBusqueda} onChange={handleInputChange} placeholder="Buscar..." />
-                              </form>
-                              {/* <Input placeholder="Buscar..." onChange={(e) => handleFilterText(e)} /> */}
+                          <div className='container-delete-products'>
+                            <Checkbox content='Seleccionar todo' />
+                            <div className="container-icon-delete">
+                              <img 
+                                className={`icon-delete ${active.length===0 ? 'icon-delete-disabled' : ''}`}
+                                src={iconDelete} 
+                                alt="icon-delete"
+                                onClick = {handleDeleteActive }  
+                              />
+                            </div>
+                            <form onSubmit={onSubmitBuscar} >
+                              <Input value={wordBusqueda} onChange={handleInputChange} placeholder="Buscar..." />
+                            </form>
+                            {/* <Input placeholder="Buscar..." onChange={(e) => handleFilterText(e)} /> */}
                           </div>
-                          }
                         </div>
                       </div>
                       { activeFilter === 0 && <ComponentActive />   }
@@ -165,8 +175,8 @@ const ActiveProducts = () => {
                 </div>
               </div>
               <div className="content-page">
-                    { activeFilter === 0 && <PaginateActive />   }
-                    { activeFilter === 1 && <PaginateDisabled />   }
+                    { activeFilter === 0 && <PaginateActive query={querySearch} />   }
+                    { activeFilter === 1 && <PaginateDisabled query={querySearch} />   }
               </div>
             </div>
         </div>
