@@ -292,11 +292,11 @@ const Registro = () => {
                   Guardar
                 </ButtonFilled>
               </div>
-              <div className="info-container-button-only">
+              {/* <div className="info-container-button-only">
                 <ButtonFilled color="outline-pink">
                   Cancelar
                 </ButtonFilled>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
