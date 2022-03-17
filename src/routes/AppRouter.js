@@ -32,7 +32,7 @@ const AppRouter = () => {
     const dispatch = useDispatch();
 
     const { checking } = useSelector( state => state.auth); 
-    const { idActiveStore } = useSelector(state => state.store);
+    const { idActiveStore, stores } = useSelector(state => state.store);
     const { 
         logged = (
             localStorage.getItem('TokenYesmonProveedor') ? true : false
@@ -49,10 +49,10 @@ const AppRouter = () => {
     },[dispatch])
 
     useEffect(()=>{
-        if(idActiveStore){
-            dispatch(loadOrdersByStore({id : idActiveStore, state: "P", limit: 9}))
+        if(stores){
+            dispatch(loadOrdersByStore({id : '0', state: "P", limit: 4}))
         }
-    },[idActiveStore, dispatch])
+    },[stores, dispatch])
 
     if ( checking ) return <Loading />
     return (
