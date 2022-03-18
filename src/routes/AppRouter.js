@@ -24,6 +24,7 @@ import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 import AuthRoutes from "./AuthRoutes";
 import { loadOrdersByStore } from "../redux/actions/store";
+import Terminos from "../pages/terminosycondiciones/Terminos";
 
 
 
@@ -86,7 +87,8 @@ const AppRouter = () => {
 
                     <Route path="/" element={ <Home /> } />
                     <Route path="/recuperar-password" element={ <RecoverPassword /> } />
-                    <Route path="/politicas" element={ <Politicas /> } />
+                    <Route path="/politicasdeprivacidad" element={ <Politicas /> } />
+                    <Route path="/terminosycondiciones" element={<Terminos/>}/>
                     {/* <Route path="/restablecer-password/:token/:id" element={ <ResetPassword /> } /> */}
                     <Route path="/404" element={ <ComponentNotFound /> } />
                 </Routes>

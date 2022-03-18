@@ -48,10 +48,10 @@ const Footer = () => {
                 </h6>
                 <div className="box-contenido-footer">
 
-                  {/* <Link to="/">
+                  <Link to="/terminosycondiciones">
                   <p>Términos y condiciones</p>
-                </Link> */}
-                  <Link to="/politicas">
+                </Link>
+                  <Link to="/politicasdeprivacidad">
                   <p>Política de privacidad</p>
                 </Link>
                   {/* <Link to="/">
