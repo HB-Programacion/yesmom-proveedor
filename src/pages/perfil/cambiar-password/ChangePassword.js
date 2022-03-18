@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,7 +10,6 @@ import Swal from 'sweetalert2';
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
 
-import iconEditar from '../../../images/header/icon-edit.svg';
 
 import ButtonFilled from '../../../components/Button/ButtonFilled';
 
@@ -29,6 +28,7 @@ const schemaValidator = yup.object().shape({
 
 const ChangePassword = () => {
 
+    const navigate = useNavigate();
     const { token } = useSelector( state => state.auth);
     const { register , handleSubmit , formState : { errors } , reset  } = useForm({
         resolver : yupResolver(schemaValidator),
@@ -163,7 +163,7 @@ const ChangePassword = () => {
                                 </ButtonFilled>      
                             </div>
                             <div className="info-container-button-only">
-                                <ButtonFilled color="outline-pink">
+                                <ButtonFilled color="outline-pink" fxClick={ () => navigate('/p/info/registro',{ replace : true}) }>
                                     Cancelar
                                 </ButtonFilled>
                             </div>

@@ -51,9 +51,9 @@ const ActiveProducts = () => {
   const { loading } = useSelector(state => state.ui);
   const  { productsActiveStore } = useSelector(state => state.store);
 
-  const { total , active } = productsActiveStore;
+  const { active } = productsActiveStore;
 
-  const [ activeFilter , setActiveFilter ] = useState(0);
+  const [ activeFilter ] = useState(0);
   const [ wordBusqueda, setWordBusqueda ] = useState('');
   const [ querySearch, setQuerySearch ] = useState('');
 
@@ -135,7 +135,7 @@ const ActiveProducts = () => {
                     <Description title="Productos" description="Aquí encontrarás todos tus productos activos" />
 
                       <div className="container-filter">
-                        <div className="container-filter-activos">
+                        {/* <div className="container-filter-activos">
                           <p
                             onClick= { () => setActiveFilter(0)}
                             className={`filter-product-active ${activeFilter === 0 ? 'active-filter-products' : ""}`}
@@ -144,7 +144,7 @@ const ActiveProducts = () => {
                             onClick= { () => setActiveFilter(1)}
                             className={`filter-product-active ${activeFilter === 1 ? 'active-filter-products' : ""}`}
                             >No activos</p> 
-                        </div>
+                        </div> */}
                         <div className="active-products-filter">
                           <div className='active-products-filter-contenedor'>
                             <Link to="/p/store/load-products">

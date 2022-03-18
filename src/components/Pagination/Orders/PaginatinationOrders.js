@@ -6,8 +6,8 @@ import { loadOrdersByStore } from '../../../redux/actions/store';
 import './Pagination.css';
 
 
-const itemsPerPage = 9;
-const PaginationOrders = ({selection}) => {
+const itemsPerPage = 4;
+const PaginationOrders = ({selection, value}) => {
 
 
     const dispatch = useDispatch();
@@ -35,16 +35,16 @@ const PaginationOrders = ({selection}) => {
     }, [ ordersByStore ])
 
     useEffect(() => {
-        if(idActiveStore){
+        if(value){
             const endOffset = itemOffset + itemsPerPage;
             const state = selection === 0 ? "P" : selection === 1 ? "L" : "E";
-            dispatch(loadOrdersByStore({id : idActiveStore, state ,skip : itemOffset, limit : endOffset}))
+            dispatch(loadOrdersByStore({id : value, state ,skip : itemOffset, limit : endOffset}))
 
             // eslint-disable-next-line
             setPageCount(Math.ceil(total / itemsPerPage));
         }
         //eslint-disable-next-line
-    }, [idActiveStore,itemOffset, itemsPerPage , dispatch]);
+    }, [value,itemOffset, itemsPerPage , dispatch]);
 
     useEffect(()=>{
         if(selection!==0){

@@ -22,22 +22,20 @@ const Resumen = () => {
 
   const handleChange = (e) => {
     setValue(e.target.value)
-    dispatch(setActiveStore(e.target.value));
   };
 
   useEffect(()=>{
     if(stores){
-      setValue(stores[0]._id);
-      dispatch(setActiveStore(stores[0]._id));
+      setValue('0');
     }
   },[stores,dispatch])
 
   useEffect(()=>{
-    if(idActiveStore){
+    if(value){
         const state = selection === 0 ? "P" : selection === 1 ? "L" : "E";
-        dispatch(loadOrdersByStore({id : idActiveStore, state, limit :9}))
+        dispatch(loadOrdersByStore({id : value, state, limit :4}))
     }
-  },[idActiveStore,selection,dispatch])
+  },[value,selection,dispatch])
 
   return (
     <AppLayout>
@@ -80,8 +78,8 @@ const Resumen = () => {
                   onChange={handleChange}
                 >
 
-                  <option value="0" disabled>
-                    Filtrar por tienda
+                  <option value="0">
+                    Todos
                   </option>
                   {stores.length > 0
                     ? stores.map((item, i) => (
@@ -123,7 +121,7 @@ const Resumen = () => {
                 )}
               </div>
               <div className="pagination-orders-container">
-                <PaginationOrders selection={selection}/>
+                <PaginationOrders selection={selection} value={value}/>
               </div>
             </div>
           </div>

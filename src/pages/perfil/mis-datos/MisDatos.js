@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useNavigate } from 'react-router-dom'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
@@ -16,6 +17,7 @@ import './MisDatos.css';
 
 const MisDatos = () => {
 
+    const navigate = useNavigate();
     const { loading } = useSelector( state => state.ui);
     const supplier = useSelector( state => state.supplier);
     const dispatch = useDispatch();
@@ -81,7 +83,7 @@ const MisDatos = () => {
                                 </ButtonFilled>      
                             </div>
                             <div className="info-container-button-only">
-                                <ButtonFilled color="outline-pink">
+                                <ButtonFilled color="outline-pink" fxClick={ () => navigate('/p/info/registro',{ replace : true}) }>
                                     Cancelar
                                 </ButtonFilled>
                             </div>

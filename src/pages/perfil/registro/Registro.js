@@ -156,10 +156,19 @@ const Registro = () => {
 
     if(!availableName) return;
     const { imgLogo , imgCover } = images;
-    if(!imgLogo || !imgCover){
-        return Swal.fire('Campos incompletos' ,'Asegurate de llenar todos los campos obligatorios','info');
-    }
 
+    if(store){
+      if(!store.imagenPortada || !store.imagenPortada[0]){
+        if(!imgCover){
+          return Swal.fire('Campos incompletos' ,'Asegurate de llenar todos los campos obligatorios','info');
+        }
+      }
+      if(!store.imagenLogo || !store.imagenLogo[0]){
+        if(!imgLogo){
+          return Swal.fire('Campos incompletos' ,'Asegurate de llenar todos los campos obligatorios','info');
+        }
+      }
+    }
     try{
 
       const { ok } = await updateStoreSupplier({
@@ -196,8 +205,25 @@ const Registro = () => {
       imgBanner_2 : store?.imagenBanner[1]?.url,
       imgBanner_3 : store?.imagenBanner[2]?.url,
     }
+    if(store){
+      if(store.imagenLogo && store.imagenLogo[0]  ){
+        setImages( prev => ({
+          ...prev,
+          imgLogo : {
+              name : store.imagenLogo[0].nameOriginal
+          }
+        }))
+      }
+      if(store.imagenPortada && store.imagenPortada[0]  ){
+        setImages( prev => ({
+          ...prev,
+          imgCover : {
+              name : store.imagenPortada[0].nameOriginal
+          }
+        }))
+      }
+    }
     setPreview(objPrevs)
-    
     setNameStore( store?.nombreTienda)
     reset({
       nombreEncargadoAlmacen : store?.nombreEncargadoAlmacen,
@@ -266,11 +292,11 @@ const Registro = () => {
                   Guardar
                 </ButtonFilled>
               </div>
-              <div className="info-container-button-only">
+              {/* <div className="info-container-button-only">
                 <ButtonFilled color="outline-pink">
                   Cancelar
                 </ButtonFilled>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

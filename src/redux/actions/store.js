@@ -196,13 +196,24 @@ export const loadOrdersByStore = ({ id, skip = 0 , limit = 'all' , state='P'}) =
     const { idActiveStore } = getState().store;
     const { token } = getState().auth;
     try{
-      const { data } = await clienteAxiosBusiness.get(`/supplier/listorders` , {
-				params : {
-          id: id || idActiveStore,
+			let json;
+			if(id === "0" || id === null) {
+				json = {
           state,
           skip,
           limit,
-        },
+        }
+			}
+			else {
+				json = {
+					storeId: id,
+          state,
+          skip,
+          limit,
+        }
+			}
+      const { data } = await clienteAxiosBusiness.get(`/supplier/listorders` , {
+				params : json,
         headers : {
           'access-token' : token
         }

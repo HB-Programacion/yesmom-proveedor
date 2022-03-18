@@ -97,12 +97,17 @@ const AccordionItem = ({
             <div className="header-title">
               <div className="item-details">
                 <p>
-                  Numero de órden <span>{numero}</span>
+                  Numero de orden <span>{numero}</span>
                 </p>
               </div>
               <div className="item-details">
                 <p>
-                  Fecha de órden <span>{getDateParsed(fechaPedido)}</span>
+                  Fecha de pedido <span>{getDateParsed(fechaPedido)}</span>
+                </p>
+              </div>
+              <div className="item-details">
+                <p>
+                  Fecha de entrega <span>{getDateParsed(fechaPedido)}</span>
                 </p>
               </div>
               <div className="item-details container-expand">
