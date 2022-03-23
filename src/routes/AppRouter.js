@@ -24,15 +24,16 @@ import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 import AuthRoutes from "./AuthRoutes";
 import { loadOrdersByStore } from "../redux/actions/store";
+import useResponsive from "../utils/dom/useResponsive";
 
 
 
 const AppRouter = () => {
 
     const dispatch = useDispatch();
-
+    const isMobile = useResponsive(1024);
     const { checking } = useSelector( state => state.auth); 
-    const { idActiveStore, stores } = useSelector(state => state.store);
+    const { stores } = useSelector(state => state.store);
     const { 
         logged = (
             localStorage.getItem('TokenYesmonProveedor') ? true : false
@@ -80,7 +81,7 @@ const AppRouter = () => {
 
                     <Route path="/*" element = {
                         <PrivateRoute logged={ logged }>
-                            <AuthRoutes />
+                            <AuthRoutes desktop={!isMobile} />
                         </PrivateRoute>
                     } />
 

@@ -17,7 +17,7 @@ import {
 
 import RestrictedRoute from './RestrictedRoute';
 
-const AuthRoutes = () => {
+const AuthRoutes = ({ desktop }) => {
 
     useEffect(()=>{
         if(window){
@@ -28,13 +28,15 @@ const AuthRoutes = () => {
         }   
     },[])
 
+    
     return (
         <>
             <div>
                 <Routes>
                     <Route path="/p/store/new" element={ <NewStore /> } />
-                    <Route path="/p/store/load-products" element={ <AddProductExcel /> } /> 
-
+                    {
+                        desktop && <Route path="/p/store/load-products" element={ <AddProductExcel /> } /> 
+                    }
                     <Route path="/p/info/registro" element={ 
                         <RestrictedRoute>
                             <InfoPerfilRegistro />

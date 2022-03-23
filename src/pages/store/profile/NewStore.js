@@ -1,6 +1,6 @@
 import './NewStore.css'
 import Swal from 'sweetalert2';
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -22,6 +22,7 @@ import { getPrevieWImage } from '../../../utils/helpers/getPreviewImage';
 import Advice from '../../../components/Advice/Advice';
 import { useDispatch } from 'react-redux';
 import { setActiveStore } from '../../../redux/actions/store';
+import useResponsive from '../../../utils/dom/useResponsive';
 
 
 const MAX_MB = 2000000;
@@ -31,6 +32,8 @@ const NewStore = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const isMobile = useResponsive(1024);
+    const shownRef = useRef(false);
     //Cuarto form
     const { register, handleSubmit , formState , reset  } = useForm({
         resolver : yupResolver(schemaValidatorStep4)
@@ -174,6 +177,12 @@ const NewStore = () => {
         }
     }
 
+    useEffect(()=>{
+        if(isMobile && !shownRef.current){
+            Swal.fire('¡Usa un ordenador!','Recuerda que para crear tu tienda y poder subir tus productos, tienes que usar un ordenador.','info');
+            shownRef.current= true;
+        }
+    },[isMobile])
     
     return (
         <AppLayout>
@@ -208,7 +217,7 @@ const NewStore = () => {
                             />
 
                             <div className="new_store-container-button">
-                                <ButtonFilled color="yellow" fxClick = { handleSubmit( handleNewStore )}>
+                                <ButtonFilled disabled={isMobile} color="yellow" fxClick = { handleSubmit( handleNewStore )}>
                                     Continuar
                                 </ButtonFilled>
                             </div>

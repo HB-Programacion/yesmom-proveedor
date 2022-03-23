@@ -11,7 +11,7 @@ const PaginationOrders = ({selection, value}) => {
 
 
     const dispatch = useDispatch();
-    const { idActiveStore, ordersByStore } = useSelector( state => state.store);
+    const { ordersByStore } = useSelector( state => state.store);
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
 

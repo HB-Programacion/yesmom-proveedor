@@ -193,7 +193,6 @@ export const loadOrdersByStore = ({ id, skip = 0 , limit = 'all' , state='P'}) =
   return async (dispatch , getState)=>{
 
 		dispatch(startLoading());
-    const { idActiveStore } = getState().store;
     const { token } = getState().auth;
     try{
 			let json;
