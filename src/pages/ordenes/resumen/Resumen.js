@@ -8,14 +8,14 @@ import ResumenPendientes from "./ResumenPendientes";
 import ResumenEnviadas from "./ResumenEnviadas";
 
 import "./Resumen.css";
-import { loadOrdersByStore, setActiveStore } from "../../../redux/actions/store";
+import { loadOrdersByStore } from "../../../redux/actions/store";
 import PaginationOrders from "../../../components/Pagination/Orders/PaginatinationOrders";
 import Loading from "../../../components/Loading/Loading";
 const Resumen = () => {
 
   const dispatch = useDispatch();
   const { loading } = useSelector( state => state.ui);
-  const { idActiveStore, ordersByStore , stores } = useSelector(state => state.store);
+  const {  ordersByStore , stores } = useSelector(state => state.store);
   const [value, setValue] = useState("0");
   const [selection, setSelection] = useState(0);
 

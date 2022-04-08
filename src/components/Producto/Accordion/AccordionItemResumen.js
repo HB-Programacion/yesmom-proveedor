@@ -19,6 +19,7 @@ const AccordionItem = ({
   total,
   contactoCliente,
   saleId,
+  fechaCreacion,
   fechaPedido,
   numero,
   numeroDocumento,
@@ -102,7 +103,7 @@ const AccordionItem = ({
               </div>
               <div className="item-details">
                 <p>
-                  Fecha de pedido <span>{getDateParsed(fechaPedido)}</span>
+                  Fecha de pedido <span>{getDateParsed(fechaCreacion)}</span>
                 </p>
               </div>
               <div className="item-details">
