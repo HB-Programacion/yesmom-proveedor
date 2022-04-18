@@ -72,7 +72,7 @@ const Home = () => {
     {
       id: 3,
       img: venderThird,
-      description: "Carga tus productos y esperar nuestra confirmación",
+      description: "Carga tus productos y espera nuestra confirmación",
     },
     {
       id: 4,
@@ -175,7 +175,7 @@ const Home = () => {
                 <div className="home--container-description">
                   <h5>
                     Unirte al marketplace de Yes Mom es simple, rápido y
-                    ¡Completamente gratis!
+                    ¡completamente gratis!
                   </h5>
                 </div>
 
@@ -318,8 +318,8 @@ const Home = () => {
                         <p className="home--end-text">
                           Tus datos serán tratados por Yes Mom para la gestión
                           de tu consulta.{" "}
-                          <Link to="/politicas">
-                            <a className="/politicas" href="/politicas">
+                          <Link to="/politicasdeprivacidad">
+                            <a className="/politicas" href="/politicasdeprivacidad">
                               {" "}
                               <span className="home--privacidad">
                                 Revisa nuestra política de privacidad.
