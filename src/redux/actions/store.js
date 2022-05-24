@@ -41,7 +41,11 @@ export const loadProducts = ( formData) => {
                   window.location.href="/p/info/registro"
                 },1000)
             } else {
+              if(data?.response?.message){
+                return Swal.fire("Revisa los archivos",data.response.message,"error");
+              }else{
                 return Swal.fire("Revisa los archivos","Archivo(s) con mal formato","error");
+              }
             }
 
         }catch(err){
