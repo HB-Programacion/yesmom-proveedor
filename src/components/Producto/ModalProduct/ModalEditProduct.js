@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import moment from "moment";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
-import Input from '../../Input/Input'
-import Select from '../../Select/Select'
 import SelectMultipleColor from '../../SelectMultiple/SelectMultipleColor'
 import SelectMultiple from '../../SelectMultiple/SelectMultiple'
 
@@ -14,13 +13,11 @@ import { allowedColors , allowedTallas } from '../../../utils/helpers/getAllowed
 import { yupResolver } from '@hookform/resolvers/yup';
 import { get, useForm } from 'react-hook-form';
 import { schemaUpdate } from '../../../utils/validateUpdate.js/ValidationSchema';
-import ButtonFilled from '../../Button/ButtonFilled';
+
 import { getModalProduct } from '../../../utils/helpers/getModalProduct';
 
 
 import './ModalEditProduct.css'
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
 
 const ModalEditProduct = ( { product } ) => {
 

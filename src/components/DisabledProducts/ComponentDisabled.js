@@ -1,19 +1,18 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { setActiveProduct, unsetActiveProduct } from '../../redux/actions/supplier';
+import { useSelector } from 'react-redux';
+
 
 import CardProduct from '../Producto/CardProduct/CardProduct';
 
-import iconClose from '../../images/producto/icon-close.svg';
 
 const ComponentDisabled = () => {
     
 
-    const dispatch = useDispatch();
-    const  { productsDisabled=[] , active  } = useSelector(state => state.supplierProducts);
-    const handleActiveProduct = ( idProduct ) => {
-        dispatch( setActiveProduct (idProduct) )
-    }
+    const  { productsActiveStore } = useSelector(state => state.store);
+    const  { products=[]  } = productsActiveStore;
+    // const handleActiveProduct = ( idProduct ) => {
+    //     dispatch( setActiveProduct (idProduct) )
+    // }
   
     // const getActive = ( idProduct ) => {
     //   if(active.includes(idProduct)){
@@ -31,11 +30,18 @@ const ComponentDisabled = () => {
     return (
         <div>
             {
-                productsDisabled.length === 0 ? 
-                <p className="empty-products"> No hay productos </p>
+                products.length === 0 ? 
+                <>
+                    <p className="empty-products"> No hay productos </p>
+                    {/* <div className='active-products-filter-contenedor'>
+                        <Link to="/p/store/load-products">
+                            +Cargar productos
+                        </Link>
+                    </div> */}
+                </>
                 :
                 <div className="active-products-grid">
-                {productsDisabled.map((item, i) => (
+                {products.map((item, i) => (
                     
                     <div 
                     className="active-products-item" 

@@ -1,6 +1,7 @@
 import React from 'react'
+
 import { useDispatch, useSelector } from 'react-redux';
-import { setActiveProduct, unsetActiveProduct } from '../../redux/actions/supplier';
+import { setActiveProduct, unsetActiveProduct } from '../../redux/actions/store';
 
 import CardProduct from '../Producto/CardProduct/CardProduct';
 
@@ -10,8 +11,12 @@ const ComponentActive = () => {
     
 
     const dispatch = useDispatch();
-    const  { products=[] , active  } = useSelector(state => state.supplierProducts);
+    const  { productsActiveStore } = useSelector(state => state.store);
+    const  { products=[] , active  } = productsActiveStore;
+
+    
     const handleActiveProduct = ( idProduct ) => {
+
         dispatch( setActiveProduct (idProduct) )
     }
   
@@ -27,16 +32,18 @@ const ComponentActive = () => {
     const handleRemoveProduct = ( idProduct ) => {
       dispatch( unsetActiveProduct (idProduct) )
     }
-    
+
     return (
         <div>
             {
                 products.length === 0 ? 
+                <>
                 <p className="empty-products"> No hay productos </p>
+                </>
+                
                 :
                 <div className="active-products-grid">
                 {products.map((item, i) => (
-                    
                     <div 
                     className="active-products-item" 
                     key={i} 

@@ -3,13 +3,17 @@ import { useSelector } from 'react-redux';
 
 import './TitlePerfil.css';
 
-function TitlePerfil({name , email}) {
+const TitlePerfil = () => {
 
-    const { nombreTienda = "" , correoElectronico = "" } = useSelector( state => state.supplier);
+    const { idActiveStore , stores } = useSelector( state => state.store);
+
+    const getActiveName = () => {
+        return stores?.find( s => s._id === idActiveStore).nombreTienda || ""
+    }
     return (
         <div className="info-perfil-title">
             ¡Hola! <br/>
-            {nombreTienda}<br/>
+            {getActiveName()}<br/>
             {/* <span>{correoElectronico}</span> */}
         </div>
     )

@@ -2,7 +2,7 @@ import React from 'react'
 
 import './Switch.css';
 
-function Switch({visible}) {
+const Switch = ({visible}) => {
     return (
         <div className={`switch--container ${visible}`
         }>

@@ -1,0 +1,39 @@
+
+.container_nav-menu{
+    background: #E4EDE1;
+    padding: 1.5rem 2.5rem;
+}
+
+.nav_menu-actions{
+    width : 80%;
+    font-family: "mont-regular";
+    display: flex;
+    align-items: center;
+}
+
+.nav_menu-actions-link{
+    color: #556EA1!important;
+    text-decoration: underline!important;
+    font-size : 1.4rem;
+}
+
+@media (min-width : 768px){
+    .container_nav-menu{
+        padding-left : 6rem;
+        padding-right : 6rem;
+    }
+}
+
+@media (min-width : 1024px){
+    .container_nav-menu{
+        padding-left : 9rem;
+        padding-right : 9rem;
+    }
+}
+
+@media (min-width : 1280px){
+    .container_nav-menu{
+        padding-left : 10rem;
+        padding-right : 10rem;
+    }
+}

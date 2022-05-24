@@ -1,27 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import Swal from 'sweetalert2';
+
 import AppLayout from '../../../components/AppLayout/AppLayout';
 import Description from '../../../components/Perfil/Description/Description';
-import TitlePerfil from '../../../components/Perfil/TitlePerfil/TitlePerfil';
 
-import iconEditar from '../../../images/header/icon-edit.svg';
 
 import ButtonFilled from '../../../components/Button/ButtonFilled';
-import Sidebar from '../../../components/Perfil/Sidebar/Sidebar';
 
 import iconEye from '../../../images/perfil/icon-eye.svg';
 
 import './ChangePassword.css';
 
-import * as yup from 'yup';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import BackComponent from '../../../components/Return/BackComponent';
-import Swal from 'sweetalert2';
 
-import { useSelector } from 'react-redux';
-import clienteAxiosBusiness from '../../../config/axiosBusiness';
-import axios from 'axios';
 
 
 const schemaValidator = yup.object().shape({
@@ -32,6 +28,7 @@ const schemaValidator = yup.object().shape({
 
 const ChangePassword = () => {
 
+    const navigate = useNavigate();
     const { token } = useSelector( state => state.auth);
     const { register , handleSubmit , formState : { errors } , reset  } = useForm({
         resolver : yupResolver(schemaValidator),
@@ -97,24 +94,13 @@ const ChangePassword = () => {
                 <div className="info-perfil-contenido">
                     <div className="info-all-content">
                         <div className="info-contenedor-flex">
-                                <div className="hide-desktop info-container-back">
-                                    <div> 
-                                        <BackComponent />
-                                    </div>
-                                </div>
-                            <div className="flex-left">
-                                <div className="info-container-title">
-                                    <TitlePerfil />
-                                </div>
-                                <Sidebar />
-                            </div>
-                            <div className="flex-right flex-right-ml">
+                            <div className="flex-container-center center-text-description">
                                 <Description title="Cambiar contraseña" description="Aquí encontrarás tu contraseña. Si la quieres modificar asegúrate de que sea segura" />
                                 <div className="info-container-content change-container-content">
                                     <div className="registro-container-form info-container-form mt-5 mb-2">
-                                        <div className="info-icon-editar">
-                                            <img src={iconEditar} />
-                                        </div>
+                                        {/* <div className="info-icon-editar">
+                                            <img src={iconEditar} alt="editar"/>
+                                        </div> */}
                                         <form>
 
                                             <div className="wrapper-input change-password-wrapper-input">
@@ -128,7 +114,7 @@ const ChangePassword = () => {
                                                         name="password"
                                                         {...register('password')}
                                                     />
-                                                    <img className="eye-icon" src={iconEye} onClick={ () => handleRef('password')}/>
+                                                    <img className="eye-icon" src={iconEye} alt="icon-eye" onClick={ () => handleRef('password')}/>
                                                 </div>
                                                 <p className="error-input">{errors?.password?.message}</p>
                                             </div>
@@ -146,7 +132,7 @@ const ChangePassword = () => {
                                                         name="new_password"    
                                                         {...register('new_password')}
                                                     />
-                                                    <img className="eye-icon" src={iconEye} onClick={ () => handleRef('new_password')} />
+                                                    <img className="eye-icon" alt="icon-eye" src={iconEye} onClick={ () => handleRef('new_password')} />
                                                 </div>
                                                 <p className="error-input">{errors?.new_password?.message}</p>
                                             </div>
@@ -159,7 +145,7 @@ const ChangePassword = () => {
                                                         name="confirmPassword"
                                                         {...register('confirmPassword')}
                                                     />
-                                                    <img className="eye-icon" src={iconEye} onClick={ () => handleRef('confirmPassword')}/>
+                                                    <img className="eye-icon" alt="icon-eye" src={iconEye} onClick={ () => handleRef('confirmPassword')}/>
                                                 </div>
                                                 <p className="error-input">{errors?.confirmPassword?.message}</p>
                                             </div>
@@ -177,7 +163,7 @@ const ChangePassword = () => {
                                 </ButtonFilled>      
                             </div>
                             <div className="info-container-button-only">
-                                <ButtonFilled color="outline-pink">
+                                <ButtonFilled color="outline-pink" fxClick={ () => navigate('/p/info/registro',{ replace : true}) }>
                                     Cancelar
                                 </ButtonFilled>
                             </div>

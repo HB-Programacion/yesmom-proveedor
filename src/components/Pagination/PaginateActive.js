@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { useDispatch, useSelector } from 'react-redux';
-import { startLoadingSupplierProductsPaginate } from '../../redux/actions/supplier';
+
+
+import { startLoadingProductsStore } from '../../redux/actions/store';
+
 
 const itemsPerPage = 6;
-const PaginateActive = () => {
+const PaginateActive = ({ query }) => {
 
 
     const dispatch = useDispatch();
-    const  { total } = useSelector(state => state.supplierProducts);
+    const  { productsActiveStore } = useSelector(state => state.store);
+    const { total } = productsActiveStore;
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
 
@@ -19,22 +23,35 @@ const PaginateActive = () => {
     
         setTimeout(() => {
           window.scrollTo(0,0);
-        },300)
+        },700)
     };
 
     useEffect(() => {
         setPageCount(Math.ceil(total / itemsPerPage));
+
+        //eslint-disable-next-line
     }, [ total ])
 
     useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage;
-    dispatch( startLoadingSupplierProductsPaginate( { skip : itemOffset, limit : endOffset }));
-    setPageCount(Math.ceil(total / itemsPerPage));
-    }, [itemOffset, itemsPerPage]);
+        const endOffset = itemOffset + itemsPerPage;
+        dispatch( startLoadingProductsStore( { skip : itemOffset, limit : endOffset, state : 'A' }));
+
+        // eslint-disable-next-line
+        setPageCount(Math.ceil(total / itemsPerPage));
+
+        //eslint-disable-next-line
+    }, [itemOffset, itemsPerPage , dispatch]);
 
     
+    useEffect(()=>{
+        if(query && query.trim().length){
+            dispatch( startLoadingProductsStore( { skip : 0, limit : 6, state : 'A', name : query}));
+        }
+    },[query, dispatch])
     return (
         <div>
+            {
+                total>0 &&
             <ReactPaginate
                 breakLabel="..."
                 onPageChange={handlePageClick}
@@ -52,6 +69,7 @@ const PaginateActive = () => {
                 activeClassName="active-custom-pagination"
                 renderOnZeroPageCount={null}
             />
+            }
         </div>
     )
 }

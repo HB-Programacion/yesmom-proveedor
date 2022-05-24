@@ -1,6 +1,6 @@
 import React from 'react'
 import './ButtonFilled.css';
-function ButtonFilled({ children , fxClick , color , type ,icon}) {
+const ButtonFilled = ({ children , fxClick , color , type ,icon , disabled = false}) => {
     
     /* 
         COLOR:
@@ -13,10 +13,10 @@ function ButtonFilled({ children , fxClick , color , type ,icon}) {
     return (
         <>
             <div 
-                className={`boton ${color!==undefined ? color : ""} ${type==="icon" ? "icon-boton" : ""}`}
-                onClick={fxClick}
+                className={`boton ${disabled ? 'disabled' : ''} ${color!==undefined ? color : ""} ${type==="icon" ? "icon-boton" : ""}`}
+                onClick={!disabled ? fxClick : null}
             >
-                {type==="icon" && <img className="icon-element" src={icon} />}
+                {type==="icon" && <img className="icon-element" src={icon} alt="icon-button" />}
                 <p>
                     {children}
                 </p>

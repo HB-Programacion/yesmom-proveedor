@@ -15,7 +15,6 @@
     background-color :#DADADA;  
 }
 
-
 /*  */
 .boton {
     cursor: pointer;
@@ -74,6 +73,16 @@
     left:3rem;
     width:2rem;
     height:2rem;
+}
+
+.disabled {
+    opacity: 0.4;
+    background-color: gray;
+}
+
+.disabled:hover{
+    transform: scale(1);
+    cursor:default;
 }
 
 @media (min-width:768px) {

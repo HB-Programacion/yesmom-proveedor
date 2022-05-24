@@ -11,24 +11,25 @@ import Stepper from '../../components/Registro/Stepper';
 import RegistroStep1 from '../../components/Registro/RegistroSteps/RegistroStep1';
 import RegistroStep2 from '../../components/Registro/RegistroSteps/RegistroStep2';
 import RegistroStep3 from '../../components/Registro/RegistroSteps/RegistroStep3';
-import RegistroStep4 from '../../components/Registro/RegistroSteps/RegistroStep4';
+
 import './Registro.css';
 
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import clienteAxiosBusiness from '../../config/axiosBusiness';
 import { 
     schemaValidator, 
     schemaValidatorStep2,
     schemaValidatorStep3,
-    schemaValidatorStep4,
 } from '../../utils/validateRegistro/ValidationSchemas';
-import { getUrlName } from '../../utils/helpers/getUlrName';
+
 
 const Registro = () => {
 
+    const navigate = useNavigate();
     //Primer form
-    const { register , handleSubmit , formState:{errors} , reset , watch } = useForm({
+    const { register , handleSubmit , formState:{errors} , reset  } = useForm({
         resolver : yupResolver(schemaValidator)
     });
     //Segundo form
@@ -39,10 +40,6 @@ const Registro = () => {
     const { register: register_3 , handleSubmit : handleSubmit_3 , formState: formState_3 , reset : reset_3} = useForm({
         resolver : yupResolver(schemaValidatorStep3)
     });
-    //Cuarto form
-    const { register: register_4 , handleSubmit : handleSubmit_4 , formState: formState_4 , reset : reset_4 } = useForm({
-        resolver : yupResolver(schemaValidatorStep4)
-    });
 
     const [ infoPersona , setInfoPersona] = useState({});
     const [selected,setSelected]= useState(0);
@@ -51,37 +48,24 @@ const Registro = () => {
     const handleSelection = async (data) => {
         // console.log(data);
 
-        const newObj = {
+        const payload = {
             ...infoPersona,
             ...data
         }
-        setInfoPersona(newObj);
+        setInfoPersona(payload);
         //Si es el ultimo paso enviar el form
-        if(selected === 3){
+        if(selected === 2){
             //Asegurarse que no hay errores
             if( 
-                Object.keys(errors).length === 0 &&
-                Object.keys(formState_2.errors).length === 0 &&
-                Object.keys(formState_3.errors).length === 0 &&
-                Object.keys(formState_4.errors).length === 0 
+                (Object.keys(errors).length === 0) &&
+                (Object.keys(formState_2.errors).length === 0) &&
+                (Object.keys(formState_3.errors).length === 0)
             ){
                 const { isConfirmed } = await submitForm();
                 if(isConfirmed){
                     // alert("DATOS OK Y ACEPTÓ");
                     // console.log("Los datos son : 26",infoPersona);
-
                     try{
-                        // console.log('holaaaaa',infoPersona);
-                        const payload = {
-                            ...newObj,
-                            nombreTiendaUrl : getUrlName(infoPersona.nombreTienda)
-                        }
-                        
-                        // console.log(payload);
-                        
-                        // console.log('aaa',payload);
-                        // infoPersona.nombreTiendaUrl = getUrlName(infoPersona.nombreTienda)
-                        
                         Swal.fire({
                             title : "Registrando datos...",
                             text : "Espera un momento....",
@@ -94,16 +78,24 @@ const Registro = () => {
                         Swal.close();
                         // console.log(infoPersona);
                         const { data } = response;
-                        console.log(data);
 
                         if(data?.response?.ok){
                             reset();
                             reset_2();
                             reset_3();
-                            reset_4();
+
+                            setSelected(0);
                             Swal.fire('Solicitud enviada', 'La solicitud de proveedor ha sido enviada' , 'success');
+                            if(window){
+                                setTimeout(()=>{
+                                    navigate('/login');
+                                },[1000])
+                            }
                             // alert("Proveedor guardado satisfactoriamente")
-                        }else{
+                        }else if(data.CodigoRespuesta === "31"){
+                            Swal.fire('El usuario ya existe', 'Ingrese otro correo electrónico','info')
+                        }
+                        else{
                             Swal.fire('Campos incorrectos','Revisa que los campos esten correctamente completados','info')
                         }
                     }catch(e){
@@ -116,7 +108,7 @@ const Registro = () => {
             }
         }else{
             setSelected( selected => {
-                if(selected!==3){
+                if(selected!==2){
                     return selected+1;
                 }
                 return selected;
@@ -217,10 +209,9 @@ const Registro = () => {
                                         <ButtonFilled 
                                             color="yellow" 
                                             fxClick={
-                                                selected === 0 && handleSubmit(handleSelection)   ||   
-                                                selected === 1 && handleSubmit_2(handleSelection)   ||
-                                                selected === 2 && handleSubmit_3(handleSelection)   ||
-                                                selected === 3 && handleSubmit_4(handleSelection)   
+                                                (selected === 0 && handleSubmit(handleSelection) )   ||   
+                                                (selected === 1 && handleSubmit_2(handleSelection) )   ||
+                                                (selected === 2 && handleSubmit_3(handleSelection)  )
                                             }
                                         >
                                             Continuar
@@ -235,8 +226,7 @@ const Registro = () => {
                                     fxClick={
                                         (selected === 0 && handleSubmit(handleSelection) )  ||   
                                         (selected === 1 && handleSubmit_2(handleSelection))   ||
-                                        (selected === 2 && handleSubmit_3(handleSelection))   ||
-                                        (selected === 3 && handleSubmit_4(handleSelection))   
+                                        (selected === 2 && handleSubmit_3(handleSelection)) 
                                     }
                                 >
                                     Continuar

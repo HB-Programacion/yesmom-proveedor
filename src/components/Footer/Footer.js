@@ -44,14 +44,15 @@ const Footer = () => {
             <Col xs={12} sm={12} md={3} lg={3} xl={3}>
               <div className="padding-left text-left pb-1">
                 <h6 className="title-footer">
-                  <b className="p-1 hide-mobile"></b>
+                  {/* <b className="p-1 hide-mobile"></b> */}
+                  <b>SERVICIO AL CLIENTE</b>
                 </h6>
                 <div className="box-contenido-footer">
 
-                  {/* <Link to="/">
+                  <Link to="/terminosycondiciones">
                   <p>Términos y condiciones</p>
-                </Link> */}
-                  <Link to="politica-de-privacidad">
+                </Link>
+                  <Link to="/politicasdeprivacidad">
                   <p>Política de privacidad</p>
                 </Link>
                   {/* <Link to="/">
@@ -80,6 +81,7 @@ const Footer = () => {
                   className="icon-redes"
                   href="https://www.facebook.com/Yes-Mom-Per%C3%BA-104308198182894"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <FontAwesomeIcon icon={faFacebookF}></FontAwesomeIcon>
                 </a>
@@ -87,6 +89,7 @@ const Footer = () => {
                   className="icon-redes"
                   href="https://www.instagram.com/yesmomperu/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
                 </a>

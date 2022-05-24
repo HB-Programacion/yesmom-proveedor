@@ -1,11 +1,11 @@
 import React from 'react'
 import { Row,  Col } from 'react-bootstrap'
 
-const RegistroStep4 = ({register , errors}) => {
+const RegistroStep4 = ({register , errors , customNumber = 1}) => {
 
     return (
         <>
-            <h4 className="registro-title"> 4. Información del almacén</h4>
+            <h4 className="registro-title"> {customNumber}. Información del almacén</h4>
             <div className="registro-box-all-inputs">
 
                 <Row>
@@ -42,6 +42,7 @@ const RegistroStep4 = ({register , errors}) => {
                                 type="tel" 
                                 id="telefonoAlmacen" 
                                 name="telefonoAlmacen" 
+																min="1"
                                 {...register('telefonoAlmacen')}
                             />
                             <p className="error-input">{errors?.telefonoAlmacen?.message}</p>

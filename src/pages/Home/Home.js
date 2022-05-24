@@ -28,16 +28,19 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useSelector } from "react-redux";
 
+import { registerFormContacto } from '../../redux/actions/supplier';
+
+
 const schemaValidator = yup.object().shape({
-  fullname: yup
+  nombres: yup
     .string()
     .required("*Este campo es requerido")
     .matches(/^[a-z ,.'-]+$/i, "*Nombres incorrectos"),
-  email: yup
+  mail: yup
     .string()
     .email("*Correo electrónico incorrecto")
     .required("*Este campo es requerido"),
-  question: yup
+  detalle: yup
     .string()
     .required("*Este campo es requerido")
     .max(200, "*Máximo 200 caracteres permitidos"),
@@ -49,6 +52,7 @@ const Home = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm({
     resolver: yupResolver(schemaValidator),
   });
@@ -68,7 +72,7 @@ const Home = () => {
     {
       id: 3,
       img: venderThird,
-      description: "Carga tus productos y esperar nuestra confirmación",
+      description: "Carga tus productos y espera nuestra confirmación",
     },
     {
       id: 4,
@@ -84,10 +88,17 @@ const Home = () => {
   };
 
   const submitForm = (values) => {
-    console.log(values);
-    // alert("Enviando datos" + JSON.stringify(values));
+    let formValues = {
+      ...values
+    };
+
+    registerFormContacto(formValues);
+    reset()
   };
+
+
   return (
+
     <div className="animated fade-in">
       <AppLayout>
         <div className="home--box-main-proveedor ">
@@ -118,30 +129,25 @@ const Home = () => {
                       artículos y servicios para bebés en el mercado peruano!
                     </p>
                   </div>
-                  <div className="home--container-buttons">
-                    <div>
-                      <Link
-                        to={logged ? "/p/informacion-perfil/registro" : "/iniciar-sesion"}
-                      >
-                        <ButtonFilled color="yellow">
-                          Iniciar sesión
-                        </ButtonFilled>
-                      </Link>
+                  {
+                    !logged && 
+                    <div className="home--container-buttons">
+                      <div>
+                        <Link to="/iniciar-sesion">
+                          <ButtonFilled color="yellow">
+                            Iniciar sesión
+                          </ButtonFilled>
+                        </Link>
+                      </div>
+                      <div>
+                        <Link to="/registro">
+                          <ButtonFilled color="pink">
+                            Registrate aquí
+                          </ButtonFilled>
+                        </Link>
+                      </div>
                     </div>
-                    <div>
-                      <Link
-                        to={
-                          logged
-                            ? "/p/informacion-perfil/registro"
-                            : "/registro"
-                        }
-                      >
-                        <ButtonFilled color="pink">
-                          Registrate aquí
-                        </ButtonFilled>
-                      </Link>
-                    </div>
-                  </div>
+                  }
                 </div>
               </section>
 
@@ -154,6 +160,7 @@ const Home = () => {
                     <img
                       className="home--icon-start-1 heartbeat"
                       src={blackStar}
+                      alt="black_star"
                     />
                     <p className="home--title-section">
                       ¿Cómo vender en Yes mom?
@@ -161,13 +168,14 @@ const Home = () => {
                     <img
                       className="home--icon-start-2 heartbeat"
                       src={blackStar}
+                      alt="black_star"
                     />
                   </div>
                 </h4>
                 <div className="home--container-description">
                   <h5>
                     Unirte al marketplace de Yes Mom es simple, rápido y
-                    ¡Completamente gratis!
+                    ¡completamente gratis!
                   </h5>
                 </div>
 
@@ -196,10 +204,10 @@ const Home = () => {
                 className="home--container-section home--como-ayudarte"
                 id={sections.contacto}
               >
-                <img className="home--abs-2" src={nubeBlanca} />
-                <img className="home--abs-1" src={nubeBlanca} />
-                <img className="home--abs-3" src={nubeBlanca} />
-                <img className="home--abs-4" src={nubeBlanca} />
+                <img className="home--abs-2" src={nubeBlanca} alt="nube_blanca"/>
+                <img className="home--abs-1" src={nubeBlanca} alt="nube_blanca"/>
+                <img className="home--abs-3" src={nubeBlanca} alt="nube_blanca"/>
+                <img className="home--abs-4" src={nubeBlanca} alt="nube_blanca"/>
                 <p className="home--title-section">¿Cómo podemos ayudarte?</p>
                 <div className="home--container-description-second">
                   <h5>
@@ -221,6 +229,7 @@ const Home = () => {
                           <img
                             className="home--border-image-1 heartbeat"
                             src={borderProveedor}
+                            alt="border-proveedor"
                           />
                           <img
                             className="home--img-proveedor"
@@ -230,20 +239,21 @@ const Home = () => {
                           <img
                             className="home--border-image-2 "
                             src={borderProveedor}
+                            alt="border-proveedor"
                           />
                         </div>
                         <div className="home--center-sociales">
                           <div className="home--container-sociales">
                             <div className="home--item-sociales">
-                              <img src={arroba} />
+                              <img src={arroba} alt="arroba"/>
                               <p>info@yesmom.com.pe</p>
                             </div>
                             <div className="home--item-sociales">
-                              <img src={telefono} />
+                              <img src={telefono} alt="telefono" />
                               <p>+51 947 234 452</p>
                             </div>
                             <div className="home--item-sociales">
-                              <img src={pin} />
+                              <img src={pin} alt="pin"/>
                               <p>Calle Roma 316, Miraflores</p>
                             </div>
                           </div>
@@ -259,12 +269,13 @@ const Home = () => {
                                 Nombre y Apellido
                               </label>
                               <input
+                                name="nombres"
                                 type="text"
-                                id="fullname"
-                                {...register("fullname")}
+                                id="nombres"
+                                {...register("nombres")}
                               />
                               <p className="error-input-login">
-                                {errors?.fullname?.message}
+                                {errors?.nombres?.message}
                               </p>
                             </div>
                             <div className="home--box-input">
@@ -272,24 +283,26 @@ const Home = () => {
                                 Dirección de correo electrónico
                               </label>
                               <input
+                                name="email"
                                 type="email"
-                                id="email"
-                                {...register("email")}
+                                id="mail"
+                                {...register("mail")}
                               />
                               <p className="error-input-login">
-                                {errors?.email?.message}
+                                {errors?.mail?.message}
                               </p>
                             </div>
                             <div className="home--box-input">
-                              <label htmlFor="question">
+                              <label htmlFor="detalle">
                                 Escribe aquí tu pregunta....
                               </label>
                               <textarea
-                                id="question"
-                                {...register("question", { max: 200 })}
+                                id="detalle"
+                                name="detalle"
+                                {...register("detalle", { max: 200 })}
                               />
                               <p className="error-input-login">
-                                {errors?.question?.message}
+                                {errors?.detalle?.message}
                               </p>
                             </div>
                           </form>
@@ -305,12 +318,14 @@ const Home = () => {
                         <p className="home--end-text">
                           Tus datos serán tratados por Yes Mom para la gestión
                           de tu consulta.{" "}
-                          <a href="/politica-de-privacidad">
-                            {" "}
-                            <span className="home--privacidad">
-                              Revisa nuestra política de privacidad.
-                            </span>
-                          </a>
+                          <Link to="/politicasdeprivacidad">
+                            <a className="/politicas" href="/politicasdeprivacidad">
+                              {" "}
+                              <span className="home--privacidad">
+                                Revisa nuestra política de privacidad.
+                              </span>
+                            </a>
+                          </Link>
                         </p>
                       </div>
                     </Col>

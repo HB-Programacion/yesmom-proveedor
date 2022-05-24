@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import './Stepper.css';
 
-function Stepper({selected,setSelected}) {
+const Stepper = ({selected,setSelected}) => {
 
     const [ maxStep , setMaxStep] = useState(0);
 
@@ -12,7 +12,7 @@ function Stepper({selected,setSelected}) {
         if(selected >= maxStep){
             setMaxStep(selected);
         }
-        
+        //eslint-disable-next-line
     },[selected])
 
     const handleSelected = ( current ) => {

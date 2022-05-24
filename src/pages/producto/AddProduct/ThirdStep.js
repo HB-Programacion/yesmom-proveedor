@@ -6,7 +6,7 @@ import close from '../../../images/producto/close.svg';
 import iconAddProduct from '../../../images/producto/add.svg';
 import DragnDrop from '../../../components/DragnDrop/DragnDrop';
 
-function AddThirdPart({ handleFileChange }) {
+const AddThirdPart = ({ handleFileChange }) => {
   return (
     <div className="animated fade-in">
       <div className="add--container-images">

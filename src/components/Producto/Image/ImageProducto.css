@@ -1,0 +1,29 @@
+.img-producto_container-image{
+    border: 15px dashed #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+
+    cursor:pointer;
+}
+.img-producto_big{
+    width:34.5rem;
+    height:34.5rem;
+}
+.img-producto_small{
+    flex-basis:calc(20% - 1rem);
+    margin-left: 0.5rem;
+}
+.img-producto_container-image img{
+    width:100%;
+}
+
+@media (min-width:1024px){
+    .img-producto_big{
+        width:100%;
+        height:100%;
+    }
+    .img-producto_small{
+        flex-basis:20%;
+    }
+}

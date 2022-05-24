@@ -1,0 +1,54 @@
+
+.store_select-container-select{
+    display : flex;
+    align-items: center;
+    cursor : pointer;
+    padding : 0 1rem;
+
+}
+
+.store_options-container{
+    margin-top : 0.5rem;
+    display: flex;
+    flex-direction:  column;
+
+    background: #FEBF41;
+    border: 2px solid #FEBF41;
+    border-radius: 10px;
+    padding : 1rem;
+}
+
+.store_option-container{
+    cursor: pointer;
+}
+.store_option{
+    cursor : pointer;
+    width: 100%;
+    display: inline-block;
+    color:#FFFFFF;
+    margin:0;
+    font-family: "mont-heavy";
+    font-size:1.3rem;
+    margin : 0.25rem 0;
+}
+
+.store_select-text{
+    min-width : 10rem;
+    margin-right : 1rem;
+}
+.store_select-image{
+    margin-top : -0.28rem;
+}
+.store_option-container:hover .store_option{
+    font-family: mont-semibold;
+    color : #333333;
+}
+
+.store_select-container .dropdown-toggle.btn.btn-info{
+    font-size : 1.3rem!important;
+    color: #575756;
+    border : none;
+    background-color: transparent!important;
+    min-width : 15rem;
+    padding : 0 2rem;
+}

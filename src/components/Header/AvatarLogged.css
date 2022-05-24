@@ -9,6 +9,10 @@
     align-items: center;
     justify-content: center;
 }
+.dropdown-divider {
+    border : none!important;
+    border : 1px solid #ffffff!important;
+}
 .avatar__logged-text{
     font-family: "mont-semibold";
     font-size:2rem;

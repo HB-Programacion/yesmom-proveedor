@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AppLayout from '../../components/AppLayout/AppLayout'
 import imgUser from '../../images/login/img-user.svg';
 import ButtonFilled from '../../components/Button/ButtonFilled';
@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 import * as yup from 'yup'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Swal from 'sweetalert2';
+import clienteAxiosAuth from '../../config/axiosAuth';
+import Loading from '../../components/Loading/Loading';
 
 const schemaValidator = yup.object().shape({
     email : yup.string().email('*Correo electrónico inválido').required('*Este campo es requerido'),
@@ -16,17 +19,47 @@ const schemaValidator = yup.object().shape({
 
 const Recover = () => {
 
-    const { register  , handleSubmit , formState : { errors }} = useForm({
+    const { register  , handleSubmit , formState : { errors } , reset} = useForm({
         resolver : yupResolver(schemaValidator)
     })
 
+    const [ loading , setLoading ] = useState(false);
     
-    const submitForm = () => {
-        alert('Recuperar contraseña')
+    const submitForm = async ( values ) => {
+        
+        try{
+
+            setLoading(true);
+            const { email } = values;
+            const { data } = await clienteAxiosAuth.post('/users/reset', { email } , {
+                params : {
+                    userType : 'S'
+                }
+            });
+
+            setLoading(false);
+
+            if(data?.status === 'success'){
+                reset();
+                Swal.fire('Email enviado', 'Se ha enviado un email con instrucciones para restablecer la contraseña' , 'success');
+            }else{
+                Swal.fire('Error','Hubo un error' ,'error');
+            }
+
+
+        }catch(err){
+            setLoading(false);
+            if(err?.response?.data?.CodigoRespuesta === '34'){
+                return Swal.fire('Correo no encontrado', 'El correo no se encuentra registrado' , 'info');
+            }     
+            console.log(err);
+            Swal.fire('Error','Hubo un error' ,'error');
+        }
     }
 
     return (
         <AppLayout>
+            { loading && <Loading />}
             <div className="contenedor-login animated fade-in">
                 <div className="container-contenido">
                     <div className="all-content all-content-reset">

@@ -3,7 +3,9 @@ import Swal from "sweetalert2";
 import clienteAxiosAuth from "../../config/axiosAuth";
 import { validateToken } from "../../utils/helpers/validateToken";
 import { types } from "../types/types"
-import { cleanDataSupplier, startLoadingInfoSupplier , startLoadingSupplierProducts } from "./supplier";
+import { loadStores } from "./store";
+import { cleanDataSupplier, startLoadingInfoSupplier} from "./supplier";
+import { startLoading } from "./ui";
 
 
 
@@ -12,22 +14,20 @@ export const startAuth = ( access ) => {
     return async ( dispatch) => { //getState
 
         try{
-        
+            dispatch( startChecking());
             const { data }  = await clienteAxiosAuth.post('/autenticar/supplier?email=1',access);
-    
+            
             if(data?.token){
-                // alert('Logeado');
-                dispatch( validateLoginSupplier(data.token));
-                // dispatch ( login(data.token));
-                // dispatch( startLoadingInfoSupplier(data.token))
-                //TODO : Cuando se lee de localstorage tmb debe llamar los datos!!!
+                dispatch( startLogin(data.token));
             }else{
                 Swal.fire('Inicio de sesión fallida', 'No existe usuario con esos accesos' , 'error');
                 // alert('Revisa tus accesos');
             }
+            dispatch( finishChecking());
             
 
         }catch(e){
+            dispatch( finishChecking());
             console.log(e);
         }
 
@@ -40,34 +40,47 @@ export const validateLoginSupplier = ( token ) => {
     return async (dispatch) => {
         try {
 
+            dispatch( startChecking());
             const flagValidated = await validateToken(token);
-            
             if(flagValidated){
                 // alert('Bienvenido de nuevo')
                 dispatch( startLogin (token));
-
+                
             }else{
                 dispatch(logout());
                 dispatch( cleanDataSupplier());
-                // Swal.fire('Sesión terminada', 'Inicia sesión de nuevo' , 'info');
-                // alert('Inicia sesión de nuevo')
             }
+            dispatch( finishChecking());
             
         }catch(e){
+            dispatch( finishChecking());
             console.log(e);
         }
     }
 }
 
+
+
 //Para setear data
 export const startLogin = ( token) =>{
-    return (dispatch) => {
+    return async (dispatch) => {
+        dispatch(startLoading())
         dispatch( login( token ));
+        // await Promise.all([dispatch( loadStores()),dispatch( startLoadingInfoSupplier(token))])
+        dispatch( loadStores())
+
         dispatch( startLoadingInfoSupplier(token))
-        dispatch ( startLoadingSupplierProducts());
+        // dispatch ( startLoadingSupplierProducts());
     }
 }
 
+export const startChecking = () => ({
+    type : types.authStartChecking
+})
+
+export const finishChecking = () => ({
+    type : types.authFinishChecking
+})
 
 export const logout = () => ({
     type : types.authLogout
