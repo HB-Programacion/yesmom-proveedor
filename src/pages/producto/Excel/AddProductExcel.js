@@ -85,7 +85,7 @@ const AddProductExcel = () => {
   };
 
   const saveFile = () => {
-    saveAs("https://d37eaoa53g7y5g.cloudfront.net/yesmom/formats/yesmom-ExcelProductos.xlsx", "formato-excel.xlsx");
+    saveAs("https://d37eaoa53g7y5g.cloudfront.net/yesmom/formats/yesmom-formatoCargaExcelProductos.xlsx", "formato-excel-yesmom.xlsx");
   };
 
 
