@@ -56,10 +56,14 @@ const ResetPassword = () => {
                 }
             } )
             setLoading(false);
-            if(data?.transaction?.ok){
+            if(data?.ok){
                 reset();
                 Swal.fire('Contraseña restablecida','La contraseña se ha restablecido correctamente' , 'success');
             }
+            if(data?.message) {
+                Swal.fire('Info', data.message, 'info');
+            }
+            
 
         }catch(err){
             setLoading(false);
