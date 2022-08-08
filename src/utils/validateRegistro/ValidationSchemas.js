@@ -91,4 +91,5 @@ export const mergedSchema = schemaValidator
 export const mergedSchemaWithoutPassword = schemaValidatorWithoutPassword
                 .concat(schemaValidatorStep2)
                 .concat(schemaValidatorStep3)
+                .concat(schemaValidatorStep4)
                  

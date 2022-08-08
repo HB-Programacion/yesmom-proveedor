@@ -10,6 +10,8 @@ import Description from '../../../components/Perfil/Description/Description'
 import RegistroStep1 from '../../../components/Registro/RegistroSteps/RegistroStep1'
 import RegistroStep2 from '../../../components/Registro/RegistroSteps/RegistroStep2'
 import RegistroStep3 from '../../../components/Registro/RegistroSteps/RegistroStep3'
+import RegistroStep4 from '../../../components/Registro/RegistroSteps/RegistroStep4'
+
 import { startLoadingInfoSupplier, startUpdatingInfoSupplier } from '../../../redux/actions/supplier'
 import { mergedSchemaWithoutPassword } from '../../../utils/validateRegistro/ValidationSchemas'
 
@@ -66,6 +68,12 @@ const MisDatos = () => {
                                     </div>
                                     <div className='registro-container-form mis-datos-form'>
                                         <RegistroStep3 
+                                            register={ register}
+                                            errors={ errors }
+                                        />
+                                    </div>
+                                    <div className='registro-container-form mis-datos-form'>
+                                        <RegistroStep4 
                                             register={ register}
                                             errors={ errors }
                                         />

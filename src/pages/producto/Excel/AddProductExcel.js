@@ -67,16 +67,16 @@ const AddProductExcel = () => {
   };
 
   const handleUploadProducts = async () => {
-    if (files?.fileImages !== "" && files?.fileProducts !== "") {
+    if (files && files.fileProducts !== "") {
       //Existen datos
-      const { fileImages, fileProducts } = files;
       const formData = new FormData();
-
-      formData.append("fileImages", fileImages);
-      formData.append("fileProducts", fileProducts);
-      //TODO: antes de entrar a esta vista debe estar seteado el idActiveStore
+      if(files && files.fileImages){
+        formData.append("fileImages", files.fileImages);
+      }
+      if(files && files.fileProducts) {
+        formData.append("fileProducts", files.fileProducts);
+      }
       formData.append('storeId', idActiveStore);
-
       dispatch(loadProducts(formData));
 
     } else {
