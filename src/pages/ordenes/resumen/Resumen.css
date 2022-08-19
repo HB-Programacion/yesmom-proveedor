@@ -17,7 +17,18 @@
 }
 .resumen--container-select{
     display:flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    gap: 8px;
+}
+.resumen--container-select input {
+    width:50%;
+    margin: 0 auto;
+}
+.resumen--filters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .pagination-orders-container{
@@ -31,6 +42,28 @@
     font-family: 'mont-regular';
     font-size: 1.4rem;
 }
+.resumen--input-text {
+    border: none;
+    border-bottom: 1px solid #DADADA;
+    padding: 0.3rem;
+    padding-bottom: 0.1rem;
+    font-family: "mont-regular" !important;
+    font-weight: 600;
+    color: #575756;
+    font-size: 1.3rem;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.resumen--wrap-filters {
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-wrap: wrap;
+
+}
+
 
 @media (min-width : 480px){
     .resumen-details{
@@ -43,6 +76,26 @@
     }
 }
 @media (min-width : 768px){
+    .resumen--wrap-filters {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+    .resumen--filters {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+    .resumen--container-select {
+        justify-content: flex-end;
+        gap: 8px;
+    }
+    .resumen--container-select input {
+        width: unset;
+        margin: unset;
+    }
     .resumen--all-content{
         width:100%;
     }

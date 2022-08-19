@@ -193,34 +193,28 @@ export const startDeletingProduct = () => {
   }
 }
 
-export const loadOrdersByStore = ({ id, skip = 0 , limit = 'all' , state='P'}) => {
+export const loadOrdersByStore = ({ storeId, skip = 0 , limit = 'all' , state='P',clienteId}) => {
   return async (dispatch , getState)=>{
-
-		dispatch(startLoading());
     const { token } = getState().auth;
+    const { loading } = getState().ui;
+    if(loading) return;
+		dispatch(startLoading());
     try{
-			let json;
-			if(id === "0" || id === null) {
-				json = {
+      console.log(storeId);
+			const params = {
+					storeId,
           state,
           skip,
           limit,
-        }
-			}
-			else {
-				json = {
-					storeId: id,
-          state,
-          skip,
-          limit,
-        }
-			}
-      const { data } = await clienteAxiosBusiness.get(`/supplier/listorders` , {
-				params : json,
+          clienteId
+      }
+      const { data } = await clienteAxiosBusiness.get(`/supplier/listorders`, {
+				params,
         headers : {
           'access-token' : token
         }
       })
+
       dispatch(finishLoading());
       if(data && data.ordersGeneral){
         dispatch( setOrdersByStore(data));
@@ -231,6 +225,36 @@ export const loadOrdersByStore = ({ id, skip = 0 , limit = 'all' , state='P'}) =
       dispatch(finishLoading());
       console.log(err);
     }
+  }
+}
+
+export const searchClient = ( str) => {
+  return async (dispatch, getState) => {
+    if(str === '') return dispatch(setClients([]))
+    try{
+      dispatch(startFetchClients());
+      const { token } = getState().auth;
+      const { data } = await clienteAxiosBusiness.get(`/supplier/findprofile`,{
+        params: {
+          busq: str,
+        },
+        headers : {
+          'access-token' : token
+        }
+      });
+      dispatch(endFetchClients());
+
+      if(data && data.response && data.response.items && data.response.items.length){
+        dispatch(setClients(data.response.items))
+      }else{
+        dispatch(setClients([]))
+      }
+
+    }catch(err){
+      dispatch(endFetchClients());
+      console.log(err);
+    }
+
   }
 }
 
@@ -316,4 +340,15 @@ export const setOrdersByStore = (payload) => ({
 export const setOrdersBySupplier = (payload) => ({
   type : types.setOrdersByStore,
   payload
+})
+
+export const setClients = (clients) => ({
+  type: types.setClients,
+  payload: clients
+})
+export const startFetchClients = () => ({
+  type: types.startFetchClients
+})
+export const endFetchClients = () => ({
+  type: types.endFetchClients
 })

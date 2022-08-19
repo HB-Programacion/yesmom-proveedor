@@ -34,6 +34,8 @@ export const types = {
 		//Orders
 		setOrdersByStore  : "[ORDERS] set orders by store",
     setOrdersBySupplier : '[ORDERS] set orders by supplier',
-
+    startFetchClients  : "[ORDERS] start fetch clients",
+    endFetchClients : '[ORDERS] end fetch clients',
+    setClients:'[ORDERS] set clients',
     uiClean : "[UI] clean",
 }

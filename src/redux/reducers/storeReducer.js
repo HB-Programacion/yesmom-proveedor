@@ -14,7 +14,8 @@ const initialState = {
     },
     ordersByStore : {
         isFetchingOrders : false,
-    }
+    },
+    clients: [],
 }
 
 export const storeReducer = ( state = initialState , action ) => {
@@ -102,6 +103,22 @@ export const storeReducer = ( state = initialState , action ) => {
                 ...state,
                 ordersByStore : action.payload,
                 isFetchingOrders : false,
+            }
+        case types.startFetchClients: 
+            return {
+                ...state,
+                fetchingClients: true,
+                // clients: [],
+            }
+        case types.endFetchClients: 
+            return {
+                ...state,
+                fetchingClients: undefined
+            }
+        case types.setClients :
+                return {
+                    ...state,
+                    clients: action.payload
             }
         case types.cleanStore :
             return initialState;

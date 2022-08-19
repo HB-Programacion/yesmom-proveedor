@@ -75,12 +75,12 @@
     height:2rem;
 }
 
-.disabled {
-    opacity: 0.4;
+.disabled-button {
+    opacity: 0.4;   
     background-color: gray;
 }
 
-.disabled:hover{
+.disabled-button:hover{
     transform: scale(1);
     cursor:default;
 }

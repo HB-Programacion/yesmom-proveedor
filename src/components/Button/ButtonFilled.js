@@ -13,7 +13,7 @@ const ButtonFilled = ({ children , fxClick , color , type ,icon , disabled = fal
     return (
         <>
             <div 
-                className={`boton ${disabled ? 'disabled' : ''} ${color!==undefined ? color : ""} ${type==="icon" ? "icon-boton" : ""}`}
+                className={`boton ${disabled ? 'disabled-button' : ''} ${color!==undefined ? color : ""} ${type==="icon" ? "icon-boton" : ""}`}
                 onClick={!disabled ? fxClick : null}
             >
                 {type==="icon" && <img className="icon-element" src={icon} alt="icon-button" />}
