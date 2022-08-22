@@ -207,6 +207,7 @@ const Registro = () => {
                                     }
                                     {selected === 3 && 
                                         <RegistroStep4 
+                                            customNumber={4}
                                             register ={ register_4 }
                                             errors = { formState_4.errors }
                                         />
