@@ -1,19 +1,17 @@
 import React, { useEffect }  from 'react'
-import { useLocation } from 'react-router';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 const RestrictedRoute = ( { children }) => {
     
-    const location = useLocation();
     useEffect(()=>{
         if(window){
-            window.scrollTo({
-                top: 0,
-                behavior:'smooth'
-            })
-        }
-    },[location])
+            const timer = window.scrollTo(0,0);
+            const timeout = setTimeout(timer,1000);
+
+            return () => clearTimeout(timeout);
+        }   
+    },[])
     
     const { stores = [{}]} = useSelector(state => state.store);
     // const { existeTienda = true } = useSelector(state => state.supplier);
