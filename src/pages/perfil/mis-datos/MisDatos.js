@@ -74,6 +74,7 @@ const MisDatos = () => {
                                     </div>
                                     <div className='registro-container-form mis-datos-form'>
                                         <RegistroStep4 
+                                            customNumber={4}
                                             register={ register}
                                             errors={ errors }
                                         />

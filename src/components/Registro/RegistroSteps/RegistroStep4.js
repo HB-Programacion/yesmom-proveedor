@@ -7,7 +7,6 @@ const RegistroStep4 = ({register , errors , customNumber = 1}) => {
         <>
             <h4 className="registro-title"> {customNumber}. Información del almacén</h4>
             <div className="registro-box-all-inputs">
-
                 <Row>
                     <Col md={6}>
                         <div className="registro-box-input">
@@ -23,7 +22,7 @@ const RegistroStep4 = ({register , errors , customNumber = 1}) => {
                     </Col>
                     <Col md={6}>
                         <div className="registro-box-input mt-25">
-                            <label htmlFor="correoEncargadoAlmacen">Dirección de correo electrónico del encargado*:</label>
+                            <label htmlFor="correoEncargadoAlmacen">Email del encargado(s): *separados por " <b>;</b> "</label>
                             <input 
                                 type="email" 
                                 id="correoEncargadoAlmacen" 
