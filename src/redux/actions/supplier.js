@@ -54,7 +54,8 @@ export const startUpdatingInfoSupplier = ( values ) => {
                 headers :  { 'access-token' : token }
             })
 
-            if(data?.response.ok){
+            if(data && data.response && data.response.ok){
+                Swal.fire('Datos actualizados', 'Datos actualizados correctamente','success');
                 dispatch( loadingDataSupplier(values));
             }
             
