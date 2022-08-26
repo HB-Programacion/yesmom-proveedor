@@ -78,8 +78,8 @@ export const schemaValidatorStep4 = yup.object().shape({
     correoEncargadoAlmacen : yup.string().required('*Este campo es requerido'),
     telefonoAlmacen : yup.string().required('*Este campo es requerido').matches(phoneRegExp, '*Teléfono incorrecto'),
     direccionAlmacen : yup.string(),
-    referenciaAlmacen : yup.string().required('*Este campo es requerido').min(5,'*Mínimo 7 caracteres'),
-    ciudadAlmacen : yup.string().required('*Este campo es requerido'),
+    referenciaAlmacen : yup.string(),
+    ciudadAlmacen : yup.string(),
 })
 
 
