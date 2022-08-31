@@ -13,8 +13,10 @@ export const authReducer = ( state = initialState , action) => {
 
     switch (action.type) {
         case types.authLogin:
+            console.log('action.payload', action.payload);
             //Setear siempre el token , con el autenticado
             localStorage.setItem('TokenYesmonProveedor',action.payload);
+            console.log('first', localStorage.getItem('TokenYesmonProveedor'))
             return {
                 ...state,
                 logged: true,
