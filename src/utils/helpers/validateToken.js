@@ -1,7 +1,16 @@
 import axios from "axios"
 
+export const validateTokenHeader = async (token) => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL_SECURITY}/autenticar/token/supplier?delivery=no`,
+      {
+        headers: { "access-token": token },
+      }
+    );
+    return response;
+  };
 
-export const validateToken = async (token) => {
+  export const validateToken = async (token) => {
     try{
         const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL_SECURITY}/autenticar/token/supplier?delivery=no`,{
             headers : {
@@ -10,7 +19,7 @@ export const validateToken = async (token) => {
         })
     
         if( data?.mensaje ==="Token válido"){
-            console.log('Validado');
+            console.log('Validado in validateToken');
             return true;
         }else{
             return false;

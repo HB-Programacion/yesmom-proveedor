@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 
 import burger from "../../images/header/burger.svg";
 import cesta from "../../images/header/cesta.svg";
@@ -15,11 +15,16 @@ import DropMenuMobile from "./DropMenuMobile";
 import NavMenu from "./NavMenu";
 
 import "./Header.css";
+import { logout } from "../../redux/actions/auth";
+import { cleanDataSupplier } from "../../redux/actions/supplier";
+import { validateTokenHeader } from "../../utils/helpers/validateToken";
 
 
 const Header = () => {
 
-  const { logged = false } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+  const { pathname } = useLocation();
+  const { logged = false, token } = useSelector(state => state.auth);
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive(!active);
@@ -29,6 +34,31 @@ const Header = () => {
     comoVender: "como-vender",
     contacto: "contacto",
   };
+
+const handleLogout = () => {
+  dispatch( logout()) ;
+  dispatch ( cleanDataSupplier() );
+}
+
+useEffect(()=>{
+  if(logged && token){
+    const timeOut = setTimeout(()=>{
+      validateTokenRequest()
+    }, 60000)
+  return () => {
+    clearTimeout(timeOut)
+  }
+  }
+  
+},[pathname])
+
+const validateTokenRequest = async () => {
+  const { data } = await validateTokenHeader(token);
+  if (data?.mensaje === "Token inválida") {
+    handleLogout()
+  }
+};
+
   return (
     <div className="">
       <div className="header-box-yesmom ">
