@@ -24,7 +24,7 @@ const Header = () => {
 
   const dispatch = useDispatch();
   const { pathname } = useLocation();
-  const { logged = false } = useSelector(state => state.auth);
+  const { logged = false, token } = useSelector(state => state.auth);
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive(!active);
@@ -36,25 +36,26 @@ const Header = () => {
   };
 
 const handleLogout = () => {
-  console.log('handleLogout')
   dispatch( logout()) ;
   dispatch ( cleanDataSupplier() );
 }
 
 useEffect(()=>{
-  setTimeout(()=>{
-    validateTokenRequest()
-  }, 2000)
+  if(logged && token){
+    const timeOut = setTimeout(()=>{
+      validateTokenRequest()
+    }, 60000)
+  return () => {
+    clearTimeout(timeOut)
+  }
+  }
   
 },[pathname])
 
 const validateTokenRequest = async () => {
-  const { data } = await validateTokenHeader();
-  console.log('data?.mensaje', data?.mensaje)
+  const { data } = await validateTokenHeader(token);
   if (data?.mensaje === "Token inválida") {
-    console.log('data?.mensaje Invalid?', data?.mensaje)
     handleLogout()
-  // window.location.reload(); 
   }
 };
 

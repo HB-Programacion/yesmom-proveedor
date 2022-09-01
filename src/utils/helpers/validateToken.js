@@ -1,9 +1,6 @@
 import axios from "axios"
 
-
-const token = localStorage.getItem("TokenYesmonProveedor");
-
-export const validateTokenHeader = async () => {
+export const validateTokenHeader = async (token) => {
     const response = await axios.get(
       `${process.env.REACT_APP_BACKEND_URL_SECURITY}/autenticar/token/supplier?delivery=no`,
       {
