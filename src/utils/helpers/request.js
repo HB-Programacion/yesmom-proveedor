@@ -34,7 +34,19 @@ export const updateStateOrders = async (idOrder, stateOrder) => {
     {
       headers: {
         "access-token": token,
-      } /* headers: { "access-token": `Bearer ${token}` }, */,
+      },
+    }
+  );
+  return data;
+};
+
+export const downloadFile = async (idOrder, stateOrder) => {
+  const { data } = await axios.get(
+    `${process.env.REACT_APP_BACKEND_URL_BUSINESS}/supplier/urlGuide?orderDelivery=${idOrder}`,
+    {
+      headers: {
+        "access-token": token,
+      },
     }
   );
   return data;
