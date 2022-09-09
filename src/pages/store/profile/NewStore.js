@@ -10,7 +10,7 @@ import AppLayout from '../../../components/AppLayout/AppLayout'
 import StepperNewStore from '../../../components/PerfilTienda/StepperNewStore';
 import RegistroStep4 from '../../../components/Registro/RegistroSteps/RegistroStep4';
 
-import { schemaValidatorStep4 } from '../../../utils/validateRegistro/ValidationSchemas';
+import { schemaValidatorStep4Optional } from '../../../utils/validateRegistro/ValidationSchemas';
 import PerfilTiendaData from '../../../components/PerfilTienda/PerfilTiendaData';
 import ButtonFilled from '../../../components/Button/ButtonFilled';
 
@@ -36,7 +36,7 @@ const NewStore = () => {
     const shownRef = useRef(false);
     //Cuarto form
     const { register, handleSubmit , formState , reset  } = useForm({
-        resolver : yupResolver(schemaValidatorStep4)
+        resolver : yupResolver(schemaValidatorStep4Optional)
     }); 
 
     const refCover = useRef();

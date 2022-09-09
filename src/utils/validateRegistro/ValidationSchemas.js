@@ -82,6 +82,16 @@ export const schemaValidatorStep4 = yup.object().shape({
     ciudadAlmacen : yup.string(),
 })
 
+export const schemaValidatorStep4Optional = yup.object().shape({
+  //Registro 4
+  nombreEncargadoAlmacen : yup.string(),
+  correoEncargadoAlmacen : yup.string(),
+  telefonoAlmacen : yup.string(),
+  direccionAlmacen : yup.string(),
+  referenciaAlmacen : yup.string(),
+  ciudadAlmacen : yup.string(),
+})
+
 
 export const mergedSchema = schemaValidator
                 .concat(schemaValidatorStep2)
