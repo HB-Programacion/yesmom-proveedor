@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
@@ -35,29 +35,31 @@ const Header = () => {
     contacto: "contacto",
   };
 
-const handleLogout = () => {
-  dispatch( logout()) ;
-  dispatch ( cleanDataSupplier() );
-}
+  const handleLogout = useCallback(() => {
+    dispatch(logout());
+    dispatch(cleanDataSupplier());
+  }, [dispatch])
 
-useEffect(()=>{
-  if(logged && token){
-    const timeOut = setTimeout(()=>{
-      validateTokenRequest()
-    }, 60000)
-  return () => {
-    clearTimeout(timeOut)
-  }
-  }
-  
-},[pathname])
+  const validateTokenRequest = useCallback(async () => {
+    const { data } = await validateTokenHeader(token);
+    if (data?.mensaje === "Token inválida") {
+      handleLogout()
+    }
+  }, [handleLogout, token])
 
-const validateTokenRequest = async () => {
-  const { data } = await validateTokenHeader(token);
-  if (data?.mensaje === "Token inválida") {
-    handleLogout()
-  }
-};
+  useEffect(() => {
+    if (logged && token) {
+      const timeOut = setTimeout(() => {
+        validateTokenRequest()
+      }, 60000)
+      return () => {
+        clearTimeout(timeOut)
+      }
+    }
+
+  }, [pathname, logged, token, validateTokenRequest])
+
+
 
   return (
     <div className="">
@@ -94,9 +96,8 @@ const validateTokenRequest = async () => {
               )}
             </div>
             <div
-              className={`box-items-menu ${
-                active ? "" : "box-items-menu-desktop"
-              }`}
+              className={`box-items-menu ${active ? "" : "box-items-menu-desktop"
+                }`}
             >
               <div className="box-items-menu-responsive">
                 <div className="header-to-id">
@@ -146,7 +147,7 @@ const validateTokenRequest = async () => {
                 </div>
                 <div>
                   {logged ? (
-                    <AvatarLogged/>
+                    <AvatarLogged />
                   ) : (
                     <Link to="/iniciar-sesion" className="item-menu-yesmom">
                       <div className="container-icon">
@@ -163,7 +164,7 @@ const validateTokenRequest = async () => {
               </div>
             </div>
           </nav>
-          { logged && <NavMenu />}
+          {logged && <NavMenu />}
         </div>
         <DropMenuMobile
           active={active}
