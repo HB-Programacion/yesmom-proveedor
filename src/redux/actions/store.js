@@ -131,8 +131,8 @@ export const startLoadingProductsStore = ( { skip = 0 , limit = 6 , state='A' , 
       })
 
       if(data?.productosGeneral){
-        const cleanData = prepareDataProductSupplier(data.productosGeneral);
-        
+        const { urlGeneral } = data;
+        const cleanData = prepareDataProductSupplier(data.productosGeneral,urlGeneral);
         if(state === 'A'){
           dispatch(setProductsByStore({
             total : data.totalDeProductos,

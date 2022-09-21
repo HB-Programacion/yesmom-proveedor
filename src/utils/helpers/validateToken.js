@@ -19,7 +19,7 @@ export const validateTokenHeader = async (token) => {
         })
     
         if( data?.mensaje ==="Token válido"){
-            console.log('Validado in validateToken');
+            // console.log('Validado in validateToken');
             return true;
         }else{
             return false;

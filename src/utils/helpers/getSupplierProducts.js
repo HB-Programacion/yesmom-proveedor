@@ -130,11 +130,11 @@ export const getSupplierProductsDisabledPaginate = async ( token , {
     }
 }
 
-export const prepareDataProductSupplier = ( data ) => {
+export const prepareDataProductSupplier = ( data ,urlGeneral = '') => {
     //schema
-    const products = data.map((  { imagen , product} ) => ({
+    const products = data.map((  { product} ) => ({
         id : product._id,
-        image : imagen.url,
+        image : urlGeneral + product.imagen,
         title : product.nombre,
         description: product.descripcion,
         price : product.precio,
@@ -142,7 +142,7 @@ export const prepareDataProductSupplier = ( data ) => {
         sku : product.sku,
         precioPromocional : product.precioPromocional,
         accesorios : product.accesorios,
-        color : product.color.map(col => col.label),
+        color : product.color ?  product.color.map(col => col.label) : [],
         talla : product.talla,
         dimensiones : product.dimensiones,
         createdAt : product.createdAt,
