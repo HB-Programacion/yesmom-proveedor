@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Swal from 'sweetalert2';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,6 +28,7 @@ import { getUrlName } from '../../../utils/helpers/getUlrName';
 
 import './Registro.css';
 import { updateStoreSupplier } from '../../../utils/helpers/updateStoreSupplier';
+import { createFile } from '../../../utils/img';
 const MAX_MB = 500000;
 
 
@@ -35,11 +36,11 @@ const MAX_MB = 500000;
 const Registro = () => {
 
   const dispatch = useDispatch();
-  const { idActiveStore , store } = useSelector(state => state.store);
+  const { idActiveStore, store } = useSelector(state => state.store);
   const { loading } = useSelector(state => state.ui);
 
-  const { register , handleSubmit , formState:{errors} , reset} = useForm({
-    resolver : yupResolver(schemaValidatorStep4)
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    resolver: yupResolver(schemaValidatorStep4)
   });
 
   //Imagenes
@@ -47,31 +48,31 @@ const Registro = () => {
   const refLogo = useRef();
   //Control de imagenes
   const initialState = {
-      imgLogo : "",
-      imgCover :"",
-      imgBanners : {
-          imgBanner_1:"",
-          imgBanner_2:"",
-          imgBanner_3:"",
-      },
+    imgLogo: "",
+    imgCover: "",
+    imgBanners: {
+      imgBanner_1: "",
+      imgBanner_2: "",
+      imgBanner_3: "",
+    },
   }
-  const  [ images , setImages ] = useState(initialState);
+  const [images, setImages] = useState(initialState);
 
   const initialPreviews = {
-      imgBanner_1:"",
-      imgBanner_2:"",
-      imgBanner_3:"",
+    imgBanner_1: "",
+    imgBanner_2: "",
+    imgBanner_3: "",
   }
-  const [ preview , setPreview ] = useState(initialPreviews);
-  const [ availableName , setAvailableName] = useState(true);
-  const [ nameStore , setNameStore] = useState('');
+  const [preview, setPreview] = useState(initialPreviews);
+  const [availableName, setAvailableName] = useState(true);
+  const [nameStore, setNameStore] = useState('');
 
   const handleChangeNameUrl = async (e) => {
     setNameStore(e.target.value);
-    if(e.target.value!==store.nombreTienda){
-      const flag = await verifyStoreName(getUrlName(e.target.value) , '');
+    if (e.target.value !== store.nombreTienda) {
+      const flag = await verifyStoreName(getUrlName(e.target.value), '');
       setAvailableName(flag);
-    }else{
+    } else {
       setAvailableName(true);
     }
     // console.log(flag);
@@ -79,164 +80,205 @@ const Registro = () => {
   //Control
   const handleImageChange = (e) => {
     const name = e.target.name;
-    if(e.target.files.length > 0){
-        const file = e.target.files[0];
-        if(file.size > MAX_MB){
-            Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 500kb' , 'info');
-            // alert('Imagen pesada , máximo 2MB');
-            if(name === 'imgCover'){
-                refCover.current.value='';
-            }else if(name==='imgLogo'){
-                refLogo.current.value='';
-            }
-        }else{
-
-            setImages({
-                ...images,
-                [name] : e.target.files[0]
-            })
+    if (e.target.files.length > 0) {
+      const file = e.target.files[0];
+      if (file.size > MAX_MB) {
+        Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 500kb', 'info');
+        // alert('Imagen pesada , máximo 2MB');
+        if (name === 'imgCover') {
+          refCover.current.value = '';
+        } else if (name === 'imgLogo') {
+          refLogo.current.value = '';
         }
-
-    }else{
-
-        if(name === 'imgCover'){
-            refCover.current.value='';
-        }else if(name==='imgLogo'){
-            refLogo.current.value='';
-        }
+      } else {
 
         setImages({
-            ...images,
-            [name] : ""
+          ...images,
+          [name]: e.target.files[0]
         })
+      }
+
+    } else {
+
+      if (name === 'imgCover') {
+        refCover.current.value = '';
+      } else if (name === 'imgLogo') {
+        refLogo.current.value = '';
+      }
+
+      setImages({
+        ...images,
+        [name]: ""
+      })
     }
   }
 
   const handleImageBanners = (e) => {
     const name = e.target.name;
     const currentBanners = images.imgBanners;
-    if(e.target.files.length > 0){
-        //Hay imagen de Banner
-        const file = e.target.files[0];
-        if(file.size > MAX_MB){
-            Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 500kb' , 'info');
-            document.getElementsByName(name).value="";
-        }else{
-            setImages({
-                ...images,
-                imgBanners : {
-                    ...currentBanners,
-                    [name] : e.target.files[0]
-                }
-            })
-            
-            setPreview({
-                ...preview,
-                [name] : getPrevieWImage(e.target.files[0])
-            })
-        }
-    }else{
-
+    if (e.target.files.length > 0) {
+      //Hay imagen de Banner
+      const file = e.target.files[0];
+      if (file.size > MAX_MB) {
+        Swal.fire('Imagen pesada', 'La imagen debe tener un tamaño máximo de 500kb', 'info');
+        document.getElementsByName(name).value = "";
+      } else {
         setImages({
-            ...images,
-            imgBanners : {
-                ...currentBanners,
-                [name] : ""
-            }
+          ...images,
+          imgBanners: {
+            ...currentBanners,
+            [name]: e.target.files[0]
+          }
         })
 
         setPreview({
-            ...preview,
-            [name] : ""
+          ...preview,
+          [name]: getPrevieWImage(e.target.files[0])
         })
+      }
+    } else {
+
+      setImages({
+        ...images,
+        imgBanners: {
+          ...currentBanners,
+          [name]: ""
+        }
+      })
+
+      setPreview({
+        ...preview,
+        [name]: ""
+      })
     }
   }
 
   const submitForm = async (values) => {
 
-    if(!availableName) return;
-    const { imgLogo , imgCover } = images;
+    if (!availableName) return;
+    const { imgLogo, imgCover } = images;
 
-    if(store){
-      if(!store.imagenPortada || !store.imagenPortada[0]){
-        if(!imgCover){
-          return Swal.fire('Campos incompletos' ,'Asegurate de llenar todos los campos obligatorios','info');
+    if (store) {
+      if (!store.imagenPortada || !store.imagenPortada[0]) {
+        if (!imgCover) {
+          return Swal.fire('Campos incompletos', 'Asegurate de llenar todos los campos obligatorios', 'info');
         }
       }
-      if(!store.imagenLogo || !store.imagenLogo[0]){
-        if(!imgLogo){
-          return Swal.fire('Campos incompletos' ,'Asegurate de llenar todos los campos obligatorios','info');
+      if (!store.imagenLogo || !store.imagenLogo[0]) {
+        if (!imgLogo) {
+          return Swal.fire('Campos incompletos', 'Asegurate de llenar todos los campos obligatorios', 'info');
         }
       }
     }
-    try{
+    try {
 
       const { ok } = await updateStoreSupplier({
-        infoAlmacen : values , 
-        images ,
+        infoAlmacen: values,
+        images,
         nameStore,
-        id : idActiveStore
-      } );
+        id: idActiveStore
+      });
 
-      if(ok){
-        Swal.fire('Actualizado correctamente','Tu tienda ha sido actualizada correctamente','success');
+      if (ok) {
+        Swal.fire('Actualizado correctamente', 'Tu tienda ha sido actualizada correctamente', 'success');
 
-      }else{
-          Swal.fire('Error','Hubo un error', 'error');
+      } else {
+        Swal.fire('Error', 'Hubo un error', 'error');
       }
 
-    }catch(err){
+    } catch (err) {
       Swal.close();
       console.log(err);
       Swal.fire('Error', 'Hubo un error', 'error');
     }
   }
 
-
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(startInfoActiveStore(idActiveStore));
-  },[idActiveStore , dispatch])
+  }, [idActiveStore, dispatch])
 
   //Setear info de store que cambia
-  useEffect(()=>{
+  useEffect(() => {
 
     const objPrevs = {
-      imgBanner_1 : store?.imagenBanner[0]?.url,
-      imgBanner_2 : store?.imagenBanner[1]?.url,
-      imgBanner_3 : store?.imagenBanner[2]?.url,
+      imgBanner_1: store?.imagenBanner[0]?.url,
+      imgBanner_2: store?.imagenBanner[1]?.url,
+      imgBanner_3: store?.imagenBanner[2]?.url,
     }
-    if(store){
-      if(store.imagenLogo && store.imagenLogo[0]  ){
-        setImages( prev => ({
+    if (store) {
+      if (store.imagenLogo && store.imagenLogo[0]) {
+        setImages(prev => ({
           ...prev,
-          imgLogo : {
-              name : store.imagenLogo[0].nameOriginal
+          imgLogo: {
+            name: store.imagenLogo[0].nameOriginal
           }
         }))
       }
-      if(store.imagenPortada && store.imagenPortada[0]  ){
-        setImages( prev => ({
+      if (store.imagenPortada && store.imagenPortada[0]) {
+        setImages(prev => ({
           ...prev,
-          imgCover : {
-              name : store.imagenPortada[0].nameOriginal
+          imgCover: {
+            name: store.imagenPortada[0].nameOriginal
           }
+        }))
+      }
+      if (store.imagenBanner && store.imagenBanner.length) {
+        let objFiles = {
+          imgBanner_1: '',
+          imgBanner_2: '',
+          imgBanner_3: '',
+        }
+        // console.log(store)
+
+        if (store.imagenBanner[0]) {
+          createFile(store.imagenBanner[0].url, store.imagenBanner[0].name).then(({ file }) => {
+            objFiles.imgBanner_1 = file;
+          })
+        }
+        if (store.imagenBanner[1]) {
+          createFile(store.imagenBanner[1].url, store.imagenBanner[0].name).then(({ file }) => {
+            objFiles.imgBanner_2 = file;
+          })
+        }
+        if (store.imagenBanner[2]) {
+          createFile(store.imagenBanner[2].url, store.imagenBanner[0].name).then(({ file }) => {
+            objFiles.imgBanner_3 = file;
+          })
+        }
+        setImages(prev => ({
+          ...prev,
+          imgBanners: objFiles,
         }))
       }
     }
     setPreview(objPrevs)
-    setNameStore( store?.nombreTienda)
+    setNameStore(store?.nombreTienda)
     reset({
-      nombreEncargadoAlmacen : store?.nombreEncargadoAlmacen,
-      correoEncargadoAlmacen : store?.correoEncargadoAlmacen,
-      telefonoAlmacen : store?.telefonoAlmacen,
-      direccionAlmacen : store?.direccionAlmacen,
-      referenciaAlmacen : store?.referenciaAlmacen,
-      ciudadAlmacen : store?.ciudadAlmacen,
+      nombreEncargadoAlmacen: store?.nombreEncargadoAlmacen,
+      correoEncargadoAlmacen: store?.correoEncargadoAlmacen,
+      telefonoAlmacen: store?.telefonoAlmacen,
+      direccionAlmacen: store?.direccionAlmacen,
+      referenciaAlmacen: store?.referenciaAlmacen,
+      ciudadAlmacen: store?.ciudadAlmacen,
     })
-  },[store , reset])
+  }, [store, reset])
 
   //IMAGENES
-  
+
+  const handleDeleteImage = useCallback((name) => {
+    setImages(prev => ({
+      ...prev,
+      imgBanners: {
+        ...prev.imgBanners,
+        [name]: '',
+      }
+    }))
+    setPreview(prev => ({
+      ...prev,
+      [name]: '',
+    }))
+  }, [])
+
 
   return (
     <AppLayout>
@@ -263,23 +305,24 @@ const Registro = () => {
                     {/* <div className="info-icon-editar">
                       <img src={iconEditar} alt="editar"/>
                     </div> */}
-                    <RegistroStep4 
-                      register= { register}
-                      errors = { errors }
+                    <RegistroStep4
+                      register={register}
+                      errors={errors}
                     />
                   </div>
                 </div>
                 <div className="info-container-content">
                   <PerfilTiendaData
-                    nameStore = { nameStore }
-                    handleChangeNameUrl={ handleChangeNameUrl}
-                    availableName={ availableName }
+                    nameStore={nameStore}
+                    handleChangeNameUrl={handleChangeNameUrl}
+                    availableName={availableName}
                     images={images}
-                    refCover = { refCover }
-                    refLogo = { refLogo }
-                    handleImageBanners={ handleImageBanners }
-                    handleImageChange = { handleImageChange }
-                    preview = { preview }
+                    refCover={refCover}
+                    refLogo={refLogo}
+                    handleImageBanners={handleImageBanners}
+                    handleImageChange={handleImageChange}
+                    preview={preview}
+                    deleteImage={handleDeleteImage}
                   />
                 </div>
               </div>
@@ -288,7 +331,7 @@ const Registro = () => {
 
             <div className="info-container-buttons">
               <div className="info-container-button-only">
-                <ButtonFilled color="pink" fxClick={ handleSubmit(submitForm) }>
+                <ButtonFilled color="pink" fxClick={handleSubmit(submitForm)}>
                   Guardar
                 </ButtonFilled>
               </div>

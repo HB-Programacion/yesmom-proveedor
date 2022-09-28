@@ -18,6 +18,7 @@ const PerfilTiendaData = ( {
     handleImageChange,
     handleImageBanners,
     handleChangeNameUrl,
+    deleteImage,
 }) => {
 
 
@@ -131,7 +132,7 @@ const PerfilTiendaData = ( {
                             <div className="flex-container-images">
 
                                 <div className="add--container-preview profile-store-container-preview">
-                                    <img className="add--icon-close" src={close} alt="close"/>
+                                    <img style={{cursor:'pointer'}} className="add--icon-close" src={close} alt="close" onClick={() => deleteImage('imgBanner_1')} />
                                     <div className="add--preview-image profile-store-preview-image">
                                         <img 
                                             src={preview?.imgBanner_1?.length >0 ? preview.imgBanner_1 : previewImage}  
@@ -154,7 +155,7 @@ const PerfilTiendaData = ( {
                                     </div>
                                 </div>
                                 <div className="add--container-preview profile-store-container-preview">
-                                    <img className="add--icon-close" src={close} alt="close"/>
+                                    <img style={{cursor:'pointer'}} className="add--icon-close" src={close} alt="close" onClick={() => deleteImage('imgBanner_2')}/>
                                     <div className="add--preview-image profile-store-preview-image">
                                         <img 
                                             src={preview?.imgBanner_2?.length >0 ? preview.imgBanner_2 : previewImage} 
@@ -177,7 +178,7 @@ const PerfilTiendaData = ( {
                                     </div>
                                 </div>
                                 <div className="add--container-preview profile-store-container-preview">
-                                    <img className="add--icon-close" src={close} alt="close"/>
+                                    <img style={{cursor:'pointer'}} className="add--icon-close" src={close} alt="close" onClick={() => deleteImage('imgBanner_3')}/>
                                     <div className="add--preview-image profile-store-preview-image">
                                         <img 
                                             src={preview?.imgBanner_3?.length >0 ? preview.imgBanner_3 : previewImage} 
